@@ -33,6 +33,6 @@ No invented data or CI claims. Schemas parse; examples validate with a locally a
 - [x] No MMM/UI/PPTX implementation; no external source data committed.
 - [ ] Human approval before Task 01; this remains an audit/contract proposal.
 
-Validation: 13 local contract tests passed; example manifest/CSV validated.
+Validation after technical hardening: 30 local contract tests passed in a fresh Python 3.12 environment with jsonschema 4.26.0; example manifest/CSV validated.
 Reference suites: HypoForge Python 22 passed; WKR 5 passed; Kinderwelt packaging subset 16 passed; R not run (runtime absent).
-CI: awaiting maintainer verification. Remaining limits: full KBA series, historical price/campaign evidence, Trends export, R parity and final human approval.
+CI workflow now runs on push/pull_request; actual remote results are recorded in PR #1. Remaining limits: full KBA series, historical price/campaign evidence, Trends export, the statistical contract blockers in `docs/TASK_01_READINESS.md` and final human approval. R parity is not a gate.

@@ -1,8 +1,13 @@
 # Proposed file contracts v0.1.0
 
 Task 00 proposal; no model implementation or generated benchmark outputs.
-JSON Schema dialect: Draft 2020-12, unknown fields rejected. All paths are relative
-to repository root; hashes are lowercase SHA-256. All numeric values must be finite.
+**Statistical review blockers:** the baseline-as-regressor proposal is rejected and
+stability outputs remain underspecified. These four contracts are technically tested,
+not yet sufficient for the revised Task 01. See [Task 01 readiness](../docs/TASK_01_READINESS.md).
+JSON Schema dialect: Draft 2020-12, unknown fields rejected. All paths are canonical POSIX-style paths relative
+to repository root: no dot/parent/empty components, absolute paths, Windows separators,
+URL encodings or control characters; hidden components such as `.cache` are allowed.
+Months are ASCII YYYY-MM, years 0001–9999. Hashes are lowercase SHA-256. All numeric values must be finite.
 The estimator must reject failures without leaving a successful result file.
 
 | File | Producer -> consumer | Meaning |
@@ -54,8 +59,12 @@ python3 -m venv /tmp/aas-contracts-venv
 /tmp/aas-contracts-venv/bin/python -m unittest discover -s tests -v
 ```
 
-`validate.py` validates manifest shape, formats, CSV hash/content, finite values,
+`validate.py` validates manifest shape, formats, resolved input/output containment
+(including symlink parents), CSV hash/content from the same bytes, finite JSON/CSV values,
 integer/nonnegative reference, exposures, complete month index and temporal split.
+Empty/whitespace fields and blank records are rejected rather than silently skipped.
+Numbers use ASCII decimal/scientific notation without whitespace or underscores;
+quoted fields and CRLF are accepted. The final continuous outcome may be negative.
 For the other schemas, use `Draft202012Validator` with `FormatChecker`.
 JSON Schema validates shapes/ranges, **not** provenance truth, file existence,
 recovery, identical holdout support, result arithmetic, process isolation, statistical

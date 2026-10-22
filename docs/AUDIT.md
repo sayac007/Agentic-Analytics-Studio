@@ -148,3 +148,31 @@ failed because requests was absent; research probes then used stdlib urllib.
   configuration version. A draft save alone is not publication.
 - [Draft PR #1](https://github.com/sayac007/Agentic-Analytics-Studio/pull/1) targets
   `main` from `audit/task-00-contracts`. It is not merged. Remote CI remains unverified.
+
+
+## Technical hardening of PR #1
+
+The original 13 tests above describe the first audit snapshot. The hardening pass
+retains them and adds 17 focused boundary tests (30 total). The original schemas
+were syntactically valid but their end anchors admitted trailing newlines; month
+patterns also admitted Unicode digits/year zero, and path patterns allowed dot and
+empty components. The CSV reader silently skipped blank records, Python number
+parsing admitted noncontract notation, and float rounding could admit a large
+fractional registration count. Manifest NaN/Infinity and output-symlink containment
+also needed explicit validation. Those cases now have rejection tests.
+
+Executed in a freshly created `/tmp/task00-contract-ci-venv`, Python 3.12.14, with
+`python3 -m pip install jsonschema==4.26.0`:
+
+- `python3 contracts/validate.py`: valid manifest/CSV, six rows.
+- `python3 -m unittest discover -s tests -v`: **30 tests passed**.
+- `git diff --check`: passed.
+
+All 16 existing regex fields in the four schemas are exercised. No scenario,
+generator or recovery schemas were added. Reference-project tests were not rerun
+in this pass and no upstream files were changed. Statistical readiness is explicitly
+separate: see [Task 01 blockers](TASK_01_READINESS.md). Python remains selected;
+R parity is not a gate. The proposed workflow runs on both push and pull request;
+its remote result must be verified on the actual pushed commit and is reported in
+the PR, independently of these local results. PR #1 remains Draft until maintainer
+approval; no merge or Task 01 implementation is authorized by successful tests.

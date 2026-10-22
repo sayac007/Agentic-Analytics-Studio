@@ -1,14 +1,17 @@
 # Task 00 decisions — proposed for review
 
-## Python reference first, R through a future CLI
+> Review update: the conditional baseline-as-regressor design below is superseded
+> and must not guide Task 01 implementation. Python remains selected; R parity is
+> not a gate. See [Task 01 blockers](TASK_01_READINESS.md) for the required statistical
+> revision. This hardening pass adds no speculative output/scenario schemas.
 
-Use Python for the initial reference OLS and file orchestration in Task 01. Python
-3.12 works here, HypoForge Python's actual Hill/adstock APIs and tests were exercised,
-and R is absent. This is a provisional engineering decision, not evidence of better
-statistical performance. Use a declared least-squares solver and save its version;
-no regression implementation is added in Task 00. If an R reference is later
-approved, invoke Rscript with manifest/CSV inputs and JSON output. Do not use rpy2.
-R parity remains pending runtime installation and cross-language tests.
+## Python reference and orchestration
+
+Python remains selected for OLS, file orchestration, cloud integration and later MCP.
+HypoForge Python's actual APIs were exercised during the audit. The user's subsequent
+review removed R parity from scope; missing R does not block this Python workflow.
+No R installation or parity implementation is part of Task 00. Statistical/data
+contract blockers, not language parity, gate Task 01. See the readiness assessment.
 
 ## Reuse verified HypoForge, avoid an unnecessary Hill copy
 
@@ -33,7 +36,7 @@ WKR supplies file contracts, parity and validation patterns only. No license gra
 was found, and its source-attribution caveats prevent reusing its datasets as verified
 Tesla inputs. No WKR or HypoForge source modifications are needed.
 
-## Semi-synthetic target and evaluator-only truth
+## Superseded conditional-baseline proposal (not Task 01 specification)
 
 Proposed Task 01 DGP:
 
@@ -71,7 +74,7 @@ holdout untouched; introducing rolling selection requires a separately specified
 split. Six fixture rows test the contract only, not statistical adequacy; choose an
 adequate real window and identifiability diagnostics before fitting in Task 01.
 
-## Results and comparisons
+## Existing point-output contracts (insufficient for revised Task 01)
 
 Save coefficients, train/test n, MAE and RMSE in target units, design rank and condition
 number; omit MAPE because a benchmark target can be zero or negative. Proposed

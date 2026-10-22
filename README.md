@@ -31,4 +31,8 @@ python3 contracts/validate.py
 python3 -m unittest discover -s tests -v
 ```
 
-These validate contracts only. Task 01 requires human review and approval.
+These validate contracts only. The same checks run on push and pull request via
+GitHub Actions; consult the actual run for remote status. See
+[Task 01 blockers](docs/TASK_01_READINESS.md): the baseline-as-regressor design and
+missing stability output definitions still need a statistical contract revision.
+Task 01 requires human review and approval.
