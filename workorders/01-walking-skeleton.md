@@ -1,23 +1,62 @@
-# Codex Task 01 — Working MMM vertical slice (one PR after Task 00)
+# Codex Task 01 — Stage A walking skeleton (only after human approval)
 
 ## Objective
-Deliver a reproducible end-to-end **semi-synthetic benchmark**, not a generic MMM framework. Reconcile details with the approved Task 00 contracts.
+
+Implement the Stage A semi-synthetic recovery pipeline defined by the approved
+[Task 00.5 statistical contracts](../docs/STATISTICAL_CONTRACTS.md), version 0.2.0.
+This work order is a plan; its update does not start or authorize implementation.
+Observed/reference baseline reconstruction must be imperfect: never use the reference
+or its planted components as estimator regressors. No real Tesla media ROI claim.
 
 ## Required implementation
-1. Read a documented observed monthly registrations series (or a clearly labeled small fixture if licensing/access prevents download); retain the observed series untouched.
-2. Generate synthetic media with deterministic seed and explicit true adstock/Hill parameters. Inject its known effect into a **separate semi-synthetic outcome**, with realistic noise and documented effect magnitude. Preserve true parameters in a private-for-estimation truth artifact for recovery evaluation.
-3. Fit an ordinary least squares baseline with predeclared transforms and a time-aware holdout. Limit hyperparameter search; prevent leakage from future data. If HypoForge API is validated, use it; otherwise implement a temporary parity-tested adapter.
-4. Produce two model runs with different documented settings or data windows. Save manifests, coefficients, fit/holdout diagnostics and comparable response curves. Provide one stability flag, e.g. `weak_identification` or `effect_below_detection_limit`, with an explicit, defensible rule. Do not claim a universal MDE from a single fitted coefficient.
-5. Expose **one read-only MCP tool** to retrieve a validated run comparison. Never permit arbitrary code execution via tool arguments.
-6. Generate a deterministic Markdown report from saved results, clearly separating observed market data, synthetic interventions and recovered effects.
-7. Provide one command or short sequence to regenerate the whole demo from clean checkout, with tests for deterministic generation, transform behavior, schema validation, temporal leakage, output contract and no false causal labeling.
+
+1. Freeze an admitted reference: a verified complete monthly KBA series with its
+   vintage/release ledger, or the explicitly synthetic 72-month development protocol
+   in STATISTICAL_CONTRACTS.md. The six-row contract fixture is not a benchmark.
+   Enforce the benchmark admission gate and retain reference bytes/hash unchanged.
+2. Implement deterministic generation with independently spawned media/noise RNG
+   streams, predeclared oracle adstock/Hill and training-only effect/noise scaling.
+   Write separate estimator CSV and evaluator-only truth. Record exact implementation
+   and dependency versions. Do not expose reference, beta or truth paths to fitting.
+3. Provide an estimator entry point taking only the safe manifest/CSV, with linear
+   trend, annual Fourier order 1 and predeclared quarter-end/break controls. Use the
+   audited/pinned HypoForge transforms and specified OLS/HAC uncertainty protocol.
+   Carry causal history into holdout. No parameter search in Stage A; no test leakage.
+4. Produce include/omit-quarter-end runs on the **same** dataset, transforms, holdout
+   and serialized spend grid. Persist valid result files with coefficients/intervals,
+   holdout contribution/units, pointwise response curves and diagnostics. Recompute
+   the comparison's signed differences and predeclared sensitivity flags. Rank-deficient
+   or invalid fits exit nonzero without a successful result artifact.
+5. Evaluate each result against private truth only after fitting. Report planted-beta,
+   contribution and curve errors, interval coverage and detection outcomes as one-run
+   outcomes, never empirical power. Keep detection-limit status uncalibrated/null;
+   `effect_below_detection_limit` is forbidden. A declared numerical-condition warning
+   may satisfy the initial diagnostic requirement without inventing an MDE.
+6. Expose one read-only MCP tool serving a saved, validated comparison and a
+   deterministic Markdown report. Never allow arbitrary execution via tool arguments.
+7. Supply a short clean-checkout regeneration sequence and meaningful tests for RNG
+   determinism, transform behavior, calendar controls, causal holdout history, output
+   contracts, exact reference preservation and no false real-ROI labeling. Include a
+   runtime test that estimator execution succeeds without private reference/truth
+   files or generator configuration mounted or discoverable.
 
 ## Acceptance criteria
-- Fresh-run instructions work in a documented environment, or exact blocker is recorded.
-- All claimed tests actually executed; CI state distinguished from local state.
-- Two saved runs, one comparison, one MCP tool, one report, and meaningful tests.
-- Synthetic injection and true effects never described as real Tesla media impact.
-- No UI, PPTX, enterprise connector or VAR/SVAR implementation in this task.
 
-## Follow-on research (not part of this PR)
-Run power/MDE experiments with multiple seeds and effect sizes (e.g., 3% and 15% only as illustrative scenarios), experiment-based calibration, and a separate VAR/SVAR model family.
+- Human approval explicitly recorded before execution; this design PR is not approval.
+- Synthetic versus observed data, benchmark effects and real-world claims stay distinct.
+- Benchmark gate passes; no shape-only fixture is reported as a recovery experiment.
+- Two runs, per-run evaluation, one comparison, one MCP tool and one report conform
+  to v0.2.0 and the predeclared protocol. Metadata/hash validation is not a substitute
+  for independent numerical regression and uncertainty checks in the implementation.
+- Tests and actual remote CI status are documented separately; failures remain visible.
+- No UI, PPTX, enterprise connectors, unrestricted execution, VAR/SVAR or upstream
+  WKR/HypoForge/Kinderwelt changes.
+
+## Later stages, outside Task 01
+
+Stage B needs train-only rolling search/misspecification and selection uncertainty;
+Stage C needs a frozen replicated effect/noise/confounding/baseline protocol,
+recovery tolerances, calibrated error/power targets and Monte Carlo precision.
+Bayesian priors and simulated geo-test calibration are later research. Do not treat
+those still-open choices as implemented, and do not infer detection limits from one
+successful fit or one planted coefficient.

@@ -1,0 +1,72 @@
+{
+  "schema_version": "0.2.0",
+  "purpose": "contract_fixture",
+  "generator_id": "hand_authored_shape_example_not_executed",
+  "reference_kind": "synthetic_development",
+  "reference": {
+    "path": "contracts/examples/generator_only/reference.csv",
+    "sha256": "e1a97f4190f6190465a2045bad230fc9164263d2639befa5ec3713d32db15cba"
+  },
+  "reference_columns": {
+    "period": {
+      "class": "synthetic",
+      "publisher": "Agentic Analytics Studio contract example",
+      "source_or_generator": "hand_authored_contract_fixture_v1",
+      "access_date": "2026-10-22",
+      "geography": "fictional DE-shaped fixture; not Tesla data",
+      "time_grain": "month",
+      "unit": "calendar_month",
+      "rights": "Project-authored example; no external source data",
+      "redistribution": "allowed",
+      "transformations": "monthly index",
+      "limitations": "Six hand-authored rows for contract validation only; no estimation or recovery evidence"
+    },
+    "observed_registrations": {
+      "class": "synthetic",
+      "publisher": "Agentic Analytics Studio contract example",
+      "source_or_generator": "hand_authored_contract_fixture_v1",
+      "access_date": "2026-10-22",
+      "geography": "fictional DE-shaped fixture; not Tesla data",
+      "time_grain": "month",
+      "unit": "fictional_count",
+      "rights": "Project-authored example; no external source data",
+      "redistribution": "allowed",
+      "transformations": "unchanged fixture reference",
+      "limitations": "Six hand-authored rows for contract validation only; no estimation or recovery evidence"
+    }
+  },
+  "vintage": "hand-authored-v1",
+  "coverage": {
+    "start": "2024-01",
+    "end": "2024-06"
+  },
+  "release_records": [],
+  "split": {
+    "train_start": "2024-01",
+    "train_end": "2024-04",
+    "test_start": "2024-05",
+    "test_end": "2024-06"
+  },
+  "estimator_access": false,
+  "generation": {
+    "implementation_id": "proposed_DGP_v1_not_executed",
+    "seed": 42,
+    "rng": "PCG64",
+    "effect_fraction": 0.08,
+    "noise_fraction": 0.05,
+    "confounding": "independent",
+    "confounding_strength": 0,
+    "parameters": {
+      "alpha": 0.5,
+      "l_max": 2,
+      "normalize": false,
+      "k": 2,
+      "n": 1
+    },
+    "calibration": "training_reference_mean_only"
+  },
+  "outputs": {
+    "estimator_data": "contracts/examples/fixture.csv",
+    "truth": "private/truth.json"
+  }
+}

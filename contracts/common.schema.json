@@ -1,0 +1,360 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentic-analytics-studio.invalid/contracts/common.schema.json",
+  "title": "common v0.2.0",
+  "$defs": {
+    "month": {
+      "type": "string",
+      "pattern": "^(?!0000)[0-9]{4}-(0[1-9]|1[0-2])(?![\\s\\S])"
+    },
+    "path": {
+      "type": "string",
+      "pattern": "^(?![.]{1,2}(?:/|$))[A-Za-z0-9_.-]+(?:/(?![.]{1,2}(?:/|$))[A-Za-z0-9_.-]+)*(?![\\s\\S])"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+    },
+    "commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}(?![\\s\\S])"
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "$ref": "common.schema.json#/$defs/path"
+        },
+        "sha256": {
+          "$ref": "common.schema.json#/$defs/sha256"
+        }
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "class",
+        "publisher",
+        "source_or_generator",
+        "access_date",
+        "geography",
+        "time_grain",
+        "unit",
+        "rights",
+        "redistribution",
+        "transformations",
+        "limitations"
+      ],
+      "properties": {
+        "class": {
+          "enum": [
+            "observed",
+            "synthetic",
+            "proxy"
+          ]
+        },
+        "publisher": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_or_generator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "access_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "geography": {
+          "type": "string",
+          "minLength": 1
+        },
+        "time_grain": {
+          "enum": [
+            "month"
+          ]
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rights": {
+          "type": "string",
+          "minLength": 1
+        },
+        "redistribution": {
+          "enum": [
+            "allowed",
+            "not_allowed",
+            "unknown"
+          ]
+        },
+        "transformations": {
+          "type": "string",
+          "minLength": 1
+        },
+        "limitations": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "synthetic_lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "class",
+        "publisher",
+        "source_or_generator",
+        "access_date",
+        "geography",
+        "time_grain",
+        "unit",
+        "rights",
+        "redistribution",
+        "transformations",
+        "limitations"
+      ],
+      "properties": {
+        "class": {
+          "const": "synthetic"
+        },
+        "publisher": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_or_generator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "access_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "geography": {
+          "type": "string",
+          "minLength": 1
+        },
+        "time_grain": {
+          "enum": [
+            "month"
+          ]
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rights": {
+          "type": "string",
+          "minLength": 1
+        },
+        "redistribution": {
+          "enum": [
+            "allowed",
+            "not_allowed",
+            "unknown"
+          ]
+        },
+        "transformations": {
+          "type": "string",
+          "minLength": 1
+        },
+        "limitations": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "interval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "estimate",
+        "standard_error",
+        "lower",
+        "upper",
+        "confidence_level"
+      ],
+      "properties": {
+        "estimate": {
+          "type": "number"
+        },
+        "standard_error": {
+          "type": "number",
+          "minimum": 0
+        },
+        "lower": {
+          "type": "number"
+        },
+        "upper": {
+          "type": "number"
+        },
+        "confidence_level": {
+          "const": 0.95
+        }
+      }
+    },
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "alpha",
+        "l_max",
+        "normalize",
+        "k",
+        "n"
+      ],
+      "properties": {
+        "alpha": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMaximum": 1
+        },
+        "l_max": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 12
+        },
+        "normalize": {
+          "const": false
+        },
+        "k": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "n": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "split": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "train_start",
+        "train_end",
+        "test_start",
+        "test_end"
+      ],
+      "properties": {
+        "train_start": {
+          "$ref": "common.schema.json#/$defs/month"
+        },
+        "train_end": {
+          "$ref": "common.schema.json#/$defs/month"
+        },
+        "test_start": {
+          "$ref": "common.schema.json#/$defs/month"
+        },
+        "test_end": {
+          "$ref": "common.schema.json#/$defs/month"
+        }
+      }
+    },
+    "uncertainty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method",
+        "max_lags",
+        "finite_sample_correction",
+        "reference_distribution",
+        "confidence_level",
+        "conditioning"
+      ],
+      "properties": {
+        "method": {
+          "const": "newey_west_bartlett"
+        },
+        "max_lags": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "finite_sample_correction": {
+          "const": "n_over_n_minus_p"
+        },
+        "reference_distribution": {
+          "const": "normal"
+        },
+        "confidence_level": {
+          "const": 0.95
+        },
+        "conditioning": {
+          "const": "fixed_predeclared_transforms_and_controls"
+        }
+      }
+    },
+    "grid": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "spend",
+        "unit",
+        "history",
+        "support"
+      ],
+      "properties": {
+        "spend": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "minimum": 0
+          },
+          "minItems": 2
+        },
+        "unit": {
+          "const": "synthetic_currency_per_month"
+        },
+        "history": {
+          "const": "constant_spend_for_full_finite_kernel"
+        },
+        "support": {
+          "const": "common_training_spend_range"
+        }
+      }
+    },
+    "curve": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "estimate",
+        "lower",
+        "upper",
+        "interval_kind"
+      ],
+      "properties": {
+        "estimate": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2
+        },
+        "lower": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2
+        },
+        "upper": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2
+        },
+        "interval_kind": {
+          "const": "pointwise_not_simultaneous"
+        }
+      }
+    }
+  }
+}

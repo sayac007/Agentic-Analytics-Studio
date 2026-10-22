@@ -1,146 +1,90 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "truth contract v0.1.0",
+  "$id": "https://agentic-analytics-studio.invalid/contracts/truth.schema.json",
+  "title": "truth v0.2.0",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "schema_version",
-    "run_id",
-    "data",
+    "purpose",
     "estimator_access",
-    "generator",
+    "data",
+    "reference",
     "parameters",
-    "coefficients",
+    "media_coefficient",
+    "noise_sd",
+    "training_reference_mean",
     "equation",
-    "claim"
+    "true_contribution_monthly",
+    "true_response_grid",
+    "true_response",
+    "claim",
+    "generator",
+    "dataset_id"
   ],
   "properties": {
     "schema_version": {
-      "const": "0.1.0"
+      "const": "0.2.0"
     },
-    "run_id": {
-      "type": "string",
-      "minLength": 1
-    },
-    "data": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "path",
-        "sha256"
-      ],
-      "properties": {
-        "path": {
-          "type": "string",
-          "pattern": "^(?![.]{1,2}(?:/|$))[A-Za-z0-9_.-]+(?:/(?![.]{1,2}(?:/|$))[A-Za-z0-9_.-]+)*(?![\\s\\S])"
-        },
-        "sha256": {
-          "type": "string",
-          "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
-        }
-      }
+    "purpose": {
+      "enum": [
+        "contract_fixture",
+        "development_benchmark"
+      ]
     },
     "estimator_access": {
       "const": false
     },
-    "generator": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "id",
-        "version",
-        "seed",
-        "rng",
-        "noise_distribution",
-        "noise_sd"
-      ],
-      "properties": {
-        "id": {
-          "type": "string",
-          "minLength": 1
-        },
-        "version": {
-          "type": "string",
-          "minLength": 1
-        },
-        "seed": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "rng": {
-          "type": "string",
-          "minLength": 1
-        },
-        "noise_distribution": {
-          "enum": [
-            "normal",
-            "none"
-          ]
-        },
-        "noise_sd": {
-          "type": "number",
-          "minimum": 0
-        }
-      }
+    "data": {
+      "$ref": "common.schema.json#/$defs/artifact"
+    },
+    "reference": {
+      "$ref": "common.schema.json#/$defs/artifact"
     },
     "parameters": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "alpha",
-        "l_max",
-        "normalize",
-        "k",
-        "n"
-      ],
-      "properties": {
-        "alpha": {
-          "type": "number",
-          "minimum": 0,
-          "exclusiveMaximum": 1
-        },
-        "l_max": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "normalize": {
-          "const": false
-        },
-        "k": {
-          "type": "number",
-          "exclusiveMinimum": 0
-        },
-        "n": {
-          "type": "number",
-          "exclusiveMinimum": 0
-        }
-      }
+      "$ref": "common.schema.json#/$defs/parameters"
     },
-    "coefficients": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "intercept",
-        "observed_reference",
-        "media"
-      ],
-      "properties": {
-        "intercept": {
-          "type": "number"
-        },
-        "observed_reference": {
-          "type": "number"
-        },
-        "media": {
-          "type": "number"
-        }
-      }
+    "media_coefficient": {
+      "type": "number",
+      "minimum": 0
+    },
+    "noise_sd": {
+      "type": "number",
+      "minimum": 0
+    },
+    "training_reference_mean": {
+      "type": "number",
+      "exclusiveMinimum": 0
     },
     "equation": {
-      "const": "y = intercept + observed_reference * observed_registrations + media * hill(adstock(synthetic_media)) + noise"
+      "const": "outcome = reference + media_coefficient * hill(adstock(media)) + noise"
+    },
+    "true_contribution_monthly": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 1
+    },
+    "true_response_grid": {
+      "$ref": "common.schema.json#/$defs/grid"
+    },
+    "true_response": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2
     },
     "claim": {
-      "const": "injected_effect_only_not_real_tesla_roi"
+      "const": "benchmark_recovery_not_real_causal_marketing_roi"
+    },
+    "generator": {
+      "$ref": "common.schema.json#/$defs/artifact"
+    },
+    "dataset_id": {
+      "type": "string",
+      "minLength": 1
     }
   }
 }

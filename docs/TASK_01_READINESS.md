@@ -1,81 +1,61 @@
-# Task 01 readiness assessment — Task 00 hardening
+# Task 01 readiness — after Task 00.5 proposal
 
-**The current contracts validate as a Task 00 proposal. They do not yet authorize or
-fully specify the revised Task 01 benchmark.** Keep PR #1 Draft until CI is green
-and the maintainer has explicitly approved merging. A green contract workflow proves
-schema/validator behavior, not statistical adequacy or approval to start Task 01.
+**Stage A has a concrete synthetic-development specification for human review;
+Task 01 has not started and is not automatically authorized.** v0.2.0 resolves the
+baseline-regressor and missing initial Stability-contract blockers. See
+[Statistical contracts](STATISTICAL_CONTRACTS.md) for the normative design.
 
-## Concrete blockers before Task 01
+## Resolved in the proposal
 
-1. **Remove the observed baseline from estimation inputs.** The current manifest
-   still lists `observed_registrations` as a predictor and includes it in estimator
-   CSVs. That is the earlier conditional/oracle-baseline proposal, now rejected by
-   review. Separate generator-only baseline/truth artifacts from the estimator payload;
-   agree on trend, annual seasonality, quarter-end and evidenced structural-break
-   controls without leaking observed baseline values or truth. Update the manifest,
-   CSV contract, examples, tests and decisions together in the statistical contract
-   revision. The current fixture must not become the estimator implementation spec.
-2. **Specify the initial stability output.** Existing result/comparison contracts
-   contain point coefficients, MAE/RMSE and coefficient/RMSE deltas, but no uncertainty,
-   media contribution or response curves. Agree on the uncertainty method, interval
-   interpretation, contribution period/units and identical curve grid/support before
-   implementing those outputs. A coefficient delta alone is inadequate when
-   transformations differ. `effect_below_detection_limit` needs a calibrated simulation
-   protocol; a single nonsignificant estimate cannot establish MDE.
-3. **Keep the statistical stages distinct.** Task 01 is pipeline + OLS with explicitly
-   oracle transformations. Train-only transform search/misspecification follows;
-   the effect × noise × confounding grid with replication, interval coverage and
-   detection rates is the scientific core. MDE is conditional on the tested grid,
-   baseline and error/detection criteria. Multiple baseline series and later Bayesian/
-   simulated-geo-test calibration need their own reviewed protocols. Do not prebuild
-   their schemas or run them as part of this technical hardening.
-4. **Select admissible baseline data and a sufficient window.** Only one KBA monthly
-   release has been reconciled so far. Verify multi-month coverage, vintage, rights,
-   missing-data handling and sample adequacy, or explicitly approve a synthetic-only
-   pipeline fixture. The six-row hand-authored fixture validates file contracts; it
-   is neither a generated recovery dataset nor sufficient for the proposed richer
-   baseline model. Structural-break dates/proxy inputs need primary evidence and
-   availability rules. Compare additional baselines only after source/grain checks;
-   do not select a “quiet” series based on desired recovery results.
+- Generator/evaluator-only reference and truth; estimator header is exactly period,
+  synthetic_media, semi_synthetic_outcome. Extra reference/coefficient fields rejected.
+- Fixed calendar controls and evidence/predeclaration requirements for breaks.
+- Coefficient uncertainty, holdout contribution/units, pointwise curves on common
+  training spend support, same-data comparisons and declared sensitivity diagnostics.
+- Oracle Stage A versus future train-only search/misspecification and replicated
+  scientific scenario evaluation. No unjustified MDE threshold/flag.
+- Strict version 0.2.0, shared offline schemas, artifact/hash/identity validation,
+  retained traversal/numeric/provenance/split checks and new isolation tests.
+- Explicit synthetic 72-month reference/DGP proposal, 60/12 split; six-row shape
+  fixtures cannot pass the benchmark gate. Admission floors are not power guarantees.
 
-## Runtime and validation boundaries
+## Before starting Task 01
 
-Python remains the selected runtime; R parity is not a requested gate. The prior
-R discussion is audit history, not an extra Task 01 requirement.
+1. Human review/merge of the design PR, then explicit Task 01 authorization.
+2. Adopt/freeze the documented synthetic-development protocol (seed, source version,
+   transformations, fractions, controls and predeclared diagnostic/stability choices),
+   or admit an equivalent real reference. Pin implementation dependencies and archive
+   manifests before inspecting fit/recovery. No fitting or generator exists yet.
+3. Implement runtime separation: the estimator entry point receives only its manifest
+   and CSV, without private data mounts, parent-directory discovery or truth-dependent
+   preprocessing. The present tests prove file-interface separation, not OS isolation.
+4. Follow the updated `workorders/01-walking-skeleton.md`: same-data include/omit-
+   quarter-end comparison, Stage A only, declared condition diagnostic and no
+   detection-limit flag. This is a planning update, not Task 01 execution. A future
+   MCP tool/report remains Task 01 work, not delivered or authorized by this PR.
 
-This change hardens the four existing schemas and validator without adding generator,
-experiment or recovery schemas. The paused, unfinished statistical edits were archived
-outside the checkout before restoring the reviewed PR contracts. Nothing was copied
-from or changed in WKR, HypoForge or Kinderwelt.
+## Real-data blocker and bounded scientific questions
 
-All 16 existing regex fields are exercised directly against valid/invalid values:
-4 months, 5 relative paths, 6 SHA-256 hashes and 1 Git SHA. Schema syntax checks alone
-would not have caught permissive end anchors, Unicode digits or dot/empty path
-segments. Paths now use canonical relative POSIX-style components; `.`/`..`, empty
-components, absolute/Windows/encoded paths and trailing control characters are rejected.
-Resolved input/output paths must remain inside the project root, including symlink
-parents. This is validation-time containment, not a guarantee against concurrent
-symlink replacement in a future writer; that writer still needs safe file handling.
+Only **January 2025** is verified for KBA Tesla in the committed evidence; retained
+workbook period, license and SHA-256 were checked again. No adequate multi-year
+observed series has been admitted. Real Tesla recovery remains blocked on >=48
+training + >=12 holdout contiguous verified months, provenance/licensing/vintage and
+extraction reconciliation. Additional brands/BEV totals need the same checks; none
+is claimed available as a ready benchmark. The proposed fully synthetic development
+path avoids claiming observed Tesla performance while these requirements are unmet.
 
-The CSV parser validates the same bytes whose hash it checks. It rejects blank
-records/fields, malformed quoting, wrong column counts/headers, invalid decimal or
-nonfinite numbers, duplicate/out-of-order/missing months, fractional reference counts,
-noncontiguous/reversed/out-of-range splits and inconsistent provenance. Decimal
-reference validation avoids rounding a large fractional count into an integer.
-Normal quoted fields, CRLF and scientific decimal notation remain supported.
+Stage B still needs search bounds, inner rolling split/budget/selection rule and
+post-selection uncertainty. Stage C needs predeclared recovery tolerance, calibrated
+false-positive/coverage and power targets, replication precision and failure
+accounting. No MDE numbers or real-marketing causal claims are justified by this PR.
+These questions do not block implementing a separately approved **synthetic Stage A**;
+they do block calling the full research benchmark or detection-limit analysis specified.
 
-Output/truth/comparison schemas validate structure only. Their cross-file hashes,
-run identity, comparator support and numerical arithmetic, estimation isolation,
-response-curve consistency and failed-fit behavior remain runtime acceptance checks
-for the later implementation; the current validator does not claim to execute them.
+## Verification boundaries
 
-## Verification and CI
+Local and actual remote CI results are reported in the PR for its exact commit.
+CI runs the estimator fixture validator, generator fixture validator and full unittest
+suite with Python 3.12/jsonschema 4.26.0. No model recovery, confidence coverage,
+external source download or reference-project tests are claimed by this CI.
 
-- `python3 contracts/validate.py`: valid manifest and CSV, 6 fixture rows.
-- `python3 -m unittest discover -s tests -v`: local results are recorded in the PR.
-- `.github/workflows/contracts.yml`: Python 3.12, `jsonschema==4.26.0`, the two exact
-  commands above, triggered by both `push` and `pull_request`, read-only repository
-  permissions. The previous workflows directory contained documentation only.
-- Remote CI status must be checked for the pushed commit; workflow existence or a
-  local passing suite is not a successful GitHub Actions run. The PR stays Draft
-  regardless of test results until maintainer approval.
+No MMM engine, UI, MCP server or changes to WKR/HypoForge/Kinderwelt were made.

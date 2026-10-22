@@ -17,22 +17,23 @@ A semi-synthetic Tesla Germany benchmark: observed monthly registration data ret
 - Kinderwelt — incremental delivery, regression testing and honest QA evidence.
 
 ## Status
-Task 00 now proposes audited file contracts and a hand-authored synthetic fixture.
-No MMM engine, observed Tesla dataset, MCP server or successful remote CI is claimed.
-KBA/Tesla/Trends primary sources and Kinderwelt QA patterns were inspected;
-remaining campaign, export and runtime limitations are explicit. See
-[Audit](docs/AUDIT.md), [Source catalog](docs/SOURCE_CATALOG.md),
-[Decisions](docs/DECISIONS.md), and [Contracts](contracts/README.md).
 
-From repository root with Python >=3.11 and `jsonschema==4.26.0`:
+Task 00.5 proposes statistical file contracts v0.2.0: private reference/truth are
+separate from estimator inputs, with explicit uncertainty, contribution, response
+and recovery outputs. No MMM engine, generated benchmark, MCP server or real Tesla
+marketing effect is claimed. See [Statistical contracts](docs/STATISTICAL_CONTRACTS.md),
+[Readiness](docs/TASK_01_READINESS.md), [Source evidence](docs/SOURCE_CATALOG.md)
+and [Validation](contracts/README.md).
+
+From repository root, Python 3.12 and `jsonschema==4.26.0`:
 
 ```sh
 python3 contracts/validate.py
+python3 contracts/validate.py contracts/examples/generator.json --kind generator
 python3 -m unittest discover -s tests -v
 ```
 
-These validate contracts only. The same checks run on push and pull request via
-GitHub Actions; consult the actual run for remote status. See
-[Task 01 blockers](docs/TASK_01_READINESS.md): the baseline-as-regressor design and
-missing stability output definitions still need a statistical contract revision.
-Task 01 requires human review and approval.
+The six-row examples test contracts, not model recovery. GitHub Actions runs the same
+checks on push and pull request. Task 01 needs human authorization; only synthetic
+Stage A has a proposed complete development path, while real-data admission and
+Stage B/C scientific choices remain explicit.

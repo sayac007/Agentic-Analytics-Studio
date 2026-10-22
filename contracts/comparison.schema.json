@@ -1,21 +1,39 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "comparison contract v0.1.0",
+  "$id": "https://agentic-analytics-studio.invalid/contracts/comparison.schema.json",
+  "title": "comparison v0.2.0",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "schema_version",
+    "purpose",
     "comparison_id",
     "left",
     "right",
-    "compatibility",
+    "same_data_and_holdout",
+    "response_grid",
     "test_rmse_delta_right_minus_left",
     "media_coefficient_delta_right_minus_left",
-    "interpretation"
+    "contribution_delta_right_minus_left",
+    "response_curve_delta_right_minus_left",
+    "response_curve_rmse",
+    "relative_curve_change",
+    "stability_rule",
+    "flags",
+    "uncertainty_interpretation",
+    "detection_limit_status",
+    "effect_below_detection_limit",
+    "claim"
   ],
   "properties": {
     "schema_version": {
-      "const": "0.1.0"
+      "const": "0.2.0"
+    },
+    "purpose": {
+      "enum": [
+        "contract_fixture",
+        "development_benchmark"
+      ]
     },
     "comparison_id": {
       "type": "string",
@@ -34,22 +52,7 @@
           "minLength": 1
         },
         "result": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "path",
-            "sha256"
-          ],
-          "properties": {
-            "path": {
-              "type": "string",
-              "pattern": "^(?![.]{1,2}(?:/|$))[A-Za-z0-9_.-]+(?:/(?![.]{1,2}(?:/|$))[A-Za-z0-9_.-]+)*(?![\\s\\S])"
-            },
-            "sha256": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
-            }
-          }
+          "$ref": "common.schema.json#/$defs/artifact"
         }
       }
     },
@@ -66,44 +69,15 @@
           "minLength": 1
         },
         "result": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "path",
-            "sha256"
-          ],
-          "properties": {
-            "path": {
-              "type": "string",
-              "pattern": "^(?![.]{1,2}(?:/|$))[A-Za-z0-9_.-]+(?:/(?![.]{1,2}(?:/|$))[A-Za-z0-9_.-]+)*(?![\\s\\S])"
-            },
-            "sha256": {
-              "type": "string",
-              "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
-            }
-          }
+          "$ref": "common.schema.json#/$defs/artifact"
         }
       }
     },
-    "compatibility": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "same_data_sha256",
-        "same_holdout",
-        "same_target"
-      ],
-      "properties": {
-        "same_data_sha256": {
-          "const": true
-        },
-        "same_holdout": {
-          "const": true
-        },
-        "same_target": {
-          "const": true
-        }
-      }
+    "same_data_and_holdout": {
+      "const": true
+    },
+    "response_grid": {
+      "$ref": "common.schema.json#/$defs/grid"
     },
     "test_rmse_delta_right_minus_left": {
       "type": "number"
@@ -111,8 +85,64 @@
     "media_coefficient_delta_right_minus_left": {
       "type": "number"
     },
-    "interpretation": {
-      "const": "benchmark_stability_not_causal_marketing_effect"
+    "contribution_delta_right_minus_left": {
+      "type": "number"
+    },
+    "response_curve_delta_right_minus_left": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2
+    },
+    "response_curve_rmse": {
+      "type": "number",
+      "minimum": 0
+    },
+    "relative_curve_change": {
+      "type": "number",
+      "minimum": 0
+    },
+    "stability_rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "relative_curve_change_limit",
+        "scale_floor_count_equivalent"
+      ],
+      "properties": {
+        "relative_curve_change_limit": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "scale_floor_count_equivalent": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "flags": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "weak_identification",
+          "unstable_results"
+        ]
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "uncertainty_interpretation": {
+      "const": "per_run_pointwise_intervals_no_unjustified_delta_interval"
+    },
+    "detection_limit_status": {
+      "const": "not_calibrated"
+    },
+    "effect_below_detection_limit": {
+      "type": "null"
+    },
+    "claim": {
+      "const": "benchmark_recovery_not_real_causal_marketing_roi"
     }
   }
 }

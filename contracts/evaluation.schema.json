@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentic-analytics-studio.invalid/contracts/evaluation.schema.json",
+  "title": "evaluation v0.2.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "purpose",
+    "run_id",
+    "result",
+    "truth",
+    "media_coefficient_error",
+    "holdout_contribution_error",
+    "response_curve_rmse",
+    "media_interval_covers_truth",
+    "positive_detection",
+    "two_sided_rejection",
+    "detection_limit_status",
+    "effect_below_detection_limit",
+    "claim"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "purpose": {
+      "enum": [
+        "contract_fixture",
+        "development_benchmark"
+      ]
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "result": {
+      "$ref": "common.schema.json#/$defs/artifact"
+    },
+    "truth": {
+      "$ref": "common.schema.json#/$defs/artifact"
+    },
+    "media_coefficient_error": {
+      "type": "number"
+    },
+    "holdout_contribution_error": {
+      "type": "number"
+    },
+    "response_curve_rmse": {
+      "type": "number",
+      "minimum": 0
+    },
+    "media_interval_covers_truth": {
+      "type": "boolean"
+    },
+    "positive_detection": {
+      "type": "boolean"
+    },
+    "two_sided_rejection": {
+      "type": "boolean"
+    },
+    "detection_limit_status": {
+      "const": "not_calibrated"
+    },
+    "effect_below_detection_limit": {
+      "type": "null"
+    },
+    "claim": {
+      "const": "benchmark_recovery_not_real_causal_marketing_roi"
+    }
+  }
+}

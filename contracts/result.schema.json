@@ -1,36 +1,51 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "result contract v0.1.0",
+  "$id": "https://agentic-analytics-studio.invalid/contracts/result.schema.json",
+  "title": "result v0.2.0",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "schema_version",
+    "purpose",
     "run_id",
-    "manifest_sha256",
+    "stage",
     "data_sha256",
     "status",
     "target",
+    "split",
     "coefficients",
+    "break_coefficients",
+    "parameters",
+    "uncertainty",
     "metrics",
     "diagnostics",
+    "contribution",
+    "training_spend_range",
+    "response_grid",
+    "response_curve",
     "software",
-    "claim"
+    "claim",
+    "manifest"
   ],
   "properties": {
     "schema_version": {
-      "const": "0.1.0"
+      "const": "0.2.0"
+    },
+    "purpose": {
+      "enum": [
+        "contract_fixture",
+        "development_benchmark"
+      ]
     },
     "run_id": {
       "type": "string",
       "minLength": 1
     },
-    "manifest_sha256": {
-      "type": "string",
-      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+    "stage": {
+      "const": "A"
     },
     "data_sha256": {
-      "type": "string",
-      "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+      "$ref": "common.schema.json#/$defs/sha256"
     },
     "status": {
       "const": "success"
@@ -38,25 +53,74 @@
     "target": {
       "const": "semi_synthetic_outcome"
     },
+    "split": {
+      "$ref": "common.schema.json#/$defs/split"
+    },
     "coefficients": {
       "type": "object",
       "additionalProperties": false,
       "required": [
         "intercept",
-        "observed_reference",
-        "media"
+        "trend",
+        "annual_sin_1",
+        "annual_cos_1",
+        "media",
+        "quarter_end"
       ],
       "properties": {
         "intercept": {
-          "type": "number"
+          "$ref": "common.schema.json#/$defs/interval"
         },
-        "observed_reference": {
-          "type": "number"
+        "trend": {
+          "$ref": "common.schema.json#/$defs/interval"
+        },
+        "annual_sin_1": {
+          "$ref": "common.schema.json#/$defs/interval"
+        },
+        "annual_cos_1": {
+          "$ref": "common.schema.json#/$defs/interval"
         },
         "media": {
-          "type": "number"
+          "$ref": "common.schema.json#/$defs/interval"
+        },
+        "quarter_end": {
+          "anyOf": [
+            {
+              "$ref": "common.schema.json#/$defs/interval"
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       }
+    },
+    "break_coefficients": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "interval"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "interval": {
+            "$ref": "common.schema.json#/$defs/interval"
+          }
+        }
+      },
+      "minItems": 0
+    },
+    "parameters": {
+      "$ref": "common.schema.json#/$defs/parameters"
+    },
+    "uncertainty": {
+      "$ref": "common.schema.json#/$defs/uncertainty"
     },
     "metrics": {
       "type": "object",
@@ -119,7 +183,9 @@
       "additionalProperties": false,
       "required": [
         "rank",
-        "condition_number",
+        "design_columns",
+        "scaled_condition_number",
+        "condition_number_limit",
         "flags"
       ],
       "properties": {
@@ -127,21 +193,85 @@
           "type": "integer",
           "minimum": 1
         },
-        "condition_number": {
+        "design_columns": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "scaled_condition_number": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "condition_number_limit": {
           "type": "number",
           "exclusiveMinimum": 0
         },
         "flags": {
           "type": "array",
-          "uniqueItems": true,
           "items": {
             "enum": [
-              "weak_identification",
-              "rank_deficient"
+              "weak_identification"
             ]
-          }
+          },
+          "minItems": 0,
+          "uniqueItems": true
         }
       }
+    },
+    "contribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "end",
+        "unit",
+        "monthly_estimate",
+        "total"
+      ],
+      "properties": {
+        "start": {
+          "$ref": "common.schema.json#/$defs/month"
+        },
+        "end": {
+          "$ref": "common.schema.json#/$defs/month"
+        },
+        "unit": {
+          "const": "count_equivalent"
+        },
+        "monthly_estimate": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 1
+        },
+        "total": {
+          "$ref": "common.schema.json#/$defs/interval"
+        }
+      }
+    },
+    "training_spend_range": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "min",
+        "max"
+      ],
+      "properties": {
+        "min": {
+          "type": "number",
+          "minimum": 0
+        },
+        "max": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "response_grid": {
+      "$ref": "common.schema.json#/$defs/grid"
+    },
+    "response_curve": {
+      "$ref": "common.schema.json#/$defs/curve"
     },
     "software": {
       "type": "object",
@@ -161,13 +291,15 @@
           "minLength": 1
         },
         "hypoforge_commit": {
-          "type": "string",
-          "pattern": "^[0-9a-f]{40}(?![\\s\\S])"
+          "$ref": "common.schema.json#/$defs/commit"
         }
       }
     },
     "claim": {
-      "const": "semi_synthetic_recovery_benchmark_not_real_tesla_roi"
+      "const": "benchmark_recovery_not_real_causal_marketing_roi"
+    },
+    "manifest": {
+      "$ref": "common.schema.json#/$defs/artifact"
     }
   }
 }
