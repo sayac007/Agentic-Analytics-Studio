@@ -1,0 +1,95 @@
+{
+  "schema_version": "0.1.0",
+  "run_id": "contract-example",
+  "claim": "semi_synthetic_recovery_benchmark_not_real_tesla_roi",
+  "input_kind": "synthetic_fixture",
+  "data": {
+    "path": "contracts/examples/fixture.csv",
+    "sha256": "da7b71665d1a6b050bcfb282ddec539f828f2a327f045efdcb5fcbfc168b898b"
+  },
+  "columns": {
+    "period": {
+      "class": "synthetic",
+      "publisher": "Agentic Analytics Studio contract example",
+      "source_or_generator": "hand_authored_contract_fixture_v1",
+      "access_date": "2026-10-22",
+      "geography": "fictional DE-shaped fixture; not Tesla data",
+      "time_grain": "month",
+      "unit": "calendar_month",
+      "rights": "Project-authored example; no external source data",
+      "redistribution": "allowed",
+      "transformations": "monthly index",
+      "limitations": "Six hand-authored rows for contract validation only; no estimation or recovery evidence"
+    },
+    "observed_registrations": {
+      "class": "synthetic",
+      "publisher": "Agentic Analytics Studio contract example",
+      "source_or_generator": "hand_authored_contract_fixture_v1",
+      "access_date": "2026-10-22",
+      "geography": "fictional DE-shaped fixture; not Tesla data",
+      "time_grain": "month",
+      "unit": "fictional_count",
+      "rights": "Project-authored example; no external source data",
+      "redistribution": "allowed",
+      "transformations": "unchanged fixture reference",
+      "limitations": "Six hand-authored rows for contract validation only; no estimation or recovery evidence"
+    },
+    "synthetic_media": {
+      "class": "synthetic",
+      "publisher": "Agentic Analytics Studio contract example",
+      "source_or_generator": "hand_authored_contract_fixture_v1",
+      "access_date": "2026-10-22",
+      "geography": "fictional DE-shaped fixture; not Tesla data",
+      "time_grain": "month",
+      "unit": "synthetic_currency_unit",
+      "rights": "Project-authored example; no external source data",
+      "redistribution": "allowed",
+      "transformations": "hand-authored exposure",
+      "limitations": "Six hand-authored rows for contract validation only; no estimation or recovery evidence"
+    },
+    "semi_synthetic_outcome": {
+      "class": "synthetic",
+      "publisher": "Agentic Analytics Studio contract example",
+      "source_or_generator": "hand_authored_contract_fixture_v1",
+      "access_date": "2026-10-22",
+      "geography": "fictional DE-shaped fixture; not Tesla data",
+      "time_grain": "month",
+      "unit": "fictional_count",
+      "rights": "Project-authored example; no external source data",
+      "redistribution": "allowed",
+      "transformations": "hand-authored separate illustrative target; not generator output",
+      "limitations": "Six hand-authored rows for contract validation only; no estimation or recovery evidence"
+    }
+  },
+  "split": {
+    "train_start": "2024-01",
+    "train_end": "2024-04",
+    "test_start": "2024-05",
+    "test_end": "2024-06"
+  },
+  "missing_policy": "reject",
+  "estimation": {
+    "runtime": "python",
+    "method": "ols",
+    "target": "semi_synthetic_outcome",
+    "predictors": [
+      "observed_registrations",
+      "hill_adstock_media"
+    ],
+    "transform_order": [
+      "geometric_adstock",
+      "hill"
+    ],
+    "parameters": {
+      "alpha": 0.5,
+      "l_max": 2,
+      "normalize": false,
+      "k": 2,
+      "n": 1
+    },
+    "parameter_policy": "predeclared_oracle_transforms_no_truth_file_access"
+  },
+  "outputs": {
+    "result": "artifacts/contract-example/result.json"
+  }
+}

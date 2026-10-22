@@ -17,4 +17,17 @@ A semi-synthetic Tesla Germany benchmark: observed monthly registration data ret
 - Kinderwelt — incremental delivery, regression testing and honest QA evidence.
 
 ## Status
-Scaffold only. No model, dataset, MCP server, CI run or successful test is claimed.
+Task 00 now proposes audited file contracts and a hand-authored synthetic fixture.
+No MMM engine, observed Tesla dataset, MCP server or successful remote CI is claimed.
+External source retrieval and Kinderwelt inspection remain blocked; see
+[Audit](docs/AUDIT.md), [Source catalog](docs/SOURCE_CATALOG.md),
+[Decisions](docs/DECISIONS.md), and [Contracts](contracts/README.md).
+
+From repository root with Python >=3.11 and `jsonschema==4.26.0`:
+
+```sh
+python3 contracts/validate.py
+python3 -m unittest discover -s tests -v
+```
+
+These validate contracts only. Task 01 requires human review and approval.

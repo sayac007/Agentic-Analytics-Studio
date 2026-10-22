@@ -19,3 +19,20 @@ Establish a verifiable foundation before coding the MMM engine. **Do not impleme
 
 ## Acceptance criteria
 No invented data or CI claims. Schemas parse; examples validate with a locally available validator or validation is explicitly pending. No unrelated feature implementation. Human approval required before Task 01.
+
+
+## Task 00 evidence checklist (2026-10-22)
+
+- [x] Architecture and reference inspection documented in `docs/AUDIT.md`.
+- [x] Exact WKR/HypoForge revisions, API signatures, licenses and local test evidence recorded.
+- [ ] Kinderwelt source audit: exact URL/snapshot requested; not available.
+- [x] Candidate-source catalog and actual access failures recorded without fabricated data.
+- [ ] Primary-source contents, dates, coverage and reuse rights: proxy access blocked.
+- [x] Manifest + valid synthetic fixture, truth/result/comparison schemas and rejection checks.
+- [x] Python-first recommendation, HypoForge reuse boundary and parity plan documented.
+- [x] No MMM/UI/PPTX implementation; no external source data committed.
+- [ ] Human approval before Task 01; this remains an audit/contract proposal.
+
+Validation: 13 local contract tests passed; example manifest/CSV validated.
+Reference suites: HypoForge Python 22 passed; WKR 5 passed; R not run (runtime absent).
+CI: awaiting maintainer verification. Unchecked research items are not complete.

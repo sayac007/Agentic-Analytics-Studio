@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "result contract v0.1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "manifest_sha256",
+    "data_sha256",
+    "status",
+    "target",
+    "coefficients",
+    "metrics",
+    "diagnostics",
+    "software",
+    "claim"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "manifest_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "data_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "status": {
+      "const": "success"
+    },
+    "target": {
+      "const": "semi_synthetic_outcome"
+    },
+    "coefficients": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "intercept",
+        "observed_reference",
+        "media"
+      ],
+      "properties": {
+        "intercept": {
+          "type": "number"
+        },
+        "observed_reference": {
+          "type": "number"
+        },
+        "media": {
+          "type": "number"
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "train",
+        "test"
+      ],
+      "properties": {
+        "train": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "n",
+            "mae",
+            "rmse"
+          ],
+          "properties": {
+            "n": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "mae": {
+              "type": "number",
+              "minimum": 0
+            },
+            "rmse": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "test": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "n",
+            "mae",
+            "rmse"
+          ],
+          "properties": {
+            "n": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "mae": {
+              "type": "number",
+              "minimum": 0
+            },
+            "rmse": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "diagnostics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rank",
+        "condition_number",
+        "flags"
+      ],
+      "properties": {
+        "rank": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "condition_number": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "flags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "weak_identification",
+              "rank_deficient"
+            ]
+          }
+        }
+      }
+    },
+    "software": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "python",
+        "numpy",
+        "hypoforge_commit"
+      ],
+      "properties": {
+        "python": {
+          "type": "string",
+          "minLength": 1
+        },
+        "numpy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hypoforge_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      }
+    },
+    "claim": {
+      "const": "semi_synthetic_recovery_benchmark_not_real_tesla_roi"
+    }
+  }
+}
