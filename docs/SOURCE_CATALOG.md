@@ -1,67 +1,136 @@
-# Source catalog and research access ledger
+# Source catalog — primary-source audit, 2026-10-22
 
-Audit date: **2026-10-22**. No external dataset, Tesla campaign, price-change date,
-or promotion event has been verified or imported. The table distinguishes proposed
-research entry points from retrieved primary-source evidence. Do not cite proposed
-URLs as proof of their current contents, coverage, or license.
+Successful retrievals and failures are recorded in [source-evidence.json](source-evidence.json)
+with URLs, HTTP outcomes and SHA-256 for retrieved bytes. Source downloads remain
+outside this repository under `/tmp/audit-*`; no real dataset or copyrighted web page
+is committed. The six-row contract fixture is independently hand-authored and synthetic.
+Initial proxy CONNECT 403 errors resolved on later requests. Successful current-source
+inspection below supersedes the initial access failures, not the remaining limits.
 
-## Observed retrieval evidence
+## KBA observed registration reference
 
-Stdlib `urllib.request.urlopen(url, timeout=20)` requests to the following URLs
-failed with `Tunnel connection failed: 403 Forbidden` (proxy CONNECT denial):
+Primary entry point, HTTP 200:
+<https://www.kba.de/DE/Statistik/Fahrzeuge/Neuzulassungen/MonatlicheNeuzulassungen/monatl_neuzulassungen_node.html>.
+The retrieved page is an **archive view for January 2025**, not a current October
+2026 release. Its year selector lists 2008–2025; this is discovery evidence only,
+not proof that every year/month has a complete Tesla-brand series.
 
-- <https://www.kba.de/DE/Statistik/Fahrzeuge/Neuzulassungen/MonatlicheNeuzulassungen/monatl_neuzulassungen_node.html>
-- <https://www.tesla.com/de_de>
-- <https://support.google.com/trends/answer/4365533?hl=de>
-- <https://api.github.com/users/sayac007/repos?per_page=100>
+The page directly links **FZ 10, January 2025**, retrieved successfully:
+<https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2025_01.xlsx?__blob=publicationFile&v=2>.
+SHA-256: `777366bf2a9c6ca4b0f62e5c106ea56dd7d61490b60f7377af041be81ca9332d`.
+The workbook `Impressum` declares January 2025 as reporting period, February 2025
+as publication month, monthly periodicity and KBA as publisher. Exact publication day
+and later revision history remain unverified; retain URL version `v=2` and checksum.
 
-The KBA request was retried once after saving the domain draft and still failed.
-A draft save therefore did not establish runtime access. These are access attempts,
-not successful retrieval dates. No source page body or source license was inspected.
-GitHub HTML and native HTTPS Git worked; that does not establish access to unrelated
-hosts or the GitHub API.
+Verified extraction location: sheet `FZ 10.1`, `B394 = TESLA ZUSAMMEN`,
+`D394 = 1277`; D9 identifies January 2025. Rows 390–393 contain Model 3 (272),
+Model S (13), Model X (13) and Model Y (979). A local assertion verified that these
+sum to 1,277. This is **German passenger-car new registrations**, not sales, orders,
+media spend or a causal marketing outcome. Use the monthly total column, not a
+cumulative or percentage column. Current verified coverage is **one month only**;
+a multi-year input series still needs per-release retrieval and validation.
 
-## Candidate sources — contents NOT VERIFIED
+Rights: workbook `Impressum!C26` explicitly states **Datenlizenz Deutschland –
+Namensnennung – Version 2.0** and links this successfully retrieved KBA license:
+<https://www.kba.de/DE/Service/Hinweise/Datenlizenz/datenlizenz_pdf.pdf?__blob=publicationFile&v=6>.
+The PDF permits commercial/noncommercial copying, alteration, combination and
+transmission with attribution, license reference and dataset URI; mark modifications.
+License URL: <https://www.govdata.de/dl-de/by-2-0> (referenced by KBA; not separately fetched).
+Proposed attribution: `Datenquelle: Kraftfahrt-Bundesamt, FZ 10 Januar 2025,
+Abruf 2026-10-22; dl-de/by-2-0; [dataset URI]; eigene Berechnung` where transformed.
+**Commit eligibility:** this inspected KBA data can be redistributed under those
+conditions. No download is committed in Task 00; verify each additional release's
+terms/vintage before constructing the immutable observed input for Task 01.
 
-| Candidate primary publisher / entry point | Intended variable / provenance | Intended grain and time coverage | Rights / commit decision | Uncertainty and next verification |
-|---|---|---|---|---|
-| KBA, monthly new registrations URL above | Tesla-brand passenger-car new registrations in Germany; `observed` once verified | Monthly; exact available start/end, release dates and revisions NOT VERIFIED | Exact table terms and required attribution NOT VERIFIED; do not commit downloads | Select Tesla brand, passenger cars, DE; distinguish brand/model, registrations/sales, monthly/cumulative values; retain raw release and checksum; reconcile totals and corrections |
-| Tesla Germany, <https://www.tesla.com/de_de> | Public list prices, financing offers, inventory incentives; `proxy` context, not media exposure/spend | Event/date or captured price snapshot; no historical coverage verified | Public viewing does not establish redistribution rights; no scraped/captured dataset committed | A current page cannot establish historical prices. Need dated German primary offer terms, model/trim, gross/net price, eligibility, delivery/order deadline, finance APR/term and archived evidence |
-| Tesla official dated communications, discovered from its DE site after access | Campaign announcement or promotion evidence; `proxy` | Dated events; no start/end dates verified | Per-asset rights and archive permissions unresolved | Distinguish announcement, booking window, airing dates and delivery; a promotion is not proof of a paid TV/OOH campaign |
-| Google Ads Transparency Center, <https://adstransparency.google.com/> | Advertiser/creative presence and any explicitly shown delivery dates/regions; `proxy` | Creative/event-level if available; historical coverage NOT VERIFIED | Platform terms, export availability and reuse rights NOT VERIFIED; no dataset committed | Check advertiser identity and DE delivery. Archive dated query/evidence. Do not infer spend, impressions or complete campaign reach from creative presence |
-| Meta Ad Library, <https://www.facebook.com/ads/library/> | Observable ad creative/activity; `proxy` | Creative/event-level; coverage and historical retention NOT VERIFIED | Access/export/redistribution terms NOT VERIFIED; no dataset committed | Confirm country and advertiser; ordinary commercial ads may have different disclosure/retention than political ads. Never scrape gated content |
-| Google Trends, <https://trends.google.com/trends/> and help URL above | Relative search interest, e.g. Tesla topic versus explicit search term; `proxy` | Requested DE monthly series; returned resolution, sampling and date range must be verified | Terms/export permissions NOT VERIFIED; no data committed | Record query/topic ID, geo=DE, category, search property, full request window, export time and normalization. Search interest is not spend or causal demand. Overlapping exports need an explicit scaling rule; zeros may reflect low volume |
-| BAFA, <https://www.bafa.de/> | Official subsidy/eligibility change context; `proxy` | Dated policy events; no event dates verified | Exact notice rights NOT VERIFIED; metadata-only until checked | Verify primary dated notice and distinction between announcement, application cutoff and registration eligibility |
-| DWD, <https://www.dwd.de/> | Weather controls; `observed` measurements after verification | Source-native station/day data, proposed monthly DE aggregation; actual coverage unverified | Dataset-specific terms and attribution NOT VERIFIED | Define stations, weights, missing-day handling, product version and aggregation; national average is not automatically vehicle-buyer exposure |
+## Tesla Germany prices and financing promotions
 
-All proposed entry points other than the four requests listed above are **not
-fetched**. They are leads, not evidence of availability. No TV, online or OOH
-campaign is asserted; lack of accessible evidence is not evidence of no campaign.
-No numeric Tesla prices or promotions are inferred from memory or secondary reports.
+Primary source: <https://www.tesla.com/de_de>, HTTP 200 on 2026-10-22.
+The German page's financing footnotes contain the following terms. These are a
+**current retrieved snapshot**, not proof of previous prices or a dated price cut.
 
-## Event-record contract for later source research
+| Snapshot / event | Terms observed in primary text | Timing and scope | Provenance and uncertainty |
+|---|---|---|---|
+| Model Y Hinterradantrieb example | Purchase price €40,970; nominal fixed interest 1.99%, effective annual interest 2.01%, maximum 60 months | Applications from **2026-10-02**; delivery by **2026-12-31** with stated Tesla-delay exception. Promotional rate also names Model Y Premium Maximale Reichweite Allradantrieb and Performance | `proxy` promotion context; German private/small-business financing example, not spend or realized transaction prices |
+| Model 3 Hinterradantrieb example | Purchase price €37,970; nominal fixed and effective annual interest 0.99%, maximum 60 months | Applications from **2026-10-02**; delivery by **2026-12-31** with stated delay exception. Rate also names Premium Maximale Reichweite rear/all-wheel drive | `proxy`; limited availability, while stocks last, not combinable with other discounts/offers |
 
-For each verified event record: `event_id`, `publisher`, `primary_url`,
-`evidence_sha256`, `retrieved_at`, `publication_date`, `start_date`, `end_date`,
-`date_precision`, `country`, `model_trim`, `medium`, `event_type`, `offer_terms`,
-`rights`, `redistribution`, `uncertainty`, and `class=proxy`. Unknown dates stay null;
-do not silently substitute publication dates for delivery or campaign start dates.
-At monthly aggregation, declare whether an event contributes a count, eligible-day
-fraction or a separately justified intensity. An unverified month is missing, not
-zero. Keep these optional covariates outside the initial minimal model contract.
+The page states that quoted prices include current VAT and vehicle delivery costs,
+exclude registration costs, and are nonbinding recommended prices; lender is
+Openbank Deutschland AG. Vehicle eligibility, application date, delivery deadline,
+term, down payment and final instalment matter: comparing headline monthly payments
+alone would misrepresent price changes. Publication date and historical offer path
+were not established. Capture snapshot date separately from application start and
+delivery deadline; no assumption that an offer was active before October 2.
 
-## Dataset admission and lineage gate
+The page also mentions a possible government subsidy. This is a Tesla statement,
+**not independently verified government policy**; do not use it as authoritative
+subsidy evidence without a dated ministry/BAFA primary source.
 
-Before admitting a real series: verify publisher and primary file; save release URL,
-access date, coverage, geographic scope, frequency, unit, revision/vintage and
-checksum; record each column's transformations, gaps and license text/reference.
-Keep the raw download immutable and build a separately hashed analysis CSV. No
-automatic redistribution when rights are unknown. Do not copy WKR's market CSV:
-its own source note states that extraction vintages and some attributions have not
-been independently verified, and it is not a verified Tesla-brand dataset.
+Rights: no open-data license verified. Attempts to retrieve
+<https://www.tesla.com/de_de/legal> and
+<https://www.tesla.com/de_de/support/incentives> returned HTTP 403.
+Commit source URL, retrieval metadata and concise factual summaries; do not
+redistribute scraped page bodies, creatives or a historical price dataset without
+rights review. Monthly model features would be event counts or eligible-day fractions
+with declared rules, not media spend. These 2026 offers cannot be joined to the
+January 2025 KBA observation as a contemporaneous effect.
 
-The committed six-row fixture is hand-authored by this project, contains no external
-observations, and is explicitly `synthetic_fixture`. Its field named
-`observed_registrations` is a structural stand-in only, with `class=synthetic`.
-It establishes schema behavior, not observed registrations, a generated DGP,
-statistical fit, causal effect, or a completed source-research milestone.
+## Campaign evidence and media proxies
+
+No paid Tesla Germany TV, OOH or online campaign interval or budget has been
+verified. A publicly advertised financing promotion does not establish where/when
+paid media ran. Absence of verified evidence is not evidence of no campaign.
+
+- **Google Ads Transparency Center**, <https://adstransparency.google.com/>:
+  HTTP 200, but retrieved HTML text is an application shell. No advertiser identity,
+  German delivery window or creative-level result was obtained. Further interactive
+  advertiser/region inspection and dated evidence are needed; no campaign claim.
+- **Meta Ad Library**, attempted DE/Tesla query:
+  <https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=DE&q=Tesla&search_type=keyword_unordered>:
+  HTTP 403. No ad history, coverage or spend inference. Do not scrape gated content.
+- A dated Tesla official announcement, broadcaster/OOH operator or advertiser case
+  study may corroborate a campaign only if it explicitly establishes DE market,
+  medium and dates. No such dated primary source was verified in this audit.
+
+Creative presence/dates would be `proxy`, not measured spend or full reach. Rights,
+retention windows and export permissions need per-platform verification. Do not
+encode unverified periods as zero activity.
+
+## Google Trends feasibility
+
+Successfully read primary documentation:
+
+- <https://support.google.com/trends/answer/4365533?hl=de>: sampled and aggregated
+  searches, normalized by total searches for the time/place, then scaled 0–100.
+  Equal scores across regions do not mean equal volumes. Low-volume queries may
+  appear as zero; sampling, filtering and statistical noise limit interpretation.
+- <https://support.google.com/trends/answer/4365538?hl=de>: CSV chart export,
+  embedding and citation are supported; reuse follows Google's terms and requires
+  identifying Google Trends as source. Google Trends and Google Ads must not be
+  cited as a single data source. No blanket open-data license was established.
+
+Attempted reproducible query:
+<https://trends.google.com/trends/explore?date=2020-01-01%202024-12-31&geo=DE&q=Tesla>
+returned **HTTP 429**. No CSV export or actual returned granularity is claimed.
+Intended coverage: 2020-01 through 2024-12, DE, literal search term `Tesla`, web search,
+all categories; record these and distinguish a topic ID from a term. Actual frequency
+must be checked in the export before monthly aggregation. Avoid stitching differently
+normalized windows without an explicit scaling rule. Search interest is a `proxy`
+for attention, not impressions, spending, real demand or a causal effect. Archive a
+licensed/export-permitted raw response and request metadata; do not commit data yet.
+
+## Optional controls and event admission
+
+BAFA <https://www.bafa.de/> and DWD <https://www.dwd.de/> remain **unfetched leads**,
+not verified sources in this audit. Policy events need dated primary notices;
+weather requires station/product selection, source frequency, monthly aggregation,
+missing-day handling and dataset-specific rights. These controls are optional and
+outside the minimal initial model contract.
+
+For each later verified event record save `event_id`, publisher, primary URL, evidence
+hash, retrieval time, publication date, start/end dates, date precision, country,
+model/trim, medium, event type, terms, rights/redistribution and uncertainty.
+Unknown dates stay null; never substitute publication for airing/delivery dates.
+For all actual input columns record class (`observed`, `synthetic`, `proxy`),
+source/generator, vintage, geography, unit, grain, transformations, gaps and rights.
+Keep raw observed data immutable and bind the analysis CSV by checksum. WKR's
+market CSV is not a substitute for independently verified Tesla-brand releases.

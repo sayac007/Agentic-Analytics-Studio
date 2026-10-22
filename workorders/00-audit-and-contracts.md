@@ -25,14 +25,14 @@ No invented data or CI claims. Schemas parse; examples validate with a locally a
 
 - [x] Architecture and reference inspection documented in `docs/AUDIT.md`.
 - [x] Exact WKR/HypoForge revisions, API signatures, licenses and local test evidence recorded.
-- [ ] Kinderwelt source audit: exact URL/snapshot requested; not available.
-- [x] Candidate-source catalog and actual access failures recorded without fabricated data.
-- [ ] Primary-source contents, dates, coverage and reuse rights: proxy access blocked.
+- [x] Kinderwelt exact revision, QA runner/evidence patterns and 16 local packaging checks audited.
+- [x] Primary-source catalog records verified KBA data/license, Tesla financing offers, Trends semantics and access limits.
+- [x] Verified source contents, dates, coverage and per-source rights distinguished from remaining unknowns.
 - [x] Manifest + valid synthetic fixture, truth/result/comparison schemas and rejection checks.
 - [x] Python-first recommendation, HypoForge reuse boundary and parity plan documented.
 - [x] No MMM/UI/PPTX implementation; no external source data committed.
 - [ ] Human approval before Task 01; this remains an audit/contract proposal.
 
 Validation: 13 local contract tests passed; example manifest/CSV validated.
-Reference suites: HypoForge Python 22 passed; WKR 5 passed; R not run (runtime absent).
-CI: awaiting maintainer verification. Unchecked research items are not complete.
+Reference suites: HypoForge Python 22 passed; WKR 5 passed; Kinderwelt packaging subset 16 passed; R not run (runtime absent).
+CI: awaiting maintainer verification. Remaining limits: full KBA series, historical price/campaign evidence, Trends export, R parity and final human approval.

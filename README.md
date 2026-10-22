@@ -19,7 +19,8 @@ A semi-synthetic Tesla Germany benchmark: observed monthly registration data ret
 ## Status
 Task 00 now proposes audited file contracts and a hand-authored synthetic fixture.
 No MMM engine, observed Tesla dataset, MCP server or successful remote CI is claimed.
-External source retrieval and Kinderwelt inspection remain blocked; see
+KBA/Tesla/Trends primary sources and Kinderwelt QA patterns were inspected;
+remaining campaign, export and runtime limitations are explicit. See
 [Audit](docs/AUDIT.md), [Source catalog](docs/SOURCE_CATALOG.md),
 [Decisions](docs/DECISIONS.md), and [Contracts](contracts/README.md).
 

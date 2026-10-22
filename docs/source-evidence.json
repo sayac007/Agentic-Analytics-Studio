@@ -1,0 +1,95 @@
+{
+  "access_date": "2026-10-22",
+  "method": "stdlib urllib HTTPS with TLS verification; initial CONNECT 403 resolved on subsequent requests",
+  "scope": "Retrieval metadata only; raw pages/workbook/PDF retained temporarily outside the checkout. Hashes identify retrieved versions, not a promise that mutable URLs return identical bytes.",
+  "requests": [
+    {
+      "id": "kba-brand",
+      "url": "https://www.kba.de/DE/Statistik/Fahrzeuge/Neuzulassungen/MarkenHersteller/n_marken_hersteller_node.html",
+      "final_url": "https://www.kba.de/DE/Statistik/Fahrzeuge/Neuzulassungen/MarkenHersteller/n_marken_hersteller_node.html",
+      "status": 200,
+      "sha256": "f118ff87722bece88157909963f6004e0c94e264b985f307598308a88ba0c960",
+      "bytes": 333309
+    },
+    {
+      "id": "kba-rights",
+      "url": "https://www.kba.de/DE/Service/Impressum/impressum_node.html",
+      "final_url": "https://www.kba.de/DE/Service/Impressum/impressum_node.html",
+      "status": 200,
+      "sha256": "283018dab1e7679ef924740b3452e556976d8c145381d6887fc34deae5b05c7b",
+      "bytes": 302267
+    },
+    {
+      "id": "kba-xlsx",
+      "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2025_01.xlsx?__blob=publicationFile&v=2",
+      "final_url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2025_01.xlsx?__blob=publicationFile&v=2",
+      "status": 200,
+      "sha256": "777366bf2a9c6ca4b0f62e5c106ea56dd7d61490b60f7377af041be81ca9332d",
+      "bytes": 162739
+    },
+    {
+      "id": "tesla-legal",
+      "url": "https://www.tesla.com/de_de/legal",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "tesla-incentives",
+      "url": "https://www.tesla.com/de_de/support/incentives",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "trends-export",
+      "url": "https://support.google.com/trends/answer/4365538?hl=de",
+      "final_url": "https://support.google.com/trends/answer/4365538?hl=de",
+      "status": 200,
+      "sha256": "0b588cd5e5f2d9c83376595668175ac1a8d93d0763a855c490d7b7a814607023",
+      "bytes": 1533050
+    },
+    {
+      "id": "google-ads",
+      "url": "https://adstransparency.google.com/",
+      "final_url": "https://adstransparency.google.com/",
+      "status": 200,
+      "sha256": "6de82069ba76e648743c8ce7351baab9233cd37117f776c0d9ff0806ead4cb40",
+      "bytes": 2562459
+    },
+    {
+      "id": "meta-ads",
+      "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=DE&q=Tesla&search_type=keyword_unordered",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "trends-explore",
+      "url": "https://trends.google.com/trends/explore?date=2020-01-01%202024-12-31&geo=DE&q=Tesla",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "id": "kba",
+      "url": "https://www.kba.de/DE/Statistik/Fahrzeuge/Neuzulassungen/MonatlicheNeuzulassungen/monatl_neuzulassungen_node.html",
+      "status": 200,
+      "sha256": "173a97e0074cfb81701686f3a42aae9a723bca2bb97add4b39f2ea53e6720219",
+      "bytes": 348630
+    },
+    {
+      "id": "tesla",
+      "url": "https://www.tesla.com/de_de",
+      "status": 200,
+      "sha256": "8ccbabcde59d557446eee73cefd41b8e4414059908d634f78726af4f087d12fd",
+      "bytes": 1151156
+    },
+    {
+      "id": "trends",
+      "url": "https://support.google.com/trends/answer/4365533?hl=de",
+      "status": 200,
+      "sha256": "9bc27033a2254628308fde5ae3dbf6b730853ca55736b2386ead21d9661b432a",
+      "bytes": 1535616
+    },
+    {
+      "id": "kba-license",
+      "url": "https://www.kba.de/DE/Service/Hinweise/Datenlizenz/datenlizenz_pdf.pdf?__blob=publicationFile&v=6",
+      "status": 200,
+      "sha256": "7d2235cbbf83fe3107dcd678e39831abd60f22212c0587ec3989f99aa8cdbabe",
+      "bytes": 103946
+    }
+  ]
+}

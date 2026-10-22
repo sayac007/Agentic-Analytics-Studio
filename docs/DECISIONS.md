@@ -94,10 +94,15 @@ run comparison is committed as evidence.
 
 Use the principle defined in this repository's AGENTS.md: runnable contract checks,
 one reviewed increment, deterministic fixtures and rejection tests, explicit failures,
-no empty green CI, then an approved end-to-end slice. Kinderwelt's upstream project
-has not been identified or audited. Do not attribute these procedures to unseen code.
+no empty green CI, then an approved end-to-end slice. Kinderwelt at
+`d65ed9fd122b00f72ccd917916c3fa0a177f7c8e` provides concrete references:
+`tests/run.sh` isolates state, preserves exit status and checks a clean shipping copy;
+`tests/android/test_verification.py` rejects hash/content/payload drift; and
+`docs/test-report.md` separates executed checks from device/release limitations.
+Sixteen packaging tests passed locally; historical Godot/render totals were not
+reproduced. Reuse these QA patterns without importing app code or licensed assets.
 
 Deferred: MMM engine, downloads/scrapers, MCP server, dashboard, PPTX, automated
 publication, unrestricted execution tools, VAR/SVAR and external reference changes.
-Task 00's unresolved source rights/access and Kinderwelt identity remain visible;
+Task 00's remaining campaign/Trends access limits and per-source reuse restrictions remain visible;
 passing schemas do not resolve them or authorize Task 01.

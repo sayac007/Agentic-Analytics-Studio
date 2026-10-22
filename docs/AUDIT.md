@@ -1,8 +1,8 @@
 # Task 00 audit — 2026-10-22
 
 This is an audit and contract proposal, not an MMM implementation. Local checks below
-are observed evidence. External source contents, remote CI and unavailable reference
-projects remain explicitly **NOT VERIFIED**. Task 01 needs human approval.
+are observed evidence. Unretrieved source contents, remote CI and unexecuted runtime checks
+remain explicitly **NOT VERIFIED**. Task 01 needs human approval.
 
 ## Repository and architecture
 
@@ -21,9 +21,10 @@ statistic. Contracts now specify this boundary; none of those services is implem
 
 ## Reference inspection and exact revisions
 
-Public repository identities were discovered through
-<https://github.com/sayac007?tab=repositories>, retrieved with HTTP 200, then cloned
-read-only using the existing HTTPS Git access. They are temporary audit checkouts,
+WKR/HypoForge repository identities were discovered through
+<https://github.com/sayac007?tab=repositories>, retrieved with HTTP 200; Kinderwelt
+was subsequently found with `gh repo list sayac007 --limit 100 --json name,url`.
+All four were cloned read-only using the existing HTTPS Git access. They are temporary audit checkouts,
 not dependencies or additions to environment repository membership.
 
 | Repository | Local inspection path | Commit / declared version | License and evidence | Reuse decision |
@@ -31,9 +32,10 @@ not dependencies or additions to environment repository membership.
 | [WKR](https://github.com/sayac007/-wkr-automotive-forecasting-lab) | `/tmp/task00-references/-wkr-automotive-forecasting-lab` | `071056370247ac58bfd29a67b47482bd3143617c` / 0.1.0 | No root LICENSE found; pyproject has no license declaration; 5 local tests passed | Patterns only; do not copy code or data without rights review |
 | [HypoForge Python](https://github.com/sayac007/HypoForge-Python) | `/tmp/task00-references/HypoForge-Python` | `c47f636d24a39a820574a13133d6af693134a180` / 0.4.0 | Apache-2.0 in LICENSE and pyproject; 22 local tests passed plus numerical probes | Prefer exact-commit dependency for Task 01, with explicit adapter validation |
 | [HypoForge R](https://github.com/sayac007/HypoForge-R) | `/tmp/task00-references/HypoForge-R` | `1ba1546239e18c28518caed6fb52e3595951be0a` / 0.2.0 | Apache license text; DESCRIPTION says Apache License (>= 2); runtime tests NOT VERIFIED | Source API compatible in concept; runtime parity pending |
-| Kinderwelt | Not mounted; no identity found on the inspected profile pages | NOT VERIFIED | License, APIs and tests NOT VERIFIED | Apply the principle already documented in this repository; no claim of an upstream audit |
+| [Kinderwelt](https://github.com/sayac007/Kinderwelt) | `/tmp/task00-references/Kinderwelt` | `d65ed9fd122b00f72ccd917916c3fa0a177f7c8e` / 0.6.0 | Root MIT license for foundation software; separate asset licenses; 16 packaging-verification tests passed locally | Reuse QA/evidence patterns, no app/assets copied |
 
-Kinderwelt snapshot/URL was requested. Temporary paths are evidence locations in this
+Kinderwelt identity was initially requested, then resolved through the working GitHub CLI.
+The similarly named private variant was not inspected. Temporary paths are evidence locations in this
 instance, not durable installation instructions. Reproduce with clones at the exact
 commits above, not their moving default branches. No upstream files were changed.
 
@@ -83,6 +85,18 @@ Its calendar demand windows are modelling assumptions, not simply public-holiday
 flags. Its data-source document explicitly leaves extraction vintages, VDA attribution
 and DWD aggregation unresolved. Do not relabel those files as verified Tesla data.
 
+Kinderwelt inspected files: `README.md`, `tests/run.sh`,
+`tests/android/test_verification.py`, `docs/test-report.md`, `docs/test-evidence.json`
+and root `LICENSE`. The runner uses `set -euo pipefail`, isolated temporary state,
+checks process exit codes **and** error text, imports a fresh shipping-files-only copy,
+and exercises boot and regression tests. The packaging tests reject modified/missing/
+duplicate data, permission drift, development files and invalid ELF alignment. The
+report separates desktop renders from device tests and historical evidence from
+unverified remote CI. These are useful patterns for immutable data hashes, clean
+runs, negative fixtures and scoped statistical claims here. Historical upstream
+counts in that report were read, not reproduced. Only the 16-test packaging subset
+was executed locally; no Godot/Android build or render validation is claimed.
+
 ## Executed checks
 
 Current runtime: Python 3.12.14; R/Rscript absent. `jsonschema` 4.26.0 was available.
@@ -102,20 +116,35 @@ failed because requests was absent; research probes then used stdlib urllib.
 | `python3 -m unittest discover -s tests -v` | 13 contract tests passed, including negative cases |
 | `python3 contracts/validate.py` | Valid manifest and CSV, 6 hand-authored fixture rows |
 | R tests and R/Python parity | NOT RUN: no R runtime |
-| KBA, Tesla, Google Trends help, GitHub API HTTPS probes | Proxy CONNECT denied, HTTP 403; source contents not retrieved |
-| `gh auth status` | Could not verify injected GH_TOKEN; do not infer Git write/API authorization from Git read success |
+| Initial primary-source/API HTTPS probes | Proxy CONNECT denied, HTTP 403; these failures were later superseded for the successful destinations below |
+| Subsequent KBA archive/workbook/license, Tesla DE and Trends help/export-documentation requests | HTTP 200; source contents read, retrieval hashes in `docs/source-evidence.json` |
+| KBA FZ 10 January 2025 workbook | Verified `TESLA ZUSAMMEN`, 1,277 registrations and equality to sum of four model rows; this is one month, not a complete series |
+| `PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests/android -p test_verification.py -v` from Kinderwelt checkout | 16 passed; full Godot/Android suites not run |
+| Tesla legal/incentives and Meta Ad Library requests | HTTP 403; remaining access limitation |
+| Google Trends DE/Tesla explore query | HTTP 429; actual CSV export NOT VERIFIED |
+| Google Ads Transparency Center | HTTP 200 application shell only; no advertiser/campaign evidence |
+| `gh auth status`, then actual PR/API operations | Status check initially reported failure; subsequent repository listing and PR creation/read succeeded. Actual operations establish those capabilities |
+| `git push -u origin audit/task-00-contracts` | Succeeded; branch on origin, targeting main via Draft PR #1 |
 | Remote CI | CI: awaiting maintainer verification; no remote test-run claim |
 
-## Open requirements
+## Remaining review questions and limitations
 
-- Enable required research domains in environment settings and repeat source retrieval.
-  A network-only configuration draft was saved; it preserves the package-manager
-  preset and adds `www.kba.de`, `www.tesla.com`, `support.google.com`,
-  `trends.google.com`, `api.github.com`, `adstransparency.google.com`,
-  `www.facebook.com`, `www.dwd.de`, and `www.bafa.de`. Review/save and publish are
-  separate from this draft save; no runtime activation is claimed.
-- Supply Kinderwelt's exact repository URL or a permitted snapshot.
-- Verify KBA release/vintage, Tesla brand row, coverage and exact reuse terms before
-  committing any observed data. Source catalog remains a blocked research ledger.
-- Approve Task 00 contracts and Python-first choice before Task 01. Passing contract
-  checks do not approve implementation or establish benchmark recovery performance.
+- Review the proposed contracts, Python-first choice, oracle transform settings,
+  condition-number flag and recovery tolerances before approving Task 01.
+- KBA workbook and license were verified for January 2025. A full multi-year series
+  still needs release-by-release retrieval, vintage tracking and admission checks.
+- Tesla's current financing terms are verified as a retrieved snapshot, not historical
+  price cuts or a paid advertising campaign. No real campaign spend/ROI is claimed.
+- Trends CSV access is rate-limited; campaign-library evidence and Tesla legal pages
+  remain incomplete. See the source catalog for precise observed outcomes and rights.
+- R runtime and Python/R parity remain unrun. Kinderwelt's full Godot/Android tests
+  were not needed for the QA-pattern audit and were not run here.
+- A network-only configuration draft was saved with `www.kba.de`, `www.tesla.com`,
+  `support.google.com`, `trends.google.com`, `api.github.com`,
+  `adstransparency.google.com`, `www.facebook.com`, `www.dwd.de`, and `www.bafa.de`;
+  package-manager presets were preserved. Later requests demonstrate current access
+  only for their successful destinations; they do not prove every domain works.
+  Review/save the changes in environment settings and publish to persist the intended
+  configuration version. A draft save alone is not publication.
+- [Draft PR #1](https://github.com/sayac007/Agentic-Analytics-Studio/pull/1) targets
+  `main` from `audit/task-00-contracts`. It is not merged. Remote CI remains unverified.
