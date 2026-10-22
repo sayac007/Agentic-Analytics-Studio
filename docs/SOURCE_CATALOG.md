@@ -1,3 +1,7 @@
+> Historical Task 00 snapshot below. Task 01B supersedes its one-month coverage
+> assessment with [96 verified releases and explicit remaining admission blockers](KBA_MULTIBASELINE.md).
+> No campaign/proxy evidence below is expanded by that acquisition.
+
 # Source catalog — primary-source audit, 2026-10-22
 
 Successful retrievals and failures are recorded in [source-evidence.json](source-evidence.json)

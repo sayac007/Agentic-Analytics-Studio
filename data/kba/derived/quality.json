@@ -1,0 +1,51 @@
+{
+  "catalog_sha256": "160868cfb7f000e51067fde8e25bccf2979b0db423d1b7e0886074a201142f64",
+  "class_": "observed",
+  "column_lineage": {
+    "period": {
+      "class_": "observed",
+      "source": "sources.json + locations.json",
+      "transformation": "Exact source reporting month"
+    },
+    "powertrain": {
+      "class_": "observed",
+      "source": "sources.json + locations.json",
+      "transformation": "all for brand D column; BEV_only for explicit market AK column"
+    },
+    "series": {
+      "class_": "observed",
+      "source": "sources.json + locations.json",
+      "transformation": "Exact brand total label or explicit BEV market total"
+    },
+    "source": {
+      "class_": "observed",
+      "source": "sources.json + locations.json",
+      "transformation": "Source catalog identifier"
+    },
+    "value": {
+      "class_": "observed",
+      "source": "sources.json + locations.json",
+      "transformation": "Numeric integer published total only"
+    },
+    "vintage": {
+      "class_": "observed",
+      "source": "sources.json + locations.json",
+      "transformation": "SHA-256 of unmodified workbook"
+    }
+  },
+  "extractor_implementation": "kba_fz10_v1",
+  "geography": "DE",
+  "grain": "month",
+  "missing_policy": "No interpolation, forward fill or symbolic zero conversion",
+  "normalized_sha256": "0878d67823b44b62b6d56016a0c899ec46150b9a3935aa6d74eed74c4c3ab36d",
+  "observations": 4944,
+  "parser_packages": {
+    "et_xmlfile": "2.0.0",
+    "openpyxl": "3.1.5",
+    "xlrd": "2.0.2"
+  },
+  "plan_sha256": "965acef2a8d2e7c220ec385cccf4665560be58dddb4cba8947058b755d83a988",
+  "raw_sources": 96,
+  "unit": "passenger_car_new_registrations",
+  "vintage_policy": "One retrieved raw hash per reporting month; revision history not verified"
+}

@@ -1,0 +1,139 @@
+{
+  "A": {
+    "engineering_candidate_split": {
+      "design_columns": 6,
+      "holdout_months": 12,
+      "residual_df": 78,
+      "train_months": 84
+    },
+    "first_verified": "2018-01",
+    "last_verified": "2025-12",
+    "license_status": "dl-de/by-2-0",
+    "longest_contiguous": {
+      "end": "2025-12",
+      "months": 96,
+      "start": "2018-01"
+    },
+    "missing_months": [],
+    "reasons": [
+      "exact_publication_day_missing_for_v0.2.0_release_records"
+    ],
+    "scientific_validation": false,
+    "series": "brand:TESLA",
+    "source_status": "verified_raw_hash_and_parser",
+    "status": "blocked",
+    "verified_count": 96
+  },
+  "B": {
+    "engineering_candidate_split": {
+      "design_columns": 6,
+      "holdout_months": 12,
+      "residual_df": 42,
+      "train_months": 48
+    },
+    "first_verified": "2021-01",
+    "last_verified": "2025-12",
+    "license_status": "dl-de/by-2-0",
+    "longest_contiguous": {
+      "end": "2025-12",
+      "months": 60,
+      "start": "2021-01"
+    },
+    "missing_months": [
+      "2018-01",
+      "2018-02",
+      "2018-03",
+      "2018-04",
+      "2018-05",
+      "2018-06",
+      "2018-07",
+      "2018-08",
+      "2018-09",
+      "2018-10",
+      "2018-11",
+      "2018-12",
+      "2019-01",
+      "2019-02",
+      "2019-03",
+      "2019-04",
+      "2019-05",
+      "2019-06",
+      "2019-07",
+      "2019-08",
+      "2019-09",
+      "2019-10",
+      "2019-11",
+      "2019-12",
+      "2020-01",
+      "2020-02",
+      "2020-03",
+      "2020-04",
+      "2020-05",
+      "2020-06",
+      "2020-07",
+      "2020-08",
+      "2020-09",
+      "2020-10",
+      "2020-11",
+      "2020-12"
+    ],
+    "reasons": [
+      "exact_publication_day_missing_for_v0.2.0_release_records"
+    ],
+    "scientific_validation": false,
+    "series": "market:BEV",
+    "source_status": "verified_raw_hash_and_parser",
+    "status": "blocked",
+    "verified_count": 60
+  },
+  "C": {
+    "engineering_candidate_split": {
+      "design_columns": 6,
+      "holdout_months": 12,
+      "residual_df": 78,
+      "train_months": 84
+    },
+    "first_verified": "2018-01",
+    "last_verified": "2025-12",
+    "license_status": "dl-de/by-2-0",
+    "longest_contiguous": {
+      "end": "2025-12",
+      "months": 96,
+      "start": "2018-01"
+    },
+    "missing_months": [],
+    "reasons": [
+      "exact_publication_day_missing_for_v0.2.0_release_records"
+    ],
+    "scientific_validation": false,
+    "series": "brand:TOYOTA",
+    "source_status": "verified_raw_hash_and_parser",
+    "status": "blocked",
+    "verified_count": 96
+  },
+  "D": {
+    "engineering_candidate_split": {
+      "design_columns": 6,
+      "holdout_months": 12,
+      "residual_df": 78,
+      "train_months": 84
+    },
+    "first_verified": "2018-01",
+    "last_verified": "2025-12",
+    "license_status": "dl-de/by-2-0",
+    "longest_contiguous": {
+      "end": "2025-12",
+      "months": 96,
+      "start": "2018-01"
+    },
+    "missing_months": [],
+    "reasons": [
+      "exact_publication_day_missing_for_v0.2.0_release_records"
+    ],
+    "scientific_validation": false,
+    "series": "brand:VW",
+    "source_status": "verified_raw_hash_and_parser",
+    "status": "blocked",
+    "verified_count": 96
+  }
+}
