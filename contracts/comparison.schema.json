@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "comparison contract v0.1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "comparison_id",
+    "left",
+    "right",
+    "compatibility",
+    "test_rmse_delta_right_minus_left",
+    "media_coefficient_delta_right_minus_left",
+    "interpretation"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "comparison_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "left": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "run_id",
+        "result"
+      ],
+      "properties": {
+        "run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "result": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "properties": {
+            "path": {
+              "type": "string",
+              "pattern": "^(?![.]{1,2}(?:/|$))[A-Za-z0-9_.-]+(?:/(?![.]{1,2}(?:/|$))[A-Za-z0-9_.-]+)*(?![\\s\\S])"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+            }
+          }
+        }
+      }
+    },
+    "right": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "run_id",
+        "result"
+      ],
+      "properties": {
+        "run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "result": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "properties": {
+            "path": {
+              "type": "string",
+              "pattern": "^(?![.]{1,2}(?:/|$))[A-Za-z0-9_.-]+(?:/(?![.]{1,2}(?:/|$))[A-Za-z0-9_.-]+)*(?![\\s\\S])"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
+            }
+          }
+        }
+      }
+    },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "same_data_sha256",
+        "same_holdout",
+        "same_target"
+      ],
+      "properties": {
+        "same_data_sha256": {
+          "const": true
+        },
+        "same_holdout": {
+          "const": true
+        },
+        "same_target": {
+          "const": true
+        }
+      }
+    },
+    "test_rmse_delta_right_minus_left": {
+      "type": "number"
+    },
+    "media_coefficient_delta_right_minus_left": {
+      "type": "number"
+    },
+    "interpretation": {
+      "const": "benchmark_stability_not_causal_marketing_effect"
+    }
+  }
+}
