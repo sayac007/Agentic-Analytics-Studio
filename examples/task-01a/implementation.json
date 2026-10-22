@@ -1,0 +1,25 @@
+{
+  "files": {
+    "config/task-01a.json": "d89e71861547297bfde35bb6779ec7fd7dc4f2c63e9c82a5eb7dcc78df62304d",
+    "contracts/common.schema.json": "d086b1d01f15a09e3b12c209b19c03594b7b601d9e548769887c9342a2d35e2d",
+    "contracts/comparison.schema.json": "fef45cfc8b29398192fda6fd8f10c2804a1a4381ea9b21c7f77a4fec738b41de",
+    "contracts/evaluation.schema.json": "a5aeb38cccdf132d20771ef27b80d80d216bcc6115d486cbc345a8608dff00e4",
+    "contracts/generator.schema.json": "b310df541392ffd7ace1025ce3672b47236f97ac6e59bcbe38e0a89c3fcf623f",
+    "contracts/manifest.schema.json": "1e83340c81699270b2a2e5df99e477014a519a0901c0359a35e82bba485a401d",
+    "contracts/result.schema.json": "67a04acceaf8001ce0372c4670aad39f52086cd9d4ed5f20cc7015f77df9917c",
+    "contracts/truth.schema.json": "21ef5517a36934fceb752d296abc07517e217d0e64094d70df9274d68b00a9c1",
+    "contracts/validate.py": "cfbee19798dd4494982a5232e8b3f8999b19b8fd732c331495683f3a10eb8c83",
+    "requirements.lock": "35729538c9c64b06b239654560b9ee6e3c2c14aa49bb4cf11dc9ec869a9ae431",
+    "studio/__init__.py": "2cb4ba6b99c38a3a5122b1fea55590b40e2feb176f24029b7a9d3be34dae6699",
+    "studio/__main__.py": "808edda5576ed645b630636e6d9bccf53568a7aa842563e5a18137ccc65c1762",
+    "studio/estimate.py": "c0811b03be54a89831fea8ec480a1dbd306cbff8c641e6a5e78dc91961f6e35a",
+    "studio/evaluate.py": "ceca7f08e1b1aeed1822713e432f9bd5aef85cbd3eacd78db684c31a24fbe90a",
+    "studio/files.py": "58c92de02f421457dfac11827099f19cf5264cb8716f24d1586d63a6a53482e7",
+    "studio/generate.py": "2dca919b3330d4da60f52db06f2ea30ed49382569788e2041ac22576a2b4d36f",
+    "studio/isolation.py": "4ccbeb5b5157820819a749af4608cb4b92a4768df0f189e308a8bba752b81817",
+    "studio/pipeline.py": "870d02eb0fd5be9ddd6ba113b41337d60e12e640f4ac9bf6c83915b98d38e1aa",
+    "studio/runtime.py": "5b92289b46529c7b633053c3c5028d9d7cd57e4892cfc1e1408b3c0067180023",
+    "studio/statistics.py": "593680ded101df5a1fa16fbee4fe49e5e17b1a95962a6ad7daec32c06429c199",
+    "studio/transforms.py": "ff5aed995b91d626907d080bbb07e71d3b3107dbd2e3e8c5a4ef7be71a7b6d96"
+  }
+}

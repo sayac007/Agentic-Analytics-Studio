@@ -1,39 +1,48 @@
 # Agentic Analytics Studio
 
-An incremental, auditable MMM and agent-orchestration research project. **This repository starts as a task-oriented project scaffold, not a functioning MMM engine.**
+An auditable, incremental marketing-mix modelling research project. **Task 01a now
+runs a fully synthetic Stage-A benchmark**, with an intentionally difficult baseline,
+known media transformations and honest recovery diagnostics. It is not evidence of
+real Tesla advertising effectiveness.
 
-## First milestone
-A semi-synthetic Tesla Germany benchmark: observed monthly registration data retained unchanged; a separately labeled generated outcome injects a known media effect through adstock + Hill. Fit a simple `lm`-style baseline, run twice, compare diagnostics, expose one minimal MCP tool, and write a Markdown report. The benchmark must not claim real Tesla marketing effectiveness.
+## Run the synthetic pipeline
 
-## Getting started with Codex
-1. Give Codex access to this repository.
-2. Ask it to read `AGENTS.md` and complete **only** `workorders/00-audit-and-contracts.md` in one PR.
-3. Review and merge after checking evidence. Then assign `workorders/01-walking-skeleton.md`.
-4. Keep five workstreams visible in `docs/ROADMAP.md`, but deliver one coherent increment at a time.
-
-## References
-- WKR Automotive Forecasting Lab — engineering patterns; access must be verified.
-- HypoForge R and Python — reusable analytical transforms; inspect actual exported API before use.
-- Kinderwelt — incremental delivery, regression testing and honest QA evidence.
-
-## Status
-
-Task 00.5 proposes statistical file contracts v0.2.0: private reference/truth are
-separate from estimator inputs, with explicit uncertainty, contribution, response
-and recovery outputs. No MMM engine, generated benchmark, MCP server or real Tesla
-marketing effect is claimed. See [Statistical contracts](docs/STATISTICAL_CONTRACTS.md),
-[Readiness](docs/TASK_01_READINESS.md), [Source evidence](docs/SOURCE_CATALOG.md)
-and [Validation](contracts/README.md).
-
-From repository root, Python 3.12 and `jsonschema==4.26.0`:
+Python 3.12 and Git are required. From repository root:
 
 ```sh
-python3 contracts/validate.py
-python3 contracts/validate.py contracts/examples/generator.json --kind generator
-python3 -m unittest discover -s tests -v
+python3.12 -m venv .venv
+.venv/bin/python -m pip install -r requirements.lock
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m studio run --output artifacts/task01a-run1
+.venv/bin/python -m studio verify artifacts/task01a-run1
 ```
 
-The six-row examples test contracts, not model recovery. GitHub Actions runs the same
-checks on push and pull request. Task 01 needs human authorization; only synthetic
-Stage A has a proposed complete development path, while real-data admission and
-Stage B/C scientific choices remain explicit.
+Choose a new output directory for each run. Both include/omit-quarter-end models use
+the same 72-month synthetic dataset, 60/12 split, fixed oracle transforms and common
+spend grid. No parameters are searched and no fit is tuned to improve recovery.
+
+Read [Run instructions and limitations](docs/RUN_SYNTHETIC_MMM.md),
+[Statistical Contracts v0.2.0](docs/STATISTICAL_CONTRACTS.md),
+[Readiness](docs/TASK_01_READINESS.md), and the generated
+[Example report](examples/task-01a/report.md).
+
+## Validate
+
+```sh
+.venv/bin/python contracts/validate.py
+.venv/bin/python contracts/validate.py contracts/examples/generator.json --kind generator
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m unittest discover -s tests -v
+```
+
+CI runs these checks plus an end-to-end smoke test. The estimator runs in a fresh
+process/directory without private reference/truth files; those are available only to
+generation/evaluation. All output hashes and implementation/runtime identities are
+saved. The example has poor recovery, which remains visible rather than corrected.
+
+## Scope
+
+No real Tesla pipeline, transform search, scenario grid, Bayesian model, geo-test, UI
+or MCP server is included. No empirical power, validated MDE, actual 95% coverage or
+real causal marketing ROI is claimed. WKR, HypoForge and Kinderwelt remain independent;
+HypoForge is consumed only as a dependency pinned to its audited Git commit.
+
+See [Source audit](docs/SOURCE_CATALOG.md) and [Contracts](contracts/README.md).

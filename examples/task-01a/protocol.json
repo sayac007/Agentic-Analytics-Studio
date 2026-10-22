@@ -1,0 +1,16 @@
+{
+  "protocol": "synthetic_development_reference_v1",
+  "specified_on": "2026-10-22",
+  "start": "2018-01",
+  "months": 72,
+  "train_months": 60,
+  "seed": 42,
+  "effect_fraction": 0.08,
+  "noise_fraction": 0.05,
+  "confounding": "independent",
+  "parameters": {"alpha": 0.5, "l_max": 3, "normalize": false, "k": 100, "n": 1.5},
+  "hac_max_lags": 3,
+  "grid_points": 21,
+  "condition_number_limit": 100000000.0,
+  "stability_rule": {"relative_curve_change_limit": 0.25, "scale_floor_count_equivalent": 1.0}
+}

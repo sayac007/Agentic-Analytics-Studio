@@ -1,0 +1,7 @@
+{
+  "phase": "estimator_data_access",
+  "reads": [
+    "safe/data.csv",
+    "safe/without-quarter.manifest.json"
+  ]
+}

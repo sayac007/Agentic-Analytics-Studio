@@ -1,0 +1,72 @@
+{
+  "coverage": {
+    "end": "2023-12",
+    "start": "2018-01"
+  },
+  "estimator_access": false,
+  "generation": {
+    "calibration": "training_reference_mean_only",
+    "confounding": "independent",
+    "confounding_strength": 0,
+    "effect_fraction": 0.08,
+    "implementation_id": "studio.generate.v1",
+    "noise_fraction": 0.05,
+    "parameters": {
+      "alpha": 0.5,
+      "k": 100,
+      "l_max": 3,
+      "n": 1.5,
+      "normalize": false
+    },
+    "rng": "PCG64",
+    "seed": 42
+  },
+  "generator_id": "synthetic_development_reference_v1",
+  "outputs": {
+    "estimator_data": "safe/data.csv",
+    "truth": "private/truth.json"
+  },
+  "purpose": "development_benchmark",
+  "reference": {
+    "path": "private/reference.csv",
+    "sha256": "53b6c185afa1009047bc9c7cc934c51caf63866c03c3b16dd3a02ffb80732181"
+  },
+  "reference_columns": {
+    "observed_registrations": {
+      "access_date": "2026-10-22",
+      "class": "synthetic",
+      "geography": "Fictional monthly development series; not Tesla or observed Germany data",
+      "limitations": "Single synthetic benchmark; not real marketing ROI, power or MDE evidence",
+      "publisher": "Agentic Analytics Studio",
+      "redistribution": "allowed",
+      "rights": "Project-generated synthetic development data; no external source data",
+      "source_or_generator": "synthetic_development_reference_v1",
+      "time_grain": "month",
+      "transformations": "round(2000+15*t+250*sin(2*pi*t/12)+300*quarter_end+600*(t>=36)+900*(t==50)); ties to even",
+      "unit": "fictional_count"
+    },
+    "period": {
+      "access_date": "2026-10-22",
+      "class": "synthetic",
+      "geography": "Fictional monthly development series; not Tesla or observed Germany data",
+      "limitations": "Single synthetic benchmark; not real marketing ROI, power or MDE evidence",
+      "publisher": "Agentic Analytics Studio",
+      "redistribution": "allowed",
+      "rights": "Project-generated synthetic development data; no external source data",
+      "source_or_generator": "synthetic_development_reference_v1",
+      "time_grain": "month",
+      "transformations": "Monthly calendar index",
+      "unit": "calendar_month"
+    }
+  },
+  "reference_kind": "synthetic_development",
+  "release_records": [],
+  "schema_version": "0.2.0",
+  "split": {
+    "test_end": "2023-12",
+    "test_start": "2023-01",
+    "train_end": "2022-12",
+    "train_start": "2018-01"
+  },
+  "vintage": "synthetic_v1; protocol_sha256=d89e71861547297bfde35bb6779ec7fd7dc4f2c63e9c82a5eb7dcc78df62304d"
+}

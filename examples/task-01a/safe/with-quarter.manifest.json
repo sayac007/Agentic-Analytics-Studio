@@ -1,0 +1,123 @@
+{
+  "claim": "benchmark_recovery_not_real_causal_marketing_roi",
+  "columns": {
+    "period": {
+      "access_date": "2026-10-22",
+      "class": "synthetic",
+      "geography": "Fictional monthly development series; not Tesla or observed Germany data",
+      "limitations": "Single synthetic benchmark; not real marketing ROI, power or MDE evidence",
+      "publisher": "Agentic Analytics Studio",
+      "redistribution": "allowed",
+      "rights": "Project-generated synthetic development data; no external source data",
+      "source_or_generator": "synthetic_development_reference_v1",
+      "time_grain": "month",
+      "transformations": "Monthly calendar index",
+      "unit": "calendar_month"
+    },
+    "semi_synthetic_outcome": {
+      "access_date": "2026-10-22",
+      "class": "synthetic",
+      "geography": "Fictional monthly development series; not Tesla or observed Germany data",
+      "limitations": "Single synthetic benchmark; not real marketing ROI, power or MDE evidence",
+      "publisher": "Agentic Analytics Studio",
+      "redistribution": "allowed",
+      "rights": "Project-generated synthetic development data; no external source data",
+      "source_or_generator": "synthetic_development_reference_v1",
+      "time_grain": "month",
+      "transformations": "Separate injected outcome; generator ID only, no reference values",
+      "unit": "count_equivalent"
+    },
+    "synthetic_media": {
+      "access_date": "2026-10-22",
+      "class": "synthetic",
+      "geography": "Fictional monthly development series; not Tesla or observed Germany data",
+      "limitations": "Single synthetic benchmark; not real marketing ROI, power or MDE evidence",
+      "publisher": "Agentic Analytics Studio",
+      "redistribution": "allowed",
+      "rights": "Project-generated synthetic development data; no external source data",
+      "source_or_generator": "synthetic_development_reference_v1",
+      "time_grain": "month",
+      "transformations": "Independent seeded lognormal media",
+      "unit": "synthetic_currency_per_month"
+    }
+  },
+  "data": {
+    "path": "safe/data.csv",
+    "sha256": "1700c002d5712cad3ea18c857ad707331541a1d2d992831466187b60a0d04fe0"
+  },
+  "estimation": {
+    "condition_number_limit": 100000000.0,
+    "controls": {
+      "annual_fourier_order": 1,
+      "include_quarter_end": true,
+      "structural_breaks": [],
+      "trend": "month_index_from_train_start"
+    },
+    "method": "ols",
+    "parameter_policy": "predeclared_oracle_transforms_without_baseline_or_truth_access",
+    "parameters": {
+      "alpha": 0.5,
+      "k": 100,
+      "l_max": 3,
+      "n": 1.5,
+      "normalize": false
+    },
+    "runtime": "python",
+    "specified_on": "2026-10-22",
+    "target": "semi_synthetic_outcome",
+    "transform_order": [
+      "geometric_adstock",
+      "hill"
+    ],
+    "uncertainty": {
+      "conditioning": "fixed_predeclared_transforms_and_controls",
+      "confidence_level": 0.95,
+      "finite_sample_correction": "n_over_n_minus_p",
+      "max_lags": 3,
+      "method": "newey_west_bartlett",
+      "reference_distribution": "normal"
+    }
+  },
+  "missing_policy": "reject",
+  "outputs": {
+    "result": "safe/with-quarter.result.json"
+  },
+  "purpose": "development_benchmark",
+  "response_grid": {
+    "history": "constant_spend_for_full_finite_kernel",
+    "spend": [
+      55.422336124977534,
+      63.569632740830706,
+      71.71692935668388,
+      79.86422597253704,
+      88.01152258839022,
+      96.1588192042434,
+      104.30611582009657,
+      112.45341243594973,
+      120.60070905180291,
+      128.7480056676561,
+      136.89530228350924,
+      145.04259889936242,
+      153.1898955152156,
+      161.33719213106878,
+      169.48448874692195,
+      177.6317853627751,
+      185.77908197862828,
+      193.92637859448146,
+      202.07367521033464,
+      210.2209718261878,
+      218.36826844204097
+    ],
+    "support": "common_training_spend_range",
+    "unit": "synthetic_currency_per_month"
+  },
+  "run_id": "with-quarter",
+  "schema_version": "0.2.0",
+  "split": {
+    "test_end": "2023-12",
+    "test_start": "2023-01",
+    "train_end": "2022-12",
+    "train_start": "2018-01"
+  },
+  "stage": "A"
+}

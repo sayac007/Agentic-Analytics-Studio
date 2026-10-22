@@ -1,6 +1,9 @@
 # Task 00.5 — Statistical contracts v0.2.0
 
-Status: design for human review, not an implemented or empirically validated MMM.
+Status: approved design as merged in PR #2. Task 01a implements the synthetic Stage-A
+subset; see [execution and measured limitations](RUN_SYNTHETIC_MMM.md). The normative
+contracts below are unchanged; successful execution does not establish empirical
+coverage, power or real marketing ROI.
 This replaces the baseline-as-regressor proposal in v0.1.0. Python is the runtime;
 no R-parity gate is required. The estimator's job is to separate injected media from
 an imperfectly explained baseline, not to regress on the baseline used to make y.

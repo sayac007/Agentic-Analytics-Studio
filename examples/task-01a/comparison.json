@@ -1,0 +1,85 @@
+{
+  "claim": "benchmark_recovery_not_real_causal_marketing_roi",
+  "comparison_id": "quarter-end-sensitivity-v1",
+  "contribution_delta_right_minus_left": -373.87302680670973,
+  "detection_limit_status": "not_calibrated",
+  "effect_below_detection_limit": null,
+  "flags": [],
+  "left": {
+    "result": {
+      "path": "safe/with-quarter.result.json",
+      "sha256": "dd049a407f9517b300d820ce639eb8777e12975d2a2a43d59e6f4057ac367d44"
+    },
+    "run_id": "with-quarter"
+  },
+  "media_coefficient_delta_right_minus_left": -41.6828662619111,
+  "purpose": "development_benchmark",
+  "relative_curve_change": 0.0905040943519894,
+  "response_curve_delta_right_minus_left": [
+    -21.441831066276507,
+    -23.570095739876365,
+    -25.396151934632343,
+    -26.96663906918934,
+    -28.322457946360032,
+    -29.498273724452986,
+    -30.522968792772417,
+    -31.420416014790987,
+    -32.21029295469725,
+    -32.90882452163902,
+    -33.52941845871851,
+    -34.0831917755703,
+    -34.5793994129462,
+    -35.0257802398379,
+    -35.428835252528415,
+    -35.79405108320327,
+    -36.126079775717926,
+    -36.428883732416125,
+    -36.70585295412252,
+    -36.95990022181087,
+    -37.19353868121624
+  ],
+  "response_curve_rmse": 32.42050805961075,
+  "response_grid": {
+    "history": "constant_spend_for_full_finite_kernel",
+    "spend": [
+      55.422336124977534,
+      63.569632740830706,
+      71.71692935668388,
+      79.86422597253704,
+      88.01152258839022,
+      96.1588192042434,
+      104.30611582009657,
+      112.45341243594973,
+      120.60070905180291,
+      128.7480056676561,
+      136.89530228350924,
+      145.04259889936242,
+      153.1898955152156,
+      161.33719213106878,
+      169.48448874692195,
+      177.6317853627751,
+      185.77908197862828,
+      193.92637859448146,
+      202.07367521033464,
+      210.2209718261878,
+      218.36826844204097
+    ],
+    "support": "common_training_spend_range",
+    "unit": "synthetic_currency_per_month"
+  },
+  "right": {
+    "result": {
+      "path": "safe/without-quarter.result.json",
+      "sha256": "be9b10aab2fae4090a3e2a2a186a4fd7db3efd8bdb7eb4140ad38c9ee9049a3f"
+    },
+    "run_id": "without-quarter"
+  },
+  "same_data_and_holdout": true,
+  "schema_version": "0.2.0",
+  "stability_rule": {
+    "relative_curve_change_limit": 0.25,
+    "scale_floor_count_equivalent": 1.0
+  },
+  "test_rmse_delta_right_minus_left": 22.687541686604618,
+  "uncertainty_interpretation": "per_run_pointwise_intervals_no_unjustified_delta_interval"
+}
