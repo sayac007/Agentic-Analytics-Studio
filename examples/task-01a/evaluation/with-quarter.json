@@ -1,0 +1,22 @@
+{
+  "claim": "benchmark_recovery_not_real_causal_marketing_roi",
+  "detection_limit_status": "not_calibrated",
+  "effect_below_detection_limit": null,
+  "holdout_contribution_error": -6518.439878917847,
+  "media_coefficient_error": -726.7367213674705,
+  "media_interval_covers_truth": true,
+  "positive_detection": false,
+  "purpose": "development_benchmark",
+  "response_curve_rmse": 565.248406485877,
+  "result": {
+    "path": "safe/with-quarter.result.json",
+    "sha256": "dd049a407f9517b300d820ce639eb8777e12975d2a2a43d59e6f4057ac367d44"
+  },
+  "run_id": "with-quarter",
+  "schema_version": "0.2.0",
+  "truth": {
+    "path": "private/truth.json",
+    "sha256": "ac3f5f578725bdc2ed9658e47e5f96600723b7258ae2cd1ab1280452af046961"
+  },
+  "two_sided_rejection": false
+}

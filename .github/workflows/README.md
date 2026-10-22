@@ -1,4 +1,5 @@
-`contracts.yml` validates both estimator and separate generator examples and runs the
-contract unittest suite on pushes and pull requests with Python 3.12/jsonschema 4.26.0.
-These checks do not fit an MMM, generate a benchmark, retrieve external sources or run
-reference-project tests. Remote status belongs to the actual Actions run.
+`contracts.yml` uses Python 3.12 and the full immutable dependency lock (including the
+audited HypoForge Git commit). It validates the original contract fixtures, runs all
+contract/numerical/isolation tests, then generates and verifies a small single-seed
+Stage-A bundle. BLAS/OpenMP use one thread. This is not a power/coverage/MDE experiment
+or a real Tesla pipeline. Check actual run status separately from local results.

@@ -60,3 +60,14 @@ recovery tolerances, calibrated error/power targets and Monte Carlo precision.
 Bayesian priors and simulated geo-test calibration are later research. Do not treat
 those still-open choices as implemented, and do not infer detection limits from one
 successful fit or one planted coefficient.
+
+
+## Task 01a execution scope
+
+The user authorized the synthetic-only subset after PR #2 was merged: generator,
+private truth, isolated oracle OLS/HAC, two model variants, contribution/response
+outputs, comparison/evaluation, deterministic report, tests and CI smoke. **No MCP
+server is in Task 01a**, overriding item 6 for this subtask; no such server is claimed.
+No real ingestion, search, scenario grid or other research stage is implemented.
+See `docs/RUN_SYNTHETIC_MMM.md` and the implementation PR for actual execution and
+remaining scientific limits. This planning record does not authorize self-merging.

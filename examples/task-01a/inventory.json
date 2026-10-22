@@ -1,0 +1,24 @@
+{
+  "artifacts": {
+    "comparison.json": "27f4fc7ffd3f8c1c904c062976a88f6bf226b2a79a66e16efacf0159ce117334",
+    "environment.json": "fd754ee9af2e3b85d1f2f0567387e688fd7e4020e500f439e53b1f6dd72f3ec5",
+    "evaluation/with-quarter.json": "9009fb0d88de245e61afa425e5d59de658174e816027e1bc6c38c108ab87809a",
+    "evaluation/without-quarter.json": "0fc2b265fcadbfcfa6ec9e6380e567ab516f33ce47ea3d2557c93216f903d3a9",
+    "implementation.json": "b7acf7b534a8221164bb7595d0838405c84648583ab12346693968c8c6b7c04b",
+    "private/generator.json": "25fb178fc3930f8a75f625ec87b71209832517917f89e9c1e6620d3819cc742f",
+    "private/reference.csv": "53b6c185afa1009047bc9c7cc934c51caf63866c03c3b16dd3a02ffb80732181",
+    "private/truth.json": "ac3f5f578725bdc2ed9658e47e5f96600723b7258ae2cd1ab1280452af046961",
+    "protocol.json": "d89e71861547297bfde35bb6779ec7fd7dc4f2c63e9c82a5eb7dcc78df62304d",
+    "report.md": "1f6b13ccaddd2ae8f827b92a29e1ebc8045f14088795b24f442e3276fe7983e5",
+    "safe/data.csv": "1700c002d5712cad3ea18c857ad707331541a1d2d992831466187b60a0d04fe0",
+    "safe/with-quarter.access.json": "7424f82469759fb283393a40fd290740402b0365cf00105b22e4eefeed44b729",
+    "safe/with-quarter.manifest.json": "1f1a70be4981f4e9b9acde9e1d3a1544256e55ca5a0d73dd66404a80160c5896",
+    "safe/with-quarter.result.json": "dd049a407f9517b300d820ce639eb8777e12975d2a2a43d59e6f4057ac367d44",
+    "safe/with-quarter.result.predictions.csv": "40d52eba3059193c506bdda52c24dfec77d1d82dc315096be6138c6b5480d36f",
+    "safe/without-quarter.access.json": "2bfcbd62063355f762b8c8e51755dd025fd39d0108ffbf5d82db529810bd421d",
+    "safe/without-quarter.manifest.json": "2f22e367f2e4393bcdef23beb11aea4b2050760f5996908897a2f28f2ccb6951",
+    "safe/without-quarter.result.json": "be9b10aab2fae4090a3e2a2a186a4fd7db3efd8bdb7eb4140ad38c9ee9049a3f",
+    "safe/without-quarter.result.predictions.csv": "c4b3a8d1b5905278229afb22e1313fa43432e8b6df309440ac8e73bc7435fba1"
+  },
+  "protocol_sha256": "d89e71861547297bfde35bb6779ec7fd7dc4f2c63e9c82a5eb7dcc78df62304d"
+}

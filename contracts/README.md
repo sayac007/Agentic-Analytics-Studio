@@ -2,7 +2,8 @@
 
 Breaking replacement for v0.1.0: **observed registrations are no longer estimator
 inputs/regressors**. See [Statistical decisions](../docs/STATISTICAL_CONTRACTS.md)
-and [Task 01 readiness](../docs/TASK_01_READINESS.md). No MMM or generator implementation.
+and [Task 01 readiness](../docs/TASK_01_READINESS.md). The Task 01a implementation now consumes these unchanged contracts; see
+[execution instructions](../docs/RUN_SYNTHETIC_MMM.md).
 
 | Schema | Boundary |
 |---|---|

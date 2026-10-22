@@ -10,16 +10,23 @@ permissions:
 jobs:
   contracts:
     runs-on: ubuntu-latest
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install validator
-        run: python3 -m pip install jsonschema==4.26.0
+      - name: Install pinned runtime
+        run: python3 -m pip install -r requirements.lock
       - name: Validate example manifest and CSV
         run: python3 contracts/validate.py
       - name: Validate separate generator contract
         run: python3 contracts/validate.py contracts/examples/generator.json --kind generator
-      - name: Run contract tests
+      - name: Run contract and numerical tests
         run: python3 -m unittest discover -s tests -v
+      - name: Deterministic Stage A end-to-end smoke test
+        run: python3 -m studio run --output artifacts/ci-smoke
+      - name: Verify smoke artifacts and predictions
+        run: python3 -m studio verify artifacts/ci-smoke

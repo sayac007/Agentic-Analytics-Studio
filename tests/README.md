@@ -1,19 +1,19 @@
-# Contract tests
+# Contract and numerical tests
 
-From repository root with Python 3.12 and `jsonschema==4.26.0`:
-`python3 -m unittest discover -s tests -v`.
+Install `requirements.lock` in Python 3.12, then run from repository root:
 
-The original safety/provenance assertions are migrated to v0.2.0's separate
-estimator/reference CSVs. All month/path/hash/Git-SHA patterns live in shared offline
-schema definitions and retain positive/negative traversal, whitespace, nonfinite,
-header, split, count and lineage tests. Generator-only count tests are not discarded.
+```sh
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python3 -m unittest discover -s tests -v
+```
 
-Statistical-contract checks reject reference/truth fields at estimator boundaries,
-prove manifest validation reads only estimator data, check a full private file graph,
-benchmark admission, break evidence, intervals/contributions, common grids, artifact
-binding, recovery/detection arithmetic and the prohibition on uncalibrated MDE flags.
-Temporary file graphs and coefficients are hand-authored shape tests, not generated
-DGP outputs or fitted models. `purpose=contract_fixture` prevents benchmark use.
+The original 49 contract tests retain their traversal/hash/provenance/CSV/split and
+statistical-boundary coverage. `test_synthetic_mmm.py` adds actual generation,
+numerical OLS/HAC checks, HypoForge values, history, failure handling, process
+isolation, hash-bound end-to-end verification and full-bundle deterministic repetition.
+The analytical HAC example is documented in `docs/RUN_SYNTHETIC_MMM.md`.
 
-CI executes the same suite and both committed interface examples. Actual remote
-status belongs to its exact Actions run; no model recovery/coverage claim follows.
+Legacy file graphs are labeled `contract_fixture` and never claimed as model outputs.
+The new pipeline tests use the actual `development_benchmark` protocol, without any
+assertion that beta recovery must be good. No real-data or Monte Carlo experiment is
+run. CI adds a separate Stage-A smoke generation/verification after the unittest suite.
+Actual remote CI results belong to the exact Actions run linked in the PR.
