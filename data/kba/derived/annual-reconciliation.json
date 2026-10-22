@@ -1,0 +1,3762 @@
+[
+  {
+    "cumulative_cell": "E15",
+    "december_cumulative": 5436,
+    "delta": 0,
+    "series": "brand:ALFA ROMEO",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 5436,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E14",
+    "december_cumulative": 4146,
+    "delta": 0,
+    "series": "brand:ALFA ROMEO",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 4146,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E13",
+    "december_cumulative": 3246,
+    "delta": 0,
+    "series": "brand:ALFA ROMEO",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 3246,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E14",
+    "december_cumulative": 2991,
+    "delta": 0,
+    "series": "brand:ALFA ROMEO",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 2991,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E14",
+    "december_cumulative": 3657,
+    "delta": 0,
+    "series": "brand:ALFA ROMEO",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 3657,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E18",
+    "december_cumulative": 6198,
+    "delta": 0,
+    "series": "brand:ALFA ROMEO",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 6198,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E17",
+    "december_cumulative": 6098,
+    "delta": 0,
+    "series": "brand:ALFA ROMEO",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 6098,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E15",
+    "december_cumulative": 7346,
+    "delta": 0,
+    "series": "brand:ALFA ROMEO",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 7346,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E16",
+    "december_cumulative": 324,
+    "delta": 0,
+    "series": "brand:ALPINE",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 324,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E15",
+    "december_cumulative": 166,
+    "delta": 0,
+    "series": "brand:ALPINE",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 166,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E16",
+    "december_cumulative": 303,
+    "delta": 0,
+    "series": "brand:ALPINE",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 303,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E20",
+    "december_cumulative": 405,
+    "delta": 0,
+    "series": "brand:ALPINE",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 405,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E20",
+    "december_cumulative": 447,
+    "delta": 0,
+    "series": "brand:ALPINE",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 447,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E20",
+    "december_cumulative": 1046,
+    "delta": 0,
+    "series": "brand:ALPINE",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 1046,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E21",
+    "december_cumulative": 367,
+    "delta": 0,
+    "series": "brand:ASTON MARTIN",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 367,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E21",
+    "december_cumulative": 364,
+    "delta": 0,
+    "series": "brand:ASTON MARTIN",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 364,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E24",
+    "december_cumulative": 463,
+    "delta": 0,
+    "series": "brand:ASTON MARTIN",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 463,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E24",
+    "december_cumulative": 250,
+    "delta": 0,
+    "series": "brand:ASTON MARTIN",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 250,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E37",
+    "december_cumulative": 255300,
+    "delta": 0,
+    "series": "brand:AUDI",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 255300,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E37",
+    "december_cumulative": 267195,
+    "delta": 0,
+    "series": "brand:AUDI",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 267195,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E36",
+    "december_cumulative": 213934,
+    "delta": 0,
+    "series": "brand:AUDI",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 213934,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E40",
+    "december_cumulative": 181877,
+    "delta": 0,
+    "series": "brand:AUDI",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 181877,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E40",
+    "december_cumulative": 213410,
+    "delta": 0,
+    "series": "brand:AUDI",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 213410,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E42",
+    "december_cumulative": 246880,
+    "delta": 0,
+    "series": "brand:AUDI",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 246880,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E43",
+    "december_cumulative": 202317,
+    "delta": 0,
+    "series": "brand:AUDI",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 202317,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E43",
+    "december_cumulative": 205862,
+    "delta": 0,
+    "series": "brand:AUDI",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 205862,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E41",
+    "december_cumulative": 821,
+    "delta": 0,
+    "series": "brand:BENTLEY",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 821,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E41",
+    "december_cumulative": 739,
+    "delta": 0,
+    "series": "brand:BENTLEY",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 739,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E40",
+    "december_cumulative": 681,
+    "delta": 0,
+    "series": "brand:BENTLEY",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 681,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E44",
+    "december_cumulative": 727,
+    "delta": 0,
+    "series": "brand:BENTLEY",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 727,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E44",
+    "december_cumulative": 914,
+    "delta": 0,
+    "series": "brand:BENTLEY",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 914,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E46",
+    "december_cumulative": 809,
+    "delta": 0,
+    "series": "brand:BENTLEY",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 809,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E47",
+    "december_cumulative": 635,
+    "delta": 0,
+    "series": "brand:BENTLEY",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 635,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E47",
+    "december_cumulative": 537,
+    "delta": 0,
+    "series": "brand:BENTLEY",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 537,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E64",
+    "december_cumulative": 265051,
+    "delta": 0,
+    "series": "brand:BMW",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 265051,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E63",
+    "december_cumulative": 279243,
+    "delta": 0,
+    "series": "brand:BMW",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 279243,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E61",
+    "december_cumulative": 240968,
+    "delta": 0,
+    "series": "brand:BMW",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 240968,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E66",
+    "december_cumulative": 222481,
+    "delta": 0,
+    "series": "brand:BMW",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 222481,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E64",
+    "december_cumulative": 209722,
+    "delta": 0,
+    "series": "brand:BMW",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 209722,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E66",
+    "december_cumulative": 233160,
+    "delta": 0,
+    "series": "brand:BMW",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 233160,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E66",
+    "december_cumulative": 232886,
+    "delta": 0,
+    "series": "brand:BMW",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 232886,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E67",
+    "december_cumulative": 253712,
+    "delta": 0,
+    "series": "brand:BMW",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 253712,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E71",
+    "december_cumulative": 4139,
+    "delta": 0,
+    "series": "brand:BYD",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 4139,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E74",
+    "december_cumulative": 2891,
+    "delta": 0,
+    "series": "brand:BYD",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 2891,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E77",
+    "december_cumulative": 23306,
+    "delta": 0,
+    "series": "brand:BYD",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 23306,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E71",
+    "december_cumulative": 590,
+    "delta": 0,
+    "series": "brand:CADILLAC",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 590,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E70",
+    "december_cumulative": 252,
+    "delta": 0,
+    "series": "brand:CADILLAC",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 252,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E67",
+    "december_cumulative": 331,
+    "delta": 0,
+    "series": "brand:CADILLAC",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 331,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E75",
+    "december_cumulative": 307,
+    "delta": 0,
+    "series": "brand:CADILLAC",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 307,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E78",
+    "december_cumulative": 175,
+    "delta": 0,
+    "series": "brand:CADILLAC",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 175,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E82",
+    "december_cumulative": 94,
+    "delta": 0,
+    "series": "brand:CADILLAC",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 94,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E74",
+    "december_cumulative": 1118,
+    "delta": 0,
+    "series": "brand:CHEVROLET",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 1118,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E85",
+    "december_cumulative": 55223,
+    "delta": 0,
+    "series": "brand:CITROEN",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 55223,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E82",
+    "december_cumulative": 58840,
+    "delta": 0,
+    "series": "brand:CITROEN",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 58840,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E75",
+    "december_cumulative": 48950,
+    "delta": 0,
+    "series": "brand:CITROEN",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 48950,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E80",
+    "december_cumulative": 42636,
+    "delta": 0,
+    "series": "brand:CITROEN",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 42636,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E76",
+    "december_cumulative": 36687,
+    "delta": 0,
+    "series": "brand:CITROEN",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 36687,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E83",
+    "december_cumulative": 39894,
+    "delta": 0,
+    "series": "brand:CITROEN",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 39894,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E86",
+    "december_cumulative": 53025,
+    "delta": 0,
+    "series": "brand:CITROEN",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 53025,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E94",
+    "december_cumulative": 48854,
+    "delta": 0,
+    "series": "brand:CITROEN",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 48854,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E92",
+    "december_cumulative": 71746,
+    "delta": 0,
+    "series": "brand:DACIA",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 71746,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E89",
+    "december_cumulative": 80035,
+    "delta": 0,
+    "series": "brand:DACIA",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 80035,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E84",
+    "december_cumulative": 50704,
+    "delta": 0,
+    "series": "brand:DACIA",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 50704,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E88",
+    "december_cumulative": 40338,
+    "delta": 0,
+    "series": "brand:DACIA",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 40338,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E83",
+    "december_cumulative": 60390,
+    "delta": 0,
+    "series": "brand:DACIA",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 60390,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E89",
+    "december_cumulative": 68585,
+    "delta": 0,
+    "series": "brand:DACIA",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 68585,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E93",
+    "december_cumulative": 71424,
+    "delta": 0,
+    "series": "brand:DACIA",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 71424,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E102",
+    "december_cumulative": 73644,
+    "delta": 0,
+    "series": "brand:DACIA",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 73644,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E97",
+    "december_cumulative": 3732,
+    "delta": 0,
+    "series": "brand:DS",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 3732,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E92",
+    "december_cumulative": 2846,
+    "delta": 0,
+    "series": "brand:DS",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 2846,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E87",
+    "december_cumulative": 2773,
+    "delta": 0,
+    "series": "brand:DS",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 2773,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E93",
+    "december_cumulative": 2069,
+    "delta": 0,
+    "series": "brand:DS",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 2069,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E88",
+    "december_cumulative": 3955,
+    "delta": 0,
+    "series": "brand:DS",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 3955,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E94",
+    "december_cumulative": 2390,
+    "delta": 0,
+    "series": "brand:DS",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 2390,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E98",
+    "december_cumulative": 3587,
+    "delta": 0,
+    "series": "brand:DS",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 3587,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E114",
+    "december_cumulative": 2781,
+    "delta": 0,
+    "series": "brand:DS",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 2781,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E102",
+    "december_cumulative": 978,
+    "delta": 0,
+    "series": "brand:FERRARI",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 978,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E96",
+    "december_cumulative": 987,
+    "delta": 0,
+    "series": "brand:FERRARI",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 987,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E94",
+    "december_cumulative": 1223,
+    "delta": 0,
+    "series": "brand:FERRARI",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 1223,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E101",
+    "december_cumulative": 1551,
+    "delta": 0,
+    "series": "brand:FERRARI",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 1551,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E95",
+    "december_cumulative": 1521,
+    "delta": 0,
+    "series": "brand:FERRARI",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 1521,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E102",
+    "december_cumulative": 1652,
+    "delta": 0,
+    "series": "brand:FERRARI",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 1652,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E105",
+    "december_cumulative": 1827,
+    "delta": 0,
+    "series": "brand:FERRARI",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 1827,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E124",
+    "december_cumulative": 1746,
+    "delta": 0,
+    "series": "brand:FERRARI",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 1746,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E112",
+    "december_cumulative": 81460,
+    "delta": 0,
+    "series": "brand:FIAT",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 81460,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E106",
+    "december_cumulative": 89005,
+    "delta": 0,
+    "series": "brand:FIAT",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 89005,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E101",
+    "december_cumulative": 89150,
+    "delta": 0,
+    "series": "brand:FIAT",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 89150,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E108",
+    "december_cumulative": 82783,
+    "delta": 0,
+    "series": "brand:FIAT",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 82783,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E103",
+    "december_cumulative": 77771,
+    "delta": 0,
+    "series": "brand:FIAT",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 77771,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E111",
+    "december_cumulative": 76535,
+    "delta": 0,
+    "series": "brand:FIAT",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 76535,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E114",
+    "december_cumulative": 57561,
+    "delta": 0,
+    "series": "brand:FIAT",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 57561,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E135",
+    "december_cumulative": 54243,
+    "delta": 0,
+    "series": "brand:FIAT",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 54243,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E130",
+    "december_cumulative": 252323,
+    "delta": 0,
+    "series": "brand:FORD",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 252323,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E124",
+    "december_cumulative": 279719,
+    "delta": 0,
+    "series": "brand:FORD",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 279719,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E119",
+    "december_cumulative": 194250,
+    "delta": 0,
+    "series": "brand:FORD",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 194250,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E125",
+    "december_cumulative": 126358,
+    "delta": 0,
+    "series": "brand:FORD",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 126358,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E119",
+    "december_cumulative": 131256,
+    "delta": 0,
+    "series": "brand:FORD",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 131256,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E130",
+    "december_cumulative": 116578,
+    "delta": 0,
+    "series": "brand:FORD",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 116578,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E133",
+    "december_cumulative": 99554,
+    "delta": 0,
+    "series": "brand:FORD",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 99554,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E153",
+    "december_cumulative": 108299,
+    "delta": 0,
+    "series": "brand:FORD",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 108299,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E139",
+    "december_cumulative": 3002,
+    "delta": 0,
+    "series": "brand:GWM",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 3002,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E158",
+    "december_cumulative": 2386,
+    "delta": 0,
+    "series": "brand:GWM",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 2386,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E136",
+    "december_cumulative": 18710,
+    "delta": 0,
+    "series": "brand:HONDA",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 18710,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E130",
+    "december_cumulative": 15676,
+    "delta": 0,
+    "series": "brand:HONDA",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 15676,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E132",
+    "december_cumulative": 7906,
+    "delta": 0,
+    "series": "brand:HONDA",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 7906,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E126",
+    "december_cumulative": 7709,
+    "delta": 0,
+    "series": "brand:HONDA",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 7709,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E144",
+    "december_cumulative": 6519,
+    "delta": 0,
+    "series": "brand:HONDA",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 6519,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E147",
+    "december_cumulative": 7063,
+    "delta": 0,
+    "series": "brand:HONDA",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 7063,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E166",
+    "december_cumulative": 7269,
+    "delta": 0,
+    "series": "brand:HONDA",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 7269,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E148",
+    "december_cumulative": 114878,
+    "delta": 0,
+    "series": "brand:HYUNDAI",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 114878,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E143",
+    "december_cumulative": 129508,
+    "delta": 0,
+    "series": "brand:HYUNDAI",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 129508,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E137",
+    "december_cumulative": 105051,
+    "delta": 0,
+    "series": "brand:HYUNDAI",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 105051,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E145",
+    "december_cumulative": 106620,
+    "delta": 0,
+    "series": "brand:HYUNDAI",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 106620,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E139",
+    "december_cumulative": 105074,
+    "delta": 0,
+    "series": "brand:HYUNDAI",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 105074,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E164",
+    "december_cumulative": 106381,
+    "delta": 0,
+    "series": "brand:HYUNDAI",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 106381,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E166",
+    "december_cumulative": 96365,
+    "delta": 0,
+    "series": "brand:HYUNDAI",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 96365,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E188",
+    "december_cumulative": 93839,
+    "delta": 0,
+    "series": "brand:HYUNDAI",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 93839,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E168",
+    "december_cumulative": 485,
+    "delta": 0,
+    "series": "brand:INEOS",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 485,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E191",
+    "december_cumulative": 481,
+    "delta": 0,
+    "series": "brand:INEOS",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 481,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E155",
+    "december_cumulative": 762,
+    "delta": 0,
+    "series": "brand:INFINITI",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 762,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E149",
+    "december_cumulative": 263,
+    "delta": 0,
+    "series": "brand:INFINITI",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 263,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E158",
+    "december_cumulative": 857,
+    "delta": 0,
+    "series": "brand:IVECO",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 857,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E152",
+    "december_cumulative": 967,
+    "delta": 0,
+    "series": "brand:IVECO",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 967,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E145",
+    "december_cumulative": 970,
+    "delta": 0,
+    "series": "brand:IVECO",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 970,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E149",
+    "december_cumulative": 930,
+    "delta": 0,
+    "series": "brand:IVECO",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 930,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E142",
+    "december_cumulative": 880,
+    "delta": 0,
+    "series": "brand:IVECO",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 880,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E170",
+    "december_cumulative": 860,
+    "delta": 0,
+    "series": "brand:IVECO",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 860,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E171",
+    "december_cumulative": 1005,
+    "delta": 0,
+    "series": "brand:IVECO",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 1005,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E196",
+    "december_cumulative": 873,
+    "delta": 0,
+    "series": "brand:IVECO",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 873,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E166",
+    "december_cumulative": 9500,
+    "delta": 0,
+    "series": "brand:JAGUAR",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 9500,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E161",
+    "december_cumulative": 8703,
+    "delta": 0,
+    "series": "brand:JAGUAR",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 8703,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E153",
+    "december_cumulative": 6993,
+    "delta": 0,
+    "series": "brand:JAGUAR",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 6993,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E157",
+    "december_cumulative": 4267,
+    "delta": 0,
+    "series": "brand:JAGUAR",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 4267,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E150",
+    "december_cumulative": 3200,
+    "delta": 0,
+    "series": "brand:JAGUAR",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 3200,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E178",
+    "december_cumulative": 3198,
+    "delta": 0,
+    "series": "brand:JAGUAR",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 3198,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E178",
+    "december_cumulative": 2101,
+    "delta": 0,
+    "series": "brand:JAGUAR",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 2101,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E173",
+    "december_cumulative": 17121,
+    "delta": 0,
+    "series": "brand:JEEP",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 17121,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E167",
+    "december_cumulative": 16563,
+    "delta": 0,
+    "series": "brand:JEEP",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 16563,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E159",
+    "december_cumulative": 15687,
+    "delta": 0,
+    "series": "brand:JEEP",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 15687,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E163",
+    "december_cumulative": 13503,
+    "delta": 0,
+    "series": "brand:JEEP",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 13503,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E155",
+    "december_cumulative": 17184,
+    "delta": 0,
+    "series": "brand:JEEP",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 17184,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E184",
+    "december_cumulative": 15276,
+    "delta": 0,
+    "series": "brand:JEEP",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 15276,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E185",
+    "december_cumulative": 11972,
+    "delta": 0,
+    "series": "brand:JEEP",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 11972,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E210",
+    "december_cumulative": 12039,
+    "delta": 0,
+    "series": "brand:JEEP",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 12039,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E187",
+    "december_cumulative": 65797,
+    "delta": 0,
+    "series": "brand:KIA",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 65797,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E181",
+    "december_cumulative": 69608,
+    "delta": 0,
+    "series": "brand:KIA",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 69608,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E171",
+    "december_cumulative": 64296,
+    "delta": 0,
+    "series": "brand:KIA",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 64296,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E176",
+    "december_cumulative": 65839,
+    "delta": 0,
+    "series": "brand:KIA",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 65839,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E167",
+    "december_cumulative": 76139,
+    "delta": 0,
+    "series": "brand:KIA",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 76139,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E197",
+    "december_cumulative": 74589,
+    "delta": 0,
+    "series": "brand:KIA",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 74589,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E199",
+    "december_cumulative": 68656,
+    "delta": 0,
+    "series": "brand:KIA",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 68656,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E235",
+    "december_cumulative": 60391,
+    "delta": 0,
+    "series": "brand:KIA",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 60391,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E192",
+    "december_cumulative": 2545,
+    "delta": 0,
+    "series": "brand:LADA",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 2545,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E186",
+    "december_cumulative": 2306,
+    "delta": 0,
+    "series": "brand:LADA",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 2306,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E175",
+    "december_cumulative": 1792,
+    "delta": 0,
+    "series": "brand:LADA",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 1792,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E179",
+    "december_cumulative": 1632,
+    "delta": 0,
+    "series": "brand:LADA",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 1632,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E170",
+    "december_cumulative": 755,
+    "delta": 0,
+    "series": "brand:LADA",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 755,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E195",
+    "december_cumulative": 468,
+    "delta": 0,
+    "series": "brand:LAMBORGHINI",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 468,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E189",
+    "december_cumulative": 671,
+    "delta": 0,
+    "series": "brand:LAMBORGHINI",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 671,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E178",
+    "december_cumulative": 729,
+    "delta": 0,
+    "series": "brand:LAMBORGHINI",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 729,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E173",
+    "december_cumulative": 962,
+    "delta": 0,
+    "series": "brand:LAMBORGHINI",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 962,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E203",
+    "december_cumulative": 949,
+    "delta": 0,
+    "series": "brand:LAMBORGHINI",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 949,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E205",
+    "december_cumulative": 1114,
+    "delta": 0,
+    "series": "brand:LAMBORGHINI",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 1114,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E240",
+    "december_cumulative": 1153,
+    "delta": 0,
+    "series": "brand:LAMBORGHINI",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 1153,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E202",
+    "december_cumulative": 18141,
+    "delta": 0,
+    "series": "brand:LAND ROVER",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 18141,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E197",
+    "december_cumulative": 17348,
+    "delta": 0,
+    "series": "brand:LAND ROVER",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 17348,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E187",
+    "december_cumulative": 12984,
+    "delta": 0,
+    "series": "brand:LAND ROVER",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 12984,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E190",
+    "december_cumulative": 11657,
+    "delta": 0,
+    "series": "brand:LAND ROVER",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 11657,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E182",
+    "december_cumulative": 12148,
+    "delta": 0,
+    "series": "brand:LAND ROVER",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 12148,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E212",
+    "december_cumulative": 13779,
+    "delta": 0,
+    "series": "brand:LAND ROVER",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 13779,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E214",
+    "december_cumulative": 12169,
+    "delta": 0,
+    "series": "brand:LAND ROVER",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 12169,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E251",
+    "december_cumulative": 13061,
+    "delta": 0,
+    "series": "brand:LAND ROVER",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 13061,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E256",
+    "december_cumulative": 7280,
+    "delta": 0,
+    "series": "brand:LEAPMOTOR",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 7280,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E212",
+    "december_cumulative": 2766,
+    "delta": 0,
+    "series": "brand:LEXUS",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 2766,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E208",
+    "december_cumulative": 3587,
+    "delta": 0,
+    "series": "brand:LEXUS",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 3587,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E197",
+    "december_cumulative": 3530,
+    "delta": 0,
+    "series": "brand:LEXUS",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 3530,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E200",
+    "december_cumulative": 3116,
+    "delta": 0,
+    "series": "brand:LEXUS",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 3116,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E190",
+    "december_cumulative": 2746,
+    "delta": 0,
+    "series": "brand:LEXUS",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 2746,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E220",
+    "december_cumulative": 3259,
+    "delta": 0,
+    "series": "brand:LEXUS",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 3259,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E227",
+    "december_cumulative": 5712,
+    "delta": 0,
+    "series": "brand:LEXUS",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 5712,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E267",
+    "december_cumulative": 4661,
+    "delta": 0,
+    "series": "brand:LEXUS",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 4661,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E232",
+    "december_cumulative": 365,
+    "delta": 0,
+    "series": "brand:LOTUS",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 365,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E272",
+    "december_cumulative": 339,
+    "delta": 0,
+    "series": "brand:LOTUS",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 339,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E275",
+    "december_cumulative": 183,
+    "delta": 0,
+    "series": "brand:LUCID",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 183,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E194",
+    "december_cumulative": 6626,
+    "delta": 0,
+    "series": "brand:LYNK & CO",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 6626,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E229",
+    "december_cumulative": 2291,
+    "delta": 0,
+    "series": "brand:LYNK & CO",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 2291,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E279",
+    "december_cumulative": 703,
+    "delta": 0,
+    "series": "brand:LYNK & CO",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 703,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E203",
+    "december_cumulative": 370,
+    "delta": 0,
+    "series": "brand:MAN",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 370,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E207",
+    "december_cumulative": 808,
+    "delta": 0,
+    "series": "brand:MAN",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 808,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E197",
+    "december_cumulative": 1497,
+    "delta": 0,
+    "series": "brand:MAN",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 1497,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E232",
+    "december_cumulative": 1888,
+    "delta": 0,
+    "series": "brand:MAN",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 1888,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E240",
+    "december_cumulative": 1376,
+    "delta": 0,
+    "series": "brand:MAN",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 1376,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E286",
+    "december_cumulative": 1489,
+    "delta": 0,
+    "series": "brand:MAN",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 1489,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E221",
+    "december_cumulative": 1536,
+    "delta": 0,
+    "series": "brand:MASERATI",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 1536,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E217",
+    "december_cumulative": 939,
+    "delta": 0,
+    "series": "brand:MASERATI",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 939,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E209",
+    "december_cumulative": 633,
+    "delta": 0,
+    "series": "brand:MASERATI",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 633,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E212",
+    "december_cumulative": 716,
+    "delta": 0,
+    "series": "brand:MASERATI",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 716,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E202",
+    "december_cumulative": 1148,
+    "delta": 0,
+    "series": "brand:MASERATI",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 1148,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E238",
+    "december_cumulative": 1047,
+    "delta": 0,
+    "series": "brand:MASERATI",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 1047,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E246",
+    "december_cumulative": 541,
+    "delta": 0,
+    "series": "brand:MASERATI",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 541,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E293",
+    "december_cumulative": 635,
+    "delta": 0,
+    "series": "brand:MASERATI",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 635,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E297",
+    "december_cumulative": 95,
+    "delta": 0,
+    "series": "brand:MAXUS",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 95,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E229",
+    "december_cumulative": 67387,
+    "delta": 0,
+    "series": "brand:MAZDA",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 67387,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E226",
+    "december_cumulative": 71630,
+    "delta": 0,
+    "series": "brand:MAZDA",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 71630,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E222",
+    "december_cumulative": 38107,
+    "delta": 0,
+    "series": "brand:MAZDA",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 38107,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E213",
+    "december_cumulative": 35008,
+    "delta": 0,
+    "series": "brand:MAZDA",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 35008,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E251",
+    "december_cumulative": 46413,
+    "delta": 0,
+    "series": "brand:MAZDA",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 46413,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E260",
+    "december_cumulative": 45274,
+    "delta": 0,
+    "series": "brand:MAZDA",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 45274,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E308",
+    "december_cumulative": 40724,
+    "delta": 0,
+    "series": "brand:MAZDA",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 40724,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E251",
+    "december_cumulative": 319163,
+    "delta": 0,
+    "series": "brand:MERCEDES",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 319163,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E249",
+    "december_cumulative": 339185,
+    "delta": 0,
+    "series": "brand:MERCEDES",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 339185,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E242",
+    "december_cumulative": 303185,
+    "delta": 0,
+    "series": "brand:MERCEDES",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 303185,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E243",
+    "december_cumulative": 225392,
+    "delta": 0,
+    "series": "brand:MERCEDES",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 225392,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E235",
+    "december_cumulative": 243999,
+    "delta": 0,
+    "series": "brand:MERCEDES",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 243999,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E274",
+    "december_cumulative": 277352,
+    "delta": 0,
+    "series": "brand:MERCEDES",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 277352,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E283",
+    "december_cumulative": 257888,
+    "delta": 0,
+    "series": "brand:MERCEDES",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 257888,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E337",
+    "december_cumulative": 260415,
+    "delta": 0,
+    "series": "brand:MERCEDES",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 260415,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E241",
+    "december_cumulative": 15684,
+    "delta": 0,
+    "series": "brand:MG ROEWE",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 15684,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E281",
+    "december_cumulative": 21232,
+    "delta": 0,
+    "series": "brand:MG ROEWE",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 21232,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E291",
+    "december_cumulative": 20977,
+    "delta": 0,
+    "series": "brand:MG ROEWE",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 20977,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E347",
+    "december_cumulative": 26479,
+    "delta": 0,
+    "series": "brand:MG ROEWE",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 26479,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E253",
+    "december_cumulative": 50494,
+    "delta": 0,
+    "series": "brand:MINI",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 50494,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E251",
+    "december_cumulative": 50019,
+    "delta": 0,
+    "series": "brand:MINI",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 50019,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E244",
+    "december_cumulative": 44152,
+    "delta": 0,
+    "series": "brand:MINI",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 44152,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E249",
+    "december_cumulative": 42938,
+    "delta": 0,
+    "series": "brand:MINI",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 42938,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E243",
+    "december_cumulative": 40142,
+    "delta": 0,
+    "series": "brand:MINI",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 40142,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E283",
+    "december_cumulative": 45938,
+    "delta": 0,
+    "series": "brand:MINI",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 45938,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E293",
+    "december_cumulative": 32571,
+    "delta": 0,
+    "series": "brand:MINI",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 32571,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E349",
+    "december_cumulative": 34647,
+    "delta": 0,
+    "series": "brand:MINI",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 34647,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E261",
+    "december_cumulative": 50803,
+    "delta": 0,
+    "series": "brand:MITSUBISHI",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 50803,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E257",
+    "december_cumulative": 52148,
+    "delta": 0,
+    "series": "brand:MITSUBISHI",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 52148,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E250",
+    "december_cumulative": 44985,
+    "delta": 0,
+    "series": "brand:MITSUBISHI",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 44985,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E255",
+    "december_cumulative": 36939,
+    "delta": 0,
+    "series": "brand:MITSUBISHI",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 36939,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E247",
+    "december_cumulative": 34430,
+    "delta": 0,
+    "series": "brand:MITSUBISHI",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 34430,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E289",
+    "december_cumulative": 19020,
+    "delta": 0,
+    "series": "brand:MITSUBISHI",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 19020,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E299",
+    "december_cumulative": 28679,
+    "delta": 0,
+    "series": "brand:MITSUBISHI",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 28679,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E357",
+    "december_cumulative": 20361,
+    "delta": 0,
+    "series": "brand:MITSUBISHI",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 20361,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E359",
+    "december_cumulative": 57,
+    "delta": 0,
+    "series": "brand:MORGAN",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 57,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E307",
+    "december_cumulative": 398,
+    "delta": 0,
+    "series": "brand:NIO",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 398,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E367",
+    "december_cumulative": 325,
+    "delta": 0,
+    "series": "brand:NIO",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 325,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E277",
+    "december_cumulative": 50366,
+    "delta": 0,
+    "series": "brand:NISSAN",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 50366,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E271",
+    "december_cumulative": 39500,
+    "delta": 0,
+    "series": "brand:NISSAN",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 39500,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E264",
+    "december_cumulative": 34765,
+    "delta": 0,
+    "series": "brand:NISSAN",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 34765,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E266",
+    "december_cumulative": 26254,
+    "delta": 0,
+    "series": "brand:NISSAN",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 26254,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E260",
+    "december_cumulative": 26069,
+    "delta": 0,
+    "series": "brand:NISSAN",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 26069,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E306",
+    "december_cumulative": 31856,
+    "delta": 0,
+    "series": "brand:NISSAN",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 31856,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E316",
+    "december_cumulative": 29529,
+    "delta": 0,
+    "series": "brand:NISSAN",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 29529,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E376",
+    "december_cumulative": 31112,
+    "delta": 0,
+    "series": "brand:NISSAN",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 31112,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E293",
+    "december_cumulative": 227967,
+    "delta": 0,
+    "series": "brand:OPEL",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 227967,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E288",
+    "december_cumulative": 215864,
+    "delta": 0,
+    "series": "brand:OPEL",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 215864,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E276",
+    "december_cumulative": 146219,
+    "delta": 0,
+    "series": "brand:OPEL",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 146219,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E278",
+    "december_cumulative": 161852,
+    "delta": 0,
+    "series": "brand:OPEL",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 161852,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E270",
+    "december_cumulative": 144588,
+    "delta": 0,
+    "series": "brand:OPEL",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 144588,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E318",
+    "december_cumulative": 144901,
+    "delta": 0,
+    "series": "brand:OPEL",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 144901,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E328",
+    "december_cumulative": 147833,
+    "delta": 0,
+    "series": "brand:OPEL",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 147833,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E392",
+    "december_cumulative": 136189,
+    "delta": 0,
+    "series": "brand:OPEL",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 136189,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E307",
+    "december_cumulative": 68237,
+    "delta": 0,
+    "series": "brand:PEUGEOT",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 68237,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E301",
+    "december_cumulative": 72709,
+    "delta": 0,
+    "series": "brand:PEUGEOT",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 72709,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E289",
+    "december_cumulative": 55401,
+    "delta": 0,
+    "series": "brand:PEUGEOT",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 55401,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E290",
+    "december_cumulative": 52660,
+    "delta": 0,
+    "series": "brand:PEUGEOT",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 52660,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E282",
+    "december_cumulative": 45220,
+    "delta": 0,
+    "series": "brand:PEUGEOT",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 45220,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E329",
+    "december_cumulative": 46836,
+    "delta": 0,
+    "series": "brand:PEUGEOT",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 46836,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E339",
+    "december_cumulative": 67454,
+    "delta": 0,
+    "series": "brand:PEUGEOT",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 67454,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E403",
+    "december_cumulative": 57613,
+    "delta": 0,
+    "series": "brand:PEUGEOT",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 57613,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E293",
+    "december_cumulative": 2631,
+    "delta": 0,
+    "series": "brand:POLESTAR",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 2631,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E285",
+    "december_cumulative": 7008,
+    "delta": 0,
+    "series": "brand:POLESTAR",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 7008,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E331",
+    "december_cumulative": 6288,
+    "delta": 0,
+    "series": "brand:POLESTAR",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 6288,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E344",
+    "december_cumulative": 3181,
+    "delta": 0,
+    "series": "brand:POLESTAR",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 3181,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E408",
+    "december_cumulative": 5007,
+    "delta": 0,
+    "series": "brand:POLESTAR",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 5007,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E315",
+    "december_cumulative": 28695,
+    "delta": 0,
+    "series": "brand:PORSCHE",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 28695,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E310",
+    "december_cumulative": 31433,
+    "delta": 0,
+    "series": "brand:PORSCHE",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 31433,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E301",
+    "december_cumulative": 26319,
+    "delta": 0,
+    "series": "brand:PORSCHE",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 26319,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E302",
+    "december_cumulative": 28925,
+    "delta": 0,
+    "series": "brand:PORSCHE",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 28925,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E294",
+    "december_cumulative": 29315,
+    "delta": 0,
+    "series": "brand:PORSCHE",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 29315,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E340",
+    "december_cumulative": 32832,
+    "delta": 0,
+    "series": "brand:PORSCHE",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 32832,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E353",
+    "december_cumulative": 36097,
+    "delta": 0,
+    "series": "brand:PORSCHE",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 36097,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E417",
+    "december_cumulative": 29692,
+    "delta": 0,
+    "series": "brand:PORSCHE",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 29692,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E330",
+    "december_cumulative": 130825,
+    "delta": 0,
+    "series": "brand:RENAULT",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 130825,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E325",
+    "december_cumulative": 131138,
+    "delta": 0,
+    "series": "brand:RENAULT",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 131138,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E316",
+    "december_cumulative": 125318,
+    "delta": 0,
+    "series": "brand:RENAULT",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 125318,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E318",
+    "december_cumulative": 105944,
+    "delta": 0,
+    "series": "brand:RENAULT",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 105944,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E311",
+    "december_cumulative": 79861,
+    "delta": 0,
+    "series": "brand:RENAULT",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 79861,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E355",
+    "december_cumulative": 68312,
+    "delta": 0,
+    "series": "brand:RENAULT",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 68312,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E371",
+    "december_cumulative": 54349,
+    "delta": 0,
+    "series": "brand:RENAULT",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 54349,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E437",
+    "december_cumulative": 59446,
+    "delta": 0,
+    "series": "brand:RENAULT",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 59446,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E328",
+    "december_cumulative": 229,
+    "delta": 0,
+    "series": "brand:ROLLS ROYCE",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 229,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E319",
+    "december_cumulative": 152,
+    "delta": 0,
+    "series": "brand:ROLLS ROYCE",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 152,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E359",
+    "december_cumulative": 344,
+    "delta": 0,
+    "series": "brand:ROLLS ROYCE",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 344,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E375",
+    "december_cumulative": 360,
+    "delta": 0,
+    "series": "brand:ROLLS ROYCE",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 360,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E441",
+    "december_cumulative": 346,
+    "delta": 0,
+    "series": "brand:ROLLS ROYCE",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 346,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E345",
+    "december_cumulative": 121724,
+    "delta": 0,
+    "series": "brand:SEAT",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 121724,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E338",
+    "december_cumulative": 138670,
+    "delta": 0,
+    "series": "brand:SEAT",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 138670,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E328",
+    "december_cumulative": 114564,
+    "delta": 0,
+    "series": "brand:SEAT",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 114564,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E332",
+    "december_cumulative": 108726,
+    "delta": 0,
+    "series": "brand:SEAT",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 108726,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E325",
+    "december_cumulative": 111646,
+    "delta": 0,
+    "series": "brand:SEAT",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 111646,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E369",
+    "december_cumulative": 132624,
+    "delta": 0,
+    "series": "brand:SEAT",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 132624,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E386",
+    "december_cumulative": 152334,
+    "delta": 0,
+    "series": "brand:SEAT",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 152334,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E453",
+    "december_cumulative": 162566,
+    "delta": 0,
+    "series": "brand:SEAT",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 162566,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E355",
+    "december_cumulative": 196968,
+    "delta": 0,
+    "series": "brand:SKODA",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 196968,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E349",
+    "december_cumulative": 208171,
+    "delta": 0,
+    "series": "brand:SKODA",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 208171,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E338",
+    "december_cumulative": 181198,
+    "delta": 0,
+    "series": "brand:SKODA",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 181198,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E343",
+    "december_cumulative": 149838,
+    "delta": 0,
+    "series": "brand:SKODA",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 149838,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E335",
+    "december_cumulative": 143928,
+    "delta": 0,
+    "series": "brand:SKODA",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 143928,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E379",
+    "december_cumulative": 168561,
+    "delta": 0,
+    "series": "brand:SKODA",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 168561,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E397",
+    "december_cumulative": 205593,
+    "delta": 0,
+    "series": "brand:SKODA",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 205593,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E464",
+    "december_cumulative": 226472,
+    "delta": 0,
+    "series": "brand:SKODA",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 226472,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E359",
+    "december_cumulative": 41094,
+    "delta": 0,
+    "series": "brand:SMART",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 41094,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E352",
+    "december_cumulative": 49138,
+    "delta": 0,
+    "series": "brand:SMART",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 49138,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E341",
+    "december_cumulative": 16051,
+    "delta": 0,
+    "series": "brand:SMART",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 16051,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E346",
+    "december_cumulative": 24023,
+    "delta": 0,
+    "series": "brand:SMART",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 24023,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E339",
+    "december_cumulative": 12190,
+    "delta": 0,
+    "series": "brand:SMART",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 12190,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E385",
+    "december_cumulative": 17418,
+    "delta": 0,
+    "series": "brand:SMART",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 17418,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E402",
+    "december_cumulative": 12463,
+    "delta": 0,
+    "series": "brand:SMART",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 12463,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E470",
+    "december_cumulative": 4726,
+    "delta": 0,
+    "series": "brand:SMART",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 4726,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E365",
+    "december_cumulative": 2436,
+    "delta": 0,
+    "series": "brand:SSANGYONG",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 2436,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E357",
+    "december_cumulative": 2870,
+    "delta": 0,
+    "series": "brand:SSANGYONG",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 2870,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E346",
+    "december_cumulative": 1715,
+    "delta": 0,
+    "series": "brand:SSANGYONG",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 1715,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E350",
+    "december_cumulative": 1546,
+    "delta": 0,
+    "series": "brand:SSANGYONG",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 1546,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E344",
+    "december_cumulative": 1882,
+    "delta": 0,
+    "series": "brand:SSANGYONG",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 1882,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E390",
+    "december_cumulative": 2223,
+    "delta": 0,
+    "series": "brand:SSANGYONG",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 2223,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E408",
+    "december_cumulative": 2186,
+    "delta": 0,
+    "series": "brand:SSANGYONG",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 2186,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E373",
+    "december_cumulative": 7285,
+    "delta": 0,
+    "series": "brand:SUBARU",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 7285,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E366",
+    "december_cumulative": 5868,
+    "delta": 0,
+    "series": "brand:SUBARU",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 5868,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E354",
+    "december_cumulative": 5407,
+    "delta": 0,
+    "series": "brand:SUBARU",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 5407,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E357",
+    "december_cumulative": 4671,
+    "delta": 0,
+    "series": "brand:SUBARU",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 4671,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E351",
+    "december_cumulative": 3725,
+    "delta": 0,
+    "series": "brand:SUBARU",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 3725,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E398",
+    "december_cumulative": 4596,
+    "delta": 0,
+    "series": "brand:SUBARU",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 4596,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E416",
+    "december_cumulative": 4510,
+    "delta": 0,
+    "series": "brand:SUBARU",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 4510,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E479",
+    "december_cumulative": 3978,
+    "delta": 0,
+    "series": "brand:SUBARU",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 3978,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E382",
+    "december_cumulative": 37530,
+    "delta": 0,
+    "series": "brand:SUZUKI",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 37530,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E375",
+    "december_cumulative": 40616,
+    "delta": 0,
+    "series": "brand:SUZUKI",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 40616,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E363",
+    "december_cumulative": 22415,
+    "delta": 0,
+    "series": "brand:SUZUKI",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 22415,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E365",
+    "december_cumulative": 27366,
+    "delta": 0,
+    "series": "brand:SUZUKI",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 27366,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E360",
+    "december_cumulative": 15583,
+    "delta": 0,
+    "series": "brand:SUZUKI",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 15583,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E407",
+    "december_cumulative": 25121,
+    "delta": 0,
+    "series": "brand:SUZUKI",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 25121,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E425",
+    "december_cumulative": 25566,
+    "delta": 0,
+    "series": "brand:SUZUKI",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 25566,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E488",
+    "december_cumulative": 22369,
+    "delta": 0,
+    "series": "brand:SUZUKI",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 22369,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E386",
+    "december_cumulative": 1905,
+    "delta": 0,
+    "series": "brand:TESLA",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 1905,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E380",
+    "december_cumulative": 10711,
+    "delta": 0,
+    "series": "brand:TESLA",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 10711,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E368",
+    "december_cumulative": 16694,
+    "delta": 0,
+    "series": "brand:TESLA",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 16694,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E371",
+    "december_cumulative": 39714,
+    "delta": 0,
+    "series": "brand:TESLA",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 39714,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E365",
+    "december_cumulative": 69963,
+    "delta": 0,
+    "series": "brand:TESLA",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 69963,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E413",
+    "december_cumulative": 63685,
+    "delta": 0,
+    "series": "brand:TESLA",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 63685,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E430",
+    "december_cumulative": 37574,
+    "delta": 0,
+    "series": "brand:TESLA",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 37574,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E494",
+    "december_cumulative": 19390,
+    "delta": 0,
+    "series": "brand:TESLA",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 19390,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E400",
+    "december_cumulative": 83930,
+    "delta": 0,
+    "series": "brand:TOYOTA",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 83930,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E395",
+    "december_cumulative": 84498,
+    "delta": 0,
+    "series": "brand:TOYOTA",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 84498,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E382",
+    "december_cumulative": 77176,
+    "delta": 0,
+    "series": "brand:TOYOTA",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 77176,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E387",
+    "december_cumulative": 71890,
+    "delta": 0,
+    "series": "brand:TOYOTA",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 71890,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E381",
+    "december_cumulative": 78366,
+    "delta": 0,
+    "series": "brand:TOYOTA",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 78366,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E429",
+    "december_cumulative": 75199,
+    "delta": 0,
+    "series": "brand:TOYOTA",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 75199,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E446",
+    "december_cumulative": 95474,
+    "delta": 0,
+    "series": "brand:TOYOTA",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 95474,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E516",
+    "december_cumulative": 87578,
+    "delta": 0,
+    "series": "brand:TOYOTA",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 87578,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E519",
+    "december_cumulative": 284,
+    "delta": 0,
+    "series": "brand:VINFAST",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 284,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E408",
+    "december_cumulative": 45405,
+    "delta": 0,
+    "series": "brand:VOLVO",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 45405,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E403",
+    "december_cumulative": 53357,
+    "delta": 0,
+    "series": "brand:VOLVO",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 53357,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E390",
+    "december_cumulative": 47194,
+    "delta": 0,
+    "series": "brand:VOLVO",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 47194,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E395",
+    "december_cumulative": 43616,
+    "delta": 0,
+    "series": "brand:VOLVO",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 43616,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E389",
+    "december_cumulative": 36605,
+    "delta": 0,
+    "series": "brand:VOLVO",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 36605,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E438",
+    "december_cumulative": 44739,
+    "delta": 0,
+    "series": "brand:VOLVO",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 44739,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E460",
+    "december_cumulative": 62326,
+    "delta": 0,
+    "series": "brand:VOLVO",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 62326,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E532",
+    "december_cumulative": 59380,
+    "delta": 0,
+    "series": "brand:VOLVO",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 59380,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E425",
+    "december_cumulative": 643518,
+    "delta": 0,
+    "series": "brand:VW",
+    "source": "fz10-2018-12",
+    "status": "consistent",
+    "sum_of_monthly": 643518,
+    "year": "2018"
+  },
+  {
+    "cumulative_cell": "E420",
+    "december_cumulative": 667518,
+    "delta": 0,
+    "series": "brand:VW",
+    "source": "fz10-2019-12",
+    "status": "consistent",
+    "sum_of_monthly": 667518,
+    "year": "2019"
+  },
+  {
+    "cumulative_cell": "E408",
+    "december_cumulative": 525612,
+    "delta": 0,
+    "series": "brand:VW",
+    "source": "fz10-2020-12",
+    "status": "consistent",
+    "sum_of_monthly": 525612,
+    "year": "2020"
+  },
+  {
+    "cumulative_cell": "E414",
+    "december_cumulative": 489962,
+    "delta": 0,
+    "series": "brand:VW",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 489962,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "E409",
+    "december_cumulative": 480967,
+    "delta": 0,
+    "series": "brand:VW",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 480967,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "E459",
+    "december_cumulative": 519089,
+    "delta": 0,
+    "series": "brand:VW",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 519089,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "E481",
+    "december_cumulative": 536888,
+    "delta": 0,
+    "series": "brand:VW",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 536888,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "E553",
+    "december_cumulative": 560796,
+    "delta": 0,
+    "series": "brand:VW",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 560796,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "E557",
+    "december_cumulative": 2991,
+    "delta": 0,
+    "series": "brand:XPENG",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 2991,
+    "year": "2025"
+  },
+  {
+    "cumulative_cell": "AL416",
+    "december_cumulative": 355961,
+    "delta": 0,
+    "series": "market:BEV",
+    "source": "fz10-2021-12",
+    "status": "consistent",
+    "sum_of_monthly": 355961,
+    "year": "2021"
+  },
+  {
+    "cumulative_cell": "AL411",
+    "december_cumulative": 470559,
+    "delta": 0,
+    "series": "market:BEV",
+    "source": "fz10-2022-12",
+    "status": "consistent",
+    "sum_of_monthly": 470559,
+    "year": "2022"
+  },
+  {
+    "cumulative_cell": "AL461",
+    "december_cumulative": 524219,
+    "delta": 0,
+    "series": "market:BEV",
+    "source": "fz10-2023-12",
+    "status": "consistent",
+    "sum_of_monthly": 524219,
+    "year": "2023"
+  },
+  {
+    "cumulative_cell": "AL488",
+    "december_cumulative": 380609,
+    "delta": 0,
+    "series": "market:BEV",
+    "source": "fz10-2024-12",
+    "status": "consistent",
+    "sum_of_monthly": 380609,
+    "year": "2024"
+  },
+  {
+    "cumulative_cell": "AL563",
+    "december_cumulative": 545142,
+    "delta": 0,
+    "series": "market:BEV",
+    "source": "fz10-2025-12",
+    "status": "consistent",
+    "sum_of_monthly": 545142,
+    "year": "2025"
+  }
+]

@@ -1,0 +1,253 @@
+{
+  "access_date": "2026-10-22",
+  "catalog_scope": "table_only_test_fixtures",
+  "catalog_version": "1.0.0",
+  "license_evidence": {
+    "file": "kba-license.pdf",
+    "scope": "Publicly supplied KBA data/statistics, including legacy workbooks without an embedded license",
+    "sha256": "7d2235cbbf83fe3107dcd678e39831abd60f22212c0587ec3989f99aa8cdbabe",
+    "url": "https://www.kba.de/DE/Service/Hinweise/Datenlizenz/datenlizenz_pdf.pdf?__blob=publicationFile&v=6"
+  },
+  "publisher": "Kraftfahrt-Bundesamt, Flensburg",
+  "sources": [
+    {
+      "bytes": 157696,
+      "exclusions": [],
+      "file": "2018-01.xls",
+      "id": "fz10-2018-01",
+      "license_cell": null,
+      "license_identifier": "dl-de/by-2-0",
+      "license_url": "https://www.govdata.de/dl-de/by-2-0",
+      "parser_profile": "fz10-xls-2018-v1",
+      "period": "2018-01",
+      "publication": {
+        "precision": "unknown",
+        "raw": null,
+        "value": null
+      },
+      "redistribution_allowed": true,
+      "retrieved_on": "2026-10-22",
+      "revision": null,
+      "revision_history": "not_verified",
+      "rights_verified": true,
+      "sha256": "18314846316838f4bbbcd77e7c4abf2680a2b40bb3c8af70fcdd0deab6bc12b6",
+      "sheet": "Pkw-NZL Marken, Modellreihen",
+      "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_01_xls.xls?__blob=publicationFile&v=2",
+      "version": "URL v=2; SHA-256 identifies retrieved bytes"
+    },
+    {
+      "bytes": 90449,
+      "exclusions": [],
+      "file": "2020-01.xlsx",
+      "fixture_transformation": "Cover media/drawings removed; table cells unchanged; not original download",
+      "id": "fz10-2020-01",
+      "license_cell": "C28",
+      "license_identifier": "dl-de/by-2-0",
+      "license_url": "https://www.govdata.de/dl-de/by-2-0",
+      "original_source_sha256": "38fb2fb2409b49d14d13f9f19cfcfc025716df8e72df61701c807518d6368989",
+      "parser_profile": "fz10-xlsx-legacy-v1",
+      "period": "2020-01",
+      "publication": {
+        "precision": "day",
+        "raw": "7. Februar 2020",
+        "value": "2020-02-07"
+      },
+      "redistribution_allowed": true,
+      "retrieved_on": "2026-10-22",
+      "revision": null,
+      "revision_history": "not_verified",
+      "rights_verified": true,
+      "sha256": "4b9382fd9420f9f85e0fea0d986e8b6d2b38c77b33ca75ee5a9185575d15662a",
+      "sheet": "FZ 10.1  ",
+      "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_01_xlsx.xlsx?__blob=publicationFile&v=2",
+      "version": "URL v=2; SHA-256 identifies retrieved bytes"
+    },
+    {
+      "bytes": 89408,
+      "exclusions": [],
+      "file": "2022-05.xlsx",
+      "fixture_transformation": "Cover media/drawings removed; table cells unchanged; not original download",
+      "id": "fz10-2022-05",
+      "license_cell": "C26",
+      "license_identifier": "dl-de/by-2-0",
+      "license_url": "https://www.govdata.de/dl-de/by-2-0",
+      "original_source_sha256": "965860a0a5549043e76e41dd0813fadd2c223e356b355e12dc2bfa2039631707",
+      "parser_profile": "fz10-xlsx-bev-v1",
+      "period": "2022-05",
+      "publication": {
+        "precision": "month",
+        "raw": "Juni 2022",
+        "value": "2022-06"
+      },
+      "redistribution_allowed": true,
+      "retrieved_on": "2026-10-22",
+      "revision": null,
+      "revision_history": "not_verified",
+      "rights_verified": true,
+      "sha256": "c1b8b20bbff8462872688864e42e72df397b6585c523e7fbbf097f460e088698",
+      "sheet": "FZ10.1",
+      "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2022_05.xlsx?__blob=publicationFile&v=2",
+      "version": "URL v=2; SHA-256 identifies retrieved bytes"
+    },
+    {
+      "bytes": 103015,
+      "exclusions": [
+        {
+          "cell": "D13",
+          "reason": "Published symbolic value, not converted to zero: '-'",
+          "series": "brand:AIWAYS"
+        }
+      ],
+      "file": "2024-08.xlsx",
+      "fixture_transformation": "Cover media/drawings removed; table cells unchanged; not original download",
+      "id": "fz10-2024-08",
+      "license_cell": "C26",
+      "license_identifier": "dl-de/by-2-0",
+      "license_url": "https://www.govdata.de/dl-de/by-2-0",
+      "original_source_sha256": "fa151ba98840d534416e2945943b962e58dc28d9a146d64fa9dc05c81731e82c",
+      "parser_profile": "fz10-xlsx-bev-202408-v1",
+      "period": "2024-08",
+      "publication": {
+        "precision": "month",
+        "raw": "September 2024",
+        "value": "2024-09"
+      },
+      "redistribution_allowed": true,
+      "retrieved_on": "2026-10-22",
+      "revision": null,
+      "revision_history": "not_verified",
+      "rights_verified": true,
+      "sha256": "36f84b3d0231d2dcdf036568895accdc0ee61b589414db572c6906b4ee3a0d87",
+      "sheet": "FZ 10.1",
+      "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2024_08.xlsx?__blob=publicationFile&v=2",
+      "version": "URL v=2; SHA-256 identifies retrieved bytes"
+    },
+    {
+      "bytes": 96801,
+      "exclusions": [],
+      "file": "2025-01.xlsx",
+      "fixture_transformation": "Cover media/drawings removed; table cells unchanged; not original download",
+      "id": "fz10-2025-01",
+      "license_cell": "C26",
+      "license_identifier": "dl-de/by-2-0",
+      "license_url": "https://www.govdata.de/dl-de/by-2-0",
+      "original_source_sha256": "777366bf2a9c6ca4b0f62e5c106ea56dd7d61490b60f7377af041be81ca9332d",
+      "parser_profile": "fz10-xlsx-bev-v1",
+      "period": "2025-01",
+      "publication": {
+        "precision": "month",
+        "raw": "Februar 2025",
+        "value": "2025-02"
+      },
+      "redistribution_allowed": true,
+      "retrieved_on": "2026-10-22",
+      "revision": null,
+      "revision_history": "not_verified",
+      "rights_verified": true,
+      "sha256": "190443948d9e0c3e14b0082b2db93f20f98a876f651f6d0a380d3b29b43187c7",
+      "sheet": "FZ 10.1",
+      "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2025_01.xlsx?__blob=publicationFile&v=2",
+      "version": "URL v=2; SHA-256 identifies retrieved bytes"
+    },
+    {
+      "bytes": 114927,
+      "exclusions": [
+        {
+          "cell": "D128",
+          "reason": "Published symbolic value, not converted to zero: '-'",
+          "series": "brand:FISKER"
+        },
+        {
+          "cell": "D224",
+          "reason": "Published symbolic value, not converted to zero: '-'",
+          "series": "brand:LANCIA"
+        },
+        {
+          "cell": "D456",
+          "reason": "Published symbolic value, not converted to zero: '-'",
+          "series": "brand:TOGG"
+        }
+      ],
+      "file": "2025-06.xlsx",
+      "fixture_transformation": "Cover media/drawings removed; table cells unchanged; not original download",
+      "id": "fz10-2025-06",
+      "license_cell": "C27",
+      "license_identifier": "dl-de/by-2-0",
+      "license_url": "https://www.govdata.de/dl-de/by-2-0",
+      "original_source_sha256": "7af6d782588fab96f4ea968b55b99f50ab04cd10965c403503394ffa83b03d5c",
+      "parser_profile": "fz10-xlsx-bev-v1",
+      "period": "2025-06",
+      "publication": {
+        "precision": "day",
+        "raw": "7. Juli 2025",
+        "value": "2025-07-07"
+      },
+      "redistribution_allowed": true,
+      "retrieved_on": "2026-10-22",
+      "revision": {
+        "precision": "day",
+        "raw": "21. Juli 2025",
+        "value": "2025-07-21"
+      },
+      "revision_history": "not_verified",
+      "rights_verified": true,
+      "sha256": "126f6df9c1e9ca91e88454274065e506649af6af33811c9a303d3211e71bcfd5",
+      "sheet": "FZ 10.1",
+      "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2025_06.xlsx?__blob=publicationFile&v=2",
+      "version": "URL v=2; SHA-256 identifies retrieved bytes"
+    },
+    {
+      "bytes": 124538,
+      "exclusions": [
+        {
+          "cell": "D84",
+          "reason": "Published symbolic value, not converted to zero: '-'",
+          "series": "brand:CHERY"
+        },
+        {
+          "cell": "D105",
+          "reason": "Published symbolic value, not converted to zero: '-'",
+          "series": "brand:DAF TRUCKS"
+        },
+        {
+          "cell": "D137",
+          "reason": "Published symbolic value, not converted to zero: '-'",
+          "series": "brand:FISKER"
+        },
+        {
+          "cell": "D204",
+          "reason": "Published symbolic value, not converted to zero: '-'",
+          "series": "brand:JAGUAR"
+        },
+        {
+          "cell": "D242",
+          "reason": "Published symbolic value, not converted to zero: '-'",
+          "series": "brand:LANCIA"
+        }
+      ],
+      "file": "2025-12.xlsx",
+      "fixture_transformation": "Cover media/drawings removed; table cells unchanged; not original download",
+      "id": "fz10-2025-12",
+      "license_cell": "C26",
+      "license_identifier": "dl-de/by-2-0",
+      "license_url": "https://www.govdata.de/dl-de/by-2-0",
+      "original_source_sha256": "bef283aeadf29bf3ef632117f5b26e731c948e98cdd0fb428879932960455aba",
+      "parser_profile": "fz10-xlsx-bev-v1",
+      "period": "2025-12",
+      "publication": {
+        "precision": "day",
+        "raw": "8. Januar 2026",
+        "value": "2026-01-08"
+      },
+      "redistribution_allowed": true,
+      "retrieved_on": "2026-10-22",
+      "revision": null,
+      "revision_history": "not_verified",
+      "rights_verified": true,
+      "sha256": "adf3d6ca72eee285806e5daa828855670dbbc416f767d97ebfa4c73ecfefc0b7",
+      "sheet": "FZ 10.1",
+      "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2025_12.xlsx?__blob=publicationFile&v=2",
+      "version": "URL v=2; SHA-256 identifies retrieved bytes"
+    }
+  ]
+}

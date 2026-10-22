@@ -1,0 +1,2077 @@
+{
+  "access_date": "2026-10-22",
+  "method": "TLS-verified urllib; public KBA only; unsuccessful guessed URLs are discovery failures, not absent observations",
+  "logs": {
+    "task01b-probes.json": [
+      {
+        "period": "2018-01",
+        "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_01.xlsx?__blob=publicationFile&v=2",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "period": "2019-01",
+        "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_01.xlsx?__blob=publicationFile&v=2",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "period": "2020-01",
+        "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_01.xlsx?__blob=publicationFile&v=2",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "period": "2021-01",
+        "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2021_01.xlsx?__blob=publicationFile&v=2",
+        "status": 200,
+        "sha256": "20fe4e788157f0b78dc5663692e41e5e7243dc0c6f60387f7554991a3b2ff0a2",
+        "bytes": 1043743
+      },
+      {
+        "period": "2022-01",
+        "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2022_01.xlsx?__blob=publicationFile&v=2",
+        "status": 200,
+        "sha256": "55639955e729fdc659060744aaea438c3ca9be76ce9cf97171dfdff19d98ee8c",
+        "bytes": 169061
+      },
+      {
+        "period": "2023-01",
+        "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2023_01.xlsx?__blob=publicationFile&v=2",
+        "status": 200,
+        "sha256": "1635fa806d5c043c11ab07d2e04726e16fc6c95d4ce5c38a7ec05ee33d99a839",
+        "bytes": 147368
+      },
+      {
+        "period": "2024-01",
+        "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2024_01.xlsx?__blob=publicationFile&v=2",
+        "status": 200,
+        "sha256": "ca6ae975842fde8673f7fbc831030320066124fbcaf714c1a66e02022abe541a",
+        "bytes": 152833
+      },
+      {
+        "period": "2024-12",
+        "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2024_12.xlsx?__blob=publicationFile&v=2",
+        "status": 200,
+        "sha256": "856b9afe515d51aa52bcb34d645dce2c5cdeaf47ef398b4e0a754c1bd5813dbf",
+        "bytes": 177108
+      },
+      {
+        "period": "2025-01",
+        "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2025_01.xlsx?__blob=publicationFile&v=2",
+        "status": 200,
+        "sha256": "777366bf2a9c6ca4b0f62e5c106ea56dd7d61490b60f7377af041be81ca9332d",
+        "bytes": 162739
+      }
+    ],
+    "task01b-older-probes.json": [
+      {
+        "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_01.xls?__blob=publicationFile&v=2",
+        "error": "The read operation timed out"
+      },
+      {
+        "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_01.xls?__blob=publicationFile&v=2",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_01.xls?__blob=publicationFile&v=2",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "url": "https://www.kba.de/DE/Statistik/Fahrzeuge/Neuzulassungen/MonatlicheNeuzulassungen/monatl_neuzulassungen_node.html?yearFilter=2018&monthFilter=01_Januar",
+        "status": 200,
+        "bytes": 352318,
+        "path": "/tmp/task01b-raw/monatl_neuzulassungen_node.html"
+      }
+    ],
+    "task01b-discovery.json": [
+      {
+        "url": "https://www.kba.de/DE/Statistik/Fahrzeuge/Neuzulassungen/MonatlicheNeuzulassungen/monatl_neuzulassungen_node.html?yearFilter=2018&monthFilter=12_Dezember",
+        "links": [
+          "/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_12_xlsx.xlsx?__blob=publicationFile&v=2"
+        ]
+      },
+      {
+        "url": "https://www.kba.de/DE/Statistik/Fahrzeuge/Neuzulassungen/MonatlicheNeuzulassungen/monatl_neuzulassungen_node.html?yearFilter=2019&monthFilter=01_Januar",
+        "links": [
+          "/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_01_xlsx.xlsx?__blob=publicationFile&v=2"
+        ]
+      },
+      {
+        "url": "https://www.kba.de/DE/Statistik/Fahrzeuge/Neuzulassungen/MonatlicheNeuzulassungen/monatl_neuzulassungen_node.html?yearFilter=2020&monthFilter=01_Januar",
+        "links": [
+          "/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_01_xlsx.xlsx?__blob=publicationFile&v=2"
+        ]
+      }
+    ],
+    "task01b-fetch.json": [
+      {
+        "period": "2018-01",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_01.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_01.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2018-02",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_02.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_02.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2018-03",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_03.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_03.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2018-04",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_04.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_04.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2018-05",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_05.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_05.xls?__blob=publicationFile&v=2",
+            "error": "Not an Excel workbook"
+          }
+        ]
+      },
+      {
+        "period": "2018-06",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_06.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_06.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2018-07",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_07.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_07.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2018-08",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_08.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_08.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2018-09",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_09.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_09.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2018-10",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_10.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_10.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2018-11",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_11.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_11.xls?__blob=publicationFile&v=2",
+            "error": "Not an Excel workbook"
+          }
+        ]
+      },
+      {
+        "period": "2018-12",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_12.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_12.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-01",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_01.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_01.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-02",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_02.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_02.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-03",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_03.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_03.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-04",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_04.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_04.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-05",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_05.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_05.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-06",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_06.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_06.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-07",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_07.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_07.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-08",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_08.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_08.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-09",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_09.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_09.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-10",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_10.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_10.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-11",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_11.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_11.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-12",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_12.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_12.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-01",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_01.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_01.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-02",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_02.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_02.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-03",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_03.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_03.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-04",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_04.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_04.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-05",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_05.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_05.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-06",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_06.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_06.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-07",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_07.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_07.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-08",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_08.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_08.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-09",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_09.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_09.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-10",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_10.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_10.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-11",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_11.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_11.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-12",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_12.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          },
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_12.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2021-01",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2021_01.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "20fe4e788157f0b78dc5663692e41e5e7243dc0c6f60387f7554991a3b2ff0a2",
+            "bytes": 1043743,
+            "path": "2021-01.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2021-02",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2021_02.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "e9dbd75437ff48e6c8fe58cb16faf5123f72ee17a6dd24bad6d2a8da32ead3af",
+            "bytes": 1053404,
+            "path": "2021-02.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2021-03",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2021_03.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "5a20283edcd037ba1294eab403442cac8894684ba4bc2576219857951ead9ca5",
+            "bytes": 1058472,
+            "path": "2021-03.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2021-04",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2021_04.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "d556a2bb392f11cef91706685d70435ef3a5675bf55d4c5f4292e756c1b1fb0d",
+            "bytes": 1058217,
+            "path": "2021-04.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2021-05",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2021_05.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "8cd335b6abace530d0fc05cdc4d6e0e62ed91763de4badcebe8b016df4f035eb",
+            "bytes": 1059115,
+            "path": "2021-05.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2021-06",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2021_06.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "9a10e6fcdcd9a67626958373174bc392a7d2dd9d01f84a0578d23ed3cf65d9a8",
+            "bytes": 1060508,
+            "path": "2021-06.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2021-07",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2021_07.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "d74ab1a3c37a87f197c13c46b4a055e5dff6cddb5dd3dfd2e83591f8a873c1d6",
+            "bytes": 1063306,
+            "path": "2021-07.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2021-08",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2021_08.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "102bf40f6cc3a05fdbe7b8947ac8e13be5fe7e1cfb10d6dd381740e5bdc03c4e",
+            "bytes": 1062765,
+            "path": "2021-08.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2021-09",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2021_09.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "9875326b11e7c7393b9341bb2b6f961195940d1277293ab835fd7cefbd6aae62",
+            "bytes": 1069324,
+            "path": "2021-09.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2021-10",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2021_10.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "c20398b95f7aa88fe5f9cf45cd60f303f75c66ea770b12721a030556afb24d7c",
+            "bytes": 1070059,
+            "path": "2021-10.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2021-11",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2021_11.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "597f6d87610dc4187a01d663f45c638322d36576e28ec359f8bd21d2012f8f51",
+            "bytes": 1074435,
+            "path": "2021-11.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2021-12",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2021_12.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "92ada917ae225e9f2d9094ee5d365b2445df4a98afd19da1f0cf6c0a79fe521c",
+            "bytes": 1076204,
+            "path": "2021-12.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2022-01",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2022_01.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "55639955e729fdc659060744aaea438c3ca9be76ce9cf97171dfdff19d98ee8c",
+            "bytes": 169061,
+            "path": "2022-01.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2022-02",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2022_02.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "6668482c1565406bdc7a3bd7001dccee6c5ebb1b3f4bc5d748290e0865174e97",
+            "bytes": 166607,
+            "path": "2022-02.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2022-03",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2022_03.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "270166717bb9fc57c23bac15d08b2dbbd3b6e52e3c057f2684cf9a97295b6883",
+            "bytes": 168081,
+            "path": "2022-03.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2022-04",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2022_04.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "bef967a3f1b32a6c3ff706b78b55ada352d796cc165d0b34c27e974963628aa1",
+            "bytes": 171369,
+            "path": "2022-04.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2022-05",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2022_05.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "965860a0a5549043e76e41dd0813fadd2c223e356b355e12dc2bfa2039631707",
+            "bytes": 152735,
+            "path": "2022-05.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2022-06",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2022_06.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "3b8c66181f68c1c50c40e8f432b3f632c76f90fe20bb7586a4db364e60717730",
+            "bytes": 155087,
+            "path": "2022-06.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2022-07",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2022_07.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "32d876be6f69e6a98aed8de5e425254d4238fae93a6564c0e645758a345a2843",
+            "bytes": 156654,
+            "path": "2022-07.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2022-08",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2022_08.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "1b6d85df8c382d66ec8662c7db45c9c06390bb98b5a7c81f22b8b95a7102c4d2",
+            "bytes": 156639,
+            "path": "2022-08.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2022-09",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2022_09.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "a009305894e3c3a12601acc4e87e5bd4e243e17236ada00f74c5324b41c2a713",
+            "bytes": 157385,
+            "path": "2022-09.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2022-10",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2022_10.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "4f809c6716db65787b8836a8dc59fea49e759049f64f2ac078dc3b167355d582",
+            "bytes": 158917,
+            "path": "2022-10.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2022-11",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2022_11.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "68eec485fdc527b5b93e872961b3c70dc38168fca55657c9a329745c7be50710",
+            "bytes": 161795,
+            "path": "2022-11.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2022-12",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2022_12.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "6712f8e17d91b8b07087e8d4da66981a50cee5f26d3f039e94d298b67416438a",
+            "bytes": 159701,
+            "path": "2022-12.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2023-01",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2023_01.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "1635fa806d5c043c11ab07d2e04726e16fc6c95d4ce5c38a7ec05ee33d99a839",
+            "bytes": 147368,
+            "path": "2023-01.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2023-02",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2023_02.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "19faf113001f7ba2fe37b272b96c35b162fbf64c6e601f312ea1ca49d904edcd",
+            "bytes": 155453,
+            "path": "2023-02.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2023-03",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2023_03.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "d04e1e3827a6b52180d1608fc0ef27aab001d1171ade604cb803fd2576d99146",
+            "bytes": 158741,
+            "path": "2023-03.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2023-04",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2023_04.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "ae74946b37d1cf5e3ffcc1597e4787aad664e0cfd12e2dd0f54cf6f046fa8ad7",
+            "bytes": 159875,
+            "path": "2023-04.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2023-05",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2023_05.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "a3b2b0b1d304e1ad9b8b758ad279e39564f3f0db3711184f3d1961ab9e29c322",
+            "bytes": 164210,
+            "path": "2023-05.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2023-06",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2023_06.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "a5fde0b07d30da0512e4f01ef0e894a85e1e71b251b31f1bd580925ec5edcb59",
+            "bytes": 163185,
+            "path": "2023-06.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2023-07",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2023_07.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "91aa244d37db6b89e034746fcba992fccbb174acf52a627423e49ec7dbfc675e",
+            "bytes": 164017,
+            "path": "2023-07.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2023-08",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2023_08.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "d14502572445b4a8c54112b9f9d3fe650dc5b5c503b62a862c794737cf40f82d",
+            "bytes": 164271,
+            "path": "2023-08.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2023-09",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2023_09.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "bdae1c2d73047c82aa27fa9fd969ca8ebca998f0d1dbde21a9ea3c0fe0ab59d5",
+            "bytes": 164653,
+            "path": "2023-09.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2023-10",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2023_10.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "6f896c8681e5d0a2415a8d435f4b77c57339b862a33ad960ee85e270820f9653",
+            "bytes": 168450,
+            "path": "2023-10.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2023-11",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2023_11.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "b80ea87872d4e2aca5d56f066961624fb513b44b48887c9807ef4afe69fdc275",
+            "bytes": 169044,
+            "path": "2023-11.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2023-12",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2023_12.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "3fd1b4604bb957de8faa3b96be385254fe9c4b3d0a18c2083d98ff5cdffeec4c",
+            "bytes": 170252,
+            "path": "2023-12.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2024-01",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2024_01.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "ca6ae975842fde8673f7fbc831030320066124fbcaf714c1a66e02022abe541a",
+            "bytes": 152833,
+            "path": "2024-01.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2024-02",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2024_02.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "04da4be738a7c1140de308706c1f7217d5ad88d327dd181c3a08b22b7b2d5693",
+            "bytes": 158613,
+            "path": "2024-02.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2024-03",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2024_03.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "13dbd4c92378d93d2f4c1dbd5b6ab26a8811c8cc43c06c768a86dad4e77c9e24",
+            "bytes": 162154,
+            "path": "2024-03.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2024-04",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2024_04.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "9051d7b0fe562fbe7c7651033d286b16a02b26a51a95cf9b473d5ac7bf547453",
+            "bytes": 163626,
+            "path": "2024-04.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2024-05",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2024_05.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "e59ca5c26924323f23e01d32587bf8882d19e5f0350cd0c8f89c217904775907",
+            "bytes": 167971,
+            "path": "2024-05.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2024-06",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2024_06.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "db37e384146c3e851b43cfa1cd96cd49b2975a0d4a4d30ea049c383701cbfcfe",
+            "bytes": 189301,
+            "path": "2024-06.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2024-07",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2024_07.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "7dd7b58003f8ae4d9ddaecc154e78415a920fea5c0a930fee7aeb0afa3821198",
+            "bytes": 168891,
+            "path": "2024-07.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2024-08",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2024_08.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "fa151ba98840d534416e2945943b962e58dc28d9a146d64fa9dc05c81731e82c",
+            "bytes": 170448,
+            "path": "2024-08.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2024-09",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2024_09.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "a820a30d6c9fee5cfc1f1d411b381e03fd9a4c4cdeb8f43db5d28fd266ac0267",
+            "bytes": 176696,
+            "path": "2024-09.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2024-10",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2024_10.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "19d70856c3fce9d0873034ea471452bf6736ab0515cfff25fb3c84b7ab023132",
+            "bytes": 178069,
+            "path": "2024-10.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2024-11",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2024_11.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "1a2d96a3371b2779c6a0e7cf5c076c8f2e8b38f20c5d6fc362dc853701895c77",
+            "bytes": 175378,
+            "path": "2024-11.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2024-12",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2024_12.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "856b9afe515d51aa52bcb34d645dce2c5cdeaf47ef398b4e0a754c1bd5813dbf",
+            "bytes": 177108,
+            "path": "2024-12.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2025-01",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2025_01.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "777366bf2a9c6ca4b0f62e5c106ea56dd7d61490b60f7377af041be81ca9332d",
+            "bytes": 162739,
+            "path": "2025-01.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2025-02",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2025_02.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "36c0b95193c707e754ff220726bc297af1c8c66a213956c6850755b0cde0992c",
+            "bytes": 174368,
+            "path": "2025-02.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2025-03",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2025_03.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "7e7ee56ad8a53fca56ad320d588323a14bd44382c954bbed9f6c99aa0e344d5e",
+            "bytes": 177223,
+            "path": "2025-03.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2025-04",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2025_04.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "169dc49483841d7b1f51b763a2d8e34983317fc205fae8059aec5b18e2e79402",
+            "bytes": 168426,
+            "path": "2025-04.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2025-05",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2025_05.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "25bca03e3600fd95ec0cbe815d6ed8f0002b1d4215bcccf14bc88e837e4b437a",
+            "bytes": 144760,
+            "path": "2025-05.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2025-06",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2025_06.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "7af6d782588fab96f4ea968b55b99f50ab04cd10965c403503394ffa83b03d5c",
+            "bytes": 175457,
+            "path": "2025-06.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2025-07",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2025_07.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "43ff86b6c9196a05c4fc66d41333a2dc022bbfb0536ba48aac328779308b4b45",
+            "bytes": 175573,
+            "path": "2025-07.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2025-08",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2025_08.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "fb73afc337a87e1c610028987d1f84e35c04ce8b8c1597558f182184eeaa2b76",
+            "bytes": 176235,
+            "path": "2025-08.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2025-09",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2025_09.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "15fce6eddfe0dd954d8f339786b687c98c635998b8a536ef701e9501e66475fb",
+            "bytes": 180342,
+            "path": "2025-09.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2025-10",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2025_10.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "3d8c4099badfa4a6bf100a18df0a645a137b92e41180b97e58e880eb6adcc1e9",
+            "bytes": 176328,
+            "path": "2025-10.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2025-11",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2025_11.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "25938f430e572fc3e826649f31e6e292b0687858d09a3344a52d3fd61d41946d",
+            "bytes": 182128,
+            "path": "2025-11.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2025-12",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2025_12.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "bef283aeadf29bf3ef632117f5b26e731c948e98cdd0fb428879932960455aba",
+            "bytes": 188133,
+            "path": "2025-12.xlsx"
+          }
+        ]
+      }
+    ],
+    "task01b-fetch-older.json": [
+      {
+        "period": "2018-01",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_01_xls.xls?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "18314846316838f4bbbcd77e7c4abf2680a2b40bb3c8af70fcdd0deab6bc12b6",
+            "bytes": 157696,
+            "path": "2018-01.xls"
+          }
+        ]
+      },
+      {
+        "period": "2018-02",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_02_xls.xls?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "2f599cfc187a7c340e1866af8cd047da6eddcc141f9f0d40e89f533d3622e143",
+            "bytes": 153600,
+            "path": "2018-02.xls"
+          }
+        ]
+      },
+      {
+        "period": "2018-03",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_03_xls.xls?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "931ab1c4d083c06343849c9a4026598108656b5c5f22a3102572b1c11b7a64a6",
+            "bytes": 155648,
+            "path": "2018-03.xls"
+          }
+        ]
+      },
+      {
+        "period": "2018-04",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_04_xls.xls?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "0f0d1720fb8cb718f801c19fb655322891bdf63873dda4c20a7b0078e7638811",
+            "bytes": 159232,
+            "path": "2018-04.xls"
+          }
+        ]
+      },
+      {
+        "period": "2018-05",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_05_xls.xls?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "492c24bf41c68ba94d77d63d4f93299f060108a831d55e5a687aa972538f0f5b",
+            "bytes": 159232,
+            "path": "2018-05.xls"
+          }
+        ]
+      },
+      {
+        "period": "2018-06",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_06_xls.xls?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "8e7f9192208838d9c04a22bdcc10df7597628f5f90e1a88e9739e852aabfdd37",
+            "bytes": 163328,
+            "path": "2018-06.xls"
+          }
+        ]
+      },
+      {
+        "period": "2018-07",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_07_xls.xls?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "05dcd4e04b0688c8a4230110d7d90d189ddf9510ab270cb7c488f0301fcd3cab",
+            "bytes": 162304,
+            "path": "2018-07.xls"
+          }
+        ]
+      },
+      {
+        "period": "2018-08",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_08_xls.xls?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "ddbc84b2020694477563c13a4b3d3b2bcf7df0cbd343c929156682b9aeddee2b",
+            "bytes": 168960,
+            "path": "2018-08.xls"
+          }
+        ]
+      },
+      {
+        "period": "2018-09",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_09_xls.xls?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "f59ece039dc54fd2a69f19a6d4a5c8e78b919627d09d86fa81fea192671fb75e",
+            "bytes": 162304,
+            "path": "2018-09.xls"
+          }
+        ]
+      },
+      {
+        "period": "2018-10",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_10_xls.xls?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "460d30b8985d2091bf6f08127ab9f853255627bcc67a6ce3764aca032743352d",
+            "bytes": 167936,
+            "path": "2018-10.xls"
+          }
+        ]
+      },
+      {
+        "period": "2018-11",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_11_xls.xls?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "00419899f8179969b74f4fac0c66848ad2bd61d814c7fc61d45b31fbd61c601d",
+            "bytes": 169472,
+            "path": "2018-11.xls"
+          }
+        ]
+      },
+      {
+        "period": "2018-12",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_12_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-01",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_01_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-02",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_02_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-03",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_03_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-04",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_04_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-05",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_05_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-06",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_06_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-07",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_07_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-08",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_08_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-09",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_09_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-10",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_10_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-11",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_11_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2019-12",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_12_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-01",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_01_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-02",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_02_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-03",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_03_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-04",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_04_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-05",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_05_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-06",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_06_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-07",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_07_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-08",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_08_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-09",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_09_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-10",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_10_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-11",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_11_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2020-12",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_12_xls.xls?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      }
+    ],
+    "task01b-fetch-older-xlsx.json": [
+      {
+        "period": "2018-01",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_01_xlsx.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2018-02",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_02_xlsx.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2018-03",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_03_xlsx.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2018-04",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_04_xlsx.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2018-05",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_05_xlsx.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2018-06",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_06_xlsx.xlsx?__blob=publicationFile&v=2",
+            "error": "Not an Excel workbook"
+          }
+        ]
+      },
+      {
+        "period": "2018-07",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_07_xlsx.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2018-08",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_08_xlsx.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2018-09",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_09_xlsx.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2018-10",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_10_xlsx.xlsx?__blob=publicationFile&v=2",
+            "error": "HTTP Error 404: Not Found"
+          }
+        ]
+      },
+      {
+        "period": "2018-11",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_11_xlsx.xlsx?__blob=publicationFile&v=2",
+            "error": "The read operation timed out"
+          }
+        ]
+      },
+      {
+        "period": "2018-12",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_12_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "41665566cd5a0b47e647eb50defd0b4d7cb247bfd2f999515a3f2911a15b2b20",
+            "bytes": 68140,
+            "path": "2018-12.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2019-01",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_01_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "804bd745c6e870d776d2eb0974a1fc902fa9a21273dcb88345065ebb8c4b15bd",
+            "bytes": 57214,
+            "path": "2019-01.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2019-02",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_02_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "ca08541a32518facef6c6b8e1e9ec7bb56359a4df8c92e9ba3d66d5a62776b53",
+            "bytes": 65070,
+            "path": "2019-02.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2019-03",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_03_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "798656e5bd19869ee0fa7f33e1d25ba4dbdaf9021b88915bd61b3c18283a6f7b",
+            "bytes": 68944,
+            "path": "2019-03.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2019-04",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_04_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "556386cc09d9bdcf35f233330d7b8e158a9dd115fe95ea71b1749214f3477269",
+            "bytes": 67655,
+            "path": "2019-04.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2019-05",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_05_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "45370d5637b9d84139fa8ddcff1dd1d5b9f018fc6d1bc0a09ac05f7e1a0831da",
+            "bytes": 66767,
+            "path": "2019-05.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2019-06",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_06_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "56e09fc0186f8de744b86816b712fae164587006d544ea0b06d52e4d84992fdf",
+            "bytes": 64809,
+            "path": "2019-06.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2019-07",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_07_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "c06d660464c5f05b804f4947d8213fabd42cc6fbd229e8a95a7dadd0fa235702",
+            "bytes": 66502,
+            "path": "2019-07.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2019-08",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_08_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "620b494693121873769dd655b29404db49c113c95dbc25dae6054cba8386d831",
+            "bytes": 67398,
+            "path": "2019-08.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2019-09",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_09_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "052a1626d482731486c58c0faf09e840a19f00e1a7dd056feb543ce3cc58935f",
+            "bytes": 68685,
+            "path": "2019-09.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2019-10",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_10_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "b467a0fa620f3fc92e575a8fcd241d34b9c6103ecb193729e67dfdc612ad54fb",
+            "bytes": 65768,
+            "path": "2019-10.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2019-11",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_11_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "d3301fa5a91dae2c439afc4b61e25e8330fcd58407a75698a8cb7909cb095d55",
+            "bytes": 67965,
+            "path": "2019-11.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2019-12",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2019_12_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "00148a44afe9db78148d5e0172051c610910b21a42a4763d4447908da06efb09",
+            "bytes": 69721,
+            "path": "2019-12.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2020-01",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_01_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "38fb2fb2409b49d14d13f9f19cfcfc025716df8e72df61701c807518d6368989",
+            "bytes": 1038943,
+            "path": "2020-01.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2020-02",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_02_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "c5d4d991c581f276e8e132b01b07d0509418d722c711a27a9b496e227a01483c",
+            "bytes": 1043852,
+            "path": "2020-02.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2020-03",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_03_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "4a7fe921a4fbb197e667afdd501d6841afad09a84545783a874eb2527187608a",
+            "bytes": 1044050,
+            "path": "2020-03.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2020-04",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_04_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "86984ac17e025244170f7865edd9465e555b1fef091241a93b8026d7ac273e76",
+            "bytes": 1045704,
+            "path": "2020-04.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2020-05",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_05_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "bfea170a0e5539533c298220ed3b192ab1c471170445defd1b239d03e108ea8c",
+            "bytes": 1045926,
+            "path": "2020-05.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2020-06",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_06_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "a6556917952d0f69bf28baa1fa90a2f650e81939ecb3413fb3b7f98dfc09e275",
+            "bytes": 1046504,
+            "path": "2020-06.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2020-07",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_07_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "f00ee13bdb1c0f25d8a64f4d31840f1b984b5ea4b4cc1246069720aafcb2c506",
+            "bytes": 1046823,
+            "path": "2020-07.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2020-08",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_08_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "585940458aec7756e617d8982edad14666607a8554b51576e3e5cba18d6954ed",
+            "bytes": 1048172,
+            "path": "2020-08.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2020-09",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_09_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "0920c843a0c35beb62e1085786286b42d17dc220bfd32398649e31224bf6a0a6",
+            "bytes": 1048221,
+            "path": "2020-09.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2020-10",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_10_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "a36f21e2a0923f44e211c9e8b78171aafe03555221edf318baa02e1c49a47dfe",
+            "bytes": 1048875,
+            "path": "2020-10.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2020-11",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_11_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "58ed9979a64c4ead5daaf0e16807c9268015eff74389196c900c116aa27015a3",
+            "bytes": 1004971,
+            "path": "2020-11.xlsx"
+          }
+        ]
+      },
+      {
+        "period": "2020-12",
+        "attempts": [
+          {
+            "url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_12_xlsx.xlsx?__blob=publicationFile&v=2",
+            "status": 200,
+            "sha256": "9e55fb034600e01224182afe37c144709cb10454847e8781b7b17bf5fd2475f4",
+            "bytes": 1008311,
+            "path": "2020-12.xlsx"
+          }
+        ]
+      }
+    ],
+    "discovery_pages": [
+      {
+        "file": "task01b-archive-2019-01.html",
+        "sha256": "f25526a1ba698e80026533ad89bb7375d8ad772dfe42b8d91dd99b2f57193762",
+        "bytes": 352681
+      },
+      {
+        "file": "task01b-archive-2020-01.html",
+        "sha256": "54c67e22eb221927eb8dfb59463d9f660795277ffbd310ade8db56d7bd390062",
+        "bytes": 351829
+      },
+      {
+        "file": "task01b-archive-2018-12.html",
+        "sha256": "f168934a6a24d0a5cb9c6556a0451ef3d4f2e2b7328df0bf690b11ff28279346",
+        "bytes": 352100
+      },
+      {
+        "file": "task01b-archive.html",
+        "sha256": "c05cf26325b9ea1f8d7a52e6c66e505c92adbde7090ad394ccf75486268daefb",
+        "bytes": 348630
+      }
+    ]
+  }
+}

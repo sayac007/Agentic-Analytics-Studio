@@ -1,0 +1,29 @@
+{
+  "plan_version": "1.1.0",
+  "frozen_before_recovery": true,
+  "target_start": "2018-01",
+  "target_end": "2025-12",
+  "comparison_window": {
+    "start": "2021-01",
+    "end": "2025-12"
+  },
+  "brand_selection_window": {
+    "start": "2018-01",
+    "end": "2023-12"
+  },
+  "holdout": {
+    "start": "2025-01",
+    "end": "2025-12"
+  },
+  "selection_rules": {
+    "eligible": "Exact brand totals, all powertrains, excluding TESLA, complete selection window, mean monthly count >= 1000; no aggregates or model rows",
+    "C": "Minimum sample coefficient of variation on selection window; tie: lexical brand name",
+    "D": "Highest mean monthly count among remaining eligible brands; tie: lexical brand name",
+    "no_eligible_brand": "Report blocked; do not weaken rules after viewing recovery",
+    "no_complete_selection_window": "Report blocked; do not select on a different window without a reviewed plan revision"
+  },
+  "recovery_runs_performed": 0,
+  "unknown_layout_policy": "Fail closed; explicit reviewed parser profile required",
+  "missing_data_policy": "No fill, interpolation or synthetic extension",
+  "revision_rationale": "Availability-only revision before any MMM recovery: explicit BEV labels begin 2021; common 2021-2025 window supplies 48 training plus 12 holdout months. Initial target and 2018-2023 brand selection criteria unchanged; initial plan archived."
+}

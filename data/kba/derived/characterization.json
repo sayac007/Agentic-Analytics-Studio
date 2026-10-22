@@ -1,0 +1,148 @@
+{
+  "brand:TESLA": {
+    "annualized_slope_fraction": -0.12406527108150465,
+    "cv": 0.8548608165034661,
+    "end": "2025-12",
+    "largest_exploratory_12_month_mean_shift": {
+      "at": "2023-09",
+      "causal_attribution": null,
+      "delta_count": -4153.25
+    },
+    "linear_slope_count_per_month": -39.68813559322034,
+    "mad": 1713.5,
+    "mean": 3838.766666666667,
+    "median": 3168.5,
+    "monthly_means": {
+      "1": 1908.4,
+      "10": 2074.2,
+      "11": 5065.2,
+      "12": 6820.2,
+      "2": 4608,
+      "3": 5311.6,
+      "4": 1215.2,
+      "5": 2281.6,
+      "6": 4385.2,
+      "7": 1831.6,
+      "8": 3963,
+      "9": 6601
+    },
+    "n": 60,
+    "other_month_mean": 2868.4,
+    "quarter_end_mean": 5779.5,
+    "robust_outlier_months": [
+      "2022-09",
+      "2022-12"
+    ],
+    "robust_outlier_undefined": false,
+    "sample_sd": 3281.611207032956,
+    "start": "2021-01"
+  },
+  "brand:TOYOTA": {
+    "annualized_slope_fraction": 0.06582068103344545,
+    "cv": 0.18725255079825096,
+    "end": "2025-12",
+    "largest_exploratory_12_month_mean_shift": {
+      "at": "2024-01",
+      "causal_attribution": null,
+      "delta_count": 1689.583333333334
+    },
+    "linear_slope_count_per_month": 37.34473464851347,
+    "mad": 754.0,
+    "mean": 6808.45,
+    "median": 6751.5,
+    "monthly_means": {
+      "1": 5478.2,
+      "10": 6908.2,
+      "11": 7209.6,
+      "12": 7366.4,
+      "2": 5696,
+      "3": 7348.2,
+      "4": 6300.2,
+      "5": 6371.4,
+      "6": 7690.8,
+      "7": 7506.6,
+      "8": 6779,
+      "9": 7046.8
+    },
+    "n": 60,
+    "other_month_mean": 6531.15,
+    "quarter_end_mean": 7363.05,
+    "robust_outlier_months": [],
+    "robust_outlier_undefined": false,
+    "sample_sd": 1274.8996294823517,
+    "start": "2021-01"
+  },
+  "brand:VW": {
+    "annualized_slope_fraction": 0.03599449745942161,
+    "cv": 0.1589210684897901,
+    "end": "2025-12",
+    "largest_exploratory_12_month_mean_shift": {
+      "at": "2022-09",
+      "causal_attribution": null,
+      "delta_count": 8256.666666666672
+    },
+    "linear_slope_count_per_month": 129.36532370102807,
+    "mad": 4655.5,
+    "mean": 43128.36666666667,
+    "median": 43240.5,
+    "monthly_means": {
+      "1": 39157.4,
+      "10": 39278.4,
+      "11": 43822.2,
+      "12": 43769.2,
+      "2": 39584.2,
+      "3": 48820.4,
+      "4": 42035,
+      "5": 45108,
+      "6": 52556.6,
+      "7": 45263.6,
+      "8": 38634.2,
+      "9": 39511.2
+    },
+    "n": 60,
+    "other_month_mean": 41610.375,
+    "quarter_end_mean": 46164.35,
+    "robust_outlier_months": [],
+    "robust_outlier_undefined": false,
+    "sample_sd": 6854.006112886114,
+    "start": "2021-01"
+  },
+  "market:BEV": {
+    "annualized_slope_fraction": 0.08894556333135029,
+    "cv": 0.3913515825034502,
+    "end": "2025-12",
+    "largest_exploratory_12_month_mean_shift": {
+      "at": "2022-09",
+      "causal_attribution": null,
+      "delta_count": 18087.083333333332
+    },
+    "linear_slope_count_per_month": 281.2273409280356,
+    "mad": 7571.5,
+    "mean": 37941.5,
+    "median": 34476.5,
+    "monthly_means": {
+      "1": 22463,
+      "10": 38318.2,
+      "11": 46820,
+      "12": 59150,
+      "2": 28497.4,
+      "3": 36521,
+      "4": 30186.8,
+      "5": 34303.2,
+      "6": 41843.4,
+      "7": 36467.4,
+      "8": 42781.2,
+      "9": 37946.4
+    },
+    "n": 60,
+    "other_month_mean": 34979.65,
+    "quarter_end_mean": 43865.2,
+    "robust_outlier_months": [
+      "2022-12",
+      "2023-08"
+    ],
+    "robust_outlier_undefined": false,
+    "sample_sd": 14848.466067554657,
+    "start": "2021-01"
+  }
+}

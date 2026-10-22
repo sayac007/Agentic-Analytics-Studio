@@ -116,6 +116,8 @@ enters coefficient or HAC estimation; only causal training history reaches holdo
 ```sh
 .venv/bin/python contracts/validate.py
 .venv/bin/python contracts/validate.py contracts/examples/generator.json --kind generator
+# Task 01B adds offline parser tests; install their pinned dependencies for the full suite.
+.venv/bin/python -m pip install -r requirements-kba.lock
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m unittest discover -s tests -v
 ```
 

@@ -19,9 +19,11 @@ does not establish causal/statistical identification.
 
 Remaining work is scientific or expressly outside Task 01a:
 
-- No complete observed KBA series has been admitted: verified source evidence still
-  covers January 2025 only. Real-data experiments need the full length, provenance,
-  vintage/rights and extraction checks required by the statistical contract.
+- Task 01B verifies 96 contiguous months (2018–2025) for Tesla/Toyota/VW and 60
+  (2021–2025) for the explicitly labeled BEV market. All remain `blocked`: v0.2.0
+  requires exact publication dates, while many source imprints provide month precision
+  or no publication date. Length, hashes, rights and extraction are documented in
+  [KBA_MULTIBASELINE.md](KBA_MULTIBASELINE.md); no observed-baseline fit was run.
 - Stage B needs predeclared search bounds/inner validation and selection uncertainty.
 - Stage C needs a reviewed replication/scenario protocol, recovery tolerance,
   calibrated error/power targets and Monte Carlo precision. No detection limit is
@@ -32,3 +34,8 @@ Remaining work is scientific or expressly outside Task 01a:
 Exact local counts, sample hashes and actual remote CI evidence are reported in the
 implementation PR. Green CI proves tested execution/integrity, not model effectiveness,
 empirical power or real Tesla ROI. The PR stays Draft and is not automatically merged.
+
+The [multi-baseline protocol](MULTIBASELINE_RECOVERY_PROTOCOL.md) proposes paired
+relative- and absolute-scale experiments. Absolute cross-baseline calibration, an
+additional confounding family and cross-dataset aggregation need explicit contract
+review before execution. Existing v0.2.0 schemas and synthetic results are unchanged.
