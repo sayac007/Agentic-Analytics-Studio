@@ -230,6 +230,7 @@ Nicht selbst mergen.
 - [x] Forschungsprotokoll für relative/absolute Skalen und gepaarte spätere Simulationen.
 - [x] Alle vier Referenzen ehrlich `blocked`: Veröffentlichungstag nicht lückenlos belegt.
 - [x] Keine Engine-/Schema-/Upstream-Änderung, kein beobachteter MMM-Lauf oder MDE-Claim.
-- [ ] Draft-PR und genauer Remote-CI-Status: siehe zugehörigen Pull Request; nicht selbst mergen.
+- [x] Draft-PR [#4](https://github.com/sayac007/Agentic-Analytics-Studio/pull/4) erstellt.
+- Remote-CI-Status und genaue Lauf-URLs werden im PR dokumentiert; nicht selbst mergen.
 
 Details und ausgeführte Befehle: `docs/KBA_MULTIBASELINE.md`.
