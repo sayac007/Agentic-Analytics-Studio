@@ -1,366 +1,68 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "manifest contract v0.1.0",
+  "$id": "https://agentic-analytics-studio.invalid/contracts/manifest.schema.json",
+  "title": "manifest v0.2.0",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "schema_version",
+    "purpose",
     "run_id",
+    "stage",
     "claim",
-    "input_kind",
     "data",
     "columns",
     "split",
     "missing_policy",
     "estimation",
+    "response_grid",
     "outputs"
   ],
   "properties": {
     "schema_version": {
-      "const": "0.1.0"
+      "const": "0.2.0"
+    },
+    "purpose": {
+      "enum": [
+        "contract_fixture",
+        "development_benchmark"
+      ]
     },
     "run_id": {
       "type": "string",
       "minLength": 1
     },
-    "claim": {
-      "const": "semi_synthetic_recovery_benchmark_not_real_tesla_roi"
+    "stage": {
+      "const": "A"
     },
-    "input_kind": {
-      "enum": [
-        "observed_reference",
-        "synthetic_fixture"
-      ]
+    "claim": {
+      "const": "benchmark_recovery_not_real_causal_marketing_roi"
     },
     "data": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "path",
-        "sha256"
-      ],
-      "properties": {
-        "path": {
-          "type": "string",
-          "pattern": "^(?![.]{1,2}(?:/|$))[A-Za-z0-9_.-]+(?:/(?![.]{1,2}(?:/|$))[A-Za-z0-9_.-]+)*(?![\\s\\S])"
-        },
-        "sha256": {
-          "type": "string",
-          "pattern": "^[0-9a-f]{64}(?![\\s\\S])"
-        }
-      }
+      "$ref": "common.schema.json#/$defs/artifact"
     },
     "columns": {
       "type": "object",
       "additionalProperties": false,
       "required": [
         "period",
-        "observed_registrations",
         "synthetic_media",
         "semi_synthetic_outcome"
       ],
       "properties": {
         "period": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "class",
-            "publisher",
-            "source_or_generator",
-            "access_date",
-            "geography",
-            "time_grain",
-            "unit",
-            "rights",
-            "redistribution",
-            "transformations",
-            "limitations"
-          ],
-          "properties": {
-            "class": {
-              "enum": [
-                "observed",
-                "synthetic",
-                "proxy"
-              ]
-            },
-            "publisher": {
-              "type": "string",
-              "minLength": 1
-            },
-            "source_or_generator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "access_date": {
-              "type": "string",
-              "format": "date"
-            },
-            "geography": {
-              "type": "string",
-              "minLength": 1
-            },
-            "time_grain": {
-              "enum": [
-                "month"
-              ]
-            },
-            "unit": {
-              "type": "string",
-              "minLength": 1
-            },
-            "rights": {
-              "type": "string",
-              "minLength": 1
-            },
-            "redistribution": {
-              "enum": [
-                "allowed",
-                "not_allowed",
-                "unknown"
-              ]
-            },
-            "transformations": {
-              "type": "string",
-              "minLength": 1
-            },
-            "limitations": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
-        },
-        "observed_registrations": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "class",
-            "publisher",
-            "source_or_generator",
-            "access_date",
-            "geography",
-            "time_grain",
-            "unit",
-            "rights",
-            "redistribution",
-            "transformations",
-            "limitations"
-          ],
-          "properties": {
-            "class": {
-              "enum": [
-                "observed",
-                "synthetic",
-                "proxy"
-              ]
-            },
-            "publisher": {
-              "type": "string",
-              "minLength": 1
-            },
-            "source_or_generator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "access_date": {
-              "type": "string",
-              "format": "date"
-            },
-            "geography": {
-              "type": "string",
-              "minLength": 1
-            },
-            "time_grain": {
-              "enum": [
-                "month"
-              ]
-            },
-            "unit": {
-              "type": "string",
-              "minLength": 1
-            },
-            "rights": {
-              "type": "string",
-              "minLength": 1
-            },
-            "redistribution": {
-              "enum": [
-                "allowed",
-                "not_allowed",
-                "unknown"
-              ]
-            },
-            "transformations": {
-              "type": "string",
-              "minLength": 1
-            },
-            "limitations": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "common.schema.json#/$defs/lineage"
         },
         "synthetic_media": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "class",
-            "publisher",
-            "source_or_generator",
-            "access_date",
-            "geography",
-            "time_grain",
-            "unit",
-            "rights",
-            "redistribution",
-            "transformations",
-            "limitations"
-          ],
-          "properties": {
-            "class": {
-              "const": "synthetic"
-            },
-            "publisher": {
-              "type": "string",
-              "minLength": 1
-            },
-            "source_or_generator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "access_date": {
-              "type": "string",
-              "format": "date"
-            },
-            "geography": {
-              "type": "string",
-              "minLength": 1
-            },
-            "time_grain": {
-              "enum": [
-                "month"
-              ]
-            },
-            "unit": {
-              "type": "string",
-              "minLength": 1
-            },
-            "rights": {
-              "type": "string",
-              "minLength": 1
-            },
-            "redistribution": {
-              "enum": [
-                "allowed",
-                "not_allowed",
-                "unknown"
-              ]
-            },
-            "transformations": {
-              "type": "string",
-              "minLength": 1
-            },
-            "limitations": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "common.schema.json#/$defs/synthetic_lineage"
         },
         "semi_synthetic_outcome": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "class",
-            "publisher",
-            "source_or_generator",
-            "access_date",
-            "geography",
-            "time_grain",
-            "unit",
-            "rights",
-            "redistribution",
-            "transformations",
-            "limitations"
-          ],
-          "properties": {
-            "class": {
-              "const": "synthetic"
-            },
-            "publisher": {
-              "type": "string",
-              "minLength": 1
-            },
-            "source_or_generator": {
-              "type": "string",
-              "minLength": 1
-            },
-            "access_date": {
-              "type": "string",
-              "format": "date"
-            },
-            "geography": {
-              "type": "string",
-              "minLength": 1
-            },
-            "time_grain": {
-              "enum": [
-                "month"
-              ]
-            },
-            "unit": {
-              "type": "string",
-              "minLength": 1
-            },
-            "rights": {
-              "type": "string",
-              "minLength": 1
-            },
-            "redistribution": {
-              "enum": [
-                "allowed",
-                "not_allowed",
-                "unknown"
-              ]
-            },
-            "transformations": {
-              "type": "string",
-              "minLength": 1
-            },
-            "limitations": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+          "$ref": "common.schema.json#/$defs/synthetic_lineage"
         }
       }
     },
     "split": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "train_start",
-        "train_end",
-        "test_start",
-        "test_end"
-      ],
-      "properties": {
-        "train_start": {
-          "type": "string",
-          "pattern": "^(?!0000)[0-9]{4}-(0[1-9]|1[0-2])(?![\\s\\S])"
-        },
-        "train_end": {
-          "type": "string",
-          "pattern": "^(?!0000)[0-9]{4}-(0[1-9]|1[0-2])(?![\\s\\S])"
-        },
-        "test_start": {
-          "type": "string",
-          "pattern": "^(?!0000)[0-9]{4}-(0[1-9]|1[0-2])(?![\\s\\S])"
-        },
-        "test_end": {
-          "type": "string",
-          "pattern": "^(?!0000)[0-9]{4}-(0[1-9]|1[0-2])(?![\\s\\S])"
-        }
-      }
+      "$ref": "common.schema.json#/$defs/split"
     },
     "missing_policy": {
       "const": "reject"
@@ -372,10 +74,13 @@
         "runtime",
         "method",
         "target",
-        "predictors",
+        "controls",
         "transform_order",
         "parameters",
-        "parameter_policy"
+        "parameter_policy",
+        "specified_on",
+        "uncertainty",
+        "condition_number_limit"
       ],
       "properties": {
         "runtime": {
@@ -387,11 +92,66 @@
         "target": {
           "const": "semi_synthetic_outcome"
         },
-        "predictors": {
-          "const": [
-            "observed_registrations",
-            "hill_adstock_media"
-          ]
+        "controls": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "trend",
+            "annual_fourier_order",
+            "include_quarter_end",
+            "structural_breaks"
+          ],
+          "properties": {
+            "trend": {
+              "const": "month_index_from_train_start"
+            },
+            "annual_fourier_order": {
+              "const": 1
+            },
+            "include_quarter_end": {
+              "type": "boolean"
+            },
+            "structural_breaks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "start",
+                  "evidence_url",
+                  "evidence_sha256",
+                  "published_on",
+                  "rationale"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "start": {
+                    "$ref": "common.schema.json#/$defs/month"
+                  },
+                  "evidence_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "evidence_sha256": {
+                    "$ref": "common.schema.json#/$defs/sha256"
+                  },
+                  "published_on": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "rationale": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "minItems": 0
+            }
+          }
         },
         "transform_order": {
           "const": [
@@ -400,42 +160,26 @@
           ]
         },
         "parameters": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "alpha",
-            "l_max",
-            "normalize",
-            "k",
-            "n"
-          ],
-          "properties": {
-            "alpha": {
-              "type": "number",
-              "minimum": 0,
-              "exclusiveMaximum": 1
-            },
-            "l_max": {
-              "type": "integer",
-              "minimum": 0
-            },
-            "normalize": {
-              "const": false
-            },
-            "k": {
-              "type": "number",
-              "exclusiveMinimum": 0
-            },
-            "n": {
-              "type": "number",
-              "exclusiveMinimum": 0
-            }
-          }
+          "$ref": "common.schema.json#/$defs/parameters"
         },
         "parameter_policy": {
-          "const": "predeclared_oracle_transforms_no_truth_file_access"
+          "const": "predeclared_oracle_transforms_without_baseline_or_truth_access"
+        },
+        "specified_on": {
+          "type": "string",
+          "format": "date"
+        },
+        "uncertainty": {
+          "$ref": "common.schema.json#/$defs/uncertainty"
+        },
+        "condition_number_limit": {
+          "type": "number",
+          "exclusiveMinimum": 0
         }
       }
+    },
+    "response_grid": {
+      "$ref": "common.schema.json#/$defs/grid"
     },
     "outputs": {
       "type": "object",
@@ -445,60 +189,9 @@
       ],
       "properties": {
         "result": {
-          "type": "string",
-          "pattern": "^(?![.]{1,2}(?:/|$))[A-Za-z0-9_.-]+(?:/(?![.]{1,2}(?:/|$))[A-Za-z0-9_.-]+)*(?![\\s\\S])"
+          "$ref": "common.schema.json#/$defs/path"
         }
       }
     }
-  },
-  "allOf": [
-    {
-      "if": {
-        "properties": {
-          "input_kind": {
-            "const": "observed_reference"
-          }
-        }
-      },
-      "then": {
-        "properties": {
-          "columns": {
-            "properties": {
-              "observed_registrations": {
-                "properties": {
-                  "class": {
-                    "const": "observed"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    {
-      "if": {
-        "properties": {
-          "input_kind": {
-            "const": "synthetic_fixture"
-          }
-        }
-      },
-      "then": {
-        "properties": {
-          "columns": {
-            "properties": {
-              "observed_registrations": {
-                "properties": {
-                  "class": {
-                    "const": "synthetic"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  ]
+  }
 }

@@ -1,9 +1,11 @@
 # Task 00 decisions — proposed for review
 
-> Review update: the conditional baseline-as-regressor design below is superseded
-> and must not guide Task 01 implementation. Python remains selected; R parity is
-> not a gate. See [Task 01 blockers](TASK_01_READINESS.md) for the required statistical
-> revision. This hardening pass adds no speculative output/scenario schemas.
+> Task 00.5 supersedes the v0.1.0 statistical proposal below. The normative design is
+> [STATISTICAL_CONTRACTS.md](STATISTICAL_CONTRACTS.md): observed reference/truth are
+> generator/evaluator-only; fixed calendar controls explain the baseline. Contracts
+> v0.2.0 add Stage-A uncertainty, contributions, common-grid curves and recovery
+> evaluation. Python remains selected; no R-parity gate. Historical source/API/license
+> observations remain valid; no new model or upstream implementation is introduced.
 
 ## Python reference and orchestration
 
@@ -62,7 +64,7 @@ A schema cannot enforce process isolation: separate command arguments/access and
 integration test in Task 01 must prove the estimator did not read truth. Effect
 recovery concerns injected coefficients only, not real Tesla ROI.
 
-## Temporal validation and missing-data policy
+## Historical v0.1.0 temporal policy (v0.2.0 admission rules supersede)
 
 CSV is a complete, unique, ascending monthly DE series; no interpolation,
 forward-fill, implicit zero, random split or row deletion. Reject missing/nonfinite

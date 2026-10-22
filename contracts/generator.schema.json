@@ -1,0 +1,275 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentic-analytics-studio.invalid/contracts/generator.schema.json",
+  "title": "generator v0.2.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "purpose",
+    "generator_id",
+    "reference_kind",
+    "reference",
+    "reference_columns",
+    "vintage",
+    "coverage",
+    "release_records",
+    "split",
+    "estimator_access",
+    "generation",
+    "outputs"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "purpose": {
+      "enum": [
+        "contract_fixture",
+        "development_benchmark"
+      ]
+    },
+    "generator_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reference_kind": {
+      "enum": [
+        "observed_kba",
+        "synthetic_development"
+      ]
+    },
+    "reference": {
+      "$ref": "common.schema.json#/$defs/artifact"
+    },
+    "reference_columns": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "period",
+        "observed_registrations"
+      ],
+      "properties": {
+        "period": {
+          "$ref": "common.schema.json#/$defs/lineage"
+        },
+        "observed_registrations": {
+          "$ref": "common.schema.json#/$defs/lineage"
+        }
+      }
+    },
+    "vintage": {
+      "type": "string",
+      "minLength": 1
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "end"
+      ],
+      "properties": {
+        "start": {
+          "$ref": "common.schema.json#/$defs/month"
+        },
+        "end": {
+          "$ref": "common.schema.json#/$defs/month"
+        }
+      }
+    },
+    "release_records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "period",
+          "source_url",
+          "sha256",
+          "version",
+          "published_on",
+          "license_identifier",
+          "license_url",
+          "rights_verified"
+        ],
+        "properties": {
+          "period": {
+            "$ref": "common.schema.json#/$defs/month"
+          },
+          "source_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "sha256": {
+            "$ref": "common.schema.json#/$defs/sha256"
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "published_on": {
+            "type": "string",
+            "format": "date"
+          },
+          "license_identifier": {
+            "type": "string",
+            "minLength": 1
+          },
+          "license_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "rights_verified": {
+            "const": true
+          }
+        }
+      },
+      "minItems": 0
+    },
+    "split": {
+      "$ref": "common.schema.json#/$defs/split"
+    },
+    "estimator_access": {
+      "const": false
+    },
+    "generation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "implementation_id",
+        "seed",
+        "rng",
+        "effect_fraction",
+        "noise_fraction",
+        "confounding",
+        "confounding_strength",
+        "parameters",
+        "calibration"
+      ],
+      "properties": {
+        "implementation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "seed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "rng": {
+          "const": "PCG64"
+        },
+        "effect_fraction": {
+          "type": "number",
+          "minimum": 0
+        },
+        "noise_fraction": {
+          "type": "number",
+          "minimum": 0
+        },
+        "confounding": {
+          "enum": [
+            "independent",
+            "quarter_end_and_baseline_peaks"
+          ]
+        },
+        "confounding_strength": {
+          "type": "number",
+          "minimum": 0
+        },
+        "parameters": {
+          "$ref": "common.schema.json#/$defs/parameters"
+        },
+        "calibration": {
+          "const": "training_reference_mean_only"
+        }
+      }
+    },
+    "outputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "estimator_data",
+        "truth"
+      ],
+      "properties": {
+        "estimator_data": {
+          "$ref": "common.schema.json#/$defs/path"
+        },
+        "truth": {
+          "$ref": "common.schema.json#/$defs/path"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "reference_kind": {
+            "const": "observed_kba"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "reference_columns": {
+            "properties": {
+              "observed_registrations": {
+                "allOf": [
+                  {
+                    "$ref": "common.schema.json#/$defs/lineage"
+                  },
+                  {
+                    "properties": {
+                      "class": {
+                        "const": "observed"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "release_records": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "reference_kind": {
+            "const": "synthetic_development"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "reference_columns": {
+            "properties": {
+              "observed_registrations": {
+                "allOf": [
+                  {
+                    "$ref": "common.schema.json#/$defs/lineage"
+                  },
+                  {
+                    "properties": {
+                      "class": {
+                        "const": "synthetic"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "release_records": {
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ]
+}

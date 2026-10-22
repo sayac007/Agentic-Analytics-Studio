@@ -7,7 +7,7 @@ import tempfile
 import unittest
 
 from jsonschema import Draft202012Validator, ValidationError
-from contracts.validate import validate_manifest
+from contracts.validate import validate_manifest, validate_generator
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -51,13 +51,13 @@ class SchemaPatterns(unittest.TestCase):
         for file in sorted((ROOT / 'contracts').glob('*.schema.json')):
             for node, location in pattern_nodes(json.loads(file.read_text())):
                 field = location[-1]
-                if field in ['train_start', 'train_end', 'test_start', 'test_end']:
+                if field in ['month', 'train_start', 'train_end', 'test_start', 'test_end']:
                     domain = 'month'
                 elif field == 'path' or location == ('properties', 'outputs', 'properties', 'result'):
                     domain = 'path'
                 elif field in ['sha256', 'manifest_sha256', 'data_sha256']:
                     domain = 'sha256'
-                elif field == 'hypoforge_commit':
+                elif field in ['commit', 'hypoforge_commit']:
                     domain = 'commit'
                 else:
                     self.fail(f'Unreviewed regex field in {file.name}: {location}')
@@ -67,7 +67,7 @@ class SchemaPatterns(unittest.TestCase):
                 for value, expected in [(v, True) for v in valid] + [(v, False) for v in invalid]:
                     with self.subTest(schema=file.name, field=location, value=value):
                         self.assertEqual(validator.is_valid(value), expected)
-        self.assertEqual(counts, {'month': 4, 'path': 5, 'sha256': 6, 'commit': 1})
+        self.assertEqual(counts, {'month': 1, 'path': 1, 'sha256': 1, 'commit': 1})
 
 
 class CsvEdges(unittest.TestCase):
@@ -89,39 +89,50 @@ class CsvEdges(unittest.TestCase):
                     validate_manifest(manifest, root)
 
     def test_all_fields_reject_empty_or_whitespace(self):
-        for position in range(4):
+        for position in range(3):
             for value in ['', ' ', '\t']:
                 with self.subTest(position=position, value=value):
-                    fields = ['2024-02', '12', '2', '13']
+                    fields = ['2024-02', '2', '13']
                     fields[position] = value
-                    self.check_csv(self.original.replace('2024-02,12,2,13', ','.join(fields)))
+                    self.check_csv(self.original.replace('2024-02,2,13', ','.join(fields)))
 
     def test_all_numeric_columns_reject_nonfinite_or_nondecimal_numbers(self):
-        for position in range(1, 4):
+        for position in range(1, 3):
             for value in ['NaN', 'nan', 'inf', '-Infinity', '1e999', 'abc', '0x10',
                           '1_000', '\uff11\uff12', ' 12', '12 ']:
                 with self.subTest(position=position, value=value):
-                    fields = ['2024-02', '12', '2', '13']
+                    fields = ['2024-02', '2', '13']
                     fields[position] = value
-                    self.check_csv(self.original.replace('2024-02,12,2,13', ','.join(fields)))
+                    self.check_csv(self.original.replace('2024-02,2,13', ','.join(fields)))
 
     def test_valid_numeric_notation_and_negative_continuous_outcome(self):
-        self.check_csv(self.original.replace('2024-02,12,2,13', '2024-02,1.2e1,+2.0,-.5'), accepted=True)
+        self.check_csv(self.original.replace('2024-02,2,13', '2024-02,+2.0,-.5'), accepted=True)
 
     def test_quoted_fields_and_crlf_remain_valid(self):
-        self.check_csv(self.original.replace('2024-02,12,2,13', '"2024-02","12","2","13"')
+        self.check_csv(self.original.replace('2024-02,2,13', '"2024-02","2","13"')
                        .replace('\n', '\r\n'), accepted=True)
 
     def test_malformed_csv_quoting_rejected(self):
-        self.check_csv(self.original.replace('2024-02,12,2,13', '2024-02,"12,2,13'))
+        self.check_csv(self.original.replace('2024-02,2,13', '2024-02,"2,13'))
 
     def test_large_fractional_registration_count_cannot_round_to_integer(self):
-        self.check_csv(self.original.replace(',12,2,13', ',9007199254740992.5,2,13'))
+        from support import template
+        generator = template('generator')
+        reference = (ROOT / generator['reference']['path']).read_text()
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for count in ['12.5', '9007199254740992.5', '-1', 'NaN', '']:
+                with self.subTest(count=count):
+                    text = reference.replace('2024-02,12', '2024-02,' + count)
+                    (root / 'reference.csv').write_text(text)
+                    generator['reference'] = {'path': 'reference.csv', 'sha256': hashlib.sha256(text.encode()).hexdigest()}
+                    with self.assertRaises(ValueError):
+                        validate_generator(generator, root)
 
     def test_missing_field_and_blank_record_rejected(self):
-        for text in [self.original.replace('2024-02,12,2,13', '2024-02,12,2'),
-                     self.original.replace('2024-02,12,2,13', ''),
-                     self.original.replace('2024-02,12,2,13', ',,,')]:
+        for text in [self.original.replace('2024-02,2,13', '2024-02,2'),
+                     self.original.replace('2024-02,2,13', ''),
+                     self.original.replace('2024-02,2,13', ',,')]:
             with self.subTest(text=text):
                 self.check_csv(text)
 
@@ -131,16 +142,16 @@ class CsvEdges(unittest.TestCase):
                 self.check_csv(text)
 
     def test_missing_or_reordered_header_rejected(self):
-        for header in ['period,observed_registrations,synthetic_media',
-                       'period,synthetic_media,observed_registrations,semi_synthetic_outcome',
-                       'period,observed_registrations,synthetic_media,synthetic_media']:
+        for header in ['period,synthetic_media',
+                       'period,semi_synthetic_outcome,synthetic_media',
+                       'period,synthetic_media,synthetic_media']:
             with self.subTest(header=header):
                 self.check_csv(self.original.replace(self.original.splitlines()[0], header))
 
     def test_actual_month_gap_and_out_of_order_rejected(self):
-        for text in [self.original.replace('2024-03,11,0,11\n', ''),
-                     self.original.replace('2024-02,12,2,13\n2024-03,11,0,11',
-                                           '2024-03,11,0,11\n2024-02,12,2,13')]:
+        for text in [self.original.replace('2024-03,0,11\n', ''),
+                     self.original.replace('2024-02,2,13\n2024-03,0,11',
+                                           '2024-03,0,11\n2024-02,2,13')]:
             with self.subTest(text=text):
                 self.check_csv(text)
 
@@ -165,7 +176,7 @@ class CsvEdges(unittest.TestCase):
     def test_changed_data_with_unchanged_hash_rejected(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            (root / 'input.csv').write_text(self.original.replace(',12,2,13', ',12,2,14'))
+            (root / 'input.csv').write_text(self.original.replace(',2,13', ',2,14'))
             self.manifest['data']['path'] = 'input.csv'
             with self.assertRaisesRegex(ValueError, 'checksum'):
                 validate_manifest(self.manifest, root)
@@ -178,9 +189,11 @@ class CsvEdges(unittest.TestCase):
                     manifest['columns'][column]['class'] = classification
                     with self.assertRaises(ValidationError):
                         validate_manifest(manifest)
-        self.manifest['input_kind'] = 'observed_reference'
+        from support import template
+        generator = template('generator')
+        generator['reference_kind'] = 'observed_kba'
         with self.assertRaises(ValidationError):
-            validate_manifest(self.manifest)
+            validate_generator(generator)
 
     def test_input_and_output_symlinks_cannot_escape_root(self):
         with tempfile.TemporaryDirectory() as directory:

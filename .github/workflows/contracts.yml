@@ -19,5 +19,7 @@ jobs:
         run: python3 -m pip install jsonschema==4.26.0
       - name: Validate example manifest and CSV
         run: python3 contracts/validate.py
+      - name: Validate separate generator contract
+        run: python3 contracts/validate.py contracts/examples/generator.json --kind generator
       - name: Run contract tests
         run: python3 -m unittest discover -s tests -v
