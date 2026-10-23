@@ -58,3 +58,9 @@ Task 01D adds a [Tesla Germany campaign evidence ledger](docs/TESLA_GERMANY_CAMP
 for 2018-01–2026-10. No dated German paid campaign is verified yet: all 106 media
 months remain unknown, with disputed/foreign/owned/promotion candidates kept separate.
 Run `python3 -m campaigns.transform --check` offline. No model is estimated.
+
+Task 01E adds [organic-attention data feasibility](docs/ORGANIC_ATTENTION_FEASIBILITY.md).
+No real historical attention observations were obtained: all 96 months 2018–2025
+remain unknown, including all 60 months 2021–2025. A small offline YouTube-shape
+adapter uses explicitly synthetic fixtures; current views never become historical views.
+Run `python3 -m attention.transform --check`. No association or model is estimated.

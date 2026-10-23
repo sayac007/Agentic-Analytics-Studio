@@ -1,0 +1,135 @@
+{
+  "version": "1.0.0",
+  "status": "synthetic_fixture",
+  "window": {
+    "start": "2020-01",
+    "end": "2020-03"
+  },
+  "aggregation_timezone": "Europe/Berlin",
+  "selection": {
+    "rule": "Fictional fixed channels and fake API responses, top-level comments only; not live API data."
+  },
+  "sources": [
+    {
+      "id": "owned",
+      "channel_id": "FAKE_owned",
+      "category": "owned",
+      "origin": "synthetic",
+      "rights": "synthetic_fixture_only",
+      "geography": {
+        "audience_country": "unknown",
+        "content_germany": true,
+        "language": "de",
+        "evidence": "Synthetic test annotation; German-language content does not establish German audience."
+      }
+    },
+    {
+      "id": "earned",
+      "channel_id": "FAKE_earned",
+      "category": "earned",
+      "origin": "synthetic",
+      "rights": "synthetic_fixture_only",
+      "geography": {
+        "audience_country": "unknown",
+        "content_germany": false,
+        "language": "de",
+        "evidence": "Synthetic test annotation; German-language content does not establish German audience."
+      }
+    },
+    {
+      "id": "community",
+      "channel_id": "FAKE_community",
+      "category": "community",
+      "origin": "synthetic",
+      "rights": "synthetic_fixture_only",
+      "geography": {
+        "audience_country": "unknown",
+        "content_germany": false,
+        "language": "de",
+        "evidence": "Synthetic test annotation; German-language content does not establish German audience."
+      }
+    }
+  ],
+  "batches": [
+    {
+      "source_id": "owned",
+      "resource": "videos",
+      "retrieved_at": "2026-10-23T10:00:00Z",
+      "response": {
+        "items": [
+          {
+            "id": "FAKE_VIDEO_owned",
+            "snippet": {
+              "channelId": "FAKE_owned",
+              "publishedAt": "2020-01-31T23:30:00Z"
+            },
+            "statistics": {
+              "viewCount": "12345"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "earned",
+      "resource": "videos",
+      "retrieved_at": "2026-10-23T10:00:00Z",
+      "response": {
+        "items": [
+          {
+            "id": "FAKE_VIDEO_earned",
+            "snippet": {
+              "channelId": "FAKE_earned",
+              "publishedAt": "2020-01-15T12:00:00Z"
+            },
+            "statistics": {
+              "viewCount": "12345"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "community",
+      "resource": "videos",
+      "retrieved_at": "2026-10-23T10:00:00Z",
+      "response": {
+        "items": [
+          {
+            "id": "FAKE_VIDEO_community",
+            "snippet": {
+              "channelId": "FAKE_community",
+              "publishedAt": "2020-03-01T00:00:00+01:00"
+            },
+            "statistics": {
+              "viewCount": "12345"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "source_id": "community",
+      "resource": "commentThreads",
+      "retrieved_at": "2026-10-23T10:00:00Z",
+      "response": {
+        "items": [
+          {
+            "id": "FAKE_THREAD",
+            "snippet": {
+              "channelId": "FAKE_community",
+              "videoId": "FAKE_VIDEO_community",
+              "topLevelComment": {
+                "id": "FAKE_COMMENT",
+                "snippet": {
+                  "publishedAt": "2020-02-29T23:30:00Z",
+                  "textDisplay": "Synthetic fixture only; adapter never retains text."
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

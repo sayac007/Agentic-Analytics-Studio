@@ -1,0 +1,545 @@
+{
+  "catalog_version": "1.0.0",
+  "research_as_of": "2026-10-23",
+  "basis_main": "e8b261d90d9495702c73e9c6d288e49d785dfb6e",
+  "empirical_status": "not empirically populated",
+  "availability_definitions": {
+    "historically_observed": "Dated historical measurement with a retained lawful provenance witness; no such data obtained.",
+    "retrospectively_reconstructable": "Surviving original publication records or sampled historical query can conditionally be reconstructed later; not historical real-time availability or completeness.",
+    "current_snapshot_only": "Only retrieval-time cumulative/current measure; not a historical monthly view series.",
+    "unavailable": "No usable data obtained for this series under tested access, credential and rights conditions; not a global impossibility claim.",
+    "not_tested": "No authorized data query or adequate coverage verification performed."
+  },
+  "classification_note": "availability_class describes this run; potential_class_after_unblocking describes measurement feasibility, NOT obtained coverage or permission. Official URLs with failed requests remain NOT VERIFIED; generated Google reference read via official GitHub is not a terms/quota audit.",
+  "sources": [
+    {
+      "id": "youtube_publications",
+      "provider": "Google / YouTube Data API v3",
+      "potential_series": "monthly surviving selected-channel video publications",
+      "attention_category": [
+        "owned",
+        "earned",
+        "community"
+      ],
+      "official_documentation": [
+        "https://developers.google.com/youtube/v3/docs/videos",
+        "https://developers.google.com/youtube/v3/docs/playlistItems/list",
+        "https://developers.google.com/youtube/v3/getting-started",
+        "https://developers.google.com/youtube/v3/determine_quota_cost",
+        "https://developers.google.com/youtube/terms/developer-policies"
+      ],
+      "authentication": "A configured Google project/API key for public Data API reads is the proposed prerequisite; no usable key among checked variable names. Owner analytics requires separate authorization. Getting-started page not readable here.",
+      "cost_and_rate_limits": "No paid data product proposed. Current quota allocation, method charges, quota-extension conditions and current pricing NOT VERIFIED: canonical quota page blocked. Do not budget an unverified numeric limit.",
+      "collection_and_redistribution": "Public API metadata is not open-licensed data. Storage/refresh/deletion/redistribution requirements require current developer-policy review before real ingestion. No titles, descriptions, author identifiers or real API records redistributed.",
+      "historical_coverage": "Candidate reconstruction from publication timestamps of currently accessible videos, potentially including 2018–2025; no actual channel inventory or historical completeness demonstrated. Current surviving inventory cannot recover deleted/private videos.",
+      "geographic_and_language_selectivity": "Fixed channel ID plus separately coded language/content-country. regionCode/relevanceLanguage and a German channel name do not prove audience in Germany.",
+      "timestamp_quality": "API snippet.publishedAt is a timezone-stamped publication/upload field; private-to-public transitions and premieres need canonical semantic review. Not a view timestamp.",
+      "reproducibility": "Freeze channel selection before outcomes, resolve IDs, enumerate upload playlists with all pagination, retain lawful minimal IDs/timestamps and extraction hashes; reruns differ after deletions.",
+      "known_biases": "Survivorship, selected-channel/topic definitions, sponsored content, reuploads, Shorts format changes, name changes; keyword search is relevance-limited, not an exhaustive historical census.",
+      "actual_access_test": [
+        "yt-no-key",
+        "yt-owned",
+        "yt-independent",
+        "yt-editorial",
+        "yt-videos-github"
+      ],
+      "availability_class": "unavailable",
+      "potential_class_after_unblocking": "retrospectively_reconstructable",
+      "coverage_2018_2025": {
+        "observed_months": 0,
+        "required_months": 96,
+        "complete_series_demonstrated": false
+      },
+      "coverage_2021_2025": {
+        "observed_months": 0,
+        "required_months": 60,
+        "complete_series_demonstrated": false
+      },
+      "lineage": "proxy",
+      "data_retained": "none"
+    },
+    {
+      "id": "youtube_current_views",
+      "provider": "Google / YouTube Data API v3",
+      "potential_series": "views_at_retrieval, not historical monthly views",
+      "attention_category": [
+        "owned",
+        "earned",
+        "community"
+      ],
+      "official_documentation": [
+        "https://developers.google.com/youtube/v3/docs/videos"
+      ],
+      "authentication": "Same project/key prerequisite as publications.",
+      "cost_and_rate_limits": "Same unresolved quota/legal gates as publications.",
+      "collection_and_redistribution": "No real counters stored or shared; no open-data license inferred.",
+      "historical_coverage": "statistics.viewCount is a cumulative snapshot at retrieval, not a historical time series.",
+      "geographic_and_language_selectivity": "No public video counter proves country-specific audience.",
+      "timestamp_quality": "retrieved_at must accompany viewCount; publishedAt cannot date a cumulative counter.",
+      "reproducibility": "Repeated future snapshots could document subsequent increments subject to policy; cannot backfill 2018–2025.",
+      "known_biases": "Later viral events, age bias, deletions and counter-definition changes; differences are not automatically historical monthly reach.",
+      "actual_access_test": [
+        "yt-videos-github",
+        "yt-no-key"
+      ],
+      "availability_class": "unavailable",
+      "potential_class_after_unblocking": "current_snapshot_only",
+      "coverage_2018_2025": {
+        "observed_months": 0,
+        "required_months": 96,
+        "complete_series_demonstrated": false
+      },
+      "coverage_2021_2025": {
+        "observed_months": 0,
+        "required_months": 60,
+        "complete_series_demonstrated": false
+      },
+      "lineage": "proxy",
+      "data_retained": "none"
+    },
+    {
+      "id": "youtube_historical_views",
+      "provider": "Google / YouTube Analytics API",
+      "potential_series": "historical views and country reports for authorized owners",
+      "attention_category": [
+        "owned"
+      ],
+      "official_documentation": [
+        "https://developers.google.com/youtube/analytics/channel_reports"
+      ],
+      "authentication": "Owner/content-owner authorization required, not third-party public Data API access. No creator grant or token exists in reviewed configuration.",
+      "cost_and_rate_limits": "Quota and pricing NOT VERIFIED; no owner API request attempted.",
+      "collection_and_redistribution": "Owner permission plus applicable analytics/data policies required; not a public third-party panel.",
+      "historical_coverage": "Historical reports may exist for authorized owners. No evidence of publicly available 2018–2025 per-video view histories.",
+      "geographic_and_language_selectivity": "Country dimensions/filters possible in owner reports, subject to access and privacy thresholds; not inferred from video language.",
+      "timestamp_quality": "Report dates with reporting timezone/availability need explicit review.",
+      "reproducibility": "Only a separately authorized owner export could establish a dated history; today's public view count cannot substitute.",
+      "known_biases": "Consent/creator selection, reporting limitations, hidden/deleted videos and revised definitions.",
+      "actual_access_test": [
+        "yt-analytics-github"
+      ],
+      "availability_class": "unavailable",
+      "potential_class_after_unblocking": "not_tested",
+      "coverage_2018_2025": {
+        "observed_months": 0,
+        "required_months": 96,
+        "complete_series_demonstrated": false
+      },
+      "coverage_2021_2025": {
+        "observed_months": 0,
+        "required_months": 60,
+        "complete_series_demonstrated": false
+      },
+      "lineage": "proxy",
+      "data_retained": "none"
+    },
+    {
+      "id": "youtube_comments",
+      "provider": "Google / YouTube Data API v3",
+      "potential_series": "monthly surviving top-level comment publications",
+      "attention_category": [
+        "community"
+      ],
+      "official_documentation": [
+        "https://developers.google.com/youtube/v3/docs/commentThreads/list",
+        "https://developers.google.com/youtube/v3/docs/comments/list",
+        "https://developers.google.com/youtube/terms/developer-policies"
+      ],
+      "authentication": "Project/key prerequisite; disabled/deleted/moderated threads may remain inaccessible even with a key.",
+      "cost_and_rate_limits": "Current list quotas NOT VERIFIED; generated reference supports pagination but is not authoritative pricing.",
+      "collection_and_redistribution": "Comment text/author data involve platform policy and privacy. No real text, usernames, IDs or sentiment exported. Require lawful retention/deletion and redistribution assessment.",
+      "historical_coverage": "Currently surviving dated comments can be reconstructed, not a complete archive or audience panel. 2018–2025 coverage not verified.",
+      "geographic_and_language_selectivity": "Text language and content context can be coded; commenter country is generally unknown.",
+      "timestamp_quality": "Comment snippet.publishedAt differs from updatedAt; use actual publication timestamp, never video publication or current commentCount.",
+      "reproducibility": "Freeze selected videos, paginate time-ordered top-level threads, record exclusions/deletion risk. Replies need their own pagination; prototype explicitly excludes them.",
+      "known_biases": "Moderation, disabled comments, spam/bots, deletions, prolific commenters and re-selected videos; no unique-person or reach interpretation.",
+      "actual_access_test": [
+        "yt-comments-github",
+        "yt-no-key"
+      ],
+      "availability_class": "unavailable",
+      "potential_class_after_unblocking": "retrospectively_reconstructable",
+      "coverage_2018_2025": {
+        "observed_months": 0,
+        "required_months": 96,
+        "complete_series_demonstrated": false
+      },
+      "coverage_2021_2025": {
+        "observed_months": 0,
+        "required_months": 60,
+        "complete_series_demonstrated": false
+      },
+      "lineage": "proxy",
+      "data_retained": "none"
+    },
+    {
+      "id": "google_trends",
+      "provider": "Google Trends",
+      "potential_series": "Tesla search-interest index for DE, kept separate",
+      "attention_category": [
+        "search_attention"
+      ],
+      "official_documentation": [
+        "https://support.google.com/trends/answer/4365533",
+        "https://support.google.com/trends/answer/4365538",
+        "https://developers.google.com/search/blog/2025/07/trends-api"
+      ],
+      "authentication": "Public Explore/CSV UI route requires no project key in the proposed manual-export workflow. Actual Explore GET returned 429. API alpha/access conditions NOT VERIFIED because announcement page blocked.",
+      "cost_and_rate_limits": "Public UI export documented; no paid product required for that route. Rate limit is unspecified and observed 429 is respected. No promise of unrestricted automation.",
+      "collection_and_redistribution": "Official Help permits export/citation subject to Google Terms. Review terms and attribution for a supplied CSV; no actual Trends data redistributed here.",
+      "historical_coverage": "A full-window 2018–2025 query was specified but yielded no data. Official Help does not verify that exact window/returned resolution. No API full-eight-year coverage assumed.",
+      "geographic_and_language_selectivity": "geo=DE is a provider country filter for search origin, not citizenship, purchasers or creator audience. Tesla search term is ambiguous with Nikola Tesla; resolve automotive topic separately before use.",
+      "timestamp_quality": "Official Help: windows >=30 days use UTC, including monthly data. Preserve actual returned granularity; no boundary conversion of a monthly index into Berlin days.",
+      "reproducibility": "Freeze term versus topic ID, geo=DE, category=0, gprop=web, exact window and retrieval; retain export bytes/hash. Repeat lawful exports to quantify sample instability; do not splice independently normalized windows.",
+      "known_biases": "Sampled search proportions normalized 0–100; low-volume 0 is not zero searches; statistical noise, changing denominators, noncommercial Tesla queries, spikes not purchases.",
+      "actual_access_test": [
+        "gt-faq",
+        "gt-export",
+        "gt-explore",
+        "gt-api",
+        "gt-public-archive-meta",
+        "gt-public-archive-index",
+        "gt-public-archive-readme",
+        "gt-public-archive-license"
+      ],
+      "availability_class": "unavailable",
+      "potential_class_after_unblocking": "retrospectively_reconstructable",
+      "coverage_2018_2025": {
+        "observed_months": 0,
+        "required_months": 96,
+        "complete_series_demonstrated": false
+      },
+      "coverage_2021_2025": {
+        "observed_months": 0,
+        "required_months": 60,
+        "complete_series_demonstrated": false
+      },
+      "lineage": "proxy",
+      "data_retained": "none",
+      "public_archive_check": {
+        "repository": "https://github.com/GoogleTrends/data",
+        "tree_sha": "44ce5e8cdb786b6bd5257dd5e9ea6af58fcffe16",
+        "tree_entries": 590,
+        "tree_truncated": false,
+        "license_read": "CC BY 4.0 International, repository LICENSE read; not a blanket license for all Trends UI exports or platform content.",
+        "selection": "Reviewed README/license and full nontruncated path listing, searched names for Tesla/German/electric/car/auto. No Tesla-named export identified. File contents of all datasets were not exhaustively searched.",
+        "result": "No suitable German Tesla monthly observations obtained. Unrelated German nuclear-energy/football datasets not substituted."
+      }
+    },
+    {
+      "id": "reddit",
+      "provider": "Reddit Data API",
+      "potential_series": "dated Tesla discussions/comments in fixed German-context communities",
+      "attention_category": [
+        "community"
+      ],
+      "official_documentation": [
+        "https://support.reddithelp.com/hc/en-us/articles/14945211791892-Reddit-API",
+        "https://redditinc.com/policies/data-api-terms"
+      ],
+      "authentication": "Approved API application/OAuth and current access eligibility need verification; checked client variables absent. Public unauthenticated query blocked by environment before Reddit could respond.",
+      "cost_and_rate_limits": "Free research access, paid/commercial terms and numeric rate limits NOT VERIFIED from blocked official docs. No paid access obtained.",
+      "collection_and_redistribution": "Current API/data terms, privacy, deletions, researcher approval and redistribution restrictions must be checked. Public posts are not automatically licensed; no texts/handles committed.",
+      "historical_coverage": "No archive or complete historical 2018–2025/2021–2025 listing verified. Search/listing endpoints are not a historical census; third-party archives not substituted.",
+      "geographic_and_language_selectivity": "German subreddit or German text establishes community/language context, not author residence or DE reach.",
+      "timestamp_quality": "created_utc would be a publication time; edited_at and retrieved_at distinct. Not measured until actual data available.",
+      "reproducibility": "Fixed communities, query/version, pagination, deletions and date conversion required; complete backfill not demonstrated.",
+      "known_biases": "Moderation/deletions, self-selection, bots, community growth, search caps and inconsistent Tesla/model terminology.",
+      "actual_access_test": [
+        "reddit-doc",
+        "reddit-terms",
+        "reddit-test"
+      ],
+      "availability_class": "unavailable",
+      "potential_class_after_unblocking": "not_tested",
+      "coverage_2018_2025": {
+        "observed_months": 0,
+        "required_months": 96,
+        "complete_series_demonstrated": false
+      },
+      "coverage_2021_2025": {
+        "observed_months": 0,
+        "required_months": 60,
+        "complete_series_demonstrated": false
+      },
+      "lineage": "proxy",
+      "data_retained": "none"
+    },
+    {
+      "id": "news_gdelt",
+      "provider": "GDELT DOC / historical archives",
+      "potential_series": "German-language editorial mention or story volume",
+      "attention_category": [
+        "earned"
+      ],
+      "official_documentation": [
+        "https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/"
+      ],
+      "authentication": "Public endpoint attempted without credentials; authentication/access conditions not confirmed because proxy denied CONNECT.",
+      "cost_and_rate_limits": "Public/free service expected, NOT VERIFIED in this run. Numeric rate limits and historical query horizon require official-doc review.",
+      "collection_and_redistribution": "Do not redistribute publisher text/images based on GDELT availability. API/archive reuse terms and underlying rights need verification; no results stored.",
+      "historical_coverage": "A January 2025 historical DOC query was explicitly attempted; no data received. Do not assume current rolling DOC search covers 2018–2025; archives/GKG/Events have different definitions and require separate review.",
+      "geographic_and_language_selectivity": "sourcelang:german is language, not German readership. Publisher country, event geography and audience country are different.",
+      "timestamp_quality": "Story publication vs discovery/index time must be checked; do not equate event records with article publication.",
+      "reproducibility": "Freeze archive/version, topic entity/disambiguation and source-universe denominators; deduplicate syndicated stories.",
+      "known_biases": "Syndication, crawl coverage changes, differing denominator, discovery lag; GDELT tone is not a validated German Tesla sentiment measure.",
+      "actual_access_test": [
+        "gdelt-doc",
+        "gdelt-test"
+      ],
+      "availability_class": "unavailable",
+      "potential_class_after_unblocking": "not_tested",
+      "coverage_2018_2025": {
+        "observed_months": 0,
+        "required_months": 96,
+        "complete_series_demonstrated": false
+      },
+      "coverage_2021_2025": {
+        "observed_months": 0,
+        "required_months": 60,
+        "complete_series_demonstrated": false
+      },
+      "lineage": "proxy",
+      "data_retained": "none"
+    },
+    {
+      "id": "news_mediacloud",
+      "provider": "Media Cloud",
+      "potential_series": "historical indexed German Tesla news",
+      "attention_category": [
+        "earned"
+      ],
+      "official_documentation": [
+        "https://www.mediacloud.org/documentation"
+      ],
+      "authentication": "Account/key and collection access must be verified; checked MEDIACLOUD_API_KEY absent. No API query attempted.",
+      "cost_and_rate_limits": "Research access/costs/limits NOT VERIFIED; documentation fetch blocked.",
+      "collection_and_redistribution": "Index access does not grant rights to full publisher texts. Collection-specific export/retention conditions require review.",
+      "historical_coverage": "2018–2025 collection completeness not established. Country/language collections may vary over time.",
+      "geographic_and_language_selectivity": "Source collection geography/language is not measured audience geography.",
+      "timestamp_quality": "Publication vs crawl/ingestion dates require verification.",
+      "reproducibility": "Freeze source list, collection/version, extraction cutoff and deduplication rules.",
+      "known_biases": "Collection revisions, missing outlets, paywalls and crawl gaps.",
+      "actual_access_test": [
+        "mediacloud-doc"
+      ],
+      "availability_class": "not_tested",
+      "potential_class_after_unblocking": "not_tested",
+      "coverage_2018_2025": {
+        "observed_months": 0,
+        "required_months": 96,
+        "complete_series_demonstrated": false
+      },
+      "coverage_2021_2025": {
+        "observed_months": 0,
+        "required_months": 60,
+        "complete_series_demonstrated": false
+      },
+      "lineage": "proxy",
+      "data_retained": "none"
+    },
+    {
+      "id": "mastodon",
+      "provider": "Mastodon / instance APIs",
+      "potential_series": "public dated local discussion and hashtags",
+      "attention_category": [
+        "community"
+      ],
+      "official_documentation": [
+        "https://docs.joinmastodon.org/methods/timelines/"
+      ],
+      "authentication": "Instance-specific public access/token policy. No instance or real users selected; only documentation request attempted.",
+      "cost_and_rate_limits": "Software API does not guarantee free access to any instance; limits are instance-specific and NOT VERIFIED.",
+      "collection_and_redistribution": "Instance rules, user copyright, personal-data/deletion/federation requirements remain unresolved. No collection or redistribution.",
+      "historical_coverage": "No complete historical 2018–2025 search established. A current public timeline is not a global or historical corpus.",
+      "geographic_and_language_selectivity": "German-language instance or hashtag is not proof of German residence.",
+      "timestamp_quality": "created_at of original versus boost must be distinguished.",
+      "reproducibility": "Fixed instance universe, pagination and deletion tracking required.",
+      "known_biases": "Federation visibility, instance adoption/migration, moderation and missing historical reach.",
+      "actual_access_test": [
+        "mastodon-doc"
+      ],
+      "availability_class": "not_tested",
+      "potential_class_after_unblocking": "not_tested",
+      "coverage_2018_2025": {
+        "observed_months": 0,
+        "required_months": 96,
+        "complete_series_demonstrated": false
+      },
+      "coverage_2021_2025": {
+        "observed_months": 0,
+        "required_months": 60,
+        "complete_series_demonstrated": false
+      },
+      "lineage": "proxy",
+      "data_retained": "none"
+    },
+    {
+      "id": "meta_research",
+      "provider": "Meta Content Library / approved social-listening research access",
+      "potential_series": "Facebook/Instagram historical public-content research",
+      "attention_category": [
+        "owned",
+        "earned",
+        "community"
+      ],
+      "official_documentation": [
+        "https://transparency.meta.com/researchtools/meta-content-library/"
+      ],
+      "authentication": "Not tested. Researcher eligibility and approved access required before any availability claim. No credentials or dataset accessed.",
+      "cost_and_rate_limits": "Current access fees/rate limits NOT VERIFIED. Not assumed unrestricted/free commercial data.",
+      "collection_and_redistribution": "Research-environment/export and text/media rights need official review; no records redistributed.",
+      "historical_coverage": "No German Tesla 2018–2025 coverage demonstrated; a commercial listening claim is not evidence of a lawful reproducible archive.",
+      "geographic_and_language_selectivity": "Language/content geography does not establish audience geography.",
+      "timestamp_quality": "Publication vs archival capture time needs review.",
+      "reproducibility": "Approved stable dataset version and lawful aggregate export would be prerequisites.",
+      "known_biases": "Eligibility, platform coverage shifts, deleted content and researcher selection.",
+      "actual_access_test": [],
+      "availability_class": "not_tested",
+      "potential_class_after_unblocking": "not_tested",
+      "coverage_2018_2025": {
+        "observed_months": 0,
+        "required_months": 96,
+        "complete_series_demonstrated": false
+      },
+      "coverage_2021_2025": {
+        "observed_months": 0,
+        "required_months": 60,
+        "complete_series_demonstrated": false
+      },
+      "lineage": "proxy",
+      "data_retained": "none"
+    },
+    {
+      "id": "wikimedia",
+      "provider": "Wikimedia Analytics / Pageviews API",
+      "potential_series": "German-language Tesla article readership, separate community attention proxy",
+      "attention_category": [
+        "community"
+      ],
+      "official_documentation": [
+        "https://doc.wikimedia.org/generated-data-platform/aqs/analytics-api/reference/page-views.html",
+        "https://dumps.wikimedia.org/legal.html"
+      ],
+      "authentication": "Public pageview endpoint attempted without key; no data received. Authentication requirements not independently confirmed.",
+      "cost_and_rate_limits": "Free/public aggregate endpoint expected, NOT VERIFIED; current etiquette/rate limits require documentation review.",
+      "collection_and_redistribution": "Aggregate pageview data may have distinct licensing from article text. Legal documentation blocked; no CC0 license inferred for redistribution in this run.",
+      "historical_coverage": "Exact monthly 2018–2025 Tesla,_Inc. de.wikipedia query attempted but blocked. Article moves/redirects and pre-window availability require review.",
+      "geographic_and_language_selectivity": "de.wikipedia.org is project language, not audience in Germany. Country aggregates must not be substituted for per-article country audience.",
+      "timestamp_quality": "API timestamp/granularity would need actual-response validation.",
+      "reproducibility": "Pin project/article/redirect handling, access=all-access, agent=user, monthly bounds and raw hash.",
+      "known_biases": "Language-country mismatch, article moves, bots classification, unrelated Tesla articles and external-news demand.",
+      "actual_access_test": [
+        "wiki-doc",
+        "wiki-license",
+        "wiki-test"
+      ],
+      "availability_class": "unavailable",
+      "potential_class_after_unblocking": "not_tested",
+      "coverage_2018_2025": {
+        "observed_months": 0,
+        "required_months": 96,
+        "complete_series_demonstrated": false
+      },
+      "coverage_2021_2025": {
+        "observed_months": 0,
+        "required_months": 60,
+        "complete_series_demonstrated": false
+      },
+      "lineage": "proxy",
+      "data_retained": "none"
+    }
+  ],
+  "documentation_evidence": [
+    {
+      "id": "gt-faq",
+      "url": "https://support.google.com/trends/answer/4365533?hl=en",
+      "final_url": "https://support.google.com/trends/answer/4365533?hl=en",
+      "status": 200,
+      "bytes": 1529478,
+      "sha256": "4fd6c1d06b9c7bcf994c1788fe98222499769fb6b8ca50dcfa16beb0b19c89ee",
+      "retrieved_on": "2026-10-23"
+    },
+    {
+      "id": "gt-export",
+      "url": "https://support.google.com/trends/answer/4365538?hl=en",
+      "final_url": "https://support.google.com/trends/answer/4365538?hl=en",
+      "status": 200,
+      "bytes": 1527593,
+      "sha256": "d1d0a17554f132f6d2b881044e16d6edee4d7bcde0640bb174996950f877e73e",
+      "retrieved_on": "2026-10-23"
+    },
+    {
+      "id": "yt-reference-github",
+      "url": "https://raw.githubusercontent.com/googleapis/google-api-python-client/main/docs/dyn/youtube_v3.html",
+      "final_url": "https://raw.githubusercontent.com/googleapis/google-api-python-client/main/docs/dyn/youtube_v3.html",
+      "status": 200,
+      "bytes": 7394,
+      "sha256": "12103b7ec141d6233673f7eecbd440a5d4f70467f0e22ba2fa9ad455ce16219b",
+      "retrieved_on": "2026-10-23"
+    },
+    {
+      "id": "yt-videos-github",
+      "url": "https://raw.githubusercontent.com/googleapis/google-api-python-client/main/docs/dyn/youtube_v3.videos.html",
+      "final_url": "https://raw.githubusercontent.com/googleapis/google-api-python-client/main/docs/dyn/youtube_v3.videos.html",
+      "status": 200,
+      "bytes": 226834,
+      "sha256": "68edff28fd8eafa6bb37e7ddd1b1554f03b59ace3573b292f139644ef912d331",
+      "retrieved_on": "2026-10-23"
+    },
+    {
+      "id": "yt-comments-github",
+      "url": "https://raw.githubusercontent.com/googleapis/google-api-python-client/main/docs/dyn/youtube_v3.commentThreads.html",
+      "final_url": "https://raw.githubusercontent.com/googleapis/google-api-python-client/main/docs/dyn/youtube_v3.commentThreads.html",
+      "status": 200,
+      "bytes": 32706,
+      "sha256": "2135bb6079a5dcdcfca7adc1350805324442a9503f3130ded131f7e318ad6907",
+      "retrieved_on": "2026-10-23"
+    },
+    {
+      "id": "yt-analytics-github",
+      "url": "https://raw.githubusercontent.com/googleapis/google-api-python-client/main/docs/dyn/youtubeAnalytics_v2.reports.html",
+      "final_url": "https://raw.githubusercontent.com/googleapis/google-api-python-client/main/docs/dyn/youtubeAnalytics_v2.reports.html",
+      "status": 200,
+      "bytes": 9653,
+      "sha256": "3ba87e3742f357ea11aef57d72bec056d3624ad3ad28f83499ac2c78d3f54f9f",
+      "retrieved_on": "2026-10-23"
+    },
+    {
+      "id": "gt-public-archive-meta",
+      "url": "https://api.github.com/repos/googletrends/data",
+      "final_url": "https://api.github.com/repos/googletrends/data",
+      "status": 200,
+      "bytes": 6304,
+      "sha256": "139025eb119feed3a1734941e0760a299eadda776409f3cf548b9398b2e88d51",
+      "retrieved_on": "2026-10-23"
+    },
+    {
+      "id": "gt-public-archive-index",
+      "url": "https://api.github.com/repos/googletrends/data/git/trees/master?recursive=1",
+      "final_url": "https://api.github.com/repos/googletrends/data/git/trees/master?recursive=1",
+      "status": 200,
+      "bytes": 145621,
+      "sha256": "eafd3235bc594c645909bb2672ea0e7ab3c6fd7d3313a35ea3b74b15aaa1bd84",
+      "retrieved_on": "2026-10-23"
+    },
+    {
+      "id": "gt-public-archive-readme",
+      "url": "https://raw.githubusercontent.com/GoogleTrends/data/master/README.md",
+      "final_url": "https://raw.githubusercontent.com/GoogleTrends/data/master/README.md",
+      "status": 200,
+      "bytes": 948,
+      "sha256": "3f3e361a5b0dcef11abf7d00b0dbdc94c2de265320c21fee368747bf6a747091",
+      "retrieved_on": "2026-10-23"
+    },
+    {
+      "id": "gt-public-archive-license",
+      "url": "https://raw.githubusercontent.com/GoogleTrends/data/master/LICENSE",
+      "final_url": "https://raw.githubusercontent.com/GoogleTrends/data/master/LICENSE",
+      "status": 200,
+      "bytes": 12718,
+      "sha256": "2e91064753e0c585d4c935b825c8065d264cca8aa845dacfda2738436f023810",
+      "retrieved_on": "2026-10-23"
+    }
+  ]
+}

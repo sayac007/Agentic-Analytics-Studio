@@ -1,0 +1,20 @@
+{
+  "aggregation_timezone": "Europe/Berlin",
+  "distinct_observed_sources": 0,
+  "historical_views_available": false,
+  "limitation": "No empirical data populated; fixture counts are not Tesla observations. No absence/zero, reach, German audience, sentiment or historical view inference.",
+  "lineage": "no_observations",
+  "months": 96,
+  "observed_months": [],
+  "real_historical_observations": 0,
+  "sentiment_available": false,
+  "shared_2021_2025_months": 60,
+  "shared_2021_2025_observed_months": [],
+  "status": "not empirically populated",
+  "unknown_months": 96,
+  "window": {
+    "end": "2025-12",
+    "start": "2018-01"
+  },
+  "zero_imputation": false
+}
