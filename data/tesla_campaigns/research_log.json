@@ -1,0 +1,462 @@
+{
+  "retrieved_on": "2026-10-23",
+  "method": "TLS-verified stdlib urllib; search/discovery responses are not campaign evidence; source bodies inspected outside repository",
+  "initial_access": "Initial proxy CONNECT 403 on new domains; additional public sources subsequently retrievable; no claim that saving a config draft itself applied runtime changes",
+  "requests": [
+    {
+      "id": "search-bing",
+      "url": "https://www.bing.com/search?format=rss&q=Tesla%20Deutschland%20Werbung%20Kampagne%202025",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "id": "search-google",
+      "url": "https://www.google.com/search?q=Tesla+Deutschland+Werbung+Kampagne+2025",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "id": "tesla-de",
+      "url": "https://www.tesla.com/de_de",
+      "final_url": "https://www.tesla.com/de_de",
+      "status": 200,
+      "bytes": 1151158,
+      "sha256": "79841ee0a3dcf0cdc2b252831b73ef083b3f6746af7f1ab6d93b7812cc1d426a"
+    },
+    {
+      "id": "electrive-search",
+      "url": "https://www.electrive.net/?s=Tesla+Werbung",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "id": "horizont-search",
+      "url": "https://www.horizont.net/suche/?q=Tesla",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "id": "t3n-search",
+      "url": "https://t3n.de/search/?q=Tesla%20Werbung",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "id": "ads-google",
+      "url": "https://adstransparency.google.com/?region=DE&query=Tesla",
+      "final_url": "https://adstransparency.google.com/?region=DE&query=Tesla",
+      "status": 200,
+      "bytes": 2563847,
+      "sha256": "e8e55efcc6f4665e88b4adcaf11561b976fbe5921d54ce7ec9ca1cb82dd25a8b"
+    },
+    {
+      "id": "ads-meta",
+      "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=DE&q=Tesla&search_type=keyword_unordered",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "tesla-blog",
+      "url": "https://www.tesla.com/blog",
+      "final_url": "https://www.tesla.com/blog",
+      "status": 200,
+      "bytes": 1043622,
+      "sha256": "7ad045185a73fcd838880af4346194f3061b97e644b8831d4eeffff07e1d08b8"
+    },
+    {
+      "id": "tesla-events-de",
+      "url": "https://www.tesla.com/de_de/events",
+      "final_url": "https://www.tesla.com/de_de/events",
+      "status": 200,
+      "bytes": 20827,
+      "sha256": "f2cbc8b567b757ffaa9d1a5cac6cf07dd1c50fbcde35cee8a0be938b558cfe5f"
+    },
+    {
+      "id": "tesla-modely-de",
+      "url": "https://www.tesla.com/de_de/modely",
+      "final_url": "https://www.tesla.com/de_de/modely",
+      "status": 200,
+      "bytes": 1399645,
+      "sha256": "aee24d99fd45e7ce2a8d6d36955acc4d47ef89326ece3c75224ba9ed75ce3046"
+    },
+    {
+      "id": "tesla-ir-2023",
+      "url": "https://ir.tesla.com/press-release/tesla-releases-first-quarter-2023-financial-results",
+      "final_url": "https://ir.tesla.com/press-release/tesla-releases-first-quarter-2023-financial-results",
+      "status": 200,
+      "bytes": 1022716,
+      "sha256": "9bb0a8d1fdb7039e32a4eba85bc9976c6fdbcab8b27c664085b29ea9ea26dd24"
+    },
+    {
+      "id": "youtube-tesla",
+      "url": "https://www.youtube.com/tesla",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "id": "x-teslaeurope",
+      "url": "https://x.com/teslaeurope",
+      "final_url": "https://x.com/teslaeurope",
+      "status": 200,
+      "bytes": 151827,
+      "sha256": "5d43942a3dc738d8f48cfc87c2f93f118da9a0c642b6c99e9a0eaac359785d28"
+    },
+    {
+      "id": "archive-ads",
+      "url": "https://web.archive.org/cdx/search/cdx?url=tesla.com/de_de&output=json&filter=statuscode:200&filter=mimetype:text/html&collapse=timestamp:6&from=2018&to=2026",
+      "final_url": "https://web.archive.org/cdx/search/cdx?url=tesla.com/de_de&output=json&filter=statuscode:200&filter=mimetype:text/html&collapse=timestamp:6&from=2018&to=2026",
+      "status": 200,
+      "bytes": 12743,
+      "sha256": "d6a7acf205710c001b54ab6a295f87a5b3f9e3d3084e3112559855f4813f38cf"
+    },
+    {
+      "id": "teslamag-search",
+      "url": "https://teslamag.de/?s=Werbung",
+      "final_url": "https://teslamag.de/?s=Werbung",
+      "status": 200,
+      "bytes": 86131,
+      "sha256": "6fa600598b91bfcfb4d50035070042a31679057dd8c6c695c73a52e33cfdf027"
+    },
+    {
+      "id": "search-paid-de",
+      "url": "https://www.bing.com/search?format=rss&q=Tesla%20Deutschland%20Werbung%20Kampagne%20Google%20YouTube",
+      "final_url": "https://www.bing.com/search?format=rss&q=Tesla%20Deutschland%20Werbung%20Kampagne%20Google%20YouTube",
+      "status": 200,
+      "bytes": 4324,
+      "sha256": "c65d98fa6e46490b3fcac2d82e75688a4fb66177920d59309b3da1253391472a"
+    },
+    {
+      "id": "search-paid-2025",
+      "url": "https://www.google.com/search?q=Tesla+Deutschland+TV+Werbung+2025+Kampagne",
+      "final_url": "https://www.google.com/search?q=Tesla+Deutschland+TV+Werbung+2025+Kampagne",
+      "status": 200,
+      "bytes": 93050,
+      "sha256": "ad39d9d3993288f707fae48430b996aaf8219e5e93bb284183cf81dad0c739e1"
+    },
+    {
+      "id": "electrive-search-again",
+      "url": "https://www.electrive.net/?s=Tesla+Werbekampagne",
+      "final_url": "https://www.electrive.net/?s=Tesla+Werbekampagne",
+      "status": 200,
+      "bytes": 69298,
+      "sha256": "4f771a08b6e00c9ba2547c65ddb7f850fe7f553a28bbe026caa91df591c4f748"
+    },
+    {
+      "id": "horizont-paid",
+      "url": "https://www.horizont.net/suche/?q=Tesla%20Werbung",
+      "final_url": "https://www.horizont.net/suche/?q=Tesla%20Werbung",
+      "status": 200,
+      "bytes": 40682,
+      "sha256": "498fa36828bf054a7fbfb28e068b3ce9b8dab50d2913f9e8256bfd0b0775a1be"
+    },
+    {
+      "id": "teslamag-deutschland",
+      "url": "https://teslamag.de/?s=Werbung+Deutschland",
+      "final_url": "https://teslamag.de/?s=Werbung+Deutschland",
+      "status": 200,
+      "bytes": 88568,
+      "sha256": "68949755348819d633aa330cf51895417da3cb784b4aeedd27d71ca84b1b3256"
+    },
+    {
+      "id": "article-0",
+      "url": "https://teslamag.de/news/tesla-werbung-bezahlte-platzierungen-youtube-videos-entdeckt-62601",
+      "final_url": "https://teslamag.de/news/tesla-werbung-bezahlte-platzierungen-youtube-videos-entdeckt-62601",
+      "status": 200,
+      "bytes": 58500,
+      "sha256": "4c2c31419c5f641c16d883c5c45895bf393ed80f18665d7f4f21f52d0e61d552"
+    },
+    {
+      "id": "article-1",
+      "url": "https://teslamag.de/news/bezahlte-tesla-werbung-google-anzeigen-fuer-model-y-in-grossbritannien-und-solar-in-usa-59363",
+      "final_url": "https://teslamag.de/news/bezahlte-tesla-werbung-google-anzeigen-fuer-model-y-in-grossbritannien-und-solar-in-usa-59363",
+      "status": 200,
+      "bytes": 58209,
+      "sha256": "7b86b52ed3b849a73750d4bf4295c75352c74b8696002d3234768d379c78e2f2"
+    },
+    {
+      "id": "article-2",
+      "url": "https://teslamag.de/news/tesla-werbung-musk-hauptversammlung-test-bezahlte-anzeigen-58550",
+      "final_url": "https://teslamag.de/news/tesla-werbung-musk-hauptversammlung-test-bezahlte-anzeigen-58550",
+      "status": 200,
+      "bytes": 59558,
+      "sha256": "1971d76e71af92de8ee7a961f38e242cfd839a9a3b6bdda79eeae55245f41579"
+    },
+    {
+      "id": "article-3",
+      "url": "https://teslamag.de/news/super-bowl-effekt-tesla-tv-werbung-nicht-selbst-bezahlen-47932",
+      "final_url": "https://teslamag.de/news/super-bowl-effekt-tesla-tv-werbung-nicht-selbst-bezahlen-47932",
+      "status": 200,
+      "bytes": 57787,
+      "sha256": "f5fcdd81c1f468c4f95225511381554171806b92cc68719a22bb4cb9dfc1304c"
+    },
+    {
+      "id": "article-4",
+      "url": "https://teslamag.de/news/doch-tesla-werbung-ceo-musk-offen-informative-anzeigen-38137",
+      "final_url": "https://teslamag.de/news/doch-tesla-werbung-ceo-musk-offen-informative-anzeigen-38137",
+      "status": 200,
+      "bytes": 57293,
+      "sha256": "1641f1b5e8b0427c975346d3ee16fd3f824f49675db30cc7d89209714d7205bc"
+    },
+    {
+      "id": "article-5",
+      "url": "https://teslamag.de/news/bericht-erstmals-bezahlte-tesla-werbung-deutschland-elektroauto-budgets-steigen-30258",
+      "final_url": "https://teslamag.de/news/bericht-erstmals-bezahlte-tesla-werbung-deutschland-elektroauto-budgets-steigen-30258",
+      "status": 200,
+      "bytes": 58503,
+      "sha256": "0679001f35d413f6285c4f5692ba436a767969f73aea5c9fb893d08a46c9caa4"
+    },
+    {
+      "id": "mag-Anzeigen",
+      "url": "https://teslamag.de/?s=Anzeigen",
+      "final_url": "https://teslamag.de/?s=Anzeigen",
+      "status": 200,
+      "bytes": 86212,
+      "sha256": "0789d2206d45f3cbef2ddbdcf45b8bfb462d6a07a31f22ea306038d7d567f747"
+    },
+    {
+      "id": "mag-Werbekampagne",
+      "url": "https://teslamag.de/?s=Werbekampagne",
+      "final_url": "https://teslamag.de/?s=Werbekampagne",
+      "status": 200,
+      "bytes": 75902,
+      "sha256": "8e9f9f6c1a5e5f56685956602acdb174fc3207f6c755360f3a287917377249b8"
+    },
+    {
+      "id": "mag-Werbung-2024",
+      "url": "https://teslamag.de/?s=Werbung%202024",
+      "final_url": "https://teslamag.de/?s=Werbung%202024",
+      "status": 200,
+      "bytes": 85644,
+      "sha256": "eca562fd0136250e6b53ba34f735962063abb2ad8d24db85d2ae77a7c6170a14"
+    },
+    {
+      "id": "mag-Werbung-2025",
+      "url": "https://teslamag.de/?s=Werbung%202025",
+      "final_url": "https://teslamag.de/?s=Werbung%202025",
+      "status": 200,
+      "bytes": 86729,
+      "sha256": "436c1384090f73b42e37d38e62375ac63f723454e379f5f8aa326ef5242052f8"
+    },
+    {
+      "id": "mag-Werbung-2026",
+      "url": "https://teslamag.de/?s=Werbung%202026",
+      "final_url": "https://teslamag.de/?s=Werbung%202026",
+      "status": 200,
+      "bytes": 83665,
+      "sha256": "40730d61acc70ddbbc6f512c3b9df3ded8e4587e930562bb0bfbd565937c47a2"
+    },
+    {
+      "id": "mag-Plakate",
+      "url": "https://teslamag.de/?s=Plakate",
+      "final_url": "https://teslamag.de/?s=Plakate",
+      "status": 200,
+      "bytes": 73976,
+      "sha256": "7833ebee935dbde39d6ec7aa3fef80984c173b9076a85991f6af5f7737e54155"
+    },
+    {
+      "id": "year-2018",
+      "url": "https://www.bing.com/search?format=rss&q=%22Tesla%22%20%22Werbung%22%20%22Deutschland%22%202018",
+      "final_url": "https://www.bing.com/search?format=rss&q=%22Tesla%22%20%22Werbung%22%20%22Deutschland%22%202018",
+      "status": 200,
+      "bytes": 4296,
+      "sha256": "3163d8d3e5b3d551a52f59b7f7dafa9b55f0c6beb629dc44ff0c69bc43c28a9e"
+    },
+    {
+      "id": "year-2019",
+      "url": "https://www.bing.com/search?format=rss&q=%22Tesla%22%20%22Werbung%22%20%22Deutschland%22%202019",
+      "final_url": "https://www.bing.com/search?format=rss&q=%22Tesla%22%20%22Werbung%22%20%22Deutschland%22%202019",
+      "status": 200,
+      "bytes": 4296,
+      "sha256": "7ac033167b093872a35f31f820003e41fd256e4a7332d7adb34d5ca712c1ff7a"
+    },
+    {
+      "id": "year-2020",
+      "url": "https://www.bing.com/search?format=rss&q=%22Tesla%22%20%22Werbung%22%20%22Deutschland%22%202020",
+      "final_url": "https://www.bing.com/search?format=rss&q=%22Tesla%22%20%22Werbung%22%20%22Deutschland%22%202020",
+      "status": 200,
+      "bytes": 4296,
+      "sha256": "75e9c27d8b55384d3b9648082e45ef09101b8aa4b3ffc10ec36f3f022e4e00df"
+    },
+    {
+      "id": "year-2021",
+      "url": "https://www.bing.com/search?format=rss&q=%22Tesla%22%20%22Werbung%22%20%22Deutschland%22%202021",
+      "final_url": "https://www.bing.com/search?format=rss&q=%22Tesla%22%20%22Werbung%22%20%22Deutschland%22%202021",
+      "status": 200,
+      "bytes": 4296,
+      "sha256": "3ea0a4755b30f5fbbacea8f8c242edf1771eca2a8e3f12859718aa75d41958ce"
+    },
+    {
+      "id": "year-2022",
+      "url": "https://www.bing.com/search?format=rss&q=%22Tesla%22%20%22Werbung%22%20%22Deutschland%22%202022",
+      "final_url": "https://www.bing.com/search?format=rss&q=%22Tesla%22%20%22Werbung%22%20%22Deutschland%22%202022",
+      "status": 200,
+      "bytes": 4296,
+      "sha256": "812887f0842aeef0070fe2eb337aced9d399f580e36d53764d4004dd2031492f"
+    },
+    {
+      "id": "year-2023",
+      "url": "https://www.bing.com/search?format=rss&q=%22Tesla%22%20%22Werbung%22%20%22Deutschland%22%202023",
+      "final_url": "https://www.bing.com/search?format=rss&q=%22Tesla%22%20%22Werbung%22%20%22Deutschland%22%202023",
+      "status": 200,
+      "bytes": 4296,
+      "sha256": "4af72d01663babbbc8210f6cf965496fe1d0a8076bef16b7def17c4b9f221856"
+    },
+    {
+      "id": "year-2024",
+      "url": "https://www.bing.com/search?format=rss&q=%22Tesla%22%20%22Werbung%22%20%22Deutschland%22%202024",
+      "final_url": "https://www.bing.com/search?format=rss&q=%22Tesla%22%20%22Werbung%22%20%22Deutschland%22%202024",
+      "status": 200,
+      "bytes": 4296,
+      "sha256": "d4449af7ea1befb87cf2b8688e61ae2c5e08eba213a216c063b8bb3e323d8a75"
+    },
+    {
+      "id": "year-2025",
+      "url": "https://www.bing.com/search?format=rss&q=%22Tesla%22%20%22Werbung%22%20%22Deutschland%22%202025",
+      "final_url": "https://www.bing.com/search?format=rss&q=%22Tesla%22%20%22Werbung%22%20%22Deutschland%22%202025",
+      "status": 200,
+      "bytes": 4296,
+      "sha256": "9c1421e09e2561475ebfc6b7fb546056a9423a0b4ade766e6f261c819ef2c5bc"
+    },
+    {
+      "id": "year-2026",
+      "url": "https://www.bing.com/search?format=rss&q=%22Tesla%22%20%22Werbung%22%20%22Deutschland%22%202026",
+      "final_url": "https://www.bing.com/search?format=rss&q=%22Tesla%22%20%22Werbung%22%20%22Deutschland%22%202026",
+      "status": 200,
+      "bytes": 4296,
+      "sha256": "337e2555ff52084cc1175bc987257a3312f7f5a7ff4eb1c6378a05e3796dd4e4"
+    },
+    {
+      "id": "primary-advertiser",
+      "url": "https://adstransparency.google.com/advertiser/AR17828074650563772417?region=DE",
+      "final_url": "https://adstransparency.google.com/advertiser/AR17828074650563772417?region=DE",
+      "status": 200,
+      "bytes": 2563910,
+      "sha256": "d6f13cc3f78129f18e285b50f65f7d2255e6eda199937a9e7fc492c4d3596f24"
+    },
+    {
+      "id": "asia-owned",
+      "url": "https://teslamag.de/news/tesla-video-asien-falsch-erster-tv-werbespot-58684",
+      "final_url": "https://teslamag.de/news/tesla-video-asien-falsch-erster-tv-werbespot-58684",
+      "status": 200,
+      "bytes": 59702,
+      "sha256": "34b0889a61cbad3638557ae12bca5200aef8d9315f876c03d6528ddb3e9f4713"
+    },
+    {
+      "id": "fan-times-square",
+      "url": "https://teslamag.de/news/tesla-werbung-times-square-bildschirm-100000-dollar-tag-fan-video-39197",
+      "final_url": "https://teslamag.de/news/tesla-werbung-times-square-bildschirm-100000-dollar-tag-fan-video-39197",
+      "status": 200,
+      "bytes": 57595,
+      "sha256": "f8412da86b98bc8d4268f70e56f774df7306760e0f4bab942d8cf9b53a5ec8b9"
+    },
+    {
+      "id": "horizont-correct-query",
+      "url": "https://www.horizont.net/suche/?OK=suchen&i_q=Tesla&i_sortfl=pubdate&i_sortd=desc",
+      "final_url": "https://www.horizont.net/suche/?OK=suchen&i_q=Tesla&i_sortfl=pubdate&i_sortd=desc",
+      "status": 200,
+      "bytes": 143594,
+      "sha256": "e2cc6cdd3404c9d0e712898f8d6b62747e51ae296e24e98962eba0bc575ec3a1"
+    },
+    {
+      "id": "wuv-search",
+      "url": "https://www.wuv.de/suche?search=Tesla",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "t3n-paid",
+      "url": "https://t3n.de/search/?q=Tesla%20Werbung",
+      "final_url": "https://t3n.de/suche/?q=Tesla%20Werbung",
+      "status": 200,
+      "bytes": 137121,
+      "sha256": "aa1aaf26014d9e4c1d939a7d035d2a2168d6a76b831af5a6b6349292eb19b989"
+    },
+    {
+      "id": "reuters-search",
+      "url": "https://www.reuters.com/site-search/?query=Tesla%20advertising",
+      "error": "HTTP Error 401: Unauthorized"
+    },
+    {
+      "id": "youtube-primary",
+      "url": "https://www.youtube.com/@tesla",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "id": "automobilwoche-2020",
+      "url": "https://www.automobilwoche.de/article/20200928/BCONLINE/200929939/exklusiv--trendwende-am-werbemarkt-autokonzerne-stecken-millionen-in-e-auto-werbung",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "id": "tesla-product-primary",
+      "url": "https://www.tesla.com/blog/introducing-new-model-3-performance",
+      "final_url": "https://www.tesla.com/blog/introducing-new-model-3-performance",
+      "status": 200,
+      "bytes": 1043352,
+      "sha256": "7c5e19b7debd29049fa9fe0ec625bed14e33de148a1fa1e992236a28056ffb2d"
+    },
+    {
+      "id": "archive-201801",
+      "url": "https://web.archive.org/web/20180102080509id_/https://www.tesla.com/de_DE/",
+      "final_url": "https://web.archive.org/web/20180102080509id_/https://www.tesla.com/de_DE/",
+      "status": 200,
+      "bytes": 77753,
+      "sha256": "810e0f0d39b906113539c65ae4ee1b24f31046a27e48cccbe030467ead89b06b"
+    },
+    {
+      "id": "archive-202009",
+      "url": "https://web.archive.org/web/20200901024944id_/https://www.tesla.com/de_de",
+      "final_url": "https://web.archive.org/web/20200901024944id_/https://www.tesla.com/de_de",
+      "status": 200,
+      "bytes": 44540,
+      "sha256": "3daddc978c92826fbdb5d953aeec42b91d217612d8d12fe77f01053b0ed0147b"
+    },
+    {
+      "id": "archive-202311",
+      "url": "https://web.archive.org/web/20231101184421id_/https://www.tesla.com/de_de",
+      "final_url": "https://web.archive.org/web/20231101184421id_/https://www.tesla.com/de_de",
+      "status": 200,
+      "bytes": 509182,
+      "sha256": "a7a643587688467d8ab3f457410c401a1db1585d95d7ad6a2371d73ce80d907a"
+    },
+    {
+      "id": "horizont-advertising",
+      "url": "https://www.horizont.net/suche/?OK=suchen&i_q=Tesla%20Werbung&i_sortfl=pubdate&i_sortd=desc",
+      "final_url": "https://www.horizont.net/suche/?OK=suchen&i_q=Tesla%20Werbung&i_sortfl=pubdate&i_sortd=desc",
+      "status": 200,
+      "bytes": 142125,
+      "sha256": "1c969f67ab4c6b436e715105afba7dbecf742b544f96dcafa1c10e06e8213ff0"
+    },
+    {
+      "id": "agency-search",
+      "url": "https://teslamag.de/?s=Agentur+Werbung",
+      "final_url": "https://teslamag.de/?s=Agentur+Werbung",
+      "status": 200,
+      "bytes": 86704,
+      "sha256": "47c6c2270ea78b535365eb76092f6738c937c0eb9ac4521573283ab9f88baa32"
+    },
+    {
+      "id": "teslamag-page2",
+      "url": "https://teslamag.de/page/2/?s=Werbung",
+      "final_url": "https://teslamag.de/page/2/?s=Werbung",
+      "status": 200,
+      "bytes": 85735,
+      "sha256": "24801f96b8f8eeadc14c8b03ebc54c4d9283a603cc49235b7e7968e7d297b2c2"
+    },
+    {
+      "id": "teslamag-paid",
+      "url": "https://teslamag.de/?s=bezahlte+Werbung",
+      "final_url": "https://teslamag.de/?s=bezahlte+Werbung",
+      "status": 200,
+      "bytes": 85564,
+      "sha256": "d4df3a00ea5f81f9885b6151006314250517c8d7d0d5a42b2902ec11d10f0301"
+    },
+    {
+      "id": "tesla-blog-page2",
+      "url": "https://www.tesla.com/blog?page=1",
+      "final_url": "https://www.tesla.com/blog?page=1",
+      "status": 200,
+      "bytes": 1043622,
+      "sha256": "7ad045185a73fcd838880af4346194f3061b97e644b8831d4eeffff07e1d08b8"
+    },
+    {
+      "id": "agency-gift",
+      "url": "https://teslamag.de/news/update-kein-rueckruf-riesiger-bildschirm-tesla-klarstellung-times-square-45501",
+      "final_url": "https://teslamag.de/news/update-kein-rueckruf-riesiger-bildschirm-tesla-klarstellung-times-square-45501",
+      "status": 200,
+      "bytes": 58251,
+      "sha256": "3dc4bd4cbd852259932327726eb486dff0d0147403073984b2eb32f558d2fc7b"
+    }
+  ]
+}

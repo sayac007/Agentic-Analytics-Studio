@@ -1,0 +1,973 @@
+{
+  "ledger_version": "1.0.0",
+  "window": {
+    "start": "2018-01-01",
+    "end": "2026-10-31"
+  },
+  "research_as_of": "2026-10-23",
+  "scope": "German paid-media activity evidence; context retained separately; nonexhaustive public-source research",
+  "classification_policy": "verified requires inspected explicit evidence of the classified fact, not universal campaign completeness; partial retains unresolved timing/payment/geography; excluded candidates never enter indicators",
+  "measurement_policy": "Unknown is null/blank, never inferred zero. Campaign identity, actual delivery dates and complete run bounds are separate requirements. No dated German paid delivery or complete paid campaign run was recovered.",
+  "sources": [
+    {
+      "id": "archive-201801",
+      "url": "https://web.archive.org/web/20180102080509id_/https://www.tesla.com/de_DE/",
+      "final_url": "https://web.archive.org/web/20180102080509id_/https://www.tesla.com/de_DE/",
+      "publisher": "Tesla via Internet Archive",
+      "source_type": "primary",
+      "retrieved_on": "2026-10-23",
+      "published_on": null,
+      "http_status": 200,
+      "snapshot_sha256": "810e0f0d39b906113539c65ae4ee1b24f31046a27e48cccbe030467ead89b06b",
+      "content_status": "archived_content_read",
+      "rights": "No open redistribution license established; metadata and own factual summaries only; no full articles, creatives or page bodies committed",
+      "archive_capture_timestamp": "20180102080509"
+    },
+    {
+      "id": "archive-202009",
+      "url": "https://web.archive.org/web/20200901024944id_/https://www.tesla.com/de_de",
+      "final_url": "https://web.archive.org/web/20200901024944id_/https://www.tesla.com/de_de",
+      "publisher": "Tesla via Internet Archive",
+      "source_type": "primary",
+      "retrieved_on": "2026-10-23",
+      "published_on": null,
+      "http_status": 200,
+      "snapshot_sha256": "3daddc978c92826fbdb5d953aeec42b91d217612d8d12fe77f01053b0ed0147b",
+      "content_status": "archived_content_read",
+      "rights": "No open redistribution license established; metadata and own factual summaries only; no full articles, creatives or page bodies committed",
+      "archive_capture_timestamp": "20200901024944"
+    },
+    {
+      "id": "archive-202311",
+      "url": "https://web.archive.org/web/20231101184421id_/https://www.tesla.com/de_de",
+      "final_url": "https://web.archive.org/web/20231101184421id_/https://www.tesla.com/de_de",
+      "publisher": "Tesla via Internet Archive",
+      "source_type": "primary",
+      "retrieved_on": "2026-10-23",
+      "published_on": null,
+      "http_status": 200,
+      "snapshot_sha256": "a7a643587688467d8ab3f457410c401a1db1585d95d7ad6a2371d73ce80d907a",
+      "content_status": "archived_content_read",
+      "rights": "No open redistribution license established; metadata and own factual summaries only; no full articles, creatives or page bodies committed",
+      "archive_capture_timestamp": "20231101184421"
+    },
+    {
+      "id": "article-5",
+      "url": "https://teslamag.de/news/bericht-erstmals-bezahlte-tesla-werbung-deutschland-elektroauto-budgets-steigen-30258",
+      "final_url": "https://teslamag.de/news/bericht-erstmals-bezahlte-tesla-werbung-deutschland-elektroauto-budgets-steigen-30258",
+      "publisher": "Teslamag.de",
+      "source_type": "secondary",
+      "retrieved_on": "2026-10-23",
+      "published_on": "2020-09-30",
+      "http_status": 200,
+      "snapshot_sha256": "0679001f35d413f6285c4f5692ba436a767969f73aea5c9fb893d08a46c9caa4",
+      "content_status": "article_read",
+      "rights": "No open redistribution license established; metadata and own factual summaries only; no full articles, creatives or page bodies committed",
+      "archive_capture_timestamp": null
+    },
+    {
+      "id": "fan-times-square",
+      "url": "https://teslamag.de/news/tesla-werbung-times-square-bildschirm-100000-dollar-tag-fan-video-39197",
+      "final_url": "https://teslamag.de/news/tesla-werbung-times-square-bildschirm-100000-dollar-tag-fan-video-39197",
+      "publisher": "Teslamag.de",
+      "source_type": "secondary",
+      "retrieved_on": "2026-10-23",
+      "published_on": "2021-07-18",
+      "http_status": 200,
+      "snapshot_sha256": "f8412da86b98bc8d4268f70e56f774df7306760e0f4bab942d8cf9b53a5ec8b9",
+      "content_status": "article_read",
+      "rights": "No open redistribution license established; metadata and own factual summaries only; no full articles, creatives or page bodies committed",
+      "archive_capture_timestamp": null
+    },
+    {
+      "id": "article-2",
+      "url": "https://teslamag.de/news/tesla-werbung-musk-hauptversammlung-test-bezahlte-anzeigen-58550",
+      "final_url": "https://teslamag.de/news/tesla-werbung-musk-hauptversammlung-test-bezahlte-anzeigen-58550",
+      "publisher": "Teslamag.de",
+      "source_type": "secondary",
+      "retrieved_on": "2026-10-23",
+      "published_on": "2023-05-17",
+      "http_status": 200,
+      "snapshot_sha256": "1971d76e71af92de8ee7a961f38e242cfd839a9a3b6bdda79eeae55245f41579",
+      "content_status": "article_read",
+      "rights": "No open redistribution license established; metadata and own factual summaries only; no full articles, creatives or page bodies committed",
+      "archive_capture_timestamp": null
+    },
+    {
+      "id": "asia-owned",
+      "url": "https://teslamag.de/news/tesla-video-asien-falsch-erster-tv-werbespot-58684",
+      "final_url": "https://teslamag.de/news/tesla-video-asien-falsch-erster-tv-werbespot-58684",
+      "publisher": "Teslamag.de",
+      "source_type": "secondary",
+      "retrieved_on": "2026-10-23",
+      "published_on": "2023-05-24",
+      "http_status": 200,
+      "snapshot_sha256": "34b0889a61cbad3638557ae12bca5200aef8d9315f876c03d6528ddb3e9f4713",
+      "content_status": "article_read",
+      "rights": "No open redistribution license established; metadata and own factual summaries only; no full articles, creatives or page bodies committed",
+      "archive_capture_timestamp": null
+    },
+    {
+      "id": "article-1",
+      "url": "https://teslamag.de/news/bezahlte-tesla-werbung-google-anzeigen-fuer-model-y-in-grossbritannien-und-solar-in-usa-59363",
+      "final_url": "https://teslamag.de/news/bezahlte-tesla-werbung-google-anzeigen-fuer-model-y-in-grossbritannien-und-solar-in-usa-59363",
+      "publisher": "Teslamag.de",
+      "source_type": "secondary",
+      "retrieved_on": "2026-10-23",
+      "published_on": "2023-06-28",
+      "http_status": 200,
+      "snapshot_sha256": "7b86b52ed3b849a73750d4bf4295c75352c74b8696002d3234768d379c78e2f2",
+      "content_status": "article_read",
+      "rights": "No open redistribution license established; metadata and own factual summaries only; no full articles, creatives or page bodies committed",
+      "archive_capture_timestamp": null
+    },
+    {
+      "id": "article-0",
+      "url": "https://teslamag.de/news/tesla-werbung-bezahlte-platzierungen-youtube-videos-entdeckt-62601",
+      "final_url": "https://teslamag.de/news/tesla-werbung-bezahlte-platzierungen-youtube-videos-entdeckt-62601",
+      "publisher": "Teslamag.de",
+      "source_type": "secondary",
+      "retrieved_on": "2026-10-23",
+      "published_on": "2023-11-26",
+      "http_status": 200,
+      "snapshot_sha256": "4c2c31419c5f641c16d883c5c45895bf393ed80f18665d7f4f21f52d0e61d552",
+      "content_status": "article_read",
+      "rights": "No open redistribution license established; metadata and own factual summaries only; no full articles, creatives or page bodies committed",
+      "archive_capture_timestamp": null
+    },
+    {
+      "id": "article-3",
+      "url": "https://teslamag.de/news/super-bowl-effekt-tesla-tv-werbung-nicht-selbst-bezahlen-47932",
+      "final_url": "https://teslamag.de/news/super-bowl-effekt-tesla-tv-werbung-nicht-selbst-bezahlen-47932",
+      "publisher": "Teslamag.de",
+      "source_type": "secondary",
+      "retrieved_on": "2026-10-23",
+      "published_on": "2022-04-21",
+      "http_status": 200,
+      "snapshot_sha256": "f5fcdd81c1f468c4f95225511381554171806b92cc68719a22bb4cb9dfc1304c",
+      "content_status": "article_read",
+      "rights": "No open redistribution license established; metadata and own factual summaries only; no full articles, creatives or page bodies committed",
+      "archive_capture_timestamp": null
+    },
+    {
+      "id": "tesla-product-primary",
+      "url": "https://www.tesla.com/blog/introducing-new-model-3-performance",
+      "final_url": "https://www.tesla.com/blog/introducing-new-model-3-performance",
+      "publisher": "Tesla",
+      "source_type": "primary",
+      "retrieved_on": "2026-10-23",
+      "published_on": "2024-04-23",
+      "http_status": 200,
+      "snapshot_sha256": "7c5e19b7debd29049fa9fe0ec625bed14e33de148a1fa1e992236a28056ffb2d",
+      "content_status": "official_content_read",
+      "rights": "No open redistribution license established; metadata and own factual summaries only; no full articles, creatives or page bodies committed",
+      "archive_capture_timestamp": null
+    },
+    {
+      "id": "tesla-de",
+      "url": "https://www.tesla.com/de_de",
+      "final_url": "https://www.tesla.com/de_de",
+      "publisher": "Tesla Deutschland",
+      "source_type": "primary",
+      "retrieved_on": "2026-10-23",
+      "published_on": null,
+      "http_status": 200,
+      "snapshot_sha256": "79841ee0a3dcf0cdc2b252831b73ef083b3f6746af7f1ab6d93b7812cc1d426a",
+      "content_status": "official_content_read",
+      "rights": "No open redistribution license established; metadata and own factual summaries only; no full articles, creatives or page bodies committed",
+      "archive_capture_timestamp": null
+    },
+    {
+      "id": "primary-advertiser",
+      "url": "https://adstransparency.google.com/advertiser/AR17828074650563772417?region=DE",
+      "final_url": "https://adstransparency.google.com/advertiser/AR17828074650563772417?region=DE",
+      "publisher": "Google Ads Transparency Center",
+      "source_type": "primary",
+      "retrieved_on": "2026-10-23",
+      "published_on": null,
+      "http_status": 200,
+      "snapshot_sha256": "d6f13cc3f78129f18e285b50f65f7d2255e6eda199937a9e7fc492c4d3596f24",
+      "content_status": "application_shell_only",
+      "rights": "No open redistribution license established; metadata and own factual summaries only; no full articles, creatives or page bodies committed",
+      "archive_capture_timestamp": null
+    },
+    {
+      "id": "agency-gift",
+      "url": "https://teslamag.de/news/update-kein-rueckruf-riesiger-bildschirm-tesla-klarstellung-times-square-45501",
+      "final_url": "https://teslamag.de/news/update-kein-rueckruf-riesiger-bildschirm-tesla-klarstellung-times-square-45501",
+      "publisher": "Teslamag.de",
+      "source_type": "secondary",
+      "retrieved_on": "2026-10-23",
+      "published_on": "2022-02-07",
+      "http_status": 200,
+      "snapshot_sha256": "3dc4bd4cbd852259932327726eb486dff0d0147403073984b2eb32f558d2fc7b",
+      "content_status": "article_read",
+      "rights": "No open redistribution license established; metadata and own factual summaries only; no full articles, creatives or page bodies committed",
+      "archive_capture_timestamp": null
+    }
+  ],
+  "events": [
+    {
+      "id": "de-owned-home-2018-01",
+      "title": "Archived German Tesla homepage snapshot 2018-01",
+      "candidate_kind": "context_event",
+      "category": "owned_media",
+      "model_or_offer": "not established",
+      "geography": {
+        "scope": [
+          "DE"
+        ],
+        "germany_status": "explicit",
+        "germany_evidence": "German-market source explicitly identified"
+      },
+      "channels": [
+        "tesla_website"
+      ],
+      "start": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_start",
+        "source_ids": []
+      },
+      "end": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_end",
+        "source_ids": []
+      },
+      "interval_status": "not_established",
+      "observed_ad_days": [],
+      "observed_ad_months": [],
+      "campaign_identity_verified": false,
+      "campaign_id": null,
+      "source_ids": [
+        "archive-201801"
+      ],
+      "documented_claim": "Retrieved archived localized Tesla page contains vehicle marketing and calls to configure/order/test-drive.",
+      "paid_media_evidence": null,
+      "evidence_class": "verified",
+      "decision": "context_only",
+      "decision_reason": "Owned website observation, not evidence of paid placement or a continuous campaign.",
+      "date_uncertainty": "Publication, site capture or library listing date does not establish a campaign run",
+      "agency": null,
+      "media_spend": null,
+      "impressions": null,
+      "observed_site_capture": "20180102080509"
+    },
+    {
+      "id": "de-owned-home-2020-09",
+      "title": "Archived German Tesla homepage snapshot 2020-09",
+      "candidate_kind": "context_event",
+      "category": "owned_media",
+      "model_or_offer": "not established",
+      "geography": {
+        "scope": [
+          "DE"
+        ],
+        "germany_status": "explicit",
+        "germany_evidence": "German-market source explicitly identified"
+      },
+      "channels": [
+        "tesla_website"
+      ],
+      "start": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_start",
+        "source_ids": []
+      },
+      "end": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_end",
+        "source_ids": []
+      },
+      "interval_status": "not_established",
+      "observed_ad_days": [],
+      "observed_ad_months": [],
+      "campaign_identity_verified": false,
+      "campaign_id": null,
+      "source_ids": [
+        "archive-202009"
+      ],
+      "documented_claim": "Retrieved archived localized Tesla page contains vehicle marketing and calls to configure/order/test-drive.",
+      "paid_media_evidence": null,
+      "evidence_class": "verified",
+      "decision": "context_only",
+      "decision_reason": "Owned website observation, not evidence of paid placement or a continuous campaign.",
+      "date_uncertainty": "Publication, site capture or library listing date does not establish a campaign run",
+      "agency": null,
+      "media_spend": null,
+      "impressions": null,
+      "observed_site_capture": "20200901024944"
+    },
+    {
+      "id": "de-owned-home-2023-11",
+      "title": "Archived German Tesla homepage snapshot 2023-11",
+      "candidate_kind": "context_event",
+      "category": "owned_media",
+      "model_or_offer": "not established",
+      "geography": {
+        "scope": [
+          "DE"
+        ],
+        "germany_status": "explicit",
+        "germany_evidence": "German-market source explicitly identified"
+      },
+      "channels": [
+        "tesla_website"
+      ],
+      "start": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_start",
+        "source_ids": []
+      },
+      "end": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_end",
+        "source_ids": []
+      },
+      "interval_status": "not_established",
+      "observed_ad_days": [],
+      "observed_ad_months": [],
+      "campaign_identity_verified": false,
+      "campaign_id": null,
+      "source_ids": [
+        "archive-202311"
+      ],
+      "documented_claim": "Retrieved archived localized Tesla page contains vehicle marketing and calls to configure/order/test-drive.",
+      "paid_media_evidence": null,
+      "evidence_class": "verified",
+      "decision": "context_only",
+      "decision_reason": "Owned website observation, not evidence of paid placement or a continuous campaign.",
+      "date_uncertainty": "Publication, site capture or library listing date does not establish a campaign run",
+      "agency": null,
+      "media_spend": null,
+      "impressions": null,
+      "observed_site_capture": "20231101184421"
+    },
+    {
+      "id": "de-paid-2020-contested",
+      "title": "2020 German digital-ad spending report, expressly disputed",
+      "candidate_kind": "campaign_candidate",
+      "category": "paid_media",
+      "model_or_offer": "not established",
+      "geography": {
+        "scope": [
+          "DE"
+        ],
+        "germany_status": "explicit",
+        "germany_evidence": "German-market source explicitly identified"
+      },
+      "channels": [
+        "digital_unspecified"
+      ],
+      "start": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_start",
+        "source_ids": []
+      },
+      "end": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_end",
+        "source_ids": []
+      },
+      "interval_status": "not_established",
+      "observed_ad_days": [],
+      "observed_ad_months": [],
+      "campaign_identity_verified": false,
+      "campaign_id": null,
+      "source_ids": [
+        "article-5"
+      ],
+      "documented_claim": "Teslamag reports a Nielsen-derived German digital advertising claim and an explicit Tesla Germany denial in the same updated article.",
+      "paid_media_evidence": "Secondary reported paid-media claim is explicitly contested.",
+      "evidence_class": "partial",
+      "decision": "hold",
+      "decision_reason": "Unresolved contradiction and no campaign IDs/delivery dates; neither the reported expenditure nor the denial supplies a usable activity series.",
+      "date_uncertainty": "Publication, site capture or library listing date does not establish a campaign run",
+      "agency": null,
+      "media_spend": null,
+      "impressions": null,
+      "reported_spend_claim": {
+        "value_text": "knapp 1 Million Euro",
+        "unit": "EUR",
+        "period_description": "2020 through August, cumulative German digital advertising claim",
+        "source_id": "article-5",
+        "status": "contested_secondary_claim",
+        "original_nielsen_data_accessed": false,
+        "usable_media_spend": false
+      }
+    },
+    {
+      "id": "us-times-square-2021",
+      "title": "Times Square Tesla video; payer unestablished",
+      "candidate_kind": "campaign_candidate",
+      "category": "unknown",
+      "model_or_offer": "not established",
+      "geography": {
+        "scope": [
+          "US"
+        ],
+        "germany_status": "not_established",
+        "germany_evidence": "No documented German paid-media delivery"
+      },
+      "channels": [
+        "digital_out_of_home"
+      ],
+      "start": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_start",
+        "source_ids": []
+      },
+      "end": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_end",
+        "source_ids": []
+      },
+      "interval_status": "not_established",
+      "observed_ad_days": [],
+      "observed_ad_months": [],
+      "campaign_identity_verified": false,
+      "campaign_id": null,
+      "source_ids": [
+        "fan-times-square"
+      ],
+      "documented_claim": "Article describes Tesla footage on New York displays, uncertain payer and possible fan involvement.",
+      "paid_media_evidence": null,
+      "evidence_class": "excluded",
+      "decision": "exclude",
+      "decision_reason": "US location and unresolved advertiser/payment attribution; a quoted screen rate is not Tesla expenditure.",
+      "date_uncertainty": "Publication, site capture or library listing date does not establish a campaign run",
+      "agency": null,
+      "media_spend": null,
+      "impressions": null
+    },
+    {
+      "id": "global-intent-2023",
+      "title": "Musk announces intent to experiment with advertising",
+      "candidate_kind": "campaign_candidate",
+      "category": "earned_media_pr",
+      "model_or_offer": "not established",
+      "geography": {
+        "scope": [
+          "global_unspecified"
+        ],
+        "germany_status": "not_established",
+        "germany_evidence": "No documented German paid-media delivery"
+      },
+      "channels": [
+        "shareholder_event",
+        "press"
+      ],
+      "start": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_start",
+        "source_ids": []
+      },
+      "end": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_end",
+        "source_ids": []
+      },
+      "interval_status": "not_established",
+      "observed_ad_days": [],
+      "observed_ad_months": [],
+      "campaign_identity_verified": false,
+      "campaign_id": null,
+      "source_ids": [
+        "article-2"
+      ],
+      "documented_claim": "Article reports shareholder-meeting statement about trying advertising; no German placement plan or dates stated.",
+      "paid_media_evidence": null,
+      "evidence_class": "verified",
+      "decision": "context_only",
+      "decision_reason": "Corporate intent and publicity do not prove deployment in Germany.",
+      "date_uncertainty": "Publication, site capture or library listing date does not establish a campaign run",
+      "agency": null,
+      "media_spend": null,
+      "impressions": null
+    },
+    {
+      "id": "asia-owned-2023",
+      "title": "Drive to believe Asia video mistaken for a paid TV launch",
+      "candidate_kind": "campaign_candidate",
+      "category": "owned_media",
+      "model_or_offer": "Tesla owner testimonial",
+      "geography": {
+        "scope": [
+          "Asia"
+        ],
+        "germany_status": "not_established",
+        "germany_evidence": "No documented German paid-media delivery"
+      },
+      "channels": [
+        "X_Twitter"
+      ],
+      "start": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_start",
+        "source_ids": []
+      },
+      "end": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_end",
+        "source_ids": []
+      },
+      "interval_status": "not_established",
+      "observed_ad_days": [],
+      "observed_ad_months": [],
+      "campaign_identity_verified": false,
+      "campaign_id": null,
+      "source_ids": [
+        "asia-owned"
+      ],
+      "documented_claim": "Article explicitly identifies Tesla Asia Twitter publication on 2023-05-19 and explains why paid-TV interpretations are unsupported.",
+      "paid_media_evidence": null,
+      "evidence_class": "excluded",
+      "decision": "exclude",
+      "decision_reason": "Own social post, Asia context; not a German TV or paid-social campaign.",
+      "date_uncertainty": "Publication, site capture or library listing date does not establish a campaign run",
+      "agency": null,
+      "media_spend": null,
+      "impressions": null,
+      "owned_post_date": {
+        "value": "2023-05-19",
+        "precision": "day",
+        "role": "owned_publication",
+        "source_ids": [
+          "asia-owned"
+        ]
+      }
+    },
+    {
+      "id": "uk-us-google-2023",
+      "title": "Model Y UK and solar US Google search advertising",
+      "candidate_kind": "campaign_candidate",
+      "category": "paid_media",
+      "model_or_offer": "Model Y (GB); solar (US)",
+      "geography": {
+        "scope": [
+          "GB",
+          "US"
+        ],
+        "germany_status": "not_established",
+        "germany_evidence": "No documented German paid-media delivery"
+      },
+      "channels": [
+        "google_search"
+      ],
+      "start": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_start",
+        "source_ids": []
+      },
+      "end": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_end",
+        "source_ids": []
+      },
+      "interval_status": "not_established",
+      "observed_ad_days": [],
+      "observed_ad_months": [],
+      "campaign_identity_verified": false,
+      "campaign_id": null,
+      "source_ids": [
+        "article-1"
+      ],
+      "documented_claim": "Article describes Google Transparency records for UK Model Y and US solar; different creative first-seen dates and no impression/spend figures.",
+      "paid_media_evidence": "Secondary inspection of paid Google ads, with explicitly non-German markets.",
+      "evidence_class": "excluded",
+      "decision": "exclude",
+      "decision_reason": "No German scope established in this June source; creative counts/first-seen dates cannot become a German campaign interval.",
+      "date_uncertainty": "Publication, site capture or library listing date does not establish a campaign run",
+      "agency": null,
+      "media_spend": null,
+      "impressions": null
+    },
+    {
+      "id": "de-google-listing-2023",
+      "title": "German-targeted text ads reported in a November library listing",
+      "candidate_kind": "campaign_candidate",
+      "category": "paid_media",
+      "model_or_offer": "not established",
+      "geography": {
+        "scope": [
+          "DE",
+          "other_unspecified"
+        ],
+        "germany_status": "explicit",
+        "germany_evidence": "Article explicitly says some ads were intended for delivery in Germany; actual DE impression delivery/date not established."
+      },
+      "channels": [
+        "google_search"
+      ],
+      "start": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_start",
+        "source_ids": []
+      },
+      "end": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_end",
+        "source_ids": []
+      },
+      "interval_status": "not_established",
+      "observed_ad_days": [],
+      "observed_ad_months": [],
+      "campaign_identity_verified": false,
+      "campaign_id": null,
+      "source_ids": [
+        "article-0",
+        "primary-advertiser"
+      ],
+      "documented_claim": "The 2023-11-26 article says that on Tuesday Google listed 300 Tesla text ads, some for delivery in Germany, also in English.",
+      "paid_media_evidence": "Credible secondary reference to Tesla text ads with Germany targeting; historical delivery records not independently recovered.",
+      "evidence_class": "partial",
+      "decision": "hold",
+      "decision_reason": "German targeting is explicitly reported, but no ad ID/campaign ID, first/last shown date, delivered German impression or campaign bounds are exposed in the inspected evidence. Listing observation is not a dated ad delivery.",
+      "date_uncertainty": "Publication, site capture or library listing date does not establish a campaign run",
+      "agency": null,
+      "media_spend": null,
+      "impressions": null,
+      "library_listing_observation_note": "Source says Am Dienstag relative to article dated 2023-11-26. No ad-delivery day or continuous interval is inferred from that library observation.",
+      "reported_creative_count": {
+        "value": 300,
+        "scope": "All Tesla text ads in the reported library listing, not German campaigns or impressions",
+        "source_id": "article-0"
+      }
+    },
+    {
+      "id": "us-youtube-2023",
+      "title": "YouTube Model 3 and Supercharger ads reported in November",
+      "candidate_kind": "campaign_candidate",
+      "category": "paid_media",
+      "model_or_offer": "Model 3; Supercharger",
+      "geography": {
+        "scope": [
+          "US"
+        ],
+        "germany_status": "not_established",
+        "germany_evidence": "No documented German paid-media delivery"
+      },
+      "channels": [
+        "youtube"
+      ],
+      "start": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_start",
+        "source_ids": []
+      },
+      "end": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_end",
+        "source_ids": []
+      },
+      "interval_status": "not_established",
+      "observed_ad_days": [],
+      "observed_ad_months": [],
+      "campaign_identity_verified": false,
+      "campaign_id": null,
+      "source_ids": [
+        "article-0"
+      ],
+      "documented_claim": "Article reports US observer screenshots and a Model 3 price after US federal tax credit; other footage promotes Superchargers.",
+      "paid_media_evidence": "Source explicitly describes paid YouTube placements, with US examples.",
+      "evidence_class": "excluded",
+      "decision": "exclude",
+      "decision_reason": "US examples do not establish German targeting or delivery; tweet/article dates are not German campaign bounds.",
+      "date_uncertainty": "Publication, site capture or library listing date does not establish a campaign run",
+      "agency": null,
+      "media_spend": null,
+      "impressions": null
+    },
+    {
+      "id": "us-superbowl-2022",
+      "title": "Competitor Super Bowl ads and claimed Tesla attention spillover",
+      "candidate_kind": "campaign_candidate",
+      "category": "earned_media_pr",
+      "model_or_offer": "not established",
+      "geography": {
+        "scope": [
+          "US"
+        ],
+        "germany_status": "not_established",
+        "germany_evidence": "No documented German paid-media delivery"
+      },
+      "channels": [
+        "television",
+        "press"
+      ],
+      "start": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_start",
+        "source_ids": []
+      },
+      "end": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_end",
+        "source_ids": []
+      },
+      "interval_status": "not_established",
+      "observed_ad_days": [],
+      "observed_ad_months": [],
+      "campaign_identity_verified": false,
+      "campaign_id": null,
+      "source_ids": [
+        "article-3"
+      ],
+      "documented_claim": "Article discusses other manufacturers’ US Super Bowl ads and Tesla-reported indirect attention.",
+      "paid_media_evidence": null,
+      "evidence_class": "excluded",
+      "decision": "exclude",
+      "decision_reason": "Competitor spending and earned attention are not Tesla-funded German media.",
+      "date_uncertainty": "Publication, site capture or library listing date does not establish a campaign run",
+      "agency": null,
+      "media_spend": null,
+      "impressions": null
+    },
+    {
+      "id": "global-model3-performance-2024",
+      "title": "New Model 3 Performance product announcement",
+      "candidate_kind": "context_event",
+      "category": "product_event",
+      "model_or_offer": "Model 3 Performance",
+      "geography": {
+        "scope": [
+          "global_unspecified"
+        ],
+        "germany_status": "not_established",
+        "germany_evidence": "No documented German paid-media delivery"
+      },
+      "channels": [
+        "tesla_blog"
+      ],
+      "start": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_start",
+        "source_ids": []
+      },
+      "end": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_end",
+        "source_ids": []
+      },
+      "interval_status": "not_established",
+      "observed_ad_days": [],
+      "observed_ad_months": [],
+      "campaign_identity_verified": false,
+      "campaign_id": null,
+      "source_ids": [
+        "tesla-product-primary"
+      ],
+      "documented_claim": "Tesla blog announces the new Model 3 Performance on 2024-04-23.",
+      "paid_media_evidence": null,
+      "evidence_class": "partial",
+      "decision": "context_only",
+      "decision_reason": "Global product announcement without a documented German paid placement or campaign run.",
+      "date_uncertainty": "Publication, site capture or library listing date does not establish a campaign run",
+      "agency": null,
+      "media_spend": null,
+      "impressions": null
+    },
+    {
+      "id": "de-modely-finance-2026",
+      "title": "German Model Y promotional financing 1.99%",
+      "candidate_kind": "context_event",
+      "category": "sales_promotion",
+      "model_or_offer": "Model Y 1.99% financing",
+      "geography": {
+        "scope": [
+          "DE"
+        ],
+        "germany_status": "explicit",
+        "germany_evidence": "German-market source explicitly identified"
+      },
+      "channels": [
+        "tesla_website"
+      ],
+      "start": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_start",
+        "source_ids": []
+      },
+      "end": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_end",
+        "source_ids": []
+      },
+      "interval_status": "offer_terms_only",
+      "observed_ad_days": [],
+      "observed_ad_months": [],
+      "campaign_identity_verified": false,
+      "campaign_id": null,
+      "source_ids": [
+        "tesla-de"
+      ],
+      "documented_claim": "German Tesla homepage states applications from 2026-10-02 and conditional delivery by 2026-12-31; stock/eligibility and Tesla-delay conditions apply.",
+      "paid_media_evidence": null,
+      "evidence_class": "verified",
+      "decision": "context_only",
+      "decision_reason": "Financing eligibility and delivery deadlines are not paid-media flight dates; offer end/withdrawal is not established.",
+      "date_uncertainty": "Publication, site capture or library listing date does not establish a campaign run",
+      "agency": null,
+      "media_spend": null,
+      "impressions": null,
+      "offer_terms_dates": [
+        {
+          "value": "2026-10-02",
+          "precision": "day",
+          "role": "application_eligibility_start",
+          "source_ids": [
+            "tesla-de"
+          ]
+        },
+        {
+          "value": "2026-12-31",
+          "precision": "day",
+          "role": "conditional_delivery_deadline",
+          "source_ids": [
+            "tesla-de"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "de-model3-finance-2026",
+      "title": "German Model 3 promotional financing 0.99%",
+      "candidate_kind": "context_event",
+      "category": "sales_promotion",
+      "model_or_offer": "Model 3 0.99% financing",
+      "geography": {
+        "scope": [
+          "DE"
+        ],
+        "germany_status": "explicit",
+        "germany_evidence": "German-market source explicitly identified"
+      },
+      "channels": [
+        "tesla_website"
+      ],
+      "start": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_start",
+        "source_ids": []
+      },
+      "end": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_end",
+        "source_ids": []
+      },
+      "interval_status": "offer_terms_only",
+      "observed_ad_days": [],
+      "observed_ad_months": [],
+      "campaign_identity_verified": false,
+      "campaign_id": null,
+      "source_ids": [
+        "tesla-de"
+      ],
+      "documented_claim": "German Tesla homepage states applications from 2026-10-02 and conditional delivery by 2026-12-31; stock/eligibility and Tesla-delay conditions apply.",
+      "paid_media_evidence": null,
+      "evidence_class": "verified",
+      "decision": "context_only",
+      "decision_reason": "Financing eligibility and delivery deadlines are not paid-media flight dates; offer end/withdrawal is not established.",
+      "date_uncertainty": "Publication, site capture or library listing date does not establish a campaign run",
+      "agency": null,
+      "media_spend": null,
+      "impressions": null,
+      "offer_terms_dates": [
+        {
+          "value": "2026-10-02",
+          "precision": "day",
+          "role": "application_eligibility_start",
+          "source_ids": [
+            "tesla-de"
+          ]
+        },
+        {
+          "value": "2026-12-31",
+          "precision": "day",
+          "role": "conditional_delivery_deadline",
+          "source_ids": [
+            "tesla-de"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "us-agency-gift-2022",
+      "title": "AdQuick reports self-funded Times Square Tesla messages",
+      "candidate_kind": "campaign_candidate",
+      "category": "paid_media",
+      "model_or_offer": "not established",
+      "geography": {
+        "scope": [
+          "US"
+        ],
+        "germany_status": "not_established",
+        "germany_evidence": "No documented German paid-media delivery"
+      },
+      "channels": [
+        "digital_out_of_home"
+      ],
+      "start": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_start",
+        "source_ids": []
+      },
+      "end": {
+        "value": null,
+        "precision": "unknown",
+        "role": "campaign_end",
+        "source_ids": []
+      },
+      "interval_status": "not_established",
+      "observed_ad_days": [],
+      "observed_ad_months": [],
+      "campaign_identity_verified": false,
+      "campaign_id": null,
+      "source_ids": [
+        "agency-gift"
+      ],
+      "documented_claim": "Teslamag reports direct confirmation from AdQuick VP Growth Chris Gadek that AdQuick bought Times Square placements on its own account, not paid by Tesla.",
+      "paid_media_evidence": "Reported paid out-of-home placements in New York, funded by the agency itself.",
+      "evidence_class": "excluded",
+      "decision": "exclude",
+      "decision_reason": "US placement and explicitly not Tesla-funded; no German delivery or Tesla agency commission established.",
+      "date_uncertainty": "Publication, site capture or library listing date does not establish a campaign run",
+      "agency": {
+        "name": "AdQuick",
+        "relationship": "agency_self_funded_not_Tesla_commission",
+        "source_id": "agency-gift",
+        "evidence_basis": "Secondary report of direct agency response"
+      },
+      "media_spend": null,
+      "impressions": null
+    }
+  ]
+}

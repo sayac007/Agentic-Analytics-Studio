@@ -53,3 +53,8 @@ Tesla/Toyota/VW each have 96 verified consecutive months; the explicit BEV total
 60. [Task 01B.1](docs/PUBLICATION_PRECISION.md) admits them as retrospective immutable
 generator references, while historical Point-in-time use remains blocked pending
 vintage-specific availability evidence. Run `python -m kba audit` offline.
+
+Task 01D adds a [Tesla Germany campaign evidence ledger](docs/TESLA_GERMANY_CAMPAIGN_RESEARCH.md)
+for 2018-01–2026-10. No dated German paid campaign is verified yet: all 106 media
+months remain unknown, with disputed/foreign/owned/promotion candidates kept separate.
+Run `python3 -m campaigns.transform --check` offline. No model is estimated.
