@@ -155,7 +155,7 @@ Keine automatischen Merges.
 - [x] Veröffentlichung, Abruf, Quellen-Hash und belegte Vintage-Verfügbarkeit getrennt.
 - [x] Zwei explizite Regime; retrospektiv alle vier zugelassen, historisch alle vier gesperrt.
 - [x] Deterministischer Bericht mit Definition, Zeitraum, Split, Datumspräzision, Hash-Bindungen und Gründen.
-- [x] 115 lokale Tests bestanden, darunter 16 neue Tests; Cache-Reextraktion und Offline-Audit bestanden.
+- [x] 116 lokale Tests bestanden, darunter 17 neue Tests; Cache-Reextraktion und Offline-Audit bestanden.
 - [x] Keine neuen Daten, unveränderte Originalbeobachtungen, MMM-Implementierung und synthetische Ergebnisse.
 - Draft-Review und tatsächliche CI-Läufe für den exakten Head werden im zugehörigen PR dokumentiert.
 

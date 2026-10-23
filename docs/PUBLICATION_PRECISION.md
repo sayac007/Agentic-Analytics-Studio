@@ -105,6 +105,11 @@ information-set reasoning needs a separately reviewed policy. Conversely, a prec
 publication date without vintage-specific evidence also fails. No missing publication
 day is inferred from an availability witness.
 
+The pinned jsonschema runtime does not register its optional `date-time` checker.
+The project validator therefore registers a small standard-library RFC3339 check
+(offset required, seconds 00–59); no dependency is added. Direct schema consumers
+must enable equivalent format assertion, rather than treating `format` as annotation.
+
 The validator checks evidence hash/path, vintage binding, plausible chronology and
 availability no later than the declared `as_of`. It rejects evidence predating known
 publication dates or postdating the recorded retrieval (using its stated precision).
@@ -167,8 +172,8 @@ Python 3.12.14, existing pinned `/tmp/task01b-ci-venv` with requirements-kba.loc
 
 - Both original example validator commands passed, including the unchanged v0.2.0
   synthetic generator fixture.
-- `python -m unittest discover -s tests -v`: **115 tests passed** (99 existing,
-  16 new provenance/admission tests), 30.369 seconds in the final local run.
+- `python -m unittest discover -s tests -v`: **116 tests passed** (99 existing,
+  17 new provenance/admission tests), 31.927 seconds in the final local run.
 - Full cached-source `kba verify` re-extracted all 96 workbooks and reproduced the
   committed report/data bytes; `kba audit` passed without network access.
 - Offline fixture extraction and re-extraction verification passed; existing full-suite
@@ -183,6 +188,8 @@ The first suite identified the schema-inventory test's expected seven-schema lis
 it now includes the new release schema while still checking all schemas. When the
 historical rule was made explicitly day-precision-only, two rejection-message checks
 needed updating to recognize that earlier failure reason. The final run above passes.
+A final check also found the absent optional date-time checker; explicit malformed/
+naive-timestamp tests now exercise the project checker without optional packages.
 An attempted report rebuild under system Python correctly refused unpinned parser
 versions; rebuilding under the pinned environment succeeded without changing inputs.
 Remote Actions evidence belongs to the exact PR head and is recorded in the Draft PR;

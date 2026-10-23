@@ -24,6 +24,21 @@ SCHEMAS = {p.stem.removesuffix('.schema'): json.loads(p.read_text())
 REGISTRY = Registry().with_resources((s['$id'], Resource.from_contents(s)) for s in SCHEMAS.values())
 
 
+# jsonschema's optional RFC3339 dependency is absent from the pinned runtime.
+# Enforce the new timestamp fields without changing dependencies or estimator data.
+FORMAT_CHECKER = FormatChecker()
+
+
+@FORMAT_CHECKER.checks('date-time', raises=ValueError)
+def valid_timestamp(value):
+    if not isinstance(value, str):
+        return True  # The schema's type check handles non-strings.
+    shape = (r'[0-9]{4}-[0-9]{2}-[0-9]{2}[Tt][0-9]{2}:[0-9]{2}:[0-9]{2}'
+             r'(?:[.][0-9]+)?(?:[Zz]|[+-](?:[01][0-9]|2[0-3]):[0-5][0-9])')
+    return (re.fullmatch(shape, value) is not None and
+            datetime.fromisoformat(value.upper().replace('Z', '+00:00')).utcoffset() is not None)
+
+
 def require_finite_numbers(value):
     if isinstance(value, float) and not math.isfinite(value):
         raise ValueError('Nonfinite JSON numbers are rejected')
@@ -38,7 +53,7 @@ def require_finite_numbers(value):
 def validate_document(kind, document):
     require_finite_numbers(document)
     Draft202012Validator(SCHEMAS[kind], registry=REGISTRY,
-                        format_checker=FormatChecker()).validate(document)
+                        format_checker=FORMAT_CHECKER).validate(document)
 
 
 def contained(path, root):

@@ -69,6 +69,48 @@ class PublicationPrecision(unittest.TestCase):
         )
         self.assertIsNone(examples["unknown"]["publication_date"]["value"])
 
+    def test_timestamps_are_checked_without_optional_format_packages(self):
+        invalid = [
+            "2026-01-20",
+            "2026-01-20T12:00:00",
+            "2026-01-20 12:00:00Z",
+            "2026-02-30T12:00:00Z",
+            "2026-01-20T25:00:00Z",
+            "2026-01-20T12:00:00+01:99",
+            "2026-01-20T12:00:00Z\n",
+        ]
+        for stamp in invalid:
+            g = copy.deepcopy(self.g)
+            g.update(admission_regime="historical_point_in_time", as_of=stamp)
+            with (
+                self.subTest(field="as_of", stamp=stamp),
+                self.assertRaises(ValidationError),
+            ):
+                v.validate_document("generator", g)
+            r = copy.deepcopy(self.g["release_records"][0])
+            r["available_as_of"] = self.evidence()
+            r["available_as_of"]["timestamp"] = stamp
+            with (
+                self.subTest(field="availability", stamp=stamp),
+                self.assertRaises(ValidationError),
+            ):
+                v.validate_document("release", r)
+            if "T" in stamp or " " in stamp:
+                r["available_as_of"] = None
+                r["retrieved_at"] = stamp
+                with (
+                    self.subTest(field="retrieved_at", stamp=stamp),
+                    self.assertRaises(ValidationError),
+                ):
+                    v.validate_document("release", r)
+        for stamp in [
+            "2026-01-20T12:00:00Z",
+            "2026-01-20t12:00:00z",
+            "2026-01-20T13:00:00+01:00",
+            "2026-01-20T12:00:00.123Z",
+        ]:
+            self.assertTrue(v.valid_timestamp(stamp))
+
     def test_precision_cannot_claim_a_placeholder_day(self):
         for pub in [
             dict(precision="month", value="2026-01-01"),
