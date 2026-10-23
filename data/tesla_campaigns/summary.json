@@ -1,0 +1,13 @@
+{
+  "adequacy_reason": "Nonexhaustive activity evidence is not observed zeros, spend or exposure; no sufficiently varying measured series established",
+  "adequately_varying_measured_media_series": false,
+  "campaign_candidates": 9,
+  "candidate_events": 15,
+  "confirmed_inactive_months": 0,
+  "individually_identified_verified_german_paid_campaigns": 0,
+  "total_months": 106,
+  "unknown_activity_months": 106,
+  "verified_activity_months": [],
+  "verified_german_paid_activity_records": 0,
+  "verified_german_paid_records_with_complete_run": 0
+}
