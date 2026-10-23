@@ -1,0 +1,56 @@
+{
+  "task": "01F",
+  "attempts": [
+    {
+      "id": "trends_explore",
+      "url": "https://trends.google.com/trends/explore?hl=de&date=2018-01-01%202025-12-31&geo=DE&cat=0&q=Tesla",
+      "attempted_at": "2026-10-23T15:21:29.492671+00:00",
+      "method": "HTTPS GET; TLS verified; no credentials/cookies; no automated retry",
+      "http_status": 429,
+      "error": "HTTP Error 429: Too Many Requests",
+      "response_sha256": "31da87f833661e0261909d5f615e1f8383b59aa8522495ab754553957885c656",
+      "retry_after": null,
+      "access_stage": "service_response"
+    },
+    {
+      "id": "trends_export_help",
+      "url": "https://support.google.com/trends/answer/4365538?hl=en",
+      "attempted_at": "2026-10-23T15:21:29.883273+00:00",
+      "method": "HTTPS GET; TLS verified; no credentials/cookies; no automated retry",
+      "http_status": 200,
+      "final_url": "https://support.google.com/trends/answer/4365538?hl=en",
+      "bytes": 1527591,
+      "sha256": "74c888d2803d29a737c4e638c30620c607936e92cabe2b82ef4cfd1082fe8ea4",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "id": "trends_data_help",
+      "url": "https://support.google.com/trends/answer/4365533?hl=en",
+      "attempted_at": "2026-10-23T15:21:30.736908+00:00",
+      "method": "HTTPS GET; TLS verified; no credentials/cookies; no automated retry",
+      "http_status": 200,
+      "final_url": "https://support.google.com/trends/answer/4365533?hl=en",
+      "bytes": 1529894,
+      "sha256": "ddd1d73401987b7066e86dfcaa78716074098cdb423608255b546d7e470e4b60",
+      "content_type": "text/html; charset=UTF-8"
+    }
+  ],
+  "empirical_collection_stopped": true,
+  "youtube_fallback": {
+    "status": "not_tested_no_authorized_access",
+    "checked_api_key_variables": {
+      "YOUTUBE_API_KEY": "absent",
+      "GOOGLE_API_KEY": "absent"
+    },
+    "channel_ids_frozen": [],
+    "note": "No authorized API key or verified channel IDs; no fallback inventory collected and no comments requested.",
+    "google_adc_preflight": {
+      "binding_present": true,
+      "file_readable": true,
+      "recognized_credential_type": false,
+      "youtube_authorization": "not_verified",
+      "used": false,
+      "note": "General ADC binding is not evidence of a YouTube API project/owner grant. Only binding/type metadata checked; no token values, identities or scopes extracted and no credentials sent to a service."
+    }
+  }
+}

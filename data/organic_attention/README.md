@@ -18,3 +18,9 @@ Current view snapshots cannot become historical view observations. No sentiment,
 association, causality or German audience reach is inferred.
 
 Details and future protocol: [Research report](../../docs/ORGANIC_ATTENTION_FEASIBILITY.md).
+
+Task 01F keeps these empirical artifacts empty after a fresh official-UI HTTP 429.
+`task01f_access.json` records the attempt; `real_data_coverage.json` records 96/60
+unknown months. `trends_import_metadata.template.json` is an incomplete handoff template,
+not a provenance assertion. Private user-CSV import and rights requirements:
+[First real observation handoff](../../docs/FIRST_REAL_ATTENTION_OBSERVATION.md).
