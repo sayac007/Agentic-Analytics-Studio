@@ -23,7 +23,7 @@ class Contracts(unittest.TestCase):
             validate_manifest(self.manifest)
 
     def test_all_schemas_are_valid(self):
-        self.assertEqual(set(SCHEMAS), {'common','manifest','generator','truth','result','comparison','evaluation'})
+        self.assertEqual(set(SCHEMAS), {'common','manifest','generator','release','truth','result','comparison','evaluation'})
         for name,schema in SCHEMAS.items():
             with self.subTest(schema=name):
                 Draft202012Validator.check_schema(schema)

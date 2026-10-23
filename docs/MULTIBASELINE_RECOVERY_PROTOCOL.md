@@ -3,13 +3,13 @@
 Task 01B is data acquisition, not Statistical Stage B (transform search).
 This protocol precedes any recovery on the observed KBA references. It does not
 change the fixed synthetic Task 01a run or its poor results. Statistical Contracts
-v0.2.0 remain normative. A reviewed Stage-C execution specification is still needed.
+v0.2.0 statistical rules remain normative; v0.2.1 adds the provenance/admission patch. A reviewed Stage-C execution specification is still needed.
 
 ## Admission, windows and selection
 
-Only `admitted` references may enter later runs. Currently all four candidates are
-**blocked**, despite sufficient lengths, because the release ledger cannot truthfully
-supply an exact publication day for every month. See [data evidence](KBA_MULTIBASELINE.md).
+Only `admitted` references may enter later runs. Task 01B.1 admits all four candidates under the **retrospective immutable-reference**
+regime; historical Point-in-time use remains blocked. Missing publication days are
+retained at their actual precision rather than fabricated. See PUBLICATION_PRECISION.md. See [data evidence](KBA_MULTIBASELINE.md).
 Freeze source catalog, raw hashes, normalized hashes, code/dependency versions and
 any resolved publication evidence before generation. Never convert a failed gate
 into a synthetic label or extend an observed reference with simulated counts.

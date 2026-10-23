@@ -19,11 +19,11 @@ does not establish causal/statistical identification.
 
 Remaining work is scientific or expressly outside Task 01a:
 
-- Task 01B verifies 96 contiguous months (2018–2025) for Tesla/Toyota/VW and 60
-  (2021–2025) for the explicitly labeled BEV market. All remain `blocked`: v0.2.0
-  requires exact publication dates, while many source imprints provide month precision
-  or no publication date. Length, hashes, rights and extraction are documented in
-  [KBA_MULTIBASELINE.md](KBA_MULTIBASELINE.md); no observed-baseline fit was run.
+- Task 01B.1 admits the verified Tesla/Toyota/VW references (96 months, 2018–2025)
+  and explicitly labeled BEV market (60 months, 2021–2025) for **retrospective immutable
+  generator-reference use**. Historical Point-in-time admission remains blocked:
+  publication precision is not exact-vintage availability evidence. See
+  [PUBLICATION_PRECISION.md](PUBLICATION_PRECISION.md). No observed-baseline fit was run.
 - Stage B needs predeclared search bounds/inner validation and selection uncertainty.
 - Stage C needs a reviewed replication/scenario protocol, recovery tolerance,
   calibrated error/power targets and Monte Carlo precision. No detection limit is
@@ -38,4 +38,5 @@ empirical power or real Tesla ROI. The PR stays Draft and is not automatically m
 The [multi-baseline protocol](MULTIBASELINE_RECOVERY_PROTOCOL.md) proposes paired
 relative- and absolute-scale experiments. Absolute cross-baseline calibration, an
 additional confounding family and cross-dataset aggregation need explicit contract
-review before execution. Existing v0.2.0 schemas and synthetic results are unchanged.
+review before execution. The generator provenance patch is v0.2.1 with v0.2.0 compatibility; estimator/result
+schemas and synthetic results remain unchanged.

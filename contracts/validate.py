@@ -24,6 +24,21 @@ SCHEMAS = {p.stem.removesuffix('.schema'): json.loads(p.read_text())
 REGISTRY = Registry().with_resources((s['$id'], Resource.from_contents(s)) for s in SCHEMAS.values())
 
 
+# jsonschema's optional RFC3339 dependency is absent from the pinned runtime.
+# Enforce the new timestamp fields without changing dependencies or estimator data.
+FORMAT_CHECKER = FormatChecker()
+
+
+@FORMAT_CHECKER.checks('date-time', raises=ValueError)
+def valid_timestamp(value):
+    if not isinstance(value, str):
+        return True  # The schema's type check handles non-strings.
+    shape = (r'[0-9]{4}-[0-9]{2}-[0-9]{2}[Tt][0-9]{2}:[0-9]{2}:[0-9]{2}'
+             r'(?:[.][0-9]+)?(?:[Zz]|[+-](?:[01][0-9]|2[0-3]):[0-5][0-9])')
+    return (re.fullmatch(shape, value) is not None and
+            datetime.fromisoformat(value.upper().replace('Z', '+00:00')).utcoffset() is not None)
+
+
 def require_finite_numbers(value):
     if isinstance(value, float) and not math.isfinite(value):
         raise ValueError('Nonfinite JSON numbers are rejected')
@@ -38,7 +53,7 @@ def require_finite_numbers(value):
 def validate_document(kind, document):
     require_finite_numbers(document)
     Draft202012Validator(SCHEMAS[kind], registry=REGISTRY,
-                        format_checker=FormatChecker()).validate(document)
+                        format_checker=FORMAT_CHECKER).validate(document)
 
 
 def contained(path, root):
@@ -151,6 +166,46 @@ def validate_manifest(manifest, root=ROOT, require_benchmark=False):
     return len(rows)
 
 
+def validate_release(record, root=None, as_of=None):
+    """Provenance gate only; evidence meaning still requires source review."""
+    validate_document('release', record)
+    if 'published_on' in record:
+        publication = {'precision': 'day', 'value': record['published_on']}
+    else:
+        publication = record['publication_date']
+    retrieved = record.get('retrieved_at')
+    if (retrieved and publication['precision'] != 'unknown' and
+            publication['value'] > retrieved[:len(publication['value'])]):
+        raise ValueError('Publication cannot postdate retrieval')
+    available = record.get('available_as_of')
+    if available is not None:
+        if available['source_sha256'] != record['sha256']:
+            raise ValueError('Availability evidence binds a different source vintage')
+        url = urlsplit(available['evidence_url'])
+        if url.scheme != 'https' or not url.hostname:
+            raise ValueError('Availability evidence needs an HTTPS source')
+        if root is None:
+            raise ValueError('Availability evidence bytes must be checked')
+        artifact_bytes(available['evidence'], root)
+        stamp = datetime.fromisoformat(available['timestamp'].upper().replace('Z', '+00:00'))
+        if (publication['precision'] != 'unknown' and
+                stamp.date().isoformat()[:len(publication['value'])] < publication['value']):
+            raise ValueError('Availability evidence predates documented publication')
+        retrieved = record.get('retrieved_at')
+        if retrieved and ((len(retrieved) == 10 and stamp.date().isoformat() > retrieved) or
+                          (len(retrieved) > 10 and stamp > datetime.fromisoformat(retrieved.upper().replace('Z', '+00:00')))):
+            raise ValueError('Availability evidence postdates retrieval')
+    if as_of is not None:
+        if publication['precision'] != 'day':
+            raise ValueError('Historical point-in-time requires day-precision publication evidence')
+        cutoff = datetime.fromisoformat(as_of.upper().replace('Z', '+00:00'))
+        if available is None:
+            raise ValueError('Historical point-in-time requires exact-vintage availability evidence')
+        if stamp > cutoff:
+            raise ValueError('Exact vintage was not evidenced as available by cutoff')
+    return publication
+
+
 def validate_generator(generator, root=ROOT, require_benchmark=False):
     validate_document('generator', generator)
     reference = contained(generator['reference']['path'], root)
@@ -167,6 +222,10 @@ def validate_generator(generator, root=ROOT, require_benchmark=False):
     if generator['reference_kind'] == 'observed_kba':
         if sorted(r['period'] for r in releases) != periods:
             raise ValueError('Observed reference needs one verified release record per month')
+        for release in releases:
+            cutoff = (generator.get('as_of') if generator.get('admission_regime') ==
+                      'historical_point_in_time' else None)
+            validate_release(release, root, cutoff)
         if generator['reference_columns']['observed_registrations']['redistribution'] != 'allowed':
             raise ValueError('Observed reference redistribution rights must be verified')
     settings = generator['generation']

@@ -1,0 +1,57 @@
+{
+  "day": {
+    "period": "2020-01",
+    "source_url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_01_xlsx.xlsx?__blob=publicationFile&v=2",
+    "sha256": "38fb2fb2409b49d14d13f9f19cfcfc025716df8e72df61701c807518d6368989",
+    "version": "URL v=2; SHA-256 identifies retrieved bytes",
+    "license_identifier": "dl-de/by-2-0",
+    "license_url": "https://www.govdata.de/dl-de/by-2-0",
+    "rights_verified": true,
+    "publication_date": {
+      "precision": "day",
+      "value": "2020-02-07"
+    },
+    "retrieved_at": "2026-10-22",
+    "available_as_of": null
+  },
+  "month": {
+    "period": "2025-01",
+    "source_url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2025_01.xlsx?__blob=publicationFile&v=2",
+    "sha256": "777366bf2a9c6ca4b0f62e5c106ea56dd7d61490b60f7377af041be81ca9332d",
+    "version": "URL v=2; SHA-256 identifies retrieved bytes",
+    "license_identifier": "dl-de/by-2-0",
+    "license_url": "https://www.govdata.de/dl-de/by-2-0",
+    "rights_verified": true,
+    "publication_date": {
+      "precision": "month",
+      "value": "2025-02"
+    },
+    "retrieved_at": "2026-10-22",
+    "available_as_of": null
+  },
+  "unknown": {
+    "period": "2018-01",
+    "source_url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2018_01_xls.xls?__blob=publicationFile&v=2",
+    "sha256": "18314846316838f4bbbcd77e7c4abf2680a2b40bb3c8af70fcdd0deab6bc12b6",
+    "version": "URL v=2; SHA-256 identifies retrieved bytes",
+    "license_identifier": "dl-de/by-2-0",
+    "license_url": "https://www.govdata.de/dl-de/by-2-0",
+    "rights_verified": true,
+    "publication_date": {
+      "precision": "unknown",
+      "value": null
+    },
+    "retrieved_at": "2026-10-22",
+    "available_as_of": null
+  },
+  "legacy_day": {
+    "period": "2020-01",
+    "source_url": "https://www.kba.de/SharedDocs/Downloads/DE/Statistik/Fahrzeuge/FZ10/fz10_2020_01_xlsx.xlsx?__blob=publicationFile&v=2",
+    "sha256": "38fb2fb2409b49d14d13f9f19cfcfc025716df8e72df61701c807518d6368989",
+    "version": "URL v=2; SHA-256 identifies retrieved bytes",
+    "license_identifier": "dl-de/by-2-0",
+    "license_url": "https://www.govdata.de/dl-de/by-2-0",
+    "rights_verified": true,
+    "published_on": "2020-02-07"
+  }
+}

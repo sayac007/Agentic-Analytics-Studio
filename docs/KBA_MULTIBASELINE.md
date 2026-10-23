@@ -1,8 +1,9 @@
-# Task 01B — verified KBA multi-baseline acquisition
+# Verified KBA acquisition — Task 01B with Task 01B.1 admission update
 
 Basis: `main` at merge commit `188b5cb` after PR #3 was confirmed MERGED
 (2026-10-22 14:24:44 UTC). No unmerged feature branch was used. This task does not
-change the synthetic MMM engine, its configuration, results or contracts v0.2.0.
+change the synthetic MMM engine, its configuration or results. Task 01B.1 adds only
+the backwards-compatible v0.2.1 provenance patch described in PUBLICATION_PRECISION.md.
 
 ## Sources and what was actually checked
 
@@ -41,12 +42,12 @@ figures are substituted. Registrations are not sales, deliveries, orders or spen
 
 ## Coverage and admission
 
-| Candidate | Definition | Verified contiguous window | Months | Status |
+| Candidate | Definition | Verified contiguous window | Months | Retrospective / historical |
 |---|---|---|---:|---|
-| A Tesla | Exact TESLA brand total; **all powertrains** | 2018-01–2025-12 | 96 | blocked |
-| B BEV market | All-brand passenger-car total, explicit **BEV only** | 2021-01–2025-12 | 60 | blocked |
-| C Toyota | Exact TOYOTA brand total; **all powertrains** | 2018-01–2025-12 | 96 | blocked |
-| D VW | Exact VW brand total; **all powertrains** | 2018-01–2025-12 | 96 | blocked |
+| A Tesla | Exact TESLA brand total; **all powertrains** | 2018-01–2025-12 | 96 | admitted / blocked |
+| B BEV market | All-brand passenger-car total, explicit **BEV only** | 2021-01–2025-12 | 60 | admitted / blocked |
+| C Toyota | Exact TOYOTA brand total; **all powertrains** | 2018-01–2025-12 | 96 | admitted / blocked |
+| D VW | Exact VW brand total; **all powertrains** | 2018-01–2025-12 | 96 | admitted / blocked |
 
 No internal gaps occur in those windows. The 36 earlier months listed as missing for
 B are **not verified under the BEV definition**, not observed zeros. No synthetic
@@ -63,16 +64,19 @@ full design rank. No fit or actual rank/identification assessment was performed.
 The coverage report's longest-window split is an engineering candidate, not an
 executed experiment or an instruction to replace the common protocol window.
 
-**Concrete admission blocker:** existing generator v0.2.0 release records require
-`published_on` as a full ISO date. Many workbooks document only a month; legacy ones
-lack a publication imprint. Neither download date, URL v=2 nor a press-release date
-proves the workbook's exact publication day. We preserve `unknown`/`month` precision
-and set **all four to blocked**, not admitted. The minimum-length rules were not
-weakened and no day was invented. To resolve: establish separately evidenced dates
-for every required release, or review a precise contract extension accepting bounded
-publication dates/precision for immutable retrospective references. No incompatible
-schema change was made here. A proposed extension must retain actual provenance,
-vintage hashes, chronology and the estimator privacy boundary.
+**Task 01B.1 resolves the retrospective publication-precision conflict:** generator
+v0.2.1 explicitly preserves day/month/unknown precision, distinguishes retrieval from
+publication and requires a named admission regime. All four references are now
+`admitted` for retrospective immutable-reference use. Hash/rights/definition,
+continuity, residual-df and competing-vintage gates remain unchanged or stricter.
+
+**Historical Point-in-time remains blocked:** neither a publication day nor the
+2026-10-22 download proves that the current source hash existed before a historical
+cutoff. The catalog has no reviewed exact-vintage availability witness. The admission
+report separately records `historical_point_in_time=blocked`, `as_of=null` and explicit
+reasons. Supplying a cutoff alone cannot resolve missing evidence. No date was invented.
+See [the normative provenance patch](PUBLICATION_PRECISION.md) for fields and backwards
+compatibility; estimator/result schemas, synthetic artifacts and statistics are unchanged.
 
 `admitted`, `insufficient_coverage`, `blocked` are data gates, not validation of recovery
 or causal identification. Admission checks residual-df engineering floors, not empirical
@@ -204,9 +208,11 @@ bound to raw hashes. Extending beyond these reviewed domains requires profile re
 
 ## Next boundary
 
-None of these references is currently passed to the generator or estimator. Once
-publication evidence/contract precision is resolved, export each admitted series into
-its own immutable two-column generator-only reference and v0.2.0 release ledger.
+None of these references is currently passed to the generator or estimator. A separately
+authorized execution task can export each retrospectively admitted series into its
+own immutable two-column generator-only reference and v0.2.1 release ledger, with
+`admission_regime=retrospective_immutable_reference`. Historical use needs separate
+exact-vintage availability evidence and an explicit as-of cutoff.
 Do not pass the six-column acquisition table to the estimator. Keep true registrations
 and truth private, with the existing isolated estimator receiving only synthetic media
 and the semi-synthetic target plus calendar controls. No observed-baseline recovery,

@@ -1,10 +1,38 @@
 {
   "A": {
+    "admission_contract_version": "0.2.1",
+    "admission_regimes": {
+      "historical_point_in_time": {
+        "as_of": null,
+        "reasons": [
+          "exact_vintage_historical_availability_not_verified",
+          "historical_as_of_cutoff_not_specified",
+          "historical_publication_day_precision_missing"
+        ],
+        "status": "blocked"
+      },
+      "retrospective_immutable_reference": {
+        "reasons": [
+          "verified_official_immutable_reference_rights_definition_and_length"
+        ],
+        "status": "admitted"
+      }
+    },
+    "baseline_id": "brand:TESLA",
+    "checked_period": {
+      "end": "2025-12",
+      "start": "2018-01"
+    },
+    "definition": "German passenger-car new registrations; exact brand total, all powertrains",
     "engineering_candidate_split": {
       "design_columns": 6,
+      "holdout_end": "2025-12",
       "holdout_months": 12,
+      "holdout_start": "2025-01",
       "residual_df": 78,
-      "train_months": 84
+      "train_end": "2024-12",
+      "train_months": 84,
+      "train_start": "2018-01"
     },
     "first_verified": "2018-01",
     "last_verified": "2025-12",
@@ -15,21 +43,59 @@
       "start": "2018-01"
     },
     "missing_months": [],
+    "normalized_data_sha256": "0878d67823b44b62b6d56016a0c899ec46150b9a3935aa6d74eed74c4c3ab36d",
+    "provenance_status": "verified",
+    "publication_precision": {
+      "day": 14,
+      "month": 58,
+      "unknown": 24
+    },
     "reasons": [
-      "exact_publication_day_missing_for_v0.2.0_release_records"
+      "verified_official_immutable_reference_rights_definition_and_length"
     ],
     "scientific_validation": false,
     "series": "brand:TESLA",
+    "source_catalog_sha256": "160868cfb7f000e51067fde8e25bccf2979b0db423d1b7e0886074a201142f64",
     "source_status": "verified_raw_hash_and_parser",
-    "status": "blocked",
-    "verified_count": 96
+    "status": "admitted",
+    "status_regime": "retrospective_immutable_reference",
+    "verified_count": 96,
+    "vintage_status": "hash_bound_single_snapshot"
   },
   "B": {
+    "admission_contract_version": "0.2.1",
+    "admission_regimes": {
+      "historical_point_in_time": {
+        "as_of": null,
+        "reasons": [
+          "exact_vintage_historical_availability_not_verified",
+          "historical_as_of_cutoff_not_specified",
+          "historical_publication_day_precision_missing"
+        ],
+        "status": "blocked"
+      },
+      "retrospective_immutable_reference": {
+        "reasons": [
+          "verified_official_immutable_reference_rights_definition_and_length"
+        ],
+        "status": "admitted"
+      }
+    },
+    "baseline_id": "market:BEV",
+    "checked_period": {
+      "end": "2025-12",
+      "start": "2021-01"
+    },
+    "definition": "German passenger-car new registrations; BEV only, all brands",
     "engineering_candidate_split": {
       "design_columns": 6,
+      "holdout_end": "2025-12",
       "holdout_months": 12,
+      "holdout_start": "2025-01",
       "residual_df": 42,
-      "train_months": 48
+      "train_end": "2024-12",
+      "train_months": 48,
+      "train_start": "2021-01"
     },
     "first_verified": "2021-01",
     "last_verified": "2025-12",
@@ -77,21 +143,59 @@
       "2020-11",
       "2020-12"
     ],
+    "normalized_data_sha256": "0878d67823b44b62b6d56016a0c899ec46150b9a3935aa6d74eed74c4c3ab36d",
+    "provenance_status": "verified",
+    "publication_precision": {
+      "day": 10,
+      "month": 50,
+      "unknown": 0
+    },
     "reasons": [
-      "exact_publication_day_missing_for_v0.2.0_release_records"
+      "verified_official_immutable_reference_rights_definition_and_length"
     ],
     "scientific_validation": false,
     "series": "market:BEV",
+    "source_catalog_sha256": "160868cfb7f000e51067fde8e25bccf2979b0db423d1b7e0886074a201142f64",
     "source_status": "verified_raw_hash_and_parser",
-    "status": "blocked",
-    "verified_count": 60
+    "status": "admitted",
+    "status_regime": "retrospective_immutable_reference",
+    "verified_count": 60,
+    "vintage_status": "hash_bound_single_snapshot"
   },
   "C": {
+    "admission_contract_version": "0.2.1",
+    "admission_regimes": {
+      "historical_point_in_time": {
+        "as_of": null,
+        "reasons": [
+          "exact_vintage_historical_availability_not_verified",
+          "historical_as_of_cutoff_not_specified",
+          "historical_publication_day_precision_missing"
+        ],
+        "status": "blocked"
+      },
+      "retrospective_immutable_reference": {
+        "reasons": [
+          "verified_official_immutable_reference_rights_definition_and_length"
+        ],
+        "status": "admitted"
+      }
+    },
+    "baseline_id": "brand:TOYOTA",
+    "checked_period": {
+      "end": "2025-12",
+      "start": "2018-01"
+    },
+    "definition": "German passenger-car new registrations; exact brand total, all powertrains",
     "engineering_candidate_split": {
       "design_columns": 6,
+      "holdout_end": "2025-12",
       "holdout_months": 12,
+      "holdout_start": "2025-01",
       "residual_df": 78,
-      "train_months": 84
+      "train_end": "2024-12",
+      "train_months": 84,
+      "train_start": "2018-01"
     },
     "first_verified": "2018-01",
     "last_verified": "2025-12",
@@ -102,21 +206,59 @@
       "start": "2018-01"
     },
     "missing_months": [],
+    "normalized_data_sha256": "0878d67823b44b62b6d56016a0c899ec46150b9a3935aa6d74eed74c4c3ab36d",
+    "provenance_status": "verified",
+    "publication_precision": {
+      "day": 14,
+      "month": 58,
+      "unknown": 24
+    },
     "reasons": [
-      "exact_publication_day_missing_for_v0.2.0_release_records"
+      "verified_official_immutable_reference_rights_definition_and_length"
     ],
     "scientific_validation": false,
     "series": "brand:TOYOTA",
+    "source_catalog_sha256": "160868cfb7f000e51067fde8e25bccf2979b0db423d1b7e0886074a201142f64",
     "source_status": "verified_raw_hash_and_parser",
-    "status": "blocked",
-    "verified_count": 96
+    "status": "admitted",
+    "status_regime": "retrospective_immutable_reference",
+    "verified_count": 96,
+    "vintage_status": "hash_bound_single_snapshot"
   },
   "D": {
+    "admission_contract_version": "0.2.1",
+    "admission_regimes": {
+      "historical_point_in_time": {
+        "as_of": null,
+        "reasons": [
+          "exact_vintage_historical_availability_not_verified",
+          "historical_as_of_cutoff_not_specified",
+          "historical_publication_day_precision_missing"
+        ],
+        "status": "blocked"
+      },
+      "retrospective_immutable_reference": {
+        "reasons": [
+          "verified_official_immutable_reference_rights_definition_and_length"
+        ],
+        "status": "admitted"
+      }
+    },
+    "baseline_id": "brand:VW",
+    "checked_period": {
+      "end": "2025-12",
+      "start": "2018-01"
+    },
+    "definition": "German passenger-car new registrations; exact brand total, all powertrains",
     "engineering_candidate_split": {
       "design_columns": 6,
+      "holdout_end": "2025-12",
       "holdout_months": 12,
+      "holdout_start": "2025-01",
       "residual_df": 78,
-      "train_months": 84
+      "train_end": "2024-12",
+      "train_months": 84,
+      "train_start": "2018-01"
     },
     "first_verified": "2018-01",
     "last_verified": "2025-12",
@@ -127,13 +269,23 @@
       "start": "2018-01"
     },
     "missing_months": [],
+    "normalized_data_sha256": "0878d67823b44b62b6d56016a0c899ec46150b9a3935aa6d74eed74c4c3ab36d",
+    "provenance_status": "verified",
+    "publication_precision": {
+      "day": 14,
+      "month": 58,
+      "unknown": 24
+    },
     "reasons": [
-      "exact_publication_day_missing_for_v0.2.0_release_records"
+      "verified_official_immutable_reference_rights_definition_and_length"
     ],
     "scientific_validation": false,
     "series": "brand:VW",
+    "source_catalog_sha256": "160868cfb7f000e51067fde8e25bccf2979b0db423d1b7e0886074a201142f64",
     "source_status": "verified_raw_hash_and_parser",
-    "status": "blocked",
-    "verified_count": 96
+    "status": "admitted",
+    "status_regime": "retrospective_immutable_reference",
+    "verified_count": 96,
+    "vintage_status": "hash_bound_single_snapshot"
   }
 }
