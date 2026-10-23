@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "origin": "observed",
+  "measure_role": "attention_proxy",
+  "export_method": "official_ui_manual_csv",
+  "retrieved_at": null,
+  "source_url": "https://trends.google.com/trends/explore?hl=de&date=2018-01-01%202025-12-31&geo=DE&cat=0&q=Tesla",
+  "query": {
+    "kind": "search_term",
+    "value": "Tesla",
+    "label": "Tesla",
+    "topic_evidence_url": null
+  },
+  "geography": "DE",
+  "category": 0,
+  "search_property": "web",
+  "request_window": {
+    "start": "2018-01-01",
+    "end": "2025-12-31"
+  },
+  "frequency": "monthly",
+  "time_zone": "UTC",
+  "normalization": {
+    "kind": "google_trends_single_request_relative_0_100",
+    "window": {
+      "start": "2018-01-01",
+      "end": "2025-12-31"
+    },
+    "geography": "DE",
+    "min": 0,
+    "max": 100,
+    "rescaled": false,
+    "combined_exports": false
+  },
+  "raw_sha256": null,
+  "csv_locale": "de",
+  "rights": {
+    "private_analysis_confirmed": false,
+    "redistribution": "not_verified",
+    "evidence_url": "https://support.google.com/trends/answer/4365538",
+    "note": "TEMPLATE ONLY: confirm lawful private analysis after reviewing Google Terms; redistribution remains unverified. Do not invent an export/retrieval date or hash."
+  },
+  "export_attestation": false
+}

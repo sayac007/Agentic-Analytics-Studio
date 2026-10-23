@@ -64,3 +64,9 @@ No real historical attention observations were obtained: all 96 months 2018–20
 remain unknown, including all 60 months 2021–2025. A small offline YouTube-shape
 adapter uses explicitly synthetic fixtures; current views never become historical views.
 Run `python3 -m attention.transform --check`. No association or model is estimated.
+
+Task 01F adds a [private manual Google Trends import path](docs/FIRST_REAL_ATTENTION_OBSERVATION.md).
+The official request returned HTTP 429; **no real attention observations were acquired**.
+Coverage remains 0/96 (2018–2025) and 0/60 (2021–2025), with unknown months preserved.
+Run `python3 -m attention.import_trends --check-blocked`; use the documented sidecar
+and private import command for a lawful user-supplied monthly CSV. No values are invented.

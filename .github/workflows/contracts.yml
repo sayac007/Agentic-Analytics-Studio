@@ -40,3 +40,5 @@ jobs:
         run: python3 -m campaigns.transform --check
       - name: Offline organic-attention feasibility artifact check
         run: python3 -m attention.transform --check
+      - name: Offline real-attention blocked-coverage check
+        run: python3 -m attention.import_trends --check-blocked

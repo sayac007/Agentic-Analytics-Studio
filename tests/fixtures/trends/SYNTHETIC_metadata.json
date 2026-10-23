@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "origin": "synthetic",
+  "measure_role": "attention_proxy",
+  "export_method": "synthetic_test_fixture",
+  "retrieved_at": "2026-10-23T17:30:00+02:00",
+  "source_url": "https://trends.google.com/trends/explore?date=2018-01-01%202018-12-31&geo=DE&cat=0&q=Tesla",
+  "query": {
+    "kind": "search_term",
+    "value": "Tesla",
+    "label": "Tesla",
+    "topic_evidence_url": null
+  },
+  "geography": "DE",
+  "category": 0,
+  "search_property": "web",
+  "request_window": {
+    "start": "2018-01-01",
+    "end": "2018-12-31"
+  },
+  "frequency": "monthly",
+  "time_zone": "UTC",
+  "normalization": {
+    "kind": "google_trends_single_request_relative_0_100",
+    "window": {
+      "start": "2018-01-01",
+      "end": "2018-12-31"
+    },
+    "geography": "DE",
+    "min": 0,
+    "max": 100,
+    "rescaled": false,
+    "combined_exports": false
+  },
+  "raw_sha256": "be894caf87def671deb28aa79f0937ec386688536395765973aad3685fd94a5f",
+  "csv_locale": "en",
+  "rights": {
+    "private_analysis_confirmed": true,
+    "redistribution": "not_verified",
+    "evidence_url": "https://support.google.com/trends/answer/4365538",
+    "note": "Entirely synthetic software fixture. No real export or legal permission asserted."
+  },
+  "export_attestation": true
+}

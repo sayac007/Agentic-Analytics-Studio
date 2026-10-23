@@ -1,0 +1,22 @@
+{
+  "access_log_sha256": "54ec9242cddddae966a5e5d1a17813fb45a0741a6c0c1b2613f961dc9afc5fd2",
+  "acquisition": "stopped_after_official_ui_http_429",
+  "actual_frequency": "not_observed",
+  "coverage_2018_2025": {
+    "observed_months": [],
+    "required_months": 96,
+    "unknown_months": 96
+  },
+  "coverage_2021_2025": {
+    "observed_months": [],
+    "required_months": 60,
+    "unknown_months": 60
+  },
+  "historical_point_in_time": "not_verified",
+  "next_step": "User official UI CSV export and private offline import; no invented observations.",
+  "numeric_observation_count": 0,
+  "observed_csv": null,
+  "real_observation_months": [],
+  "redistribution": "not_verified_no_data",
+  "status": "not_empirically_populated"
+}
