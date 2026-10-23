@@ -38,3 +38,5 @@ jobs:
         run: python3 -m kba verify --catalog tests/fixtures/kba/sources.json --raw-dir tests/fixtures/kba --output artifacts/kba-fixture-smoke
       - name: Offline Tesla campaign evidence artifact check
         run: python3 -m campaigns.transform --check
+      - name: Offline organic-attention feasibility artifact check
+        run: python3 -m attention.transform --check

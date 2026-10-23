@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "status": "not empirically populated",
+  "window": {
+    "start": "2018-01",
+    "end": "2025-12"
+  },
+  "aggregation_timezone": "Europe/Berlin",
+  "selection": {
+    "channels": [],
+    "query": "Tesla",
+    "note": "No API credentials/usable data access; no real observations collected. No empirical coverage assertions."
+  },
+  "sources": [],
+  "batches": []
+}

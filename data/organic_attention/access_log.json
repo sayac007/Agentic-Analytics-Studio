@@ -1,0 +1,398 @@
+{
+  "retrieved_on": "2026-10-23",
+  "method": "Small HTTPS GET requests with TLS verification, no keys/cookies, no authentication/paywall/CAPTCHA bypass. Documentation retrieved via official Google GitHub references where accessible; no platform data retrieved by that route. One Trends Explore request only; no retries after 429. Raw pages remain outside Git. Date precision only; request times were not logged.",
+  "requests": [
+    {
+      "id": "yt-overview",
+      "url": "https://developers.google.com/youtube/v3/getting-started",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "yt-videos",
+      "url": "https://developers.google.com/youtube/v3/docs/videos",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "yt-comments",
+      "url": "https://developers.google.com/youtube/v3/docs/commentThreads/list",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "yt-quota",
+      "url": "https://developers.google.com/youtube/v3/determine_quota_cost",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "yt-policy",
+      "url": "https://developers.google.com/youtube/terms/developer-policies",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "yt-analytics",
+      "url": "https://developers.google.com/youtube/analytics/channel_reports",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "yt-no-key",
+      "url": "https://www.googleapis.com/youtube/v3/search?part=snippet&q=Tesla&relevanceLanguage=de&regionCode=DE&type=video&publishedAfter=2018-01-01T00%3A00%3A00Z&publishedBefore=2026-01-01T00%3A00%3A00Z&maxResults=5",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "yt-owned",
+      "url": "https://www.youtube.com/@Tesla/videos",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "yt-independent",
+      "url": "https://www.youtube.com/@nextmove/videos",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "yt-editorial",
+      "url": "https://www.youtube.com/@dwdeutsch/videos",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "gt-faq",
+      "url": "https://support.google.com/trends/answer/4365533?hl=en",
+      "final_url": "https://support.google.com/trends/answer/4365533?hl=en",
+      "status": 200,
+      "bytes": 1529478,
+      "sha256": "4fd6c1d06b9c7bcf994c1788fe98222499769fb6b8ca50dcfa16beb0b19c89ee",
+      "retrieved_on": "2026-10-23"
+    },
+    {
+      "id": "gt-export",
+      "url": "https://support.google.com/trends/answer/4365538?hl=en",
+      "final_url": "https://support.google.com/trends/answer/4365538?hl=en",
+      "status": 200,
+      "bytes": 1527593,
+      "sha256": "d1d0a17554f132f6d2b881044e16d6edee4d7bcde0640bb174996950f877e73e",
+      "retrieved_on": "2026-10-23"
+    },
+    {
+      "id": "gt-api",
+      "url": "https://developers.google.com/search/blog/2025/07/trends-api",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "gt-explore",
+      "url": "https://trends.google.com/trends/explore?date=2018-01-01%202025-12-31&geo=DE&q=Tesla",
+      "error": "HTTP Error 429: Too Many Requests",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "service_response",
+      "status": 429
+    },
+    {
+      "id": "reddit-doc",
+      "url": "https://support.reddithelp.com/hc/en-us/articles/14945211791892-Reddit-API",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "reddit-terms",
+      "url": "https://redditinc.com/policies/data-api-terms",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "reddit-test",
+      "url": "https://www.reddit.com/r/Elektroautos/search.json?q=Tesla&restrict_sr=on&sort=new&limit=3",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "wiki-doc",
+      "url": "https://doc.wikimedia.org/generated-data-platform/aqs/analytics-api/reference/page-views.html",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "wiki-license",
+      "url": "https://dumps.wikimedia.org/legal.html",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "wiki-test",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/de.wikipedia.org/all-access/user/Tesla%2C_Inc./monthly/2018010100/2025123100",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "gdelt-doc",
+      "url": "https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "gdelt-test",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=Tesla%20sourcelang:german&mode=timelinevolraw&format=json&startdatetime=20250101000000&enddatetime=20250131235959",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "mediacloud-doc",
+      "url": "https://www.mediacloud.org/documentation",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "mastodon-doc",
+      "url": "https://docs.joinmastodon.org/methods/timelines/",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "yt-overview",
+      "url": "https://developers.google.com/youtube/v3/getting-started",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "reddit-doc",
+      "url": "https://support.reddithelp.com/hc/en-us/articles/14945211791892-Reddit-API",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "wiki-test",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/de.wikipedia.org/all-access/user/Tesla%2C_Inc./monthly/2018010100/2025123100",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "yt-overview",
+      "url": "https://developers.google.com/youtube/v3/getting-started",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "yt-videos",
+      "url": "https://developers.google.com/youtube/v3/docs/videos",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "yt-comments",
+      "url": "https://developers.google.com/youtube/v3/docs/commentThreads/list",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "yt-quota",
+      "url": "https://developers.google.com/youtube/v3/determine_quota_cost",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "yt-policy",
+      "url": "https://developers.google.com/youtube/terms/developer-policies",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "yt-analytics",
+      "url": "https://developers.google.com/youtube/analytics/channel_reports",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "yt-no-key",
+      "url": "https://www.googleapis.com/youtube/v3/search?part=snippet&q=Tesla&relevanceLanguage=de&regionCode=DE&type=video&publishedAfter=2018-01-01T00%3A00%3A00Z&publishedBefore=2026-01-01T00%3A00%3A00Z&maxResults=5",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "gt-api",
+      "url": "https://developers.google.com/search/blog/2025/07/trends-api",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "reddit-doc",
+      "url": "https://support.reddithelp.com/hc/en-us/articles/14945211791892-Reddit-API",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "reddit-terms",
+      "url": "https://redditinc.com/policies/data-api-terms",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "reddit-test",
+      "url": "https://www.reddit.com/r/Elektroautos/search.json?q=Tesla&restrict_sr=on&sort=new&limit=3",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "wiki-doc",
+      "url": "https://doc.wikimedia.org/generated-data-platform/aqs/analytics-api/reference/page-views.html",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "wiki-license",
+      "url": "https://dumps.wikimedia.org/legal.html",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "wiki-test",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/de.wikipedia.org/all-access/user/Tesla%2C_Inc./monthly/2018010100/2025123100",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "gdelt-doc",
+      "url": "https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "gdelt-test",
+      "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=Tesla%20sourcelang:german&mode=timelinevolraw&format=json&startdatetime=20250101000000&enddatetime=20250131235959",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "mediacloud-doc",
+      "url": "https://www.mediacloud.org/documentation",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "mastodon-doc",
+      "url": "https://docs.joinmastodon.org/methods/timelines/",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "retrieved_on": "2026-10-23",
+      "access_stage": "environment_proxy_connect"
+    },
+    {
+      "id": "yt-reference-github",
+      "url": "https://raw.githubusercontent.com/googleapis/google-api-python-client/main/docs/dyn/youtube_v3.html",
+      "final_url": "https://raw.githubusercontent.com/googleapis/google-api-python-client/main/docs/dyn/youtube_v3.html",
+      "status": 200,
+      "bytes": 7394,
+      "sha256": "12103b7ec141d6233673f7eecbd440a5d4f70467f0e22ba2fa9ad455ce16219b",
+      "retrieved_on": "2026-10-23"
+    },
+    {
+      "id": "yt-videos-github",
+      "url": "https://raw.githubusercontent.com/googleapis/google-api-python-client/main/docs/dyn/youtube_v3.videos.html",
+      "final_url": "https://raw.githubusercontent.com/googleapis/google-api-python-client/main/docs/dyn/youtube_v3.videos.html",
+      "status": 200,
+      "bytes": 226834,
+      "sha256": "68edff28fd8eafa6bb37e7ddd1b1554f03b59ace3573b292f139644ef912d331",
+      "retrieved_on": "2026-10-23"
+    },
+    {
+      "id": "yt-comments-github",
+      "url": "https://raw.githubusercontent.com/googleapis/google-api-python-client/main/docs/dyn/youtube_v3.commentThreads.html",
+      "final_url": "https://raw.githubusercontent.com/googleapis/google-api-python-client/main/docs/dyn/youtube_v3.commentThreads.html",
+      "status": 200,
+      "bytes": 32706,
+      "sha256": "2135bb6079a5dcdcfca7adc1350805324442a9503f3130ded131f7e318ad6907",
+      "retrieved_on": "2026-10-23"
+    },
+    {
+      "id": "yt-analytics-github",
+      "url": "https://raw.githubusercontent.com/googleapis/google-api-python-client/main/docs/dyn/youtubeAnalytics_v2.reports.html",
+      "final_url": "https://raw.githubusercontent.com/googleapis/google-api-python-client/main/docs/dyn/youtubeAnalytics_v2.reports.html",
+      "status": 200,
+      "bytes": 9653,
+      "sha256": "3ba87e3742f357ea11aef57d72bec056d3624ad3ad28f83499ac2c78d3f54f9f",
+      "retrieved_on": "2026-10-23"
+    },
+    {
+      "id": "gt-public-archive-meta",
+      "url": "https://api.github.com/repos/googletrends/data",
+      "final_url": "https://api.github.com/repos/googletrends/data",
+      "status": 200,
+      "bytes": 6304,
+      "sha256": "139025eb119feed3a1734941e0760a299eadda776409f3cf548b9398b2e88d51",
+      "retrieved_on": "2026-10-23"
+    },
+    {
+      "id": "gt-public-archive-index",
+      "url": "https://api.github.com/repos/googletrends/data/git/trees/master?recursive=1",
+      "final_url": "https://api.github.com/repos/googletrends/data/git/trees/master?recursive=1",
+      "status": 200,
+      "bytes": 145621,
+      "sha256": "eafd3235bc594c645909bb2672ea0e7ab3c6fd7d3313a35ea3b74b15aaa1bd84",
+      "retrieved_on": "2026-10-23"
+    },
+    {
+      "id": "gt-public-archive-readme",
+      "url": "https://raw.githubusercontent.com/GoogleTrends/data/master/README.md",
+      "final_url": "https://raw.githubusercontent.com/GoogleTrends/data/master/README.md",
+      "status": 200,
+      "bytes": 948,
+      "sha256": "3f3e361a5b0dcef11abf7d00b0dbdc94c2de265320c21fee368747bf6a747091",
+      "retrieved_on": "2026-10-23"
+    },
+    {
+      "id": "gt-public-archive-license",
+      "url": "https://raw.githubusercontent.com/GoogleTrends/data/master/LICENSE",
+      "final_url": "https://raw.githubusercontent.com/GoogleTrends/data/master/LICENSE",
+      "status": 200,
+      "bytes": 12718,
+      "sha256": "2e91064753e0c585d4c935b825c8065d264cca8aa845dacfda2738436f023810",
+      "retrieved_on": "2026-10-23"
+    }
+  ]
+}
