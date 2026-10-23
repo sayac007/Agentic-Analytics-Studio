@@ -30,7 +30,8 @@ def periods(start="2018-01", end="2025-12"):
         raise ValueError("Reversed window")
     y, m = map(int, start.split("-"))
     out = []
-    while f"{y:04}-{m:02}" <= end:
+    last = tuple(map(int, end.split("-")))
+    while (y, m) <= last:
         out.append(f"{y:04}-{m:02}")
         y, m = (y + 1, 1) if m == 12 else (y, m + 1)
     return out
@@ -57,7 +58,10 @@ def validate_metadata(meta, raw, fixture=False):
         "rights",
         "export_attestation",
     }
-    if set(meta) != required or meta["version"] != "1.0.0":
+    extended = meta.get("version") == "1.1.0"
+    if extended:
+        required |= {"source_window", "analysis_windows"}
+    if set(meta) != required or meta["version"] not in {"1.0.0", "1.1.0"}:
         raise ValueError("Unknown/missing provenance fields")
     expected_origin = "synthetic" if fixture else "observed"
     if meta["origin"] != expected_origin or meta["measure_role"] != "attention_proxy":
@@ -82,20 +86,49 @@ def validate_metadata(meta, raw, fixture=False):
         or meta["search_property"] != "web"
     ):
         raise ValueError("Expected DE, category 0 and web search")
-    if set(meta["request_window"]) != {"start", "end"}:
-        raise ValueError("Exact request-window fields required")
-    start, end = (meta["request_window"][k] for k in ("start", "end"))
+    request = meta["request_window"]
+    all_history = extended and request == {"selection": "all_available_history"}
+    if all_history:
+        start = meta["source_window"]["start"] + "-01"
+        end = meta["source_window"]["end"] + "-01"
+        if meta["source_window"]["start"] != "2004-01":
+            raise ValueError("All-history source must start at documented 2004-01")
+    else:
+        if set(request) != {"start", "end"}:
+            raise ValueError("Exact request-window fields required")
+        start, end = request["start"], request["end"]
     for v in (start, end):
         if not isinstance(v, str) or not re.fullmatch(r"[0-9]{4}-[0-9]{2}-[0-9]{2}", v):
             raise ValueError("Exact request dates required")
         date.fromisoformat(v)
+    if start > end or start[-2:] != "01":
+        raise ValueError("Request must start at a whole calendar month")
     if (
-        start > end
-        or start[-2:] != "01"
-        or int(end[-2:]) != calendar.monthrange(int(end[:4]), int(end[5:7]))[1]
+        not extended
+        and int(end[-2:]) != calendar.monthrange(int(end[:4]), int(end[5:7]))[1]
     ):
         raise ValueError("Request window must contain whole calendar months")
-    if end[:7] >= retrieved.strftime("%Y-%m"):
+    if extended:
+        domain = source_periods(meta)
+        if domain[0] != start[:7] or domain[-1] != end[:7]:
+            raise ValueError("Source window conflicts with request window")
+        if end[:7] > retrieved.strftime("%Y-%m") or (
+            not all_history and date.fromisoformat(end) > retrieved.date()
+        ):
+            raise ValueError("Source includes future periods")
+        windows = meta["analysis_windows"]
+        allowed = {
+            "analysis_2018_2025": {"start": "2018-01", "end": "2025-12"},
+            "common_2021_2025": {"start": "2021-01", "end": "2025-12"},
+        }
+        if "analysis_2018_2025" not in windows or not set(windows) <= set(allowed):
+            raise ValueError("Declare the analysis window and optional common window")
+        for name, window in windows.items():
+            if window != allowed[name] or not set(periods(**window)) <= set(domain):
+                raise ValueError("Analysis window conflicts with declared source")
+            if window["end"] >= retrieved.strftime("%Y-%m"):
+                raise ValueError("Analysis cannot contain current/partial periods")
+    elif end[:7] >= retrieved.strftime("%Y-%m"):
         raise ValueError("Request includes future/incomplete periods at retrieval")
     norm = meta["normalization"]
     if (
@@ -144,9 +177,10 @@ def validate_metadata(meta, raw, fixture=False):
         "q": q["value"],
         "geo": "DE",
         "cat": "0",
-        "date": start + " " + end,
+        "date": "all" if all_history else start + " " + end,
     }.items():
-        if params.get(k) != [value]:
+        actual = params.get(k, ["0"] if extended and k == "cat" else None)
+        if actual != [value]:
             raise ValueError("Source URL conflicts with query/geography/window")
     if params.get("gprop", [""]) != [""]:
         raise ValueError("Source property conflicts with web search")
@@ -164,7 +198,18 @@ def validate_metadata(meta, raw, fixture=False):
         or not rights["note"].strip()
     ):
         raise ValueError("Explicit private-use/redistribution review required")
-    return periods(start[:7], end[:7])
+    return source_periods(meta)
+
+
+def source_periods(meta):
+    if meta.get("version") == "1.1.0":
+        window = meta["source_window"]
+        if set(window) != {"start", "end"}:
+            raise ValueError("Exact source-month window required")
+        return periods(**window)
+    return periods(
+        meta["request_window"]["start"][:7], meta["request_window"]["end"][:7]
+    )
 
 
 def parse_csv(raw, meta):
@@ -190,9 +235,7 @@ def parse_csv(raw, meta):
     ]
     if not rows or rows[0] != header:
         raise ValueError("Unexpected header, category, query, geography or frequency")
-    domain = periods(
-        meta["request_window"]["start"][:7], meta["request_window"]["end"][:7]
-    )
+    domain = source_periods(meta)
     values, previous = {}, None
     for row in rows[1:]:
         if len(row) != 2:
@@ -230,8 +273,31 @@ def parse_csv(raw, meta):
 def build_import(raw, meta, fixture=False):
     validate_metadata(meta, raw, fixture)
     rows = parse_csv(raw, meta)
-    numeric = [r["period"] for r in rows if r["value_status"] == "observed_index"]
-    censored = [r["period"] for r in rows if r["value_status"] == "censored_below_one"]
+    if meta["version"] == "1.1.0":
+        current = timestamp(meta["retrieved_at"]).strftime("%Y-%m")
+        request = meta["request_window"]
+        truncated_end = (
+            "end" in request
+            and int(request["end"][-2:])
+            < calendar.monthrange(int(request["end"][:4]), int(request["end"][5:7]))[1]
+        )
+        for r in rows:
+            r["period_completeness"] = (
+                "completed_calendar_month"
+                if r["period"] < current
+                and not (truncated_end and r["period"] == meta["source_window"]["end"])
+                else "partial_or_unverified_period"
+            )
+    complete = [
+        r
+        for r in rows
+        if r.get("period_completeness", "completed_calendar_month")
+        == "completed_calendar_month"
+    ]
+    numeric = [r["period"] for r in complete if r["value_status"] == "observed_index"]
+    censored = [
+        r["period"] for r in complete if r["value_status"] == "censored_below_one"
+    ]
     observed = sorted(numeric + censored)
     target = periods()
     known = set(observed)
@@ -249,7 +315,7 @@ def build_import(raw, meta, fixture=False):
         censored_below_one_months=censored,
         real_observation_months=[] if fixture else observed,
         observed_zero_index_months=[
-            r["period"] for r in rows if r["search_interest_index"] == 0
+            r["period"] for r in complete if r["search_interest_index"] == 0
         ],
         coverage_2018_2025=dict(
             required_months=96,
@@ -267,14 +333,87 @@ def build_import(raw, meta, fixture=False):
         integrity_note="Exporter attestation and checksums do not prove Google origin or legal permission; human verification required. Fixture outputs are never empirical evidence.",
         scale_note="Request-relative sampled search-interest index; zero is not zero searches. <1 is censored, not 0 or 0.5. No spend, impressions or causal interpretation.",
     )
+    if meta["version"] == "1.1.0":
+        report.update(
+            source_window=meta["source_window"],
+            analysis_windows=meta["analysis_windows"],
+            source_normalization=meta["normalization"],
+            source_counts=window_counts(rows),
+            derivation="Calendar row selection only; original request-wide index unchanged",
+        )
     return rows, report
+
+
+def window_counts(rows):
+    return dict(
+        rows=len(rows),
+        numeric=sum(r["value_status"] == "observed_index" for r in rows),
+        censored=sum(r["value_status"] == "censored_below_one" for r in rows),
+        blank=sum(r["value_status"] == "missing_in_export" for r in rows),
+        absent=sum(r["value_status"] == "not_in_export" for r in rows),
+        partial_or_unverified=sum(
+            r.get("period_completeness") == "partial_or_unverified_period" for r in rows
+        ),
+    )
+
+
+def derive_windows(rows, meta):
+    return {
+        name: [
+            r.copy() for r in rows if window["start"] <= r["period"] <= window["end"]
+        ]
+        for name, window in meta["analysis_windows"].items()
+    }
+
+
+def inspect_pending(raw, meta):
+    """Structural inspection only: no normalized values or admission artifact."""
+    if meta.get("version") != "1.1.0" or meta.get("origin") != "observed":
+        raise ValueError("Pending inspection requires an observed 1.1.0 sidecar")
+    if meta.get("raw_sha256") != sha(raw):
+        raise ValueError("Pending sidecar must bind the original bytes")
+    rows = parse_csv(raw, meta)
+    for row in rows:
+        row["period_completeness"] = "partial_or_unverified_period"
+    unresolved = [
+        k
+        for k in ("retrieved_at", "source_url", "category", "search_property")
+        if meta.get(k) is None
+    ]
+    if meta.get("export_attestation") is not True:
+        unresolved.append("export_attestation")
+    rights = meta.get("rights", {})
+    if rights.get("private_analysis_confirmed") is not True:
+        unresolved.append("rights.private_analysis_confirmed")
+    if rights.get("redistribution") != "permitted":
+        unresolved.append("rights.redistribution")
+    try:
+        validate_metadata(meta, raw)
+        validation = "eligible_for_private_import_only"
+    except (ValueError, TypeError, KeyError) as e:
+        validation = str(e)
+    return dict(
+        status="pending_empirical_admission",
+        raw_sha256=sha(raw),
+        source_window=meta["source_window"],
+        analysis_windows=meta["analysis_windows"],
+        structural_counts=window_counts(rows),
+        unresolved_fields=unresolved,
+        admission_validation=validation,
+        empirical_admission=False,
+        normalized_csvs=[],
+        row_observation_status="unverified_observation",
+        last_period_completeness="partial_or_unverified_period",
+        historical_point_in_time="not_verified",
+        note="CSV labels/rows are inspected, not verified UI settings, retrieval or rights. No real values redistributed.",
+    )
 
 
 def csv_bytes(rows):
     out = io.StringIO(newline="")
     writer = csv.DictWriter(
         out,
-        fieldnames=["period", "search_interest_index", "value_status"],
+        fieldnames=list(rows[0]),
         lineterminator="\n",
     )
     writer.writeheader()
@@ -324,9 +463,20 @@ def main():
         help="Synthetic provenance only; never an empirical result",
     )
     parser.add_argument("--check-blocked", action="store_true")
+    parser.add_argument(
+        "--inspect-pending",
+        action="store_true",
+        help="Private structural report only, never empirical admission",
+    )
     args = parser.parse_args()
     if args.check_blocked:
-        if args.csv or args.metadata or args.output_dir or args.fixture:
+        if (
+            args.csv
+            or args.metadata
+            or args.output_dir
+            or args.fixture
+            or args.inspect_pending
+        ):
             parser.error("Blocked report check cannot be combined with an import")
         expected = blocked_coverage((DATA / "task01f_access.json").read_bytes())
         if json.loads((DATA / "real_data_coverage.json").read_text()) != expected:
@@ -353,17 +503,49 @@ def main():
             "Repository/known synthetic fixtures cannot enter observed imports"
         )
     meta_raw = args.metadata.read_bytes()
-    rows, report = build_import(raw, json.loads(meta_raw), args.fixture)
+    meta = json.loads(meta_raw)
+    if args.inspect_pending:
+        if args.fixture:
+            parser.error("Pending inspection is not a fixture admission mode")
+        report = inspect_pending(raw, meta)
+        report["metadata_sha256"] = sha(meta_raw)
+        out.mkdir(parents=True)
+        (out / "pending.json").write_text(
+            json.dumps(report, indent=2, sort_keys=True) + "\n"
+        )
+        print(
+            json.dumps({"status": report["status"], "output": str(out)}, sort_keys=True)
+        )
+        return
+    rows, report = build_import(raw, meta, args.fixture)
     report["metadata_sha256"] = sha(meta_raw)
     report["monthly_csv"] = None
     report["monthly_csv_sha256"] = None
     out.mkdir(parents=True)
-    if report["numeric_index_months"] or report["censored_below_one_months"]:
+    if meta["version"] == "1.0.0" and (
+        report["numeric_index_months"] or report["censored_below_one_months"]
+    ):
         name = "fixture_monthly.csv" if args.fixture else "observed_monthly.csv"
         data = csv_bytes(rows)
         (out / name).write_bytes(data)
         report["monthly_csv"] = name
         report["monthly_csv_sha256"] = sha(data)
+    if meta["version"] == "1.1.0":
+        report["outputs"] = {}
+        series = {"source": rows, **derive_windows(rows, meta)}
+        for name, selected in series.items():
+            filename = (
+                ("fixture_" if args.fixture else "observed_") + name + "_monthly.csv"
+            )
+            data = csv_bytes(selected)
+            (out / filename).write_bytes(data)
+            report["outputs"][name] = dict(
+                file=filename,
+                sha256=sha(data),
+                raw_sha256=sha(raw),
+                window={"start": selected[0]["period"], "end": selected[-1]["period"]},
+                counts=window_counts(selected),
+            )
     (out / "coverage.json").write_text(
         json.dumps(report, indent=2, sort_keys=True) + "\n"
     )

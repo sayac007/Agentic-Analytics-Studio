@@ -24,3 +24,8 @@ Task 01F keeps these empirical artifacts empty after a fresh official-UI HTTP 42
 unknown months. `trends_import_metadata.template.json` is an incomplete handoff template,
 not a provenance assertion. Private user-CSV import and rights requirements:
 [First real observation handoff](../../docs/FIRST_REAL_ATTENTION_OBSERVATION.md).
+
+Task 01F.1: `extended_import_handoff.json` records the hash-bound pending structural
+inspection, not empirical admission. No real index values are included.
+`trends_extended_metadata.template.json` separates source and analysis windows;
+see [extended import](../../docs/GOOGLE_TRENDS_EXTENDED_IMPORT.md).
