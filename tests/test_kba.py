@@ -249,11 +249,14 @@ class KbaTests(unittest.TestCase):
 
     def test_admission_gates_are_not_scientific_validation(self):
         rows = self.rows()
-        sources = {
-            "source": dict(
-                sha256="a" * 64, rights_verified=True, publication=dict(precision="day")
+        source = copy.deepcopy(self.sources["2025-01"])
+        source["publication"] = dict(precision="day", value="2026-01-01")
+        sources = {}
+        for row in rows:
+            row["source"] = row["period"]
+            sources[row["source"]] = dict(
+                source, period=row["period"], sha256=row["vintage"]
             )
-        }
         a = admission(rows, sources, "2020-01", "2024-12")
         self.assertEqual(a["status"], "admitted")
         self.assertFalse(a["scientific_validation"])
@@ -265,9 +268,10 @@ class KbaTests(unittest.TestCase):
             admission(rows, sources, "2020-01", "2024-12", design_columns=30)["status"],
             "insufficient_coverage",
         )
-        sources["source"]["publication"]["precision"] = "month"
+        for source in sources.values():
+            source["publication"] = dict(precision="month", value="2026-01")
         self.assertEqual(
-            admission(rows, sources, "2020-01", "2024-12")["status"], "blocked"
+            admission(rows, sources, "2020-01", "2024-12")["status"], "admitted"
         )
         self.assertEqual(admission(rows, {}, "2020-01", "2024-12")["status"], "blocked")
 

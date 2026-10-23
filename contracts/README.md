@@ -1,4 +1,4 @@
-# Statistical file contracts v0.2.0
+# Statistical file contracts: v0.2.1 provenance patch, v0.2.0 estimation
 
 Breaking replacement for v0.1.0: **observed registrations are no longer estimator
 inputs/regressors**. See [Statistical decisions](../docs/STATISTICAL_CONTRACTS.md)
@@ -8,6 +8,7 @@ and [Task 01 readiness](../docs/TASK_01_READINESS.md). The Task 01a implementati
 | Schema | Boundary |
 |---|---|
 | `common.schema.json` | Shared security patterns, lineage, intervals, transforms, grids and split types |
+| `release.schema.json` | Day/month/unknown publication, retrieval and separately evidenced exact-vintage availability; legacy full-day records |
 | `generator.schema.json` | Generator/evaluator-only reference, provenance, vintage, monthly source ledger, seed and DGP settings |
 | `manifest.schema.json` | Estimator-safe CSV/config: calendar controls, oracle transforms, fixed uncertainty, common grid |
 | `truth.schema.json` | Evaluator-only dataset truth and hash bindings; shared across different estimator run IDs |
@@ -85,3 +86,12 @@ and C (replicated scenario evaluation) are documented protocols to review before
 own implementation. Per-run intervals are pointwise/conditional; no independent-fit
 interval is fabricated for a difference on shared data. No field represents real
 causal Tesla marketing ROI.
+
+Generator v0.2.1 requires an explicit `admission_regime`; historical Point-in-time also
+requires `as_of` and checked evidence binding availability to the exact source hash.
+Retrospective admission may accept month/unknown publication precision when the
+remaining provenance/rights/continuity gates pass. v0.2.0 generators and legacy
+`published_on` records remain valid without implying historical availability. Other
+component schemas and estimator boundaries remain v0.2.0. See
+[PUBLICATION_PRECISION.md](../docs/PUBLICATION_PRECISION.md) for fields, examples and
+limits; structural-break publication rules are not relaxed by this patch.

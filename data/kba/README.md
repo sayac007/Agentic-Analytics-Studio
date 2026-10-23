@@ -12,7 +12,9 @@ No synthetic extension or inferred zeros. `vintage` is the source workbook's raw
 
 Full reporting/execution instructions and admission blockers:
 [docs/KBA_MULTIBASELINE.md](../../docs/KBA_MULTIBASELINE.md).
-All four selected references are **blocked**, not currently generator inputs.
+All four selected references are **admitted retrospectively** as immutable generator
+references; **historical Point-in-time use remains blocked**. Read both named regimes
+in `derived/coverage.json`; no observed generator run is implemented by that admission.
 This acquisition table is never estimator input. No recovery runs were performed.
 Keep this attribution, the primary-source catalog and license link with redistributed
 derived data. Full raw workbooks remain outside Git; fetch and verify their pinned

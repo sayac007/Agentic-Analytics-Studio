@@ -9,7 +9,9 @@ import re
 import statistics as st
 import urllib.parse
 import urllib.request
-from .extract import LICENSE_SHA, month, periods, parse, sha
+from .extract import LICENSE_SHA, PROFILES, month, periods, parse, sha
+from contracts.validate import validate_release
+from jsonschema import ValidationError
 
 
 def encoded(value):
@@ -202,17 +204,50 @@ def coverage(rows, start, end):
     )
 
 
-def admission(rows, sources, start, end, train_months=None, design_columns=6):
+def release_record(source):
+    """Map existing, unchanged KBA provenance; never infer missing publication days."""
+    return dict(
+        period=source["period"],
+        source_url=source["url"],
+        sha256=source["sha256"],
+        version=source["version"],
+        license_identifier=source["license_identifier"],
+        license_url=source["license_url"],
+        rights_verified=source["rights_verified"],
+        publication_date={k: source["publication"][k] for k in ["precision", "value"]},
+        retrieved_at=source["retrieved_on"],
+        available_as_of=source.get("available_as_of"),
+    )
+
+
+def admission(
+    rows,
+    sources,
+    start,
+    end,
+    train_months=None,
+    design_columns=6,
+    as_of=None,
+    evidence_root=None,
+):
     cov = coverage(rows, start, end)
-    longest = cov["longest_contiguous"]
-    n = longest["months"]
+    n = cov["longest_contiguous"]["months"]
     train = n - 12 if train_months is None else train_months
     reasons = []
     if train < 48 or n - train < 12:
         reasons.append("insufficient_contiguous_training_or_holdout")
     if train - design_columns < 20:
         reasons.append("insufficient_residual_degrees_of_freedom")
+    # Admission concerns the entire declared observed window, never silently drop gaps.
+    actual_start = cov["first_verified"]
+    actual_end = cov["last_verified"]
+    if rows and cov["verified_count"] != len(periods(actual_start, actual_end)):
+        reasons.append("internal_month_gap")
     metadata = []
+    pit = []
+    precision = {"day": 0, "month": 0, "unknown": 0}
+    if as_of is None:
+        pit.append("historical_as_of_cutoff_not_specified")
     for row in rows:
         src = sources.get(row["source"])
         if (
@@ -222,23 +257,104 @@ def admission(rows, sources, start, end, train_months=None, design_columns=6):
         ):
             metadata.append("source_vintage_or_rights_unverified")
             continue
-        if src["publication"]["precision"] != "day":
-            metadata.append("exact_publication_day_missing_for_v0.2.0_release_records")
+        try:
+            official(src["url"])
+            if src.get("parser_profile") not in PROFILES:
+                raise ValueError("Unreviewed definition/parser profile")
+            if (
+                src.get("redistribution_allowed") is not True
+                or src.get("license_identifier") != "dl-de/by-2-0"
+                or src.get("license_url") != "https://www.govdata.de/dl-de/by-2-0"
+            ):
+                raise ValueError("Unverified license")
+            if src["period"] != row["period"]:
+                raise ValueError("Reporting month conflict")
+            if (
+                row["series"] == "market:BEV"
+                and (
+                    row["powertrain"] != "BEV_only"
+                    or row["period"] < "2021-01"
+                    or src["parser_profile"]
+                    not in ["fz10-xlsx-bev-v1", "fz10-xlsx-bev-202408-v1"]
+                )
+            ) or (row["series"].startswith("brand:") and row["powertrain"] != "all"):
+                raise ValueError("Definition conflict")
+            if row["series"] != "market:BEV" and not row["series"].startswith("brand:"):
+                raise ValueError("Unknown series definition")
+            release = release_record(src)
+            validate_release(release, evidence_root)
+            precision[release["publication_date"]["precision"]] += 1
+            if release["publication_date"]["precision"] != "day":
+                pit.append("historical_publication_day_precision_missing")
+            if release["available_as_of"] is None:
+                pit.append("exact_vintage_historical_availability_not_verified")
+            elif as_of is not None:
+                try:
+                    validate_release(release, evidence_root, as_of)
+                except ValueError:
+                    pit.append("exact_vintage_not_evidenced_available_by_cutoff")
+        except (KeyError, ValueError, TypeError, ValidationError, OSError):
+            metadata.append("source_license_definition_or_date_provenance_invalid")
     if not rows:
         reasons.append("no_verified_observations")
     reasons = sorted(set(reasons + metadata))
     status = (
-        "blocked" if metadata else "insufficient_coverage" if reasons else "admitted"
+        "blocked"
+        if metadata or "internal_month_gap" in reasons
+        else "insufficient_coverage"
+        if reasons
+        else "admitted"
     )
+    retro_reasons = reasons or [
+        "verified_official_immutable_reference_rights_definition_and_length"
+    ]
+    regimes = {
+        "retrospective_immutable_reference": dict(
+            status=status, reasons=list(retro_reasons)
+        ),
+        "historical_point_in_time": dict(
+            status="blocked" if reasons or pit else "admitted",
+            reasons=sorted(set(reasons + pit))
+            or ["exact_vintage_availability_evidenced_by_cutoff"],
+            as_of=as_of,
+        ),
+    }
     return dict(
         **cov,
         status=status,
-        reasons=reasons,
-        source_status="verified_raw_hash_and_parser" if rows else "none",
-        license_status="dl-de/by-2-0" if rows else "not_verified",
+        reasons=retro_reasons,
+        admission_contract_version="0.2.1",
+        status_regime="retrospective_immutable_reference",
+        admission_regimes=regimes,
+        publication_precision=precision,
+        checked_period=dict(start=actual_start, end=actual_end),
+        provenance_status="verified" if not metadata and rows else "blocked",
+        vintage_status="hash_bound_single_snapshot"
+        if not metadata and rows
+        else "blocked",
+        source_status="verified_raw_hash_and_parser"
+        if not metadata and rows
+        else "not_verified",
+        license_status="dl-de/by-2-0" if not metadata and rows else "not_verified",
         engineering_candidate_split=dict(
             train_months=max(0, train),
             holdout_months=12,
+            train_start=cov["longest_contiguous"]["start"],
+            train_end=(
+                periods(
+                    cov["longest_contiguous"]["start"], cov["longest_contiguous"]["end"]
+                )[train - 1]
+                if 0 < train <= n
+                else None
+            ),
+            holdout_start=(
+                periods(
+                    cov["longest_contiguous"]["start"], cov["longest_contiguous"]["end"]
+                )[train]
+                if 0 <= train < n
+                else None
+            ),
+            holdout_end=cov["longest_contiguous"]["end"],
             residual_df=max(0, train - design_columns),
             design_columns=design_columns,
         ),
@@ -402,6 +518,9 @@ def products(catalog_path, plan_path, rows, locations):
         for report in reports.values():
             report["status"] = "blocked"
             report["reasons"].append("table_only_test_fixture_not_benchmark_input")
+            for regime in report["admission_regimes"].values():
+                regime["status"] = "blocked"
+                regime["reasons"].append("table_only_test_fixture_not_benchmark_input")
     reconciliation = reconcile(rows, locations)
     for report in reports.values():
         conflicts = [
@@ -414,6 +533,19 @@ def products(catalog_path, plan_path, rows, locations):
             report["reasons"].append(
                 "monthly_sum_differs_from_december_cumulative:" + ",".join(conflicts)
             )
+            for regime in report["admission_regimes"].values():
+                regime["status"] = "blocked"
+                regime["reasons"].append(
+                    "monthly_sum_differs_from_december_cumulative:"
+                    + ",".join(conflicts)
+                )
+    for report in reports.values():
+        report["baseline_id"] = report["series"]
+        report["definition"] = "German passenger-car new registrations; " + (
+            "BEV only, all brands"
+            if report["series"] == "market:BEV"
+            else "exact brand total, all powertrains"
+        )
     # Fixed common descriptive window; never shift it to make a series look quieter.
     common_start = max(
         groups[s][0]["period"] for s in candidates.values() if s in groups
@@ -432,6 +564,9 @@ def products(catalog_path, plan_path, rows, locations):
     data = csv_bytes(
         rows, ["period", "value", "series", "source", "vintage", "powertrain"]
     )
+    for report in reports.values():
+        report["source_catalog_sha256"] = sha(Path(catalog_path).read_bytes())
+        report["normalized_data_sha256"] = sha(data)
     outputs = {
         "observations.csv": data,
         "locations.json": encoded(locations),

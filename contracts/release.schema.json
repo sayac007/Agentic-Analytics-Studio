@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentic-analytics-studio.invalid/contracts/release.schema.json",
+  "title": "Release provenance v0.2.1 (including legacy day records)",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "period",
+        "source_url",
+        "sha256",
+        "version",
+        "published_on",
+        "license_identifier",
+        "license_url",
+        "rights_verified"
+      ],
+      "properties": {
+        "period": {
+          "$ref": "common.schema.json#/$defs/month"
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sha256": {
+          "$ref": "common.schema.json#/$defs/sha256"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "published_on": {
+          "type": "string",
+          "format": "date"
+        },
+        "license_identifier": {
+          "type": "string",
+          "minLength": 1
+        },
+        "license_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "rights_verified": {
+          "const": true
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "period",
+        "source_url",
+        "sha256",
+        "version",
+        "license_identifier",
+        "license_url",
+        "rights_verified",
+        "publication_date",
+        "retrieved_at",
+        "available_as_of"
+      ],
+      "properties": {
+        "period": {
+          "$ref": "common.schema.json#/$defs/month"
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sha256": {
+          "$ref": "common.schema.json#/$defs/sha256"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "license_identifier": {
+          "type": "string",
+          "minLength": 1
+        },
+        "license_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "rights_verified": {
+          "const": true
+        },
+        "publication_date": {
+          "$ref": "#/$defs/publication_date"
+        },
+        "retrieved_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "string",
+              "format": "date-time"
+            }
+          ]
+        },
+        "available_as_of": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/availability"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "publication_date": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "precision",
+            "value"
+          ],
+          "properties": {
+            "precision": {
+              "const": "day"
+            },
+            "value": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "precision",
+            "value"
+          ],
+          "properties": {
+            "precision": {
+              "const": "month"
+            },
+            "value": {
+              "$ref": "common.schema.json#/$defs/month"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "precision",
+            "value"
+          ],
+          "properties": {
+            "precision": {
+              "const": "unknown"
+            },
+            "value": {
+              "type": "null"
+            }
+          }
+        }
+      ]
+    },
+    "availability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "timestamp",
+        "source_sha256",
+        "evidence",
+        "evidence_url",
+        "scope"
+      ],
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source_sha256": {
+          "$ref": "common.schema.json#/$defs/sha256"
+        },
+        "evidence": {
+          "$ref": "common.schema.json#/$defs/artifact"
+        },
+        "evidence_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "scope": {
+          "const": "exact_source_vintage"
+        }
+      }
+    }
+  }
+}

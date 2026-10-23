@@ -1,8 +1,12 @@
-# Task 00.5 — Statistical contracts v0.2.0
+# Statistical contracts v0.2.1 — provenance patch over v0.2.0
 
-Status: approved design as merged in PR #2. Task 01a implements the synthetic Stage-A
+Task 01B.1 extends generator/release provenance only; estimator/result contracts and
+statistical rules remain v0.2.0. See [publication precision and admission](PUBLICATION_PRECISION.md).
+Legacy full-date records and existing synthetic artifacts remain supported.
+
+Status of the underlying statistical design: approved as merged in PR #2. Task 01a implements the synthetic Stage-A
 subset; see [execution and measured limitations](RUN_SYNTHETIC_MMM.md). The normative
-contracts below are unchanged; successful execution does not establish empirical
+statistical calculations below are unchanged; successful execution does not establish empirical
 coverage, power or real marketing ROI.
 This replaces the baseline-as-regressor proposal in v0.1.0. Python is the runtime;
 no R-parity gate is required. The estimator's job is to separate injected media from
@@ -231,7 +235,8 @@ Committed source evidence and the retained FZ 10 workbook were checked: SHA-256
 `777366bf2a9c6ca4b0f62e5c106ea56dd7d61490b60f7377af041be81ca9332d`,
 `Impressum` says January 2025 reporting period, February 2025 publication and monthly
 frequency; Tesla brand total 1,277. Its dl-de/by-2-0 notice was audited in Task 00.
-**Verified coverage is one month only.** The archive selector's 2008–2025 range is
+**At Task 00.5, verified coverage was one month only.** Current Task 01B.1 coverage
+and independent admission regimes are documented in PUBLICATION_PRECISION.md. The archive selector's 2008–2025 range is
 not a verified Tesla series. No 100-month or complete historical window is claimed.
 See `SOURCE_CATALOG.md` and `source-evidence.json`; no new KBA time series is imported.
 
@@ -245,8 +250,13 @@ For `purpose=development_benchmark`, both input interfaces require:
 - immutable reference and analysis hashes, declared coverage/vintage, per-column
   lineage and class; generator and estimator month indices aligned exactly;
 - for observed KBA reference: one release record per admitted month, primary URL,
-  release version/publication date, raw SHA-256, license identifier/URL and explicit
-  rights verification. Derived CSV hash differs from raw source hash; preserve both.
+  release version, raw SHA-256, license identifier/URL and explicit rights verification.
+  v0.2.1 records publication precision as day/month/unknown, distinct retrieval and
+  nullable exact-vintage availability evidence. Retrospective immutable-reference
+  admission permits missing publication days; historical point-in-time admission
+  requires vintage-bound availability evidence by an explicit as-of cutoff. Legacy
+  v0.2.0 full-date records remain accepted without implying historical availability.
+  Derived CSV and raw source hashes remain separate. See PUBLICATION_PRECISION.md.
 
 Metadata assertions do not verify every publisher fact: a human must admit actual
 releases/extraction and resolve revisions. Do not silently mix corrected vintages.
@@ -257,7 +267,8 @@ use the benchmark gate for model runs and must never report fixture checks as re
 
 ### Explicit synthetic development reference (fallback)
 
-No suitable real Tesla series is currently admitted. The following **proposed
+At Task 00.5 no suitable real Tesla series was admitted. Task 01B.1 now admits
+verified KBA references retrospectively; historical as-of use remains blocked. The following **proposed
 synthetic-only** protocol specifies a reproducible development path for Stage A;
 it is not observed Tesla data or a model of actual Tesla sales.
 

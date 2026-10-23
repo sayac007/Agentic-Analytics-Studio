@@ -21,7 +21,7 @@ the same 72-month synthetic dataset, 60/12 split, fixed oracle transforms and co
 spend grid. No parameters are searched and no fit is tuned to improve recovery.
 
 Read [Run instructions and limitations](docs/RUN_SYNTHETIC_MMM.md),
-[Statistical Contracts v0.2.0](docs/STATISTICAL_CONTRACTS.md),
+[Statistical Contracts: v0.2.1 provenance / v0.2.0 estimation](docs/STATISTICAL_CONTRACTS.md),
 [Readiness](docs/TASK_01_READINESS.md), and the generated
 [Example report](examples/task-01a/report.md).
 
@@ -50,5 +50,6 @@ See [Source audit](docs/SOURCE_CATALOG.md) and [Contracts](contracts/README.md).
 Task 01B adds [verified KBA multi-baseline acquisition](docs/KBA_MULTIBASELINE.md)
 and a [future paired recovery protocol](docs/MULTIBASELINE_RECOVERY_PROTOCOL.md).
 Tesla/Toyota/VW each have 96 verified consecutive months; the explicit BEV total has
-60. All remain blocked from benchmark admission pending exact publication evidence
-or a reviewed date-precision contract extension. Run `python -m kba audit` offline.
+60. [Task 01B.1](docs/PUBLICATION_PRECISION.md) admits them as retrospective immutable
+generator references, while historical Point-in-time use remains blocked pending
+vintage-specific availability evidence. Run `python -m kba audit` offline.
