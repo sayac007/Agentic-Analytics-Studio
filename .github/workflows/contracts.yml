@@ -23,7 +23,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install pinned runtime
-        run: python3 -m pip install -r requirements-attention.lock
+        run: python3 -m pip install -r requirements-attention.lock -r requirements-demo.lock
       - name: Validate example manifest and CSV
         run: python3 contracts/validate.py
       - name: Validate separate generator contract
