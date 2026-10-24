@@ -127,3 +127,7 @@ under its [frozen preregistered protocol](docs/SCOPED_ENERGY_ECONOMETRIC_PROTOCO
 Only admitted ECB FX, qualified EC diesel and audited retrospective Tesla counts are
 used; no Brent or 2026 outcomes. Real outputs stay private; CI uses synthetic fixtures.
 This does not execute Task 01J or change Task 01G.
+
+Task 02A adds a [local synthetic browser demo](docs/LOCAL_DEMO.md). Install
+`requirements-demo.lock`, then run `python -m demo` and open `http://127.0.0.1:8000`.
+Only project-generated synthetic data are available; no keys or cloud setup required.
