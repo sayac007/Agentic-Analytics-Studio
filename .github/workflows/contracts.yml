@@ -80,3 +80,13 @@ jobs:
             --permits-dir "$RUNNER_TEMP/scoped-energy-fixture/permits" \
             --kba "$RUNNER_TEMP/scoped-energy-fixture/SYNTHETIC_kba.csv" \
             --output "$RUNNER_TEMP/scoped-energy-study"
+
+      - name: Gate complete synthetic-only result export
+        run: python3 -m studio.export artifacts/ci-smoke
+      - name: Export synthetic Stage-A results for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: synthetic-stage-a-${{ github.sha }}
+          path: artifacts/ci-smoke/
+          if-no-files-found: error
+          retention-days: 7
