@@ -21,6 +21,12 @@
       "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
       "requested_at": "2026-10-24T12:35:34.587957+00:00",
       "url": "https://commission.europa.eu/legal-notice_en"
+    },
+    {
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "evidence_role": "User-provided official unit convention; workbook mapping independently verified",
+      "requested_at": "2026-10-24T12:48:35.123653+00:00",
+      "url": "https://eur-lex.europa.eu/eli/dec/1999/566/oj/eng/pdf"
     }
   ],
   "series": [
@@ -173,7 +179,7 @@
     {
       "admitted": false,
       "blockers": [
-        "Currency not explicit in selected workbook headers; EUR conversion and price aggregation blocked"
+        "Derived-use scope not independently verified; private QA normalization is not final analytical admission"
       ],
       "duplicate_periods": 0,
       "id": "diesel_de",
@@ -181,7 +187,7 @@
         "actual_download_time": null,
         "bytes": 4491517,
         "country_column": "BB",
-        "currency": "Not explicit in selected headers or cell format; EUR assumption not admitted",
+        "currency": "EUR per 1000 litres accepted from user-cited official convention plus independently checked mapping; primary PDF fetch proxy-blocked",
         "date_column": "A",
         "embedded_rights_notice": "Reproduction is authorised provided the source is acknowledged.",
         "filename": "Weekly_Oil_Bulletin_Prices_History_maticni_4web.xlsx",
@@ -232,6 +238,16 @@
             "rows": 1465
           }
         ],
+        "unit_evidence": {
+          "basis": "user_attested_official_convention_and_independently_verified_mapping",
+          "citation": "https://eur-lex.europa.eu/eli/dec/1999/566/oj/eng/pdf",
+          "conversion": "EUR_per_litre = EUR_per_1000_litres / 1000",
+          "independent_primary_fetch_status": "proxy_CONNECT_403",
+          "recorded_on": "2026-10-24",
+          "scope": "General Oil Bulletin fuel unit convention; BD mapping independently verified from workbook",
+          "section": "Annex: Definition of prices net of duties and taxes in force each Monday",
+          "unit": "EUR_per_1000_litres"
+        },
         "volume_unit": "1000 l"
       },
       "native_end": "2026-10-19",
@@ -255,7 +271,7 @@
           "censored_or_missing_value_months": 0,
           "end": "2025-12",
           "expected_months": 96,
-          "measurement_basis": "Temporal seven-day interval coverage only; no currency conversion or monthly price admitted",
+          "measurement_basis": "Temporal seven-day interval coverage; monthly price admission is separate",
           "missing_months": 13,
           "missing_periods": [
             "2018-04",
@@ -284,7 +300,7 @@
           "censored_or_missing_value_months": 0,
           "end": "2026-09",
           "expected_months": 105,
-          "measurement_basis": "Temporal seven-day interval coverage only; no currency conversion or monthly price admitted",
+          "measurement_basis": "Temporal seven-day interval coverage; monthly price admission is separate",
           "missing_months": 13,
           "missing_periods": [
             "2018-04",
@@ -311,7 +327,7 @@
     }
   ],
   "source_acquisition": "User-supplied originals; not successful live API retrieval",
-  "source_catalog_sha256": "8465c730d213f213e7561ecde80ce980da3f3cff139e819d553254b77b1ab486",
+  "source_catalog_sha256": "c740caafa72379ab19e1f0528affa8be2c6f3b2638994086719c63c3906a375d",
   "status": "REAL_FILES_PARSED_NOT_ADMITTED",
   "version": "1.0.0"
 }

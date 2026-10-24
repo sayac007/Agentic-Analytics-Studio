@@ -54,9 +54,10 @@ Run the existing full test suite and relevant lint/CI. Report actual commands, o
 - [x] Actual-format adapters, synthetic fixtures, private quarantine and metadata-only coverage.
 - [x] ECB/EIA 96/105 complete native months; diesel 83/92 temporally covered months with 13 unfilled gaps.
 - [x] Embedded EC reproduction notice reviewed; new primary requests recorded as proxy blocked.
-- [x] Real replay of eight artifacts byte-identical; own ingestion time separate from unknown download time.
-- [ ] Analytical admission: blocked by ECB/EIA rights and EC currency/derived-use review.
-- [x] Local full suite 273 passed (40.751 s); 16 targeted tests passed; validators/audit/metadata/lint passed.
+- [x] Real replay of nine artifacts byte-identical; own ingestion time separate from unknown download time.
+- [ ] Analytical admission: blocked by ECB/EIA rights and EC derived-use review.
+- [x] User-cited Decision 1999/566/EC unit convention recorded; independent BD mapping verified, private EUR/litre and monthly QA generated.
+- [x] Final local full suite 274 passed (45.258 s); 17 targeted tests passed; validators/audit/metadata/lint passed.
 - [ ] Exact-head remote CI recorded in Draft PR after observed completion.
 
 No raw/derived real values published, no ready admitted dataset, no model or automatic merge.
