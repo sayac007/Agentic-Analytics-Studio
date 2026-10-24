@@ -15,7 +15,7 @@ function chart(container,periods,lines,split=60){
  container.replaceChildren(svg);
 }
 function render(data){
- currentRun=data;$('comparison').hidden=true;$('report-export').href=`/api/runs/${data.id}/report`;
+ $('model').value=data.model;currentRun=data;$('comparison').hidden=true;$('report-export').href=`/api/runs/${data.id}/report`;
  $('results').hidden=false;const r=data.result;$('metrics').replaceChildren();
  [['Holdout RMSE',r.metrics.test.rmse,'12 Monate · count-equivalent'],['Media-Koeffizient',r.coefficients.media.estimate,'Geschätzt · feste Oracle-Transformation'],['Media-Beitrag',r.contribution.total.estimate,'Geschätzte Summe · Holdout 2023']].forEach(([title,value,note])=>{const c=el('div',undefined,$('metrics'));c.className='card';el('small',title,c);el('strong',fmt(value),c);el('span',note,c);});
  $('interpretation').textContent=data.interpretation;$('formula').textContent=data.formula;$('coefficients').replaceChildren();
@@ -37,5 +37,28 @@ function renderComparison(data){
  chart($('response-curves'),c.response_grid.spend.map(fmt),[{name:'Geschätzt: mit Quartalsende',values:data.variants['with-quarter'].result.response_curve.estimate,color:'#255f93'},{name:'Geschätzt: ohne Quartalsende',values:data.variants['without-quarter'].result.response_curve.estimate,color:'#d88537'},{name:'Ground Truth: Response',values:data.ground_truth.response,color:'#178074'}],99);
 }
 $('compare').addEventListener('click',()=>{if(currentRun)renderComparison(currentRun);});
-$('run-form').addEventListener('submit',async e=>{e.preventDefault();$('run').disabled=true;$('results').hidden=true;$('status').textContent='Analyse läuft: generieren, isoliert schätzen, Verträge und Hashes prüfen …';try{const data=await api('/api/runs',{dataset:$('dataset').value,model:$('model').value});render(data);$('status').textContent='Analyse abgeschlossen · Ergebnis validiert · SYNTHETIC / NOT EMPIRICAL';}catch(err){$('status').textContent=err.message;}finally{$('run').disabled=false;}});
+$('run-form').addEventListener('submit',async e=>{e.preventDefault();currentRun=null;$('run').disabled=true;$('results').hidden=true;$('status').textContent='Analyse läuft: generieren, isoliert schätzen, Verträge und Hashes prüfen …';try{const data=await api('/api/runs',{dataset:$('dataset').value,model:$('model').value});render(data);$('status').textContent='Analyse abgeschlossen · Ergebnis validiert · SYNTHETIC / NOT EMPIRICAL';}catch(err){$('status').textContent=err.message;}finally{$('run').disabled=false;}});
 api('/api/datasets').then(d=>{$('dataset-description').textContent=d[0].description;}).catch(e=>{$('status').textContent=e.message;});
+
+async function askAgent(message){
+ $('agent-send').disabled=true;$('run').disabled=true;document.querySelectorAll('.suggestion').forEach(b=>b.disabled=true);
+ $('agent-status').textContent='Tool-Anfrage läuft …';$('agent-answer').textContent='';$('dataset-preview').replaceChildren();$('tool-details').hidden=true;
+ try{
+  const answer=await api('/api/agent',{message,run_id:currentRun?.id||null});
+  $('agent-answer').textContent=answer.text;
+  $('agent-status').textContent=answer.executed?`Tool ausgeführt: ${answer.tool}`:`Kein Tool ausgeführt: ${answer.tool}`;
+  if(answer.executed){$('tool-details').hidden=false;$('tool-output').textContent=JSON.stringify(answer.output,null,2);}
+  if(answer.executed && answer.tool==='run_demo_analysis'){
+   render(answer.output);$('status').textContent='Analyse abgeschlossen · über run_demo_analysis · SYNTHETIC / NOT EMPIRICAL';
+  }
+  if(answer.executed && answer.tool==='compare_runs' && currentRun)renderComparison(currentRun);
+  if(answer.executed && answer.tool==='describe_dataset'){
+   const table=el('table',undefined,$('dataset-preview')),head=el('thead',undefined,table),tr=el('tr',undefined,head);
+   const names=['period','synthetic_media','semi_synthetic_outcome'];names.forEach(n=>el('th',n,tr));
+   const body=el('tbody',undefined,table);answer.output.preview.forEach(row=>{const r=el('tr',undefined,body);names.forEach(n=>el('td',n==='period'?row[n]:fmt(row[n]),r));});
+  }
+ }catch(err){$('agent-status').textContent=err.message;}
+ finally{$('agent-send').disabled=false;$('run').disabled=false;document.querySelectorAll('.suggestion').forEach(b=>b.disabled=false);}
+}
+$('agent-form').addEventListener('submit',e=>{e.preventDefault();askAgent($('agent-input').value);});
+document.querySelectorAll('.suggestion').forEach(b=>b.addEventListener('click',()=>{$('agent-input').value=b.textContent;askAgent(b.textContent);}));
