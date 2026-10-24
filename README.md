@@ -76,3 +76,9 @@ The private upload is present and hash-checked (274 months); URL and settings ar
 evidenced by the user screenshot. Exact download time and rights review remain pending. Version 1.1 preserves source-wide
 normalization while selecting 96/60-month subsets and flagging partial periods.
 No real-value CSV is published or empirically admitted; existing empty artifacts remain.
+
+Task 01G freezes an [exploratory protocol](docs/TESLA_ATTENTION_ECONOMETRIC_PROTOCOL.md)
+and adds a private diagnostics CLI; [first results](docs/TESLA_ATTENTION_FIRST_RESULTS.md)
+are **blocked on exact retrieval evidence and private-use rights confirmation**.
+No real Trends/KBA analysis was performed. Install `requirements-attention.lock`;
+only the documented synthetic-fixture path has executed successfully.

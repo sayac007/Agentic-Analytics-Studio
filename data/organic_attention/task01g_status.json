@@ -1,0 +1,15 @@
+{
+  "task": "01G",
+  "status": "pending_admission",
+  "raw_file_present": true,
+  "raw_sha256": "28e0b00b697ceb65833ca5bb2039d43c0ab4350d9a732e884edd3a44fe0da84e",
+  "protocol_sha256": "08b1a241823f3d35914e6e90e37cf8c64e2af652ffe29c303c03eb0f9a969589",
+  "download_date_reported": "2026-10-23",
+  "download_timezone_reported": "Europe/Berlin",
+  "exact_download_timestamp": null,
+  "lawful_private_use_review": "not_confirmed",
+  "real_cross_series_analyses_performed": false,
+  "real_results_published": false,
+  "expected_refusal": "Timestamp needs an explicit timezone and exact day",
+  "newly_timestamped_original_required": true
+}
