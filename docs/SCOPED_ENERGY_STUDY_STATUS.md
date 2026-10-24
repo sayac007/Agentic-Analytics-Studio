@@ -78,14 +78,42 @@ and error comparisons, not a selected successful result. These files are not pub
 artifacts. Workspace paths are not ChatGPT downloads; use only an authorised private
 workspace export facility if available. No export to a public destination is performed.
 
-## Execution status
+## Observed execution status
 
-Synthetic study smoke and targeted software tests passed. Real source/KBA preflight
-passed. **The real join/analysis has not run at this implementation checkpoint.**
-Full-suite results and later private execution/replay status will be recorded here
-only after actual completion, without publishing empirical numbers.
+**A real admitted-source private study actually ran and completed**, after protocol
+commit `94d013ab1e2b623899641760d9524ac8f3ed59e9` and implementation commit
+`536491526672b13e9de5980d9867f22d9c13aef7`. Existing ECB and qualified EC source
+permits plus KBA retrospective/source-rights checks passed before outcome parsing.
+The only study scope was Task 01I.3. Neither Task 01J nor the frozen Task 01G was run
+or altered. No real coefficients, diagnostics, associations, prediction errors or
+numerical effective-sample outputs are reported here.
 
-Implementation checkpoint verification: full existing + new suite **310 passed**
-(50.221 s); targeted scoped tests **16 passed** (9.898 s). Both example validators,
-KBA audit, rights check, Ruff import/format and whitespace checks passed. No real-data
-join/plot/fit had occurred at this checkpoint; it is committed before real execution.
+A second real execution reproduced **all ten** private output files byte-for-byte,
+including the hash manifest. An explicit filesystem read guard refused unadmitted
+Brent raw/normalized file names during that replay and passed. Output period bounds,
+source set, exact diesel missingness and manifest checks passed. Current source
+vintages, credits, qualified EC limitations, missingness and no-public/no-as-of
+restrictions are retained in private provenance/report files. Source inputs,
+source permits and KBA observations remain unchanged. All predeclared results,
+including non-estimable/null/negative cases if present, are retained without tuning.
+
+Private results are workspace-only. An authorised workspace terminal or private
+export facility, if available, can access them; no ChatGPT download or public export
+is claimed. Actual private paths and numerical findings are not committed.
+
+## Executed software verification
+
+Pinned Python 3.12 environment, existing dependencies:
+
+- Full suite: **310 tests passed**, 50.221 s (294 prior + 16 scoped-study tests).
+- Targeted scoped suite: **16 passed**, 9.898 s; all software-test data synthetic.
+- Both contract examples, KBA audit, source-rights check, Ruff import/format,
+  whitespace and protected-source/protocol checks passed.
+- Synthetic-only end-to-end smoke completed. Numerical tests include a hand OLS
+  example, corrected HAC agreement with statsmodels on contiguous months, manually
+  checked gapped-calendar score pairs, lag/missingness and holdout-training isolation.
+- Real execution/replay is separate private empirical work, not evidence from
+  software fixtures or scientific/causal validation.
+
+Remote CI conclusions/links are recorded in the Draft PR only after observed
+completion at its exact head. CI never receives real private energy inputs/results.
