@@ -1,0 +1,12 @@
+{
+  "origin": "observed",
+  "status": "pending",
+  "raw_sha256": null,
+  "metadata_sha256": null,
+  "kba_sha256": null,
+  "protocol_sha256": "08b1a241823f3d35914e6e90e37cf8c64e2af652ffe29c303c03eb0f9a969589",
+  "reviewed_at": null,
+  "source_review_confirmed": false,
+  "terms_review_confirmed": false,
+  "review_evidence": "TEMPLATE ONLY: supply an actual human source/Google Terms/export-conditions review statement for this exact private dataset. No rights or admission are asserted."
+}

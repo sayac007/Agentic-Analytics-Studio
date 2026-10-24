@@ -13,13 +13,15 @@ jobs:
     env:
       OPENBLAS_NUM_THREADS: '1'
       OMP_NUM_THREADS: '1'
+      MPLCONFIGDIR: ${{ runner.temp }}/matplotlib
+      XDG_CACHE_HOME: ${{ runner.temp }}/cache
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Install pinned runtime
-        run: python3 -m pip install -r requirements-kba.lock
+        run: python3 -m pip install -r requirements-attention.lock
       - name: Validate example manifest and CSV
         run: python3 contracts/validate.py
       - name: Validate separate generator contract
@@ -42,3 +44,13 @@ jobs:
         run: python3 -m attention.transform --check
       - name: Offline real-attention blocked-coverage check
         run: python3 -m attention.import_trends --check-blocked
+      - name: Synthetic-only attention diagnostics smoke
+        run: |
+          python3 tests/fixtures/econometrics/generate.py --output "$RUNNER_TEMP/attention-fixture"
+          python3 -m attention.econometrics --fixture \
+            --raw tests/fixtures/trends/SYNTHETIC_extended.csv \
+            --metadata tests/fixtures/trends/SYNTHETIC_extended_metadata.json \
+            --import-dir "$RUNNER_TEMP/attention-fixture/import" \
+            --admission "$RUNNER_TEMP/attention-fixture/SYNTHETIC_admission.json" \
+            --kba "$RUNNER_TEMP/attention-fixture/SYNTHETIC_kba.csv" \
+            --output-dir "$RUNNER_TEMP/attention-diagnostics"
