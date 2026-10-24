@@ -3,7 +3,7 @@
 import argparse
 import calendar
 import csv
-from datetime import date
+from datetime import date, datetime
 from decimal import Decimal, InvalidOperation
 import hashlib
 import io
@@ -11,12 +11,40 @@ import json
 from pathlib import Path
 import re
 from urllib.parse import parse_qs, urlsplit
+from zoneinfo import ZoneInfo
 
 from attention.transform import month, timestamp
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data/organic_attention"
 NORMALIZATION = "google_trends_single_request_relative_0_100"
+LOCAL_TIME_LIMITATIONS = (
+    "User-attested local Windows file creation time in Europe/Berlin; not independent "
+    "proof of Google delivery. Local metadata may be copied or altered; SHA-256 "
+    "establishes byte identity only."
+)
+
+
+def extended(meta):
+    return meta.get("version") in {"1.1.0", "1.2.0"}
+
+
+def validate_local_time(meta):
+    if meta["timestamp_evidence_type"] != "local_file_creation_time":
+        raise ValueError(
+            "1.2.0 supports qualified local creation evidence, never verified_google_download_time"
+        )
+    limitation = meta["timestamp_evidence_limitations"]
+    if not isinstance(limitation, str) or len(limitation.strip()) < 40:
+        raise ValueError("Explicit local-time evidence limitations required")
+    value = timestamp(meta["retrieved_at"])
+    original = datetime.fromisoformat(meta["retrieved_at"].replace("Z", "+00:00"))
+    if original.utcoffset() != value.astimezone(ZoneInfo("Europe/Berlin")).utcoffset():
+        raise ValueError("Local timestamp offset conflicts with Europe/Berlin")
+    if meta["local_timestamp_basis_accepted"] is not True:
+        raise ValueError(
+            "Explicit human acceptance of qualified local timestamp basis is pending"
+        )
 
 
 def sha(raw):
@@ -58,10 +86,16 @@ def validate_metadata(meta, raw, fixture=False):
         "rights",
         "export_attestation",
     }
-    extended = meta.get("version") == "1.1.0"
-    if extended:
+    is_extended = extended(meta)
+    if is_extended:
         required |= {"source_window", "analysis_windows"}
-    if set(meta) != required or meta["version"] not in {"1.0.0", "1.1.0"}:
+    if meta.get("version") == "1.2.0":
+        required |= {
+            "timestamp_evidence_type",
+            "timestamp_evidence_limitations",
+            "local_timestamp_basis_accepted",
+        }
+    if set(meta) != required or meta["version"] not in {"1.0.0", "1.1.0", "1.2.0"}:
         raise ValueError("Unknown/missing provenance fields")
     expected_origin = "synthetic" if fixture else "observed"
     if meta["origin"] != expected_origin or meta["measure_role"] != "attention_proxy":
@@ -72,6 +106,8 @@ def validate_metadata(meta, raw, fixture=False):
         or meta["export_attestation"] is not True
     ):
         raise ValueError("Requires explicit exporter attestation, not inferred origin")
+    if meta["version"] == "1.2.0":
+        validate_local_time(meta)
     retrieved = timestamp(meta["retrieved_at"])
     if meta["raw_sha256"] != sha(raw):
         raise ValueError("Raw CSV hash mismatch")
@@ -87,7 +123,7 @@ def validate_metadata(meta, raw, fixture=False):
     ):
         raise ValueError("Expected DE, category 0 and web search")
     request = meta["request_window"]
-    all_history = extended and request == {"selection": "all_available_history"}
+    all_history = is_extended and request == {"selection": "all_available_history"}
     if all_history:
         start = meta["source_window"]["start"] + "-01"
         end = meta["source_window"]["end"] + "-01"
@@ -104,11 +140,11 @@ def validate_metadata(meta, raw, fixture=False):
     if start > end or start[-2:] != "01":
         raise ValueError("Request must start at a whole calendar month")
     if (
-        not extended
+        not is_extended
         and int(end[-2:]) != calendar.monthrange(int(end[:4]), int(end[5:7]))[1]
     ):
         raise ValueError("Request window must contain whole calendar months")
-    if extended:
+    if is_extended:
         domain = source_periods(meta)
         if domain[0] != start[:7] or domain[-1] != end[:7]:
             raise ValueError("Source window conflicts with request window")
@@ -179,7 +215,7 @@ def validate_metadata(meta, raw, fixture=False):
         "cat": "0",
         "date": "all" if all_history else start + " " + end,
     }.items():
-        actual = params.get(k, ["0"] if extended and k == "cat" else None)
+        actual = params.get(k, ["0"] if is_extended and k == "cat" else None)
         if actual != [value]:
             raise ValueError("Source URL conflicts with query/geography/window")
     if params.get("gprop", [""]) != [""]:
@@ -202,7 +238,7 @@ def validate_metadata(meta, raw, fixture=False):
 
 
 def source_periods(meta):
-    if meta.get("version") == "1.1.0":
+    if extended(meta):
         window = meta["source_window"]
         if set(window) != {"start", "end"}:
             raise ValueError("Exact source-month window required")
@@ -273,7 +309,7 @@ def parse_csv(raw, meta):
 def build_import(raw, meta, fixture=False):
     validate_metadata(meta, raw, fixture)
     rows = parse_csv(raw, meta)
-    if meta["version"] == "1.1.0":
+    if extended(meta):
         current = timestamp(meta["retrieved_at"]).strftime("%Y-%m")
         request = meta["request_window"]
         truncated_end = (
@@ -333,7 +369,7 @@ def build_import(raw, meta, fixture=False):
         integrity_note="Exporter attestation and checksums do not prove Google origin or legal permission; human verification required. Fixture outputs are never empirical evidence.",
         scale_note="Request-relative sampled search-interest index; zero is not zero searches. <1 is censored, not 0 or 0.5. No spend, impressions or causal interpretation.",
     )
-    if meta["version"] == "1.1.0":
+    if extended(meta):
         report.update(
             source_window=meta["source_window"],
             analysis_windows=meta["analysis_windows"],
@@ -341,6 +377,13 @@ def build_import(raw, meta, fixture=False):
             source_counts=window_counts(rows),
             derivation="Calendar row selection only; original request-wide index unchanged",
         )
+    if meta["version"] == "1.2.0":
+        report["timestamp_evidence"] = {
+            "analysis_timestamp_used": meta["retrieved_at"],
+            "type": meta["timestamp_evidence_type"],
+            "limitations": meta["timestamp_evidence_limitations"],
+            "verified_google_download_time": False,
+        }
     return rows, report
 
 
@@ -368,8 +411,8 @@ def derive_windows(rows, meta):
 
 def inspect_pending(raw, meta):
     """Structural inspection only: no normalized values or admission artifact."""
-    if meta.get("version") != "1.1.0" or meta.get("origin") != "observed":
-        raise ValueError("Pending inspection requires an observed 1.1.0 sidecar")
+    if not extended(meta) or meta.get("origin") != "observed":
+        raise ValueError("Pending inspection requires an observed extended sidecar")
     if meta.get("raw_sha256") != sha(raw):
         raise ValueError("Pending sidecar must bind the original bytes")
     rows = parse_csv(raw, meta)
@@ -382,6 +425,11 @@ def inspect_pending(raw, meta):
     ]
     if meta.get("export_attestation") is not True:
         unresolved.append("export_attestation")
+    if (
+        meta.get("version") == "1.2.0"
+        and meta.get("local_timestamp_basis_accepted") is not True
+    ):
+        unresolved.append("local_timestamp_basis_accepted")
     rights = meta.get("rights", {})
     if rights.get("private_analysis_confirmed") is not True:
         unresolved.append("rights.private_analysis_confirmed")
@@ -530,7 +578,7 @@ def main():
         (out / name).write_bytes(data)
         report["monthly_csv"] = name
         report["monthly_csv_sha256"] = sha(data)
-    if meta["version"] == "1.1.0":
+    if extended(meta):
         report["outputs"] = {}
         series = {"source": rows, **derive_windows(rows, meta)}
         for name, selected in series.items():

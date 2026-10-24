@@ -1,0 +1,36 @@
+{
+  "evidence_source": "User workorder describing Windows file-properties screenshot; image not independently inspected",
+  "timestamp_evidence_type": "local_file_creation_time",
+  "created_local": "2026-10-23T18:20:44+02:00",
+  "modified_local": "2026-10-23T18:20:44+02:00",
+  "accessed_local": "2026-10-23T18:22:04+02:00",
+  "timezone": "Europe/Berlin",
+  "raw_sha256": "28e0b00b697ceb65833ca5bb2039d43c0ab4350d9a732e884edd3a44fe0da84e",
+  "bytes": 2947,
+  "limitations": "User-attested local Windows file creation time in Europe/Berlin; not independent proof of Google delivery. Local metadata may be copied or altered; SHA-256 establishes byte identity only.",
+  "verified_google_download_time": false,
+  "human_basis_acceptance": false,
+  "task": "01G.1",
+  "status": "pending_empirical_admission",
+  "exact_google_download_timestamp": null,
+  "private_use": "user_confirmed_2026-10-24",
+  "real_diagnostics_executed": false,
+  "real_value_artifacts_generated": [],
+  "amendment_sha256": "65a155dd3fd9f22c889639a5ffa9a677c132a9d65f069b8782d74c5c80a4ab69",
+  "remaining_decision": "Explicit human acceptance of the qualified workorder-described local timestamp basis, plus source-specific admission.",
+  "frozen_protocol_sha256": "08b1a241823f3d35914e6e90e37cf8c64e2af652ffe29c303c03eb0f9a969589",
+  "gates": {
+    "raw_identity": "passed",
+    "size_and_monthly_structure": "passed",
+    "private_use": "user_confirmed",
+    "local_timestamp": "qualified_workorder_attestation_not_source_confirmation",
+    "human_basis_acceptance": "pending",
+    "source_specific_admission": "pending"
+  },
+  "private_artifacts_generated": [
+    "local_timestamp_evidence.json",
+    "proposed_local_metadata.json",
+    "pending_admission.json",
+    "inspection/pending.json"
+  ]
+}
