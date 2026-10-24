@@ -1,0 +1,351 @@
+{
+  "diesel_missingness": {
+    "complete_2022_months": 10,
+    "counts_by_year": {
+      "2018": 2,
+      "2019": 3,
+      "2020": 3,
+      "2021": 3,
+      "2022": 2
+    },
+    "effect_on_2022": "January and April missing; energy episode definition, lags and sample support must address these gaps before any analysis",
+    "interpolation": "none",
+    "missing_2022_months": [
+      "2022-01",
+      "2022-04"
+    ],
+    "missing_months": [
+      "2018-04",
+      "2018-12",
+      "2019-01",
+      "2019-04",
+      "2019-12",
+      "2020-01",
+      "2020-04",
+      "2020-12",
+      "2021-01",
+      "2021-04",
+      "2021-12",
+      "2022-01",
+      "2022-04"
+    ],
+    "scope": "Incomplete monthly overlap approximations remain null; no outcome inspected"
+  },
+  "e10_status": "excluded_not_verified",
+  "external_handoff": {
+    "codex_accessed_policy_pages": false,
+    "evidence_file": "data/fuel_oil/rights_evidence/externally_reviewed_policy_handoff_2026-10-24.md",
+    "evidence_hash": "a2f59643b5bc5cc9ca9c2eca50a7fc681886083248d91b3a088bc82980e2640d",
+    "policy_review_date": "2026-10-24",
+    "reviewer": "external_human_research_handoff",
+    "scope": "General primary policies externally accessed/reviewed; summary not complete legal copy or blanket source-specific approval"
+  },
+  "historical_point_in_time": "not_established",
+  "human_review": {
+    "decision_date": {
+      "precision": "day",
+      "value": "2026-10-24"
+    },
+    "evidence_file": "data/fuel_oil/rights_evidence/human_admission_decision_2026-10-24.md",
+    "evidence_hash": "7fc54fcdda5528b7b6e98298b19f1b36123acac2ef29b6fc63133493ba5f8784",
+    "evidence_type": "transcribed_user_message_decision",
+    "exact_decision_time": null,
+    "reviewer": "user",
+    "scope": "Source-specific private retrospective exploratory research only; public release and Task 01J not authorized"
+  },
+  "reviews": [
+    {
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "evidence_hash": null,
+      "evidence_type": "failed_request_not_policy_evidence",
+      "id": "ecb",
+      "reviewed_at": "2026-10-24T13:45:09.216224+00:00",
+      "status": null,
+      "url": "https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html"
+    },
+    {
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "evidence_hash": null,
+      "evidence_type": "failed_request_not_policy_evidence",
+      "id": "eia",
+      "reviewed_at": "2026-10-24T13:45:09.216679+00:00",
+      "status": null,
+      "url": "https://www.eia.gov/about/copyrights_reuse.php"
+    },
+    {
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "evidence_hash": null,
+      "evidence_type": "failed_request_not_policy_evidence",
+      "id": "ec",
+      "reviewed_at": "2026-10-24T13:45:09.217087+00:00",
+      "status": null,
+      "url": "https://european-union.europa.eu/legal-notice_en"
+    },
+    {
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "evidence_hash": null,
+      "evidence_type": "failed_request_not_policy_evidence",
+      "id": "wob",
+      "reviewed_at": "2026-10-24T13:45:09.231606+00:00",
+      "status": null,
+      "url": "https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en"
+    },
+    {
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "evidence_hash": null,
+      "evidence_type": "failed_request_not_policy_evidence",
+      "id": "unit",
+      "reviewed_at": "2026-10-24T13:45:09.233292+00:00",
+      "status": null,
+      "url": "https://eur-lex.europa.eu/eli/dec/1999/566/oj/eng/pdf"
+    }
+  ],
+  "series": [
+    {
+      "admission_qualification": "private_retrospective_only",
+      "admission_reasons": [],
+      "analysis_scope": "private retrospective source-native monthly series",
+      "analysis_scope_verified": true,
+      "analysis_unit": "USD_per_EUR",
+      "analytical_admission": "admitted",
+      "conditions": [
+        "Retain source identity, units, raw/derived hash and integrity requirements",
+        "Preserve source attribution and original observations",
+        "Private retrospective scope only; no public redistribution approval",
+        "Do not run Task 01J automatically; a future admitted-source study needs separate scope approval",
+        "Historical point-in-time remains not_established"
+      ],
+      "evidence_file": "data/fuel_oil/rights_evidence/externally_reviewed_policy_handoff_2026-10-24.md",
+      "evidence_hash": "a2f59643b5bc5cc9ca9c2eca50a7fc681886083248d91b3a088bc82980e2640d",
+      "evidence_type": "externally_reviewed_primary_policy_handoff",
+      "general_policy_status": "externally_reviewed",
+      "historical_point_in_time": "not_established",
+      "human_admission_decision": {
+        "decision": "approve_private_retrospective",
+        "decision_date": {
+          "precision": "day",
+          "value": "2026-10-24"
+        },
+        "evidence_file": "data/fuel_oil/rights_evidence/human_admission_decision_2026-10-24.json",
+        "evidence_format": "structured_human_decision_v1",
+        "evidence_hash": "bd5ded82debf22a9fd85a1543b7fdd1189da9284d167758e9b2c5190809d7429",
+        "exact_decision_time": null,
+        "raw_sha256": "26a92c9b9a24414e864a03bd4f7ba7c4a482793845594121e9745c606017355b",
+        "reviewer": "user",
+        "scope": "private_retrospective_only",
+        "series_id": "EXR.M.USD.EUR.SP00.A",
+        "source_message_hash": "7fc54fcdda5528b7b6e98298b19f1b36123acac2ef29b6fc63133493ba5f8784",
+        "unit": "USD_per_EUR"
+      },
+      "human_admission_required": true,
+      "id": "eurusd",
+      "legal_status": "not_a_legal_guarantee",
+      "limitations": [
+        "Absent actual download time and URL retained as provenance gaps, not invented new hard gates",
+        "No historical point-in-time admission",
+        "Missing source flags and precise ECB monthly collection convention are not fabricated",
+        "Externally reviewed general policy accepted; full authoritative text not copied here and not personally fetched by Codex",
+        "Human decision dated 2026-10-24 has day precision only; own assessment clock is not an invented human decision/download timestamp",
+        "No public raw/derived redistribution approval",
+        "No historical point-in-time availability established"
+      ],
+      "policy_title": "ESCB statistics reuse policy (externally reviewed; not personally accessed by Codex)",
+      "private_analysis": "permitted",
+      "public_derived_redistribution": "not_verified",
+      "public_raw_redistribution": "not_verified",
+      "public_redistribution_approval": "not_granted",
+      "raw_sha256": "26a92c9b9a24414e864a03bd4f7ba7c4a482793845594121e9745c606017355b",
+      "raw_sha256_verified": true,
+      "review_timestamp_meaning": "Own decision assessment, not a claim to have read inaccessible policy text",
+      "reviewed_at": "2026-10-24T14:22:35.092844+00:00",
+      "series_id": "EXR.M.USD.EUR.SP00.A",
+      "source_attribution": "Source: ECB statistics. EXR.M.USD.EUR.SP00.A, monthly USD per EUR; retain unmodified official source and metadata separately from project analysis.",
+      "source_definition_verified": true,
+      "source_notice_url": "https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html",
+      "source_specific_review_note": "Human explicitly accepts exact EXR source for private retrospective exploratory research, citing ECB reference-rate methodology and ESCB reuse policy, conditional on existing source/unit/hash/attribution/integrity gates. This is a human decision, not personal Codex access to methodology/policy pages.",
+      "source_specific_review_status": "verified",
+      "supporting_evidence": [],
+      "task_01j_authorized": false,
+      "unit": "USD_per_EUR",
+      "unit_verified": true,
+      "unresolved_limitations": [
+        "No public raw/derived redistribution approval",
+        "No historical point-in-time availability established"
+      ]
+    },
+    {
+      "admission_qualification": "provisional_support_no_unconditional_admission",
+      "admission_reasons": [
+        "Private analytical use not verified/permitted for the specified scope",
+        "Policy coverage of exact source and intended analytical transformation unresolved",
+        "Source-specific third-party/notice applicability review pending",
+        "Human review withholds unconditional admission; third-party rights unresolved"
+      ],
+      "analysis_scope": "private retrospective source-native monthly series",
+      "analysis_scope_verified": false,
+      "analysis_unit": "USD_per_barrel",
+      "analytical_admission": "blocked",
+      "conditions": [
+        "Retain source identity, units, raw/derived hash and integrity requirements",
+        "Preserve source attribution and original observations",
+        "Private retrospective scope only; no public redistribution approval",
+        "Do not run Task 01J automatically; a future admitted-source study needs separate scope approval",
+        "Historical point-in-time remains not_established"
+      ],
+      "evidence_file": "data/fuel_oil/rights_evidence/externally_reviewed_policy_handoff_2026-10-24.md",
+      "evidence_hash": "a2f59643b5bc5cc9ca9c2eca50a7fc681886083248d91b3a088bc82980e2640d",
+      "evidence_type": "externally_reviewed_primary_policy_handoff",
+      "general_policy_status": "externally_reviewed",
+      "historical_point_in_time": "not_established",
+      "human_admission_decision": {
+        "decision": "withhold_unconditional_admission",
+        "decision_date": {
+          "precision": "day",
+          "value": "2026-10-24"
+        },
+        "evidence_file": "data/fuel_oil/rights_evidence/human_admission_decision_2026-10-24.json",
+        "evidence_format": "structured_human_decision_v1",
+        "evidence_hash": "bd5ded82debf22a9fd85a1543b7fdd1189da9284d167758e9b2c5190809d7429",
+        "exact_decision_time": null,
+        "raw_sha256": "5881bc058aa7d641dc41ef254f6991e101c952e112284f0eb5a994514b401cb7",
+        "reviewer": "user",
+        "scope": "private_retrospective_only",
+        "series_id": "RBRTE",
+        "source_message_hash": "7fc54fcdda5528b7b6e98298b19f1b36123acac2ef29b6fc63133493ba5f8784",
+        "unit": "USD_per_barrel"
+      },
+      "human_admission_required": true,
+      "id": "brent_usd",
+      "legal_status": "not_verified",
+      "limitations": [
+        "Absent actual download time and URL retained as provenance gaps, not invented new hard gates",
+        "No historical point-in-time admission",
+        "Missing source flags and precise ECB monthly collection convention are not fabricated",
+        "Externally reviewed general policy accepted; full authoritative text not copied here and not personally fetched by Codex",
+        "Human decision dated 2026-10-24 has day precision only; own assessment clock is not an invented human decision/download timestamp",
+        "Underlying data source Refinitiv (LSEG), as reported by human review of EIA official source notes",
+        "Source-specific third-party reuse rights unresolved",
+        "Internal exploratory support is provisional; no unconditional analytical permit"
+      ],
+      "policy_title": "EIA Copyrights and Reuse (externally reviewed; not personally accessed by Codex)",
+      "private_analysis": "not_verified",
+      "provisional_private_use_support": "Supported provisionally for internal exploration; legal status not_verified; no unconditional permit",
+      "public_derived_redistribution": "not_verified",
+      "public_raw_redistribution": "not_verified",
+      "public_redistribution_approval": "not_granted",
+      "raw_sha256": "5881bc058aa7d641dc41ef254f6991e101c952e112284f0eb5a994514b401cb7",
+      "raw_sha256_verified": true,
+      "review_timestamp_meaning": "Own decision assessment, not a claim to have read inaccessible policy text",
+      "reviewed_at": "2026-10-24T14:22:35.093271+00:00",
+      "series_id": "RBRTE",
+      "source_attribution": "Source: U.S. Energy Information Administration, Europe Brent Spot Price FOB (RBRTE). Underlying source Refinitiv (LSEG) per human review; publication date not established from uploaded export.",
+      "source_definition_verified": true,
+      "source_notice_url": "https://www.eia.gov/about/copyrights_reuse.php",
+      "source_specific_review_note": "Human review reports EIA official spot-price source notes identify Refinitiv (LSEG). Provisional internal exploration supported by general EIA reuse statement, but exact third-party rights unresolved. User explicitly withholds unconditional source admission.",
+      "source_specific_review_status": "unresolved_third_party_rights",
+      "supporting_evidence": [],
+      "task_01j_authorized": false,
+      "underlying_source": {
+        "evidence_type": "human_review_of_EIA_official_spot_price_source_notes",
+        "exact_source_notes_url": null,
+        "name": "Refinitiv (LSEG)",
+        "personally_accessed_by_codex": false
+      },
+      "unit": "USD_per_barrel",
+      "unit_verified": true,
+      "unresolved_limitations": [
+        "Underlying data source Refinitiv (LSEG), as reported by human review of EIA official source notes",
+        "Source-specific third-party reuse rights unresolved",
+        "Internal exploratory support is provisional; no unconditional analytical permit"
+      ]
+    },
+    {
+      "admission_qualification": "qualified_project_specific_private_use",
+      "admission_reasons": [],
+      "analysis_scope": "private monthly calendar-overlap approximations",
+      "analysis_scope_verified": true,
+      "analysis_unit": "EUR_per_litre",
+      "analytical_admission": "admitted",
+      "conditions": [
+        "Retain source identity, units, raw/derived hash and integrity requirements",
+        "Preserve source attribution and original observations",
+        "Private retrospective scope only; no public redistribution approval",
+        "Do not run Task 01J automatically; a future admitted-source study needs separate scope approval",
+        "Historical point-in-time remains not_established",
+        "Preserve original weekly file and embedded reproduction notice",
+        "Mark /1000 conversion separately from Monday-to-Sunday overlap approximation",
+        "Keep all 13 incomplete months null; no interpolation, forward fill or invented daily prices"
+      ],
+      "evidence_file": "data/fuel_oil/rights_evidence/externally_reviewed_policy_handoff_2026-10-24.md",
+      "evidence_hash": "a2f59643b5bc5cc9ca9c2eca50a7fc681886083248d91b3a088bc82980e2640d",
+      "evidence_type": "externally_reviewed_primary_policy_handoff",
+      "general_policy_status": "externally_reviewed",
+      "historical_point_in_time": "not_established",
+      "human_admission_decision": {
+        "decision": "approve_private_retrospective",
+        "decision_date": {
+          "precision": "day",
+          "value": "2026-10-24"
+        },
+        "evidence_file": "data/fuel_oil/rights_evidence/human_admission_decision_2026-10-24.json",
+        "evidence_format": "structured_human_decision_v1",
+        "evidence_hash": "bd5ded82debf22a9fd85a1543b7fdd1189da9284d167758e9b2c5190809d7429",
+        "exact_decision_time": null,
+        "qualification": "qualified_project_specific_private_use",
+        "raw_sha256": "7e019a27fe2df6f324ec7a7c551b98142713fbee32aa7a030906101ffc22b2fd",
+        "reviewer": "user",
+        "scope": "private_retrospective_only",
+        "series_id": "DE_price_with_tax_diesel",
+        "source_message_hash": "7fc54fcdda5528b7b6e98298b19f1b36123acac2ef29b6fc63133493ba5f8784",
+        "unit": "EUR_per_1000_litres"
+      },
+      "human_admission_required": true,
+      "id": "diesel_de",
+      "legal_status": "not_verified",
+      "limitations": [
+        "Unit accepted from user-cited Decision 1999/566/EC plus independent workbook mapping; legal PDF unread due proxy",
+        "Private handling of originals supported; intended derived analytical scope remains not_verified",
+        "Not_verified is unresolved, not a legal prohibition",
+        "Externally reviewed general policy accepted; full authoritative text not copied here and not personally fetched by Codex",
+        "Human decision dated 2026-10-24 has day precision only; own assessment clock is not an invented human decision/download timestamp",
+        "Unresolved third-party/member-state scope limitations retained",
+        "Qualified project-specific private acceptance, not general legal clearance",
+        "No public redistribution approval or legal guarantee",
+        "All 13 incomplete monthly approximations remain missing"
+      ],
+      "policy_title": "Actual workbook reproduction notice + externally reviewed EU general reuse policy",
+      "private_analysis": "permitted",
+      "public_derived_redistribution": "not_verified",
+      "public_raw_redistribution": "not_verified",
+      "public_redistribution_approval": "not_granted",
+      "raw_sha256": "7e019a27fe2df6f324ec7a7c551b98142713fbee32aa7a030906101ffc22b2fd",
+      "raw_sha256_verified": true,
+      "review_timestamp_meaning": "Own decision assessment, not a claim to have read inaccessible policy text",
+      "reviewed_at": "2026-10-24T14:22:35.093855+00:00",
+      "series_id": "DE_price_with_tax_diesel",
+      "source_attribution": "Source: European Commission, Directorate-General for Energy, Weekly Oil Bulletin, Germany automotive gas oil, prices including taxes. EUR/litre conversion and calendar-overlap monthly estimates calculated by Agentic Analytics Studio; not official monthly means. Source acknowledged under embedded reproduction notice.",
+      "source_definition_verified": true,
+      "source_notice_url": "https://european-union.europa.eu/legal-notice_en",
+      "source_specific_review_note": "Human explicitly accepts qualified project-specific private retrospective use including /1000 conversion and labelled calendar-overlap monthly approximation, subject to original-source preservation, attribution/change notices and all missing months. Third-party/member-state limitations remain unresolved, not declared cleared.",
+      "source_specific_review_status": "qualified_private_scope_accepted",
+      "supporting_evidence": [
+        {
+          "evidence_file": "data/fuel_oil/rights_evidence/ec_embedded_notice.json",
+          "evidence_hash": "6efde2d3d7534ad4e9ccb7bffd10592642ac3d7bf5e4d57857d33a0854f1d5c3",
+          "scope": "Exact workbook reproduction notice; raw copying with source acknowledgement only"
+        }
+      ],
+      "task_01j_authorized": false,
+      "unit": "EUR_per_1000_litres",
+      "unit_verified": true,
+      "unresolved_limitations": [
+        "Unresolved third-party/member-state scope limitations retained",
+        "Qualified project-specific private acceptance, not general legal clearance",
+        "No public redistribution approval or legal guarantee",
+        "All 13 incomplete monthly approximations remain missing"
+      ]
+    }
+  ],
+  "source_catalog_sha256": "c740caafa72379ab19e1f0528affa8be2c6f3b2638994086719c63c3906a375d",
+  "version": "1.0.0"
+}

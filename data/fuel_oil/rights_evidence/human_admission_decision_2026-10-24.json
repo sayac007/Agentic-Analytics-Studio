@@ -1,0 +1,38 @@
+{
+  "decision_date": {
+    "precision": "day",
+    "value": "2026-10-24"
+  },
+  "decisions": {
+    "brent_usd": {
+      "decision": "withhold_unconditional_admission",
+      "raw_sha256": "5881bc058aa7d641dc41ef254f6991e101c952e112284f0eb5a994514b401cb7",
+      "scope": "private_retrospective_only",
+      "series_id": "RBRTE",
+      "unit": "USD_per_barrel"
+    },
+    "diesel_de": {
+      "decision": "approve_private_retrospective",
+      "qualification": "qualified_project_specific_private_use",
+      "raw_sha256": "7e019a27fe2df6f324ec7a7c551b98142713fbee32aa7a030906101ffc22b2fd",
+      "scope": "private_retrospective_only",
+      "series_id": "DE_price_with_tax_diesel",
+      "unit": "EUR_per_1000_litres"
+    },
+    "eurusd": {
+      "decision": "approve_private_retrospective",
+      "raw_sha256": "26a92c9b9a24414e864a03bd4f7ba7c4a482793845594121e9745c606017355b",
+      "scope": "private_retrospective_only",
+      "series_id": "EXR.M.USD.EUR.SP00.A",
+      "unit": "USD_per_EUR"
+    }
+  },
+  "evidence_type": "structured_transcription_of_explicit_user_decision",
+  "exact_decision_time": null,
+  "reviewer": "user",
+  "source_message": {
+    "evidence_file": "data/fuel_oil/rights_evidence/human_admission_decision_2026-10-24.md",
+    "evidence_hash": "7fc54fcdda5528b7b6e98298b19f1b36123acac2ef29b6fc63133493ba5f8784"
+  },
+  "version": "1.0.0"
+}

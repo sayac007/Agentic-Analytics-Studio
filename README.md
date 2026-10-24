@@ -114,3 +114,10 @@ with complete temporal weekly overlap (13 gaps). All analytical admissions remai
 blocked: ECB/EIA rights and diesel derived-use review remain unresolved.
 The user-cited official unit convention enables private EUR/litre and monthly QA.
 No real observations are committed. Run `python -m fuel_oil.import_energy --check-metadata`.
+
+Task 01I.2 adds an [energy rights/admission matrix](docs/ENERGY_RIGHTS_ADMISSION.md).
+Explicit human review accepts ECB and qualified EC diesel for private retrospective
+research; exactly two hash-bound private permits were generated. EIA/RBRTE retains
+`not_verified` third-party rights (Refinitiv/LSEG); no unconditional permit is created.
+All 13 diesel gaps remain unfilled. No public release, historical as-of approval or
+Task 01J execution. Run `python -m fuel_oil.rights_admission --check` offline.

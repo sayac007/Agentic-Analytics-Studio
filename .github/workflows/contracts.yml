@@ -68,3 +68,5 @@ jobs:
         run: python3 -m fuel_oil.fetch_fuel_oil --check
       - name: Offline real energy metadata-only check
         run: python3 -m fuel_oil.import_energy --check-metadata
+      - name: Offline source-specific energy rights check
+        run: python3 -m fuel_oil.rights_admission --check
