@@ -94,3 +94,10 @@ Task 01H adds a [German product/availability/recall ledger](docs/TESLA_PRODUCT_R
 announcement/order/delivery and notice/remedy kept separate. All 96 availability-index
 months remain unknown; isolated snapshots are insufficient. Run
 `python3 -m product_events.transform --check` offline. No outcome analysis is performed.
+
+Task 01H-M adds [German macro-control feasibility and offline preparation](docs/GERMAN_MACRO_CONTROLS.md).
+Official metadata/rights requests are proxy-blocked; no real macro observations are
+admitted (0/96 and 0/60 verified months for each candidate). Monthly earnings are
+**unverified**, not assumed unavailable. Run `python3 -m macro_controls.pipeline --check`;
+synthetic fixtures exercise native-frequency normalization, provenance and calendar
+arithmetic. No expanded model, outcome join or frozen-protocol change is included.

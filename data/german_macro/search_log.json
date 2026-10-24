@@ -1,0 +1,434 @@
+{
+  "scope": "metadata_and_rights_research_only",
+  "requests": [
+    {
+      "retrieved_at": "2026-10-24T08:44:46.886495+00:00",
+      "id": "ecb-mir",
+      "url": "https://data.ecb.europa.eu/data/datasets/MIR/MIR.M.DE.B.A2B.A.R.A.2250.EUR.N",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:44:46.883986+00:00",
+      "id": "ecb-rates",
+      "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:44:46.889538+00:00",
+      "id": "ecb-rights",
+      "url": "https://www.ecb.europa.eu/services/disclaimer/html/index.en.html",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:44:46.881837+00:00",
+      "id": "bb-mir",
+      "url": "https://www.bundesbank.de/en/statistics/money-and-capital-markets/interest-rates-and-yields/mfi-interest-rates",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:44:46.892237+00:00",
+      "id": "destatis-cpi",
+      "url": "https://www.destatis.de/DE/Themen/Wirtschaft/Preise/Verbraucherpreisindex/Tabellen/Verbraucherpreise-12Kategorien.html",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:44:46.894726+00:00",
+      "id": "destatis-wages",
+      "url": "https://www.destatis.de/DE/Themen/Arbeit/Verdienste/Realloehne-Nettoverdienste/Tabellen/reallohnentwicklung-vierteljahr.html",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:44:46.897275+00:00",
+      "id": "destatis-rights",
+      "url": "https://www.destatis.de/DE/Service/Impressum/copyright-allgemein.html",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:44:46.900229+00:00",
+      "id": "bb-expectations",
+      "url": "https://www.bundesbank.de/en/bundesbank/research/survey-on-consumer-expectations",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:44:46.901861+00:00",
+      "id": "ecb-ces",
+      "url": "https://www.ecb.europa.eu/stats/ecb_surveys/consumer_exp_survey/html/index.en.html",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:44:46.904639+00:00",
+      "id": "ecb-metadata",
+      "url": "https://data-api.ecb.europa.eu/service/dataflow/ECB/MIR/latest?references=none",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:44:46.907590+00:00",
+      "id": "euribor-metadata",
+      "url": "https://data.ecb.europa.eu/data/datasets/FM/FM.M.U2.EUR.RT.MM.EURIBOR3MD_.HSTA",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:45:05.957827+00:00",
+      "id": "search-mir",
+      "url": "https://www.google.com/search?q=site%3Adata.ecb.europa.eu%20%22M.DE.B.A2B.A.R.A.2250.EUR.N%22",
+      "final_url": "https://www.google.com/search?q=site%3Adata.ecb.europa.eu%20%22M.DE.B.A2B.A.R.A.2250.EUR.N%22",
+      "status": 200,
+      "bytes": 92327,
+      "sha256": "a57be9e021305902252850c8502f677e3c510bba87a50c5a6d4c0453690ce610",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "HTTP 200 redirect/interstitial; no source metadata verified"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:45:05.937093+00:00",
+      "id": "search-wages",
+      "url": "https://www.google.com/search?q=site%3Adestatis.de%20Reallohnindex%20viertelj%C3%A4hrlich%202022",
+      "final_url": "https://www.google.com/search?q=site%3Adestatis.de%20Reallohnindex%20viertelj%C3%A4hrlich%202022",
+      "status": 200,
+      "bytes": 92401,
+      "sha256": "7bcf94f0af3c983bcb423719a6c0ccbc2bbc844a430f26a6a7a1c6508269b802",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "HTTP 200 redirect/interstitial; no source metadata verified"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:45:05.952939+00:00",
+      "id": "search-cpi",
+      "url": "https://www.google.com/search?q=site%3Adestatis.de%20%2261111-0002%22",
+      "final_url": "https://www.google.com/search?q=site%3Adestatis.de%20%2261111-0002%22",
+      "status": 200,
+      "bytes": 92204,
+      "sha256": "2a83d350a08d52945185bcd03625e5218faac4467ca7127f650bea1f2cbc7812",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "HTTP 200 redirect/interstitial; no source metadata verified"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:45:05.952866+00:00",
+      "id": "search-ces",
+      "url": "https://www.google.com/search?q=site%3Adata.ecb.europa.eu%20CES%20Germany%20median%20inflation%20expectations%20next%2012%20months",
+      "final_url": "https://www.google.com/search?q=site%3Adata.ecb.europa.eu%20CES%20Germany%20median%20inflation%20expectations%20next%2012%20months",
+      "status": 200,
+      "bytes": 92226,
+      "sha256": "b2cb52cf1d3b802e40c72de13dcb4d9a00a062c9be99f89c1cd7cc0a9832e7f8",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "HTTP 200 redirect/interstitial; no source metadata verified"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:45:06.237988+00:00",
+      "id": "search-bophh",
+      "url": "https://www.google.com/search?q=site%3Abundesbank.de%20BOP-HH%20monthly%20April%202020%20inflation%20expectations",
+      "final_url": "https://www.google.com/search?q=site%3Abundesbank.de%20BOP-HH%20monthly%20April%202020%20inflation%20expectations",
+      "status": 200,
+      "bytes": 92289,
+      "sha256": "d0028a48dac0a761b7ea735136748a4317aa71aa375e20487dd96a8af1fd536b",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "HTTP 200 redirect/interstitial; no source metadata verified"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:45:06.242990+00:00",
+      "id": "search-euribor",
+      "url": "https://www.google.com/search?q=site%3Adata.ecb.europa.eu%20%22EURIBOR3MD_%22%20%22HSTA%22",
+      "final_url": "https://www.google.com/search?q=site%3Adata.ecb.europa.eu%20%22EURIBOR3MD_%22%20%22HSTA%22",
+      "status": 200,
+      "bytes": 92475,
+      "sha256": "831c2a3528887a7e0bed9e85772a3a887ea6a30571171dd974e3a84cd6c147af",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "HTTP 200 redirect/interstitial; no source metadata verified"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:45:05.961198+00:00",
+      "id": "genesis-meta",
+      "url": "https://www-genesis.destatis.de/genesisWS/rest/2020/metadata/table?name=61111-0002&area=all&language=en",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:45:05.967533+00:00",
+      "id": "bb-rights",
+      "url": "https://www.bundesbank.de/en/service/copyright",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:45:25.491941+00:00",
+      "id": "bing-mir",
+      "url": "https://www.bing.com/search?q=site%3Adata.ecb.europa.eu%20%22M.DE.B.A2B.A.R.A.2250.EUR.N%22",
+      "final_url": "https://www.bing.com/search?q=site%3Adata.ecb.europa.eu%20%22M.DE.B.A2B.A.R.A.2250.EUR.N%22",
+      "status": 200,
+      "bytes": 121344,
+      "sha256": "5b6ac88dca57792dba559e766fdc4777944a5a1316c64e7720847efcadbb0604",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "HTTP 200 but irrelevant result bodies; not accepted as source evidence"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:45:25.542671+00:00",
+      "id": "bing-wages",
+      "url": "https://www.bing.com/search?q=site%3Adestatis.de%20Reallohnindex%20viertelj%C3%A4hrlich%202022%2062361",
+      "final_url": "https://www.bing.com/search?q=site%3Adestatis.de%20Reallohnindex%20viertelj%C3%A4hrlich%202022%2062361",
+      "status": 200,
+      "bytes": 124387,
+      "sha256": "9ff528c1d94f1f70935cafe20abf3970eef334321cbeccf4811d4980ab41d87f",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "HTTP 200 but irrelevant result bodies; not accepted as source evidence"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:45:25.446742+00:00",
+      "id": "bing-cpi",
+      "url": "https://www.bing.com/search?q=site%3Adestatis.de%20%2261111-0002%22",
+      "final_url": "https://www.bing.com/search?q=site%3Adestatis.de%20%2261111-0002%22",
+      "status": 200,
+      "bytes": 122164,
+      "sha256": "90145f838b88ae8b0a1fc86fcbfbd75fd472402082912e0676cd1a4cb50d5f6c",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "HTTP 200 but irrelevant result bodies; not accepted as source evidence"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:45:25.475937+00:00",
+      "id": "bing-ces",
+      "url": "https://www.bing.com/search?q=site%3Aecb.europa.eu%20consumer%20expectations%20survey%20Germany%20April%202020%20median",
+      "final_url": "https://www.bing.com/search?q=site%3Aecb.europa.eu%20consumer%20expectations%20survey%20Germany%20April%202020%20median",
+      "status": 200,
+      "bytes": 122186,
+      "sha256": "176ddbff3bbb3c1c7f6e31096f671f8753eb5eda022b21dfff98e04c58ddd00f",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "HTTP 200 but irrelevant result bodies; not accepted as source evidence"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:45:26.129327+00:00",
+      "id": "bing-bophh",
+      "url": "https://www.bing.com/search?q=site%3Abundesbank.de%20BOP-HH%20monthly%20April%202020%20inflation%20expectations",
+      "final_url": "https://www.bing.com/search?q=site%3Abundesbank.de%20BOP-HH%20monthly%20April%202020%20inflation%20expectations",
+      "status": 200,
+      "bytes": 120660,
+      "sha256": "d7483a0a383b6f0ddea6262c637085b8d2f7f6c490a51205751571f323068b06",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "HTTP 200 but irrelevant result bodies; not accepted as source evidence"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:45:26.025968+00:00",
+      "id": "bing-euribor",
+      "url": "https://www.bing.com/search?q=site%3Adata.ecb.europa.eu%20%22EURIBOR3MD_%22%20%22HSTA%22",
+      "final_url": "https://www.bing.com/search?q=site%3Adata.ecb.europa.eu%20%22EURIBOR3MD_%22%20%22HSTA%22",
+      "status": 200,
+      "bytes": 123272,
+      "sha256": "a6cfd1fdbe3986ef19026a5dac24178ec5757360f7728f0329d55d367ad0aa54",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "HTTP 200 but irrelevant result bodies; not accepted as source evidence"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:45:40.730408+00:00",
+      "id": "ddg-mir",
+      "url": "https://html.duckduckgo.com/html/?q=ECB%20MIR%20Germany%20consumption%20new%20business%20A2B",
+      "final_url": "https://html.duckduckgo.com/html/?q=ECB%20MIR%20Germany%20consumption%20new%20business%20A2B",
+      "status": 200,
+      "bytes": 34416,
+      "sha256": "178cd8ab44ec34876bc0407ac2a16c80615fd27754022686af7908cd9edab1bb",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "Indirect search lead only; official body and complete metadata still unverified"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:45:40.677316+00:00",
+      "id": "ddg-wages",
+      "url": "https://html.duckduckgo.com/html/?q=Destatis%20Reallohnindex%20viertelj%C3%A4hrlich%2062361",
+      "final_url": "https://html.duckduckgo.com/html/?q=Destatis%20Reallohnindex%20viertelj%C3%A4hrlich%2062361",
+      "status": 200,
+      "bytes": 33304,
+      "sha256": "05e3ecdd961fcb96a3133b4be1c1da84c1dc34b87ac387cd0745022643b4059b",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "Indirect search lead only; official body and complete metadata still unverified"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:45:40.782596+00:00",
+      "id": "ddg-cpi",
+      "url": "https://html.duckduckgo.com/html/?q=Destatis%2061111-0002%20Verbraucherpreisindex",
+      "final_url": "https://html.duckduckgo.com/html/?q=Destatis%2061111-0002%20Verbraucherpreisindex",
+      "status": 200,
+      "bytes": 34033,
+      "sha256": "6ec61662a12a65b24865b5235785614bfa04317b7d0a1903ae5d485c5bb52979",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "Indirect search lead only; official body and complete metadata still unverified"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:45:40.785038+00:00",
+      "id": "ddg-expectations",
+      "url": "https://html.duckduckgo.com/html/?q=Bundesbank%20BOP%20HH%20monthly%20April%202020%20inflation%20expectations",
+      "final_url": "https://html.duckduckgo.com/html/?q=Bundesbank%20BOP%20HH%20monthly%20April%202020%20inflation%20expectations",
+      "status": 200,
+      "bytes": 36193,
+      "sha256": "4cfcc38e0b29d2497741efddbf5d057b64e1fc83eec026d003b5d46826bcb7a5",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "Indirect search lead only; official body and complete metadata still unverified"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:46:17.577584+00:00",
+      "id": "ddg-monthly-wages",
+      "url": "https://html.duckduckgo.com/html/?q=site%3Adestatis.de%20%2262361-0001%22%20%222022%22",
+      "final_url": "https://html.duckduckgo.com/html/?q=site%3Adestatis.de%20%2262361-0001%22%20%222022%22",
+      "status": 200,
+      "bytes": 9395,
+      "sha256": "0500b8f37f62f46d0208ad12486ea49a11f225015655ba97c17a49f971eeaa5f",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "Indirect search lead only; official body and complete metadata still unverified"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:46:17.526800+00:00",
+      "id": "ddg-wages-window",
+      "url": "https://html.duckduckgo.com/html/?q=site%3Adestatis.de%20%2262361-0001%22%20%22Zeitraum%22",
+      "final_url": "https://html.duckduckgo.com/html/?q=site%3Adestatis.de%20%2262361-0001%22%20%22Zeitraum%22",
+      "status": 200,
+      "bytes": 9407,
+      "sha256": "5680c5250ad37b0dae3551200df906bc759d3fefbfa237d129647b15afe6ae1d",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "Indirect search lead only; official body and complete metadata still unverified"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:46:17.668908+00:00",
+      "id": "ddg-rights-ecb",
+      "url": "https://html.duckduckgo.com/html/?q=site%3Aecb.europa.eu%20copyright%20statistics%20free%20reuse%20third%20party",
+      "final_url": "https://html.duckduckgo.com/html/?q=site%3Aecb.europa.eu%20copyright%20statistics%20free%20reuse%20third%20party",
+      "status": 200,
+      "bytes": 34647,
+      "sha256": "ed3248384ef5cd42c8fd4775c7ba749e74ff4229e1de882a34bc4c0f4dd18061",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "Indirect search lead only; official body and complete metadata still unverified"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:46:17.722729+00:00",
+      "id": "ddg-rights-destatis",
+      "url": "https://html.duckduckgo.com/html/?q=site%3Adestatis.de%20Copyright%20Datenlizenz%20Deutschland%20Namensnennung%202.0",
+      "final_url": "https://html.duckduckgo.com/html/?q=site%3Adestatis.de%20Copyright%20Datenlizenz%20Deutschland%20Namensnennung%202.0",
+      "status": 200,
+      "bytes": 34285,
+      "sha256": "f5f54f03a4304b378f6efa1969cb954284d8ae45e9f1c906691ffd4e516c47f9",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "Indirect search lead only; official body and complete metadata still unverified"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:46:17.713142+00:00",
+      "id": "ddg-rights-bb",
+      "url": "https://html.duckduckgo.com/html/?q=site%3Abundesbank.de%20statistics%20copyright%20reuse%20source",
+      "final_url": "https://html.duckduckgo.com/html/?q=site%3Abundesbank.de%20statistics%20copyright%20reuse%20source",
+      "status": 202,
+      "bytes": 14275,
+      "sha256": "b91cc7074f89893ea408453b27b541615a5a8ab523e84e62c634d694dab275b7",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "Search challenge; no further retries or circumvention"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:46:17.763311+00:00",
+      "id": "ddg-dfr",
+      "url": "https://html.duckduckgo.com/html/?q=site%3Adata.ecb.europa.eu%20%22DFR.LEV%22",
+      "final_url": "https://html.duckduckgo.com/html/?q=site%3Adata.ecb.europa.eu%20%22DFR.LEV%22",
+      "status": 202,
+      "bytes": 14269,
+      "sha256": "14a5d38fbf0b758b8df46758856423086e96362d764d8cec1fd1f197cecfdaed",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "Search challenge; no further retries or circumvention"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:46:17.842439+00:00",
+      "id": "ddg-euribor",
+      "url": "https://html.duckduckgo.com/html/?q=site%3Adata.ecb.europa.eu%20%22FM.M.U2.EUR.RT.MM.EURIBOR3MD_.HSTA%22",
+      "final_url": "https://html.duckduckgo.com/html/?q=site%3Adata.ecb.europa.eu%20%22FM.M.U2.EUR.RT.MM.EURIBOR3MD_.HSTA%22",
+      "status": 202,
+      "bytes": 14316,
+      "sha256": "9caa491eb5af81b3cedaa4b3861e7614d55ed32bbcea5316105c0e03037697ae",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "Search challenge; no further retries or circumvention"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:46:17.924653+00:00",
+      "id": "ddg-ces-key",
+      "url": "https://html.duckduckgo.com/html/?q=site%3Adata.ecb.europa.eu%20%22CES.M.DE%22%20%22inflation%22%20%22Median%22",
+      "final_url": "https://html.duckduckgo.com/html/?q=site%3Adata.ecb.europa.eu%20%22CES.M.DE%22%20%22inflation%22%20%22Median%22",
+      "status": 202,
+      "bytes": 14347,
+      "sha256": "db5b9ac32bcad4f21684fa40b749e1536cac2c00b3760f0cdd43691406feb3f0",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "Search challenge; no further retries or circumvention"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:46:17.853930+00:00",
+      "id": "ddg-bophh-coverage",
+      "url": "https://html.duckduckgo.com/html/?q=site%3Abundesbank.de%20%22April%202020%22%20%22monthly%22%20%22expectations%22",
+      "final_url": "https://html.duckduckgo.com/html/?q=site%3Abundesbank.de%20%22April%202020%22%20%22monthly%22%20%22expectations%22",
+      "status": 202,
+      "bytes": 14342,
+      "sha256": "60dee6f5c420f04a2055be45834176020826784c044dbed3452cb3863c3ebc6b",
+      "raw_storage": "Research cache outside Git; no search-page payload redistributed",
+      "interpretation": "Search challenge; no further retries or circumvention"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:46:37.059549+00:00",
+      "id": "wages-monthly-table",
+      "url": "https://www-genesis.destatis.de/datenbank/online/statistic/62361/table/62361-0001",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:46:37.056738+00:00",
+      "id": "wages-quarter-table",
+      "url": "https://www-genesis.destatis.de/datenbank/online/statistic/62361/table/62361-0010",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:46:37.054434+00:00",
+      "id": "wages-quarter-official",
+      "url": "https://www.destatis.de/DE/Themen/Arbeit/Verdienste/Realloehne-Nominalloehne/Tabellen/reallohnindex-quartal.html",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:46:37.052310+00:00",
+      "id": "cpi-table",
+      "url": "https://genesis.destatis.de/datenbank/online/statistic/61111/table/61111-0002",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:46:37.061780+00:00",
+      "id": "genesis-rights",
+      "url": "https://www.destatis.de/DE/Service/Impressum/copyright-genesis-online.html",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:46:37.063806+00:00",
+      "id": "ecb-stat-rights",
+      "url": "https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:46:37.065732+00:00",
+      "id": "bophh-inflation",
+      "url": "https://www.bundesbank.de/en/bundesbank/research/survey-on-consumer-expectations-bop-hh/inflation-expectations-848334",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:46:37.067695+00:00",
+      "id": "bophh-population",
+      "url": "https://www.bundesbank.de/en/bundesbank/research/rdsc/research-data/bop-hh-757542",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:46:37.069729+00:00",
+      "id": "dfr-series",
+      "url": "https://data.ecb.europa.eu/data/datasets/FM/FM.D.U2.EUR.4F.KR.DFR.LEV",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "interpretation": "Environment proxy CONNECT 403, not proof that the public service is unavailable"
+    }
+  ]
+}

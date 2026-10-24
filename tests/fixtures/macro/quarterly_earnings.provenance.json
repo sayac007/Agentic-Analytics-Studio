@@ -1,0 +1,6 @@
+{
+  "raw_sha256": "1e863d3f20f3843dcd265285a43a167cf64bb33f3807ca51faba65fb1abe53dd",
+  "source_url": "https://example.org/SYNTHETIC/quarterly_earnings.csv",
+  "retrieved_at": "2026-10-24T08:50:00+00:00",
+  "release_or_vintage": "SYNTHETIC fixture v1; fixed test timestamp, not a source release"
+}

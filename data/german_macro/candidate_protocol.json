@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "status": "proposal_requires_separate_model_approval",
+  "outcome_relationships_inspected": false,
+  "frozen_task_01g_changed": false,
+  "sample_windows_requested": ["2018-01/2025-12", "2021-01/2025-12"],
+  "lag_direction": "positive k uses macro[t-k] for outcome[t]",
+  "primary_extension": {"variable": "consumer_credit", "transformation": "annual_percent_rate_level", "primary_lag_months": 3, "separate_sensitivity_lags_months": [0, 6]},
+  "secondary_alternative": {"variable": "cpi_inflation_yoy", "transformation": "percent_yoy", "primary_lag_months": 3, "separate_sensitivity_lags_months": [0, 6]},
+  "maximum_added_macro_variables_per_specification": 1,
+  "replacement_only_candidates": ["deposit_facility", "euribor_3m"],
+  "documentation_only_until_verified": ["real_earnings", "nominal_earnings", "bophh_expected_inflation_12m", "ces_de_expected_inflation_12m"],
+  "selection_by_correlations_or_outcomes": "forbidden",
+  "historical_as_of": "not_established",
+  "estimated_coefficients": null
+}

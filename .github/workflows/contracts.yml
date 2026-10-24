@@ -56,3 +56,11 @@ jobs:
             --output-dir "$RUNNER_TEMP/attention-diagnostics"
       - name: Offline product and recall evidence check
         run: python3 -m product_events.transform --check
+      - name: Offline macro blocked-source and normalization smoke
+        run: |
+          python3 -m macro_controls.pipeline --check
+          python3 -m macro_controls.pipeline --fixture \
+            --catalog tests/fixtures/macro/sources.json --series cpi \
+            --raw tests/fixtures/macro/cpi.csv \
+            --provenance tests/fixtures/macro/cpi.provenance.json \
+            --derive cpi-yoy --output "$RUNNER_TEMP/SYNTHETIC-macro-cpi.json"

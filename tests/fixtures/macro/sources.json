@@ -1,0 +1,110 @@
+{
+  "version": "1.0.0",
+  "scope": "SYNTHETIC_FIXTURE_ONLY",
+  "series": [
+    {
+      "id": "monthly_rate",
+      "series_id": "SYNTHETIC.monthly_rate",
+      "provider": "Synthetic test generator",
+      "definition": "SYNTHETIC FIXTURE ONLY: monthly_rate",
+      "country": "DE",
+      "frequency": "M",
+      "unit": "PC",
+      "seasonal_adjustment": "NSA",
+      "source_url": "https://example.org/SYNTHETIC/monthly_rate.csv",
+      "metadata_status": "synthetic_fixture",
+      "rights": {
+        "status": "synthetic_fixture",
+        "url": "https://example.org/SYNTHETIC/rights",
+        "attribution": "Repository test fixture",
+        "note": "Invented test observations, not official data; repository fixture reuse only."
+      },
+      "blockers": [],
+      "candidate_series_id": null,
+      "evidence": [
+        "tests/fixtures/macro/README.md"
+      ],
+      "definition_details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "quarterly_earnings",
+      "series_id": "SYNTHETIC.quarterly_earnings",
+      "provider": "Synthetic test generator",
+      "definition": "SYNTHETIC FIXTURE ONLY: quarterly_earnings",
+      "country": "DE",
+      "frequency": "Q",
+      "unit": "index_2020_100",
+      "seasonal_adjustment": "NSA",
+      "source_url": "https://example.org/SYNTHETIC/quarterly_earnings.csv",
+      "metadata_status": "synthetic_fixture",
+      "rights": {
+        "status": "synthetic_fixture",
+        "url": "https://example.org/SYNTHETIC/rights",
+        "attribution": "Repository test fixture",
+        "note": "Invented test observations, not official data; repository fixture reuse only."
+      },
+      "blockers": [],
+      "candidate_series_id": null,
+      "evidence": [
+        "tests/fixtures/macro/README.md"
+      ],
+      "definition_details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "cpi",
+      "series_id": "SYNTHETIC.cpi",
+      "provider": "Synthetic test generator",
+      "definition": "SYNTHETIC FIXTURE ONLY: cpi",
+      "country": "DE",
+      "frequency": "M",
+      "unit": "index_2020_100",
+      "seasonal_adjustment": "NSA",
+      "source_url": "https://example.org/SYNTHETIC/cpi.csv",
+      "metadata_status": "synthetic_fixture",
+      "rights": {
+        "status": "synthetic_fixture",
+        "url": "https://example.org/SYNTHETIC/rights",
+        "attribution": "Repository test fixture",
+        "note": "Invented test observations, not official data; repository fixture reuse only."
+      },
+      "blockers": [],
+      "candidate_series_id": null,
+      "evidence": [
+        "tests/fixtures/macro/README.md"
+      ],
+      "definition_details": {
+        "synthetic": true
+      }
+    },
+    {
+      "id": "daily_policy",
+      "series_id": "SYNTHETIC.daily_policy",
+      "provider": "Synthetic test generator",
+      "definition": "SYNTHETIC FIXTURE ONLY: daily_policy",
+      "country": "U2",
+      "frequency": "D",
+      "unit": "PC",
+      "seasonal_adjustment": "NSA",
+      "source_url": "https://example.org/SYNTHETIC/daily_policy.csv",
+      "metadata_status": "synthetic_fixture",
+      "rights": {
+        "status": "synthetic_fixture",
+        "url": "https://example.org/SYNTHETIC/rights",
+        "attribution": "Repository test fixture",
+        "note": "Invented test observations, not official data; repository fixture reuse only."
+      },
+      "blockers": [],
+      "candidate_series_id": null,
+      "evidence": [
+        "tests/fixtures/macro/README.md"
+      ],
+      "definition_details": {
+        "synthetic": true
+      }
+    }
+  ]
+}

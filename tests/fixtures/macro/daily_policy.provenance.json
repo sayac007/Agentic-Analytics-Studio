@@ -1,0 +1,6 @@
+{
+  "raw_sha256": "66babdeec2277b36bc2fa5b9c036097e41c0c0bbee47acbd58f69c503814b42d",
+  "source_url": "https://example.org/SYNTHETIC/daily_policy.csv",
+  "retrieved_at": "2026-10-24T08:50:00+00:00",
+  "release_or_vintage": "SYNTHETIC fixture v1; fixed test timestamp, not a source release"
+}
