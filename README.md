@@ -79,6 +79,7 @@ No real-value CSV is published or empirically admitted; existing empty artifacts
 
 Task 01G freezes an [exploratory protocol](docs/TESLA_ATTENTION_ECONOMETRIC_PROTOCOL.md)
 and adds a private diagnostics CLI; [first results](docs/TESLA_ATTENTION_FIRST_RESULTS.md)
-are **blocked on exact retrieval evidence and private-use rights confirmation**.
+are **blocked on exact retrieval evidence**. The user has confirmed lawful private
+analytical use; publication of values remains a separate review.
 No real Trends/KBA analysis was performed. Install `requirements-attention.lock`;
 only the documented synthetic-fixture path has executed successfully.

@@ -7,9 +7,20 @@
   "download_date_reported": "2026-10-23",
   "download_timezone_reported": "Europe/Berlin",
   "exact_download_timestamp": null,
-  "lawful_private_use_review": "not_confirmed",
+  "lawful_private_use_review": "user_confirmed",
   "real_cross_series_analyses_performed": false,
   "real_results_published": false,
   "expected_refusal": "Timestamp needs an explicit timezone and exact day",
-  "newly_timestamped_original_required": true
+  "newly_timestamped_original_required": true,
+  "rights_confirmation": {
+    "confirmed_on": "2026-10-24",
+    "basis": "Explicit user confirmation of lawful private analytical use after review of Google/export conditions",
+    "evidence_urls": [
+      "https://support.google.com/trends/answer/4365538?hl=en",
+      "https://support.google.com/trends/answer/87285?hl=en"
+    ],
+    "attribution": "Data source: Google Trends (https://www.google.com/trends)",
+    "independent_legal_verification": false,
+    "publication_decision": "separate_review_required"
+  }
 }
