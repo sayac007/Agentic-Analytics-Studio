@@ -1,0 +1,56 @@
+{
+  "version": "1.1.0",
+  "origin": "observed",
+  "measure_role": "attention_proxy",
+  "export_method": "official_ui_manual_csv",
+  "retrieved_at": null,
+  "source_url": null,
+  "query": {
+    "kind": "search_term",
+    "value": "Tesla",
+    "label": "Tesla",
+    "topic_evidence_url": null
+  },
+  "geography": "DE",
+  "category": null,
+  "search_property": null,
+  "request_window": {
+    "selection": "all_available_history"
+  },
+  "frequency": "monthly",
+  "time_zone": "UTC",
+  "normalization": {
+    "kind": "google_trends_single_request_relative_0_100",
+    "window": {
+      "selection": "all_available_history"
+    },
+    "geography": "DE",
+    "min": 0,
+    "max": 100,
+    "rescaled": false,
+    "combined_exports": false
+  },
+  "raw_sha256": null,
+  "csv_locale": "de",
+  "rights": {
+    "private_analysis_confirmed": false,
+    "redistribution": "not_verified",
+    "evidence_url": "https://support.google.com/trends/answer/4365538",
+    "note": "Pending actual source URL, download timestamp, UI filters and private-use review. No publication permission is inferred from the CSV."
+  },
+  "export_attestation": false,
+  "source_window": {
+    "start": "2004-01",
+    "end": "2026-10"
+  },
+  "analysis_windows": {
+    "analysis_2018_2025": {
+      "start": "2018-01",
+      "end": "2025-12"
+    },
+    "common_2021_2025": {
+      "start": "2021-01",
+      "end": "2025-12"
+    }
+  }
+}

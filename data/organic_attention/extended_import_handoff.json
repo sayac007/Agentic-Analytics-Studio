@@ -1,0 +1,55 @@
+{
+  "admission_validation": "Timestamp needs an explicit timezone and exact day",
+  "analysis_windows": {
+    "analysis_2018_2025": {
+      "end": "2025-12",
+      "start": "2018-01"
+    },
+    "common_2021_2025": {
+      "end": "2025-12",
+      "start": "2021-01"
+    }
+  },
+  "empirical_admission": false,
+  "historical_point_in_time": "not_verified",
+  "last_period_completeness": "partial_or_unverified_period",
+  "metadata_sha256": "2b934f3998fc6d0a9e2b668e0ceeff0abd9d67f011f06c0f4ff5913ea86ac5bf",
+  "normalized_csvs": [],
+  "note": "CSV labels/rows are inspected, not verified UI settings, retrieval or rights. No real values redistributed.",
+  "raw_sha256": "28e0b00b697ceb65833ca5bb2039d43c0ab4350d9a732e884edd3a44fe0da84e",
+  "row_observation_status": "unverified_observation",
+  "source_window": {
+    "end": "2026-10",
+    "start": "2004-01"
+  },
+  "status": "pending_empirical_admission",
+  "structural_counts": {
+    "absent": 0,
+    "blank": 0,
+    "censored": 0,
+    "numeric": 274,
+    "partial_or_unverified": 274,
+    "rows": 274
+  },
+  "unresolved_fields": [
+    "retrieved_at",
+    "rights.private_analysis_confirmed",
+    "rights.redistribution"
+  ],
+  "user_evidence": {
+    "category": "all categories",
+    "geography": "DE",
+    "query": "Tesla search term",
+    "retrieval_statement": {
+      "date": "2026-10-23",
+      "exact_timestamp": null,
+      "timezone": "Europe/Berlin",
+      "user_words": "today and now"
+    },
+    "rights_review": "not confirmed",
+    "search_property": "web",
+    "source": "User-provided CSV and screenshot in conversation; screenshot not redistributed",
+    "time_selection": "all available history",
+    "visible_source_url": "https://trends.google.com/trends/explore?date=all&geo=DE&q=Tesla"
+  }
+}

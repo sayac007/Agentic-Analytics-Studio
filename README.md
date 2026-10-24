@@ -70,3 +70,9 @@ The official request returned HTTP 429; **no real attention observations were ac
 Coverage remains 0/96 (2018–2025) and 0/60 (2021–2025), with unknown months preserved.
 Run `python3 -m attention.import_trends --check-blocked`; use the documented sidecar
 and private import command for a lawful user-supplied monthly CSV. No values are invented.
+
+Task 01F.1 adds [extended Trends-window import](docs/GOOGLE_TRENDS_EXTENDED_IMPORT.md).
+The private upload is present and hash-checked (274 months); URL and settings are
+evidenced by the user screenshot. Exact download time and rights review remain pending. Version 1.1 preserves source-wide
+normalization while selecting 96/60-month subsets and flagging partial periods.
+No real-value CSV is published or empirically admitted; existing empty artifacts remain.
