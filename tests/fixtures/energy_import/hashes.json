@@ -1,0 +1,25 @@
+{
+  "files": {
+    "brent_usd": {
+      "actual_download_time": null,
+      "bytes": 5632,
+      "filename": "SYNTHETIC_brent.xls",
+      "sha256": "336fb1a0ecf8442990643e250438f27389b4a8c56f5a8bd623d6567046f23b88"
+    },
+    "diesel_de": {
+      "actual_download_time": null,
+      "bytes": 5241,
+      "filename": "SYNTHETIC_diesel.xlsx",
+      "sha256": "422c51d15dcb6eb3ffadd388a6134d835eba0ef9aa8993173e9a04fba7158380"
+    },
+    "eurusd": {
+      "actual_download_time": null,
+      "bytes": 152,
+      "filename": "SYNTHETIC_ecb.csv",
+      "sha256": "3b187834a6d27ee65d1acaf2250095ac7b6b51197cc511ee2d7f95a62c8da448"
+    }
+  },
+  "rights_review_requests": [],
+  "scope": "SYNTHETIC_FIXTURE_ONLY",
+  "version": "1.0.0"
+}

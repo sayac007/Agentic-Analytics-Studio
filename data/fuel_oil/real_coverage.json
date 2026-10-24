@@ -1,0 +1,317 @@
+{
+  "as_of": "2026-10-24",
+  "historical_as_of": "not_established",
+  "rights_review_requests": [
+    {
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "requested_at": "2026-10-24T12:35:34.564679+00:00",
+      "url": "https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html"
+    },
+    {
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "requested_at": "2026-10-24T12:35:34.578117+00:00",
+      "url": "https://www.eia.gov/about/copyrights_reuse.php"
+    },
+    {
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "requested_at": "2026-10-24T12:35:34.583800+00:00",
+      "url": "https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en"
+    },
+    {
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "requested_at": "2026-10-24T12:35:34.587957+00:00",
+      "url": "https://commission.europa.eu/legal-notice_en"
+    }
+  ],
+  "series": [
+    {
+      "admitted": false,
+      "blockers": [
+        "Primary rights notice unreachable; private/raw/derived permission not verified"
+      ],
+      "duplicate_periods": 0,
+      "id": "eurusd",
+      "inventory": {
+        "actual_download_time": null,
+        "bytes": 10745,
+        "columns": 3,
+        "data_rows": 333,
+        "filename": "ECB Data Portal_20261024135113.csv",
+        "header": [
+          "DATE",
+          "TIME PERIOD",
+          "US dollar/Euro ECB reference exchange rate (EXR.M.USD.EUR.SP00.A)"
+        ],
+        "local_ingestion_is_not_download": true,
+        "raw_sha256": "26a92c9b9a24414e864a03bd4f7ba7c4a482793845594121e9745c606017355b"
+      },
+      "native_end": "2026-09",
+      "native_rows": 333,
+      "native_start": "1999-01",
+      "nonfinite_values": 0,
+      "partial_october_2026_native_rows": 0,
+      "provenance_gaps": [
+        "Actual source download URL and retrieval evidence not provided",
+        "Source status/revision flags not provided"
+      ],
+      "rights": {
+        "derived_redistribution": "not_verified",
+        "private_analysis": "not_verified",
+        "raw_redistribution": "not_verified"
+      },
+      "windows": [
+        {
+          "admitted_months": 0,
+          "blocked_months": 96,
+          "censored_or_missing_value_months": 0,
+          "end": "2025-12",
+          "expected_months": 96,
+          "measurement_basis": "Source-native monthly values",
+          "missing_months": 0,
+          "missing_periods": [],
+          "observed_months": 96,
+          "partial_months": 0,
+          "revised_months": null,
+          "start": "2018-01",
+          "status_flags_unknown_months": 96
+        },
+        {
+          "admitted_months": 0,
+          "blocked_months": 105,
+          "censored_or_missing_value_months": 0,
+          "end": "2026-09",
+          "expected_months": 105,
+          "measurement_basis": "Source-native monthly values",
+          "missing_months": 0,
+          "missing_periods": [],
+          "observed_months": 105,
+          "partial_months": 0,
+          "revised_months": null,
+          "start": "2018-01",
+          "status_flags_unknown_months": 105
+        }
+      ]
+    },
+    {
+      "admitted": false,
+      "blockers": [
+        "Primary rights notice unreachable; private/raw/derived permission not verified"
+      ],
+      "duplicate_periods": 0,
+      "id": "brent_usd",
+      "inventory": {
+        "actual_download_time": null,
+        "bytes": 55296,
+        "filename": "RBRTEm.xls",
+        "frequency": "Monthly",
+        "header": "Europe Brent Spot Price FOB (Dollars per Barrel)",
+        "local_ingestion_is_not_download": true,
+        "publisher_workbook_timestamp_text": "10/21/2026 11:22:10 AM",
+        "raw_sha256": "5881bc058aa7d641dc41ef254f6991e101c952e112284f0eb5a994514b401cb7",
+        "series_id": "RBRTE",
+        "sheets": [
+          {
+            "columns": 6,
+            "name": "Contents",
+            "rows": 15
+          },
+          {
+            "columns": 2,
+            "name": "Data 1",
+            "rows": 476
+          }
+        ],
+        "timestamp_meaning": "Workbook text only; timezone/publication/download not established"
+      },
+      "native_end": "2026-09",
+      "native_rows": 473,
+      "native_start": "1987-05",
+      "nonfinite_values": 0,
+      "partial_october_2026_native_rows": 0,
+      "provenance_gaps": [
+        "Actual source download URL and retrieval evidence not provided",
+        "Source status/revision flags not provided"
+      ],
+      "rights": {
+        "derived_redistribution": "not_verified",
+        "private_analysis": "not_verified",
+        "raw_redistribution": "not_verified"
+      },
+      "windows": [
+        {
+          "admitted_months": 0,
+          "blocked_months": 96,
+          "censored_or_missing_value_months": 0,
+          "end": "2025-12",
+          "expected_months": 96,
+          "measurement_basis": "Source-native monthly values",
+          "missing_months": 0,
+          "missing_periods": [],
+          "observed_months": 96,
+          "partial_months": 0,
+          "revised_months": null,
+          "start": "2018-01",
+          "status_flags_unknown_months": 96
+        },
+        {
+          "admitted_months": 0,
+          "blocked_months": 105,
+          "censored_or_missing_value_months": 0,
+          "end": "2026-09",
+          "expected_months": 105,
+          "measurement_basis": "Source-native monthly values",
+          "missing_months": 0,
+          "missing_periods": [],
+          "observed_months": 105,
+          "partial_months": 0,
+          "revised_months": null,
+          "start": "2018-01",
+          "status_flags_unknown_months": 105
+        }
+      ]
+    },
+    {
+      "admitted": false,
+      "blockers": [
+        "Currency not explicit in selected workbook headers; EUR conversion and price aggregation blocked"
+      ],
+      "duplicate_periods": 0,
+      "id": "diesel_de",
+      "inventory": {
+        "actual_download_time": null,
+        "bytes": 4491517,
+        "country_column": "BB",
+        "currency": "Not explicit in selected headers or cell format; EUR assumption not admitted",
+        "date_column": "A",
+        "embedded_rights_notice": "Reproduction is authorised provided the source is acknowledged.",
+        "filename": "Weekly_Oil_Bulletin_Prices_History_maticni_4web.xlsx",
+        "grade_label": "Gas oil automobile Automotive gas oil Dieselkraftstoff (I)",
+        "key": "DE_price_with_tax_diesel",
+        "local_ingestion_is_not_download": true,
+        "price_column": "BD",
+        "raw_sha256": "7e019a27fe2df6f324ec7a7c551b98142713fbee32aa7a030906101ffc22b2fd",
+        "rights_locations": [
+          "Prices with taxes!B1115",
+          "Prices with taxes!B1117"
+        ],
+        "selected_sheet": "Prices with taxes",
+        "sheets": [
+          {
+            "columns": 226,
+            "name": "Prices with taxes",
+            "rows": 1117
+          },
+          {
+            "columns": 226,
+            "name": "Prices wo taxes",
+            "rows": 1117
+          },
+          {
+            "columns": 211,
+            "name": "Consumption",
+            "rows": 52
+          },
+          {
+            "columns": 8,
+            "name": "VAT",
+            "rows": 119
+          },
+          {
+            "columns": 8,
+            "name": "Excise duties",
+            "rows": 1165
+          },
+          {
+            "columns": 12,
+            "name": "Excise duties - components",
+            "rows": 12211
+          },
+          {
+            "columns": 8,
+            "name": "Other Indirect Taxes",
+            "rows": 1465
+          }
+        ],
+        "volume_unit": "1000 l"
+      },
+      "native_end": "2026-10-19",
+      "native_rows": 1089,
+      "native_start": "2005-01-03",
+      "nonfinite_values": 0,
+      "partial_october_2026_native_rows": 3,
+      "provenance_gaps": [
+        "Actual source download URL and retrieval evidence not provided",
+        "Source status/revision flags not provided"
+      ],
+      "rights": {
+        "derived_redistribution": "not_verified",
+        "private_analysis": "reviewed_embedded_reproduction_notice",
+        "raw_redistribution": "conditional_embedded_notice_keep_private"
+      },
+      "windows": [
+        {
+          "admitted_months": 0,
+          "blocked_months": 96,
+          "censored_or_missing_value_months": 0,
+          "end": "2025-12",
+          "expected_months": 96,
+          "measurement_basis": "Temporal seven-day interval coverage only; no currency conversion or monthly price admitted",
+          "missing_months": 13,
+          "missing_periods": [
+            "2018-04",
+            "2018-12",
+            "2019-01",
+            "2019-04",
+            "2019-12",
+            "2020-01",
+            "2020-04",
+            "2020-12",
+            "2021-01",
+            "2021-04",
+            "2021-12",
+            "2022-01",
+            "2022-04"
+          ],
+          "observed_months": 83,
+          "partial_months": 0,
+          "revised_months": null,
+          "start": "2018-01",
+          "status_flags_unknown_months": 96
+        },
+        {
+          "admitted_months": 0,
+          "blocked_months": 105,
+          "censored_or_missing_value_months": 0,
+          "end": "2026-09",
+          "expected_months": 105,
+          "measurement_basis": "Temporal seven-day interval coverage only; no currency conversion or monthly price admitted",
+          "missing_months": 13,
+          "missing_periods": [
+            "2018-04",
+            "2018-12",
+            "2019-01",
+            "2019-04",
+            "2019-12",
+            "2020-01",
+            "2020-04",
+            "2020-12",
+            "2021-01",
+            "2021-04",
+            "2021-12",
+            "2022-01",
+            "2022-04"
+          ],
+          "observed_months": 92,
+          "partial_months": 0,
+          "revised_months": null,
+          "start": "2018-01",
+          "status_flags_unknown_months": 105
+        }
+      ]
+    }
+  ],
+  "source_acquisition": "User-supplied originals; not successful live API retrieval",
+  "source_catalog_sha256": "8465c730d213f213e7561ecde80ce980da3f3cff139e819d553254b77b1ab486",
+  "status": "REAL_FILES_PARSED_NOT_ADMITTED",
+  "version": "1.0.0"
+}

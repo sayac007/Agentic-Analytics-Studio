@@ -10,3 +10,11 @@ Run `python -m fuel_oil.fetch_fuel_oil --check` offline. See
 [acquisition and manual handoff](../../docs/GERMAN_FUEL_OIL_ACQUISITION.md) and
 [conditional attribution](../../docs/DATA_SOURCES_FUEL_OIL.md). Keep later raw/derived
 snapshots outside Git until separately reviewed rights and admission are resolved.
+
+## Later uploaded-original assessment (Task 01I.1)
+
+`real_sources.json` binds the three actual user uploads, source identification and
+rights/provenance gaps. `real_coverage.json` contains metadata/QA only, computed from
+those originals: source-native ECB/Brent 96/105 months; diesel temporal coverage
+83/92 months; zero admitted. This later assessment does not rewrite the earlier
+blocked live-access report. See `docs/REAL_ENERGY_DATA_IMPORT.md`.
