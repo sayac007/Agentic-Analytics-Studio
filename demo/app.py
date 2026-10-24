@@ -6,7 +6,7 @@ from typing import Literal
 from uuid import uuid4
 
 from fastapi import FastAPI, HTTPException, Request
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict
 from starlette.middleware.trustedhost import TrustedHostMiddleware
@@ -82,3 +82,19 @@ def get_run(run_id: str):
     if run_id not in RUNS:
         raise HTTPException(404, 'Run not found; results are kept only for this local session.')
     return RUNS[run_id]
+
+
+@app.get('/api/runs/{run_id}/comparison')
+def compare_run(run_id: str):
+    value = get_run(run_id)
+    return {'classification': service.DATASET['classification'],
+            'comparison': value['comparison'],
+            'models': {name: {'result': variant['result'], 'evaluation': variant['evaluation']}
+                       for name, variant in value['variants'].items()}}
+
+
+@app.get('/api/runs/{run_id}/report', response_class=PlainTextResponse)
+def markdown_report(run_id: str):
+    value = get_run(run_id)
+    return PlainTextResponse(value['markdown_report'], media_type='text/markdown',
+                             headers={'Content-Disposition': 'attachment; filename="synthetic-mmm-report.md"'})

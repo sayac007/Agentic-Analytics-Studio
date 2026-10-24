@@ -112,6 +112,22 @@ class DemoHTTPTests(unittest.TestCase):
         for key in ('result', 'series', 'evaluation', 'ground_truth', 'hashes'):
             self.assertEqual(again[key], self.first[key])
 
+    def test_comparison_and_synthetic_markdown_report(self):
+        r = self.first
+        c = self.request('/api/runs/'+r['id']+'/comparison')
+        self.assertTrue(c['comparison']['same_data_and_holdout'])
+        left, right = (c['models'][name]['result'] for name in ('with-quarter', 'without-quarter'))
+        self.assertEqual(left['data_sha256'], right['data_sha256'])
+        self.assertEqual(left['response_grid'], right['response_grid'])
+        self.assertEqual(len(left['response_grid']['spend']), 21)
+        self.assertAlmostEqual(c['comparison']['test_rmse_delta_right_minus_left'], right['metrics']['test']['rmse']-left['metrics']['test']['rmse'])
+        report = self.request('/api/runs/'+r['id']+'/report', raw=True)
+        self.assertIn('Synthetic Stage-A recovery benchmark', report)
+        self.assertIn(format(left['metrics']['test']['rmse'], '.9f'), report)
+        self.assertIsNone(r['evaluation']['effect_below_detection_limit'])
+        self.assertEqual(r['evaluation']['detection_limit_status'], 'not_calibrated')
+        self.assertEqual(r['ground_truth']['response'], r['variants']['without-quarter']['ground_truth']['response'])
+
     def test_invalid_requests_and_cross_origin_refused(self):
         for path, body, headers, code in [('/api/runs', {'dataset': 'private-kba'}, {}, 422),
                                           ('/api/runs', {'path': '../private'}, {}, 422),

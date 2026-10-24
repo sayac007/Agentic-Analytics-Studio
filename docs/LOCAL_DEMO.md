@@ -1,4 +1,4 @@
-# Task 02A — local synthetic walking skeleton
+# Task 02A–02B — local synthetic analytics demo
 
 ## Small architecture
 
@@ -57,8 +57,10 @@ This is Stage A, fixed oracle transformations, conditional three-lag Newey-West 
 validate interval coverage, power, MDE, real ROI or causal marketing effects.
 Scientific warnings and poor recovery are preserved, not tuned away.
 
-02B comparison UI/report export and 02C controlled language tools are not implemented
-in this first intermediate commit. No MCP server is present. Future enterprise,
+02B adds a two-model comparison, identical 21-point response grid with separately
+labelled truth, full time-series decomposition and residual plot. Export returns the
+existing engine-generated synthetic Markdown report, never empirical output.
+02C controlled language tools are not implemented in this intermediate commit. No MCP server is present. Future enterprise,
 Microsoft, PPTX, deployment and empirical integrations remain outside this MVP.
 
 Optional automated browser check (Playwright 1.56.0, existing system Chromium):

@@ -23,6 +23,8 @@ LIMITS = [
     'HAC 95% intervals are conditional on fixed oracle transforms and controls; actual coverage is not validated.',
     'The baseline deliberately contains an unmodelled break and outlier. Known transforms do not guarantee unbiased recovery.',
     'Detection limit is not calibrated; effect_below_detection_limit is null.',
+    'Response curves assume constant spend for the full finite adstock kernel, inside the common training spend range. Extrapolation is not evaluated.',
+    'Stability flags use a declared engineering sensitivity rule, not a scientifically calibrated detection threshold.',
 ]
 
 
@@ -37,7 +39,12 @@ def compute(model):
     with tempfile.TemporaryDirectory(prefix='aas-synthetic-demo-') as tmp:
         root = run(Path(tmp) / 'bundle')
         verify_bundle(root)  # Never present unvalidated result artifacts.
-        return summarize(root, model)
+        variants = {name: summarize(root, name) for name in ('with-quarter', 'without-quarter')}
+        selected = dict(variants[model])
+        selected['variants'] = variants
+        selected['comparison'] = load_json(root, 'comparison.json')
+        selected['markdown_report'] = (root / 'report.md').read_text()
+        return selected
 
 
 def summarize(root, model):
@@ -67,7 +74,8 @@ def summarize(root, model):
                'a single recovery run does not establish accuracy, power or causality.')
     return dict(dataset=DATASET, model=model, formula=formula, result=result,
                 ground_truth=dict(media_coefficient=truth['media_coefficient'],
-                                  noise_sd=truth['noise_sd'], estimator_access=False),
+                                  noise_sd=truth['noise_sd'], estimator_access=False,
+                                  response=truth['true_response']),
                 evaluation=evaluation, interpretation=summary, warnings=LIMITS + result['diagnostics']['flags'],
                 series=dict(periods=periods, outcome=outcome.tolist(),
                             synthetic_reference=reference, simulated_media=truth['true_contribution_monthly'],
