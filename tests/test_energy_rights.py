@@ -1,6 +1,7 @@
-"""Policy fixtures test transitions only; no actual approval or live access."""
+"""Synthetic transition tests plus integrity checks of the explicit human decision."""
 
 import copy
+from datetime import date
 import json
 from pathlib import Path
 import tempfile
@@ -14,6 +15,15 @@ class EnergyRightsTests(unittest.TestCase):
     def setUp(self):
         self.matrix = json.loads((r.DATA / "rights_admission.json").read_text())
         self.catalog = json.loads((r.DATA / "real_sources.json").read_text())
+        # Counterfactual pending baseline; never inherit real approvals into fixtures.
+        for record in self.matrix["series"]:
+            record.update(
+                private_analysis="not_verified",
+                analysis_scope_verified=False,
+                source_specific_review_status="pending",
+                human_admission_decision=None,
+            )
+        self.refresh(r.ROOT)
 
     def record(self, id="eurusd"):
         return next(x for x in self.matrix["series"] if x["id"] == id)
@@ -67,16 +77,26 @@ class EnergyRightsTests(unittest.TestCase):
             )
         self.matrix["source_catalog_sha256"] = r.sha(r.encoded(self.catalog))
 
-    def test_current_real_decisions_are_blocked_independently(self):
-        results = r.check(self.matrix, self.catalog)
+    def test_current_human_decisions_admit_only_ecb_and_qualified_diesel(self):
+        actual = json.loads((r.DATA / "rights_admission.json").read_text())
+        results = r.check(actual, self.catalog)
         self.assertEqual(
             {k: v["status"] for k, v in results.items()},
-            {id: "blocked" for id in r.IDENTITIES},
+            {"eurusd": "admitted", "brent_usd": "blocked", "diesel_de": "admitted"},
         )
         self.assertEqual(
-            self.record("diesel_de")["public_raw_redistribution"], "permitted"
+            self.record("diesel_de")["public_raw_redistribution"], "not_verified"
         )
-        self.assertEqual(self.record("diesel_de")["private_analysis"], "not_verified")
+        by = {x["id"]: x for x in actual["series"]}
+        self.assertEqual(by["brent_usd"]["legal_status"], "not_verified")
+        self.assertEqual(
+            by["brent_usd"]["underlying_source"]["name"], "Refinitiv (LSEG)"
+        )
+        self.assertEqual(
+            by["diesel_de"]["admission_qualification"],
+            "qualified_project_specific_private_use",
+        )
+        self.assertTrue(by["diesel_de"]["unresolved_limitations"])
         self.assertTrue(
             all(
                 x["historical_point_in_time"] == "not_established"
@@ -98,6 +118,43 @@ class EnergyRightsTests(unittest.TestCase):
             "Explicit source-bound human private-admission decision missing",
             result["reasons"],
         )
+
+    def test_refinitiv_withholding_cannot_be_overridden_by_admission_flags(self):
+        actual = json.loads((r.DATA / "rights_admission.json").read_text())
+        rec = next(x for x in actual["series"] if x["id"] == "brent_usd")
+        rec.update(
+            private_analysis="permitted",
+            analysis_scope_verified=True,
+            source_specific_review_status="verified",
+        )
+        self.assertEqual(
+            r.assess(rec, self.catalog["files"]["brent_usd"])["status"], "blocked"
+        )
+        rec["human_admission_decision"]["decision"] = "approve_private_retrospective"
+        with self.assertRaisesRegex(ValueError, "disagrees"):
+            r.assess(rec, self.catalog["files"]["brent_usd"])
+
+    def test_qualified_diesel_cannot_drop_limits_or_invent_decision_time(self):
+        actual = json.loads((r.DATA / "rights_admission.json").read_text())
+        rec = next(x for x in actual["series"] if x["id"] == "diesel_de")
+        bad = copy.deepcopy(rec)
+        bad["unresolved_limitations"] = []
+        with self.assertRaisesRegex(ValueError, "Qualified"):
+            r.assess(bad, self.catalog["files"]["diesel_de"])
+        for field, value in [
+            ("legal_status", "cleared"),
+            ("public_redistribution_approval", "granted"),
+            ("task_01j_authorized", True),
+            ("source_specific_review_status", "verified"),
+        ]:
+            bad = copy.deepcopy(rec)
+            bad[field] = value
+            with self.subTest(field=field), self.assertRaises(ValueError):
+                r.assess(bad, self.catalog["files"]["diesel_de"])
+        bad = copy.deepcopy(rec)
+        bad["human_admission_decision"]["exact_decision_time"] = "2026-10-24T00:00:00Z"
+        with self.assertRaisesRegex(ValueError, "precision"):
+            r.assess(bad, self.catalog["files"]["diesel_de"])
 
     def test_human_decision_and_exception_review_are_both_required(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -239,9 +296,13 @@ class EnergyRightsTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 r.assess(rec, self.catalog["files"]["eurusd"])
 
-    def test_public_matrix_has_no_values_paths_or_self_approvals(self):
+    def test_public_matrix_has_no_values_paths_or_fabricated_decision_time(self):
         def visit(value):
             if isinstance(value, dict):
+                if set(value) == {"precision", "value"}:
+                    self.assertEqual(value["precision"], "day")
+                    date.fromisoformat(value["value"])
+                    return
                 self.assertFalse(
                     {
                         "observations",
@@ -262,9 +323,18 @@ class EnergyRightsTests(unittest.TestCase):
         text = json.dumps(self.matrix)
         self.assertNotIn("/workspace/", text)
         self.assertNotIn("/home/", text)
-        self.assertTrue(
-            all(x["human_admission_decision"] is None for x in self.matrix["series"])
-        )
+        actual = json.loads((r.DATA / "rights_admission.json").read_text())
+        for x in actual["series"]:
+            decision = x["human_admission_decision"]
+            self.assertEqual(
+                decision["decision_date"], {"precision": "day", "value": "2026-10-24"}
+            )
+            self.assertIsNone(decision["exact_decision_time"])
+            self.assertEqual(
+                r.sha((r.ROOT / decision["evidence_file"]).read_bytes()),
+                decision["evidence_hash"],
+            )
+            self.assertFalse(x["task_01j_authorized"])
 
     def test_matrix_rejects_self_declared_admitted_and_source_drift(self):
         self.record()["analytical_admission"] = "admitted"

@@ -2,7 +2,7 @@
 
 import argparse
 from collections import Counter
-from datetime import datetime
+from datetime import date, datetime
 import json
 from pathlib import Path
 import re
@@ -83,6 +83,13 @@ def assess(record, source, root=ROOT, fixture=False):
         raise ValueError(
             "This retrospective task cannot establish historical availability"
         )
+    if (
+        record.get("public_redistribution_approval", "not_granted") != "not_granted"
+        or record.get("task_01j_authorized", False) is not False
+    ):
+        raise ValueError(
+            "Private admission does not authorise public release or Task 01J"
+        )
     if record["evidence_type"] == "synthetic_fixture" and not fixture:
         raise ValueError("Fixture review cannot admit real data")
     raw = evidence_bytes(record, root)
@@ -101,7 +108,20 @@ def assess(record, source, root=ROOT, fixture=False):
         reasons.append(
             "Policy coverage of exact source and intended analytical transformation unresolved"
         )
-    if record.get("source_specific_review_status") != "verified":
+    qualified = (
+        record.get("source_specific_review_status")
+        == "qualified_private_scope_accepted"
+    )
+    if qualified and (
+        record.get("admission_qualification")
+        != "qualified_project_specific_private_use"
+        or not record.get("unresolved_limitations")
+        or record.get("legal_status") != "not_verified"
+    ):
+        raise ValueError(
+            "Qualified acceptance must preserve its unresolved limitations"
+        )
+    if record.get("source_specific_review_status") != "verified" and not qualified:
         reasons.append(
             "Source-specific third-party/notice applicability review pending"
         )
@@ -114,13 +134,11 @@ def assess(record, source, root=ROOT, fixture=False):
                 "Explicit source-bound human private-admission decision missing"
             )
         elif (
-            decision.get("decision"),
             decision.get("scope"),
             decision.get("series_id"),
             decision.get("unit"),
             decision.get("raw_sha256"),
         ) != (
-            "approve_private_retrospective",
             "private_retrospective_only",
             expected_key,
             expected_unit,
@@ -130,7 +148,68 @@ def assess(record, source, root=ROOT, fixture=False):
         elif not decision.get("reviewer") or not decision.get("evidence_hash"):
             raise ValueError("Human decision reviewer/evidence binding missing")
         else:
-            evidence_bytes(decision, root)
+            decision_raw = evidence_bytes(decision, root)
+            day = decision.get("decision_date")
+            if day is not None:
+                if (
+                    set(day) != {"precision", "value"}
+                    or day["precision"] != "day"
+                    or not re.fullmatch(r"[0-9]{4}-[0-9]{2}-[0-9]{2}", day["value"])
+                    or decision.get("exact_decision_time") is not None
+                ):
+                    raise ValueError(
+                        "Human day precision cannot become an invented instant"
+                    )
+                date.fromisoformat(day["value"])
+            if not fixture:
+                if decision.get("evidence_format") != "structured_human_decision_v1":
+                    raise ValueError(
+                        "Real approval requires a source-bound structured human decision"
+                    )
+                approved = json.loads(decision_raw)
+                evidence_bytes(approved["source_message"], root)
+                entry = approved["decisions"][record["id"]]
+                for field in (
+                    "decision",
+                    "scope",
+                    "series_id",
+                    "unit",
+                    "raw_sha256",
+                    "qualification",
+                ):
+                    if decision.get(field) != entry.get(field):
+                        raise ValueError(
+                            "Claimed decision disagrees with source-specific human evidence"
+                        )
+                if day != approved["decision_date"]:
+                    raise ValueError("Human decision date disagrees with evidence")
+                if (
+                    decision.get("source_message_hash")
+                    != approved["source_message"]["evidence_hash"]
+                ):
+                    raise ValueError("Human source message binding mismatch")
+            if decision.get("decision") == "withhold_unconditional_admission":
+                reasons.append(
+                    "Human review withholds unconditional admission; third-party rights unresolved"
+                )
+            elif decision.get("decision") != "approve_private_retrospective":
+                raise ValueError("Unsupported human admission decision")
+            elif (
+                qualified
+                and decision.get("qualification")
+                != "qualified_project_specific_private_use"
+            ):
+                raise ValueError(
+                    "Qualified scope must be explicitly accepted by the human decision"
+                )
+            elif (
+                decision.get("qualification")
+                == "qualified_project_specific_private_use"
+                and not qualified
+            ):
+                raise ValueError(
+                    "Qualified human acceptance cannot become unqualified clearance"
+                )
     if raw is None or record["evidence_type"] not in (
         "reviewed_primary_policy",
         "reviewed_human_supplied_primary_copy",
@@ -264,6 +343,24 @@ def write_private_admissions(
             "public_raw_redistribution": record["public_raw_redistribution"],
             "public_derived_redistribution": record["public_derived_redistribution"],
             "historical_point_in_time": "not_established",
+            "human_decision_evidence_hash": record["human_admission_decision"][
+                "evidence_hash"
+            ],
+            "human_decision_date": record["human_admission_decision"].get(
+                "decision_date"
+            ),
+            "human_decision_source_message_hash": record[
+                "human_admission_decision"
+            ].get("source_message_hash"),
+            "admission_qualification": record.get(
+                "admission_qualification", "private_retrospective_only"
+            ),
+            "legal_status": record.get("legal_status", "not_a_legal_guarantee"),
+            "unresolved_limitations": record.get("unresolved_limitations", []),
+            "conditions": record.get("conditions", []),
+            "source_attribution": record.get("source_attribution"),
+            "public_redistribution_approval": "not_granted",
+            "task_01j_authorized": False,
         }
         if id == "diesel_de":
             artifact["monthly_approx_sha256"] = inv["diesel_monthly_approx"][

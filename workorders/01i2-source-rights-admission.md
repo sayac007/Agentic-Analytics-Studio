@@ -64,9 +64,10 @@ Draft PR against `main`, no automatic merge:
 - [x] Human-provided research handoff preserved byte-for-byte and labelled externally reviewed, not personally fetched/full legal copy.
 - [x] Exact embedded EC reproduction notice separately reviewed and hash-bound.
 - [x] Source-specific matrix, independent gates, conditional English credits and exact missingness (13 months; January/April 2022 affected).
-- [x] Actual private check/writer: zero admissions, no admission directory created.
-- [ ] Source-specific third-party/ownership/derived-scope review and explicit human private admission decisions pending.
-- [x] Full local suite 292 passed (45.164 s); 18 targeted rights tests passed; validators/audit/metadata/lint passed.
+- [x] Initial pending check wrote zero admissions; after explicit human decision and unchanged integrity gates, exactly ECB and qualified EC private permits were generated; no EIA permit.
+- [x] Explicit day-precision human decisions recorded: ECB accepted; EC qualified accepted with limitations; EIA unconditional admission withheld, Refinitiv/LSEG rights not_verified.
+- [x] Final local full suite 294 passed (43.030 s); targeted rights suite 20 passed; both permits rechecked against current matrix.
+- [ ] Current-head remote CI maintained in Draft PR after observed completion.
 - [ ] Exact-head remote CI maintained in Draft PR after observed completion.
 
 No outcome relationships inspected, Task 01J executed, source flags self-approved,

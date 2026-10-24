@@ -2,7 +2,9 @@
 
 Assessment date: 2026-10-24. Base `main` `b80be27`, with PRs #16/#17 confirmed merged.
 No energy/outcome models, correlations, new statistical protocol or public real values.
-This records source-specific decisions, not a general legal opinion.
+This records source-specific human decisions, not a general legal clearance.
+The explicit review of 2026-10-24 accepts ECB and qualified EC private use, while
+withholding unconditional EIA admission. PR #18 remains Draft; Task 01J is not authorised.
 
 ## Evidence actually reviewed
 
@@ -26,6 +28,12 @@ This records source-specific decisions, not a general legal opinion.
    blanket source-specific approval. Review date is day-precision 2026-10-24; no
    external access clock time is invented. Own assessment timestamps are separate.
 
+5. The user then supplied the [explicit human decision](../data/fuel_oil/rights_evidence/human_admission_decision_2026-10-24.md).
+   It is preserved as a transcribed message and a hash-bound structured transcription,
+   separately from the earlier general research handoff. The decision has **day
+   precision only**; its exact instant is unknown. No download/publication/as-of
+   timestamp is inferred. Exact source keys/units/raw hashes bind each decision.
+
 ## Source-specific decision matrix
 
 Statuses apply to the **intended source and analytical scope**, not a claim that an
@@ -33,18 +41,22 @@ unresolved use is legally prohibited. `not_verified` means evidence/decision pen
 
 | Source | Private analysis | Public unchanged raw redistribution | Public derived redistribution | Analytical admission |
 |---|---|---|---|---|
-| ECB `EXR.M.USD.EUR.SP00.A`, monthly USD/EUR | not_verified | not_verified | not_verified | blocked pending exact-product exception review and human decision |
-| EIA `RBRTE`, monthly USD/barrel | not_verified | not_verified | not_verified | blocked pending exact-product exception review and human decision |
-| EC Germany diesel monthly overlap approximation | not_verified | permitted conditionally for literal source reproduction | not_verified | blocked pending derived-scope review and human decision |
+| ECB `EXR.M.USD.EUR.SP00.A`, monthly USD/EUR | permitted for stated private scope | not_verified / no approval | not_verified / no approval | admitted, private retrospective only |
+| EIA `RBRTE`, monthly USD/barrel | provisional support only; legal status `not_verified` | not_verified / no approval | not_verified / no approval | blocked; unconditional permit explicitly withheld |
+| EC Germany diesel monthly overlap approximation | permitted, qualified project-specific basis | not_verified / no approval | not_verified / no approval | admitted with unresolved limitations retained |
 
-All three have verified source identity, unit and raw-hash bindings, within the
-limitations below. No actual human admission approval has been recorded or generated.
-A source's private permission does not require permission to publish its raw/derived
-values. Conversely, a literal reproduction notice is not automatically a decision
-about a project-defined monthly estimator. Rights status is also separate from the
-workorder's explicit restriction against publishing real observations.
+All three retain verified source identity, unit and raw-hash bindings. The two
+private admissions follow the **explicit human decision and successful integrity
+checks**, not the earlier general handoff alone. Public redistribution is not
+approved for any source. The EC literal-source reproduction notice remains evidence
+of conditional source acknowledgement terms; it is not a public-release approval.
+Qualified EC acceptance is not full legal clearance: its third-party/member-state
+scope limitations remain `not_verified`, and no legal guarantee is claimed.
+`analysis_scope_verified` refers to the recorded private-scope acceptance supported
+by the explicit human decision; it does not assert independent legal clearance of
+the unresolved EC ownership/third-party limitations.
 
-### ECB — externally reviewed general policy; exact source exception pending
+### ECB — human-accepted private retrospective source
 
 [ESCB reuse policy](https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html):
 external review reports free reuse of public ESCB statistics, commercial/noncommercial,
@@ -60,11 +72,13 @@ not supplied by this portal export. Source-reference URL is known, actual downlo
 URL/time and revision flags remain unknown; these are retained provenance gaps, not
 invented new timing gates for retrospective use.
 
-Pending: source-specific confirmation that this exact EXR product is covered without
-an applicable third-party/exception restriction, then an explicit source-bound private
-admission decision. Do not require publication permission merely to admit private use.
+Human decision: **ACCEPT** this exact EXR source for private retrospective exploratory
+research, citing ECB reference-rate methodology and ESCB reuse policy, subject to
+existing source/unit/hash/attribution/integrity gates. Those gates were rechecked.
+This records human acceptance, not personal Codex access to those pages or historical
+point-in-time/public-redistribution permission.
 
-### EIA — externally reviewed general policy; protected-material exception pending
+### EIA — Refinitiv/LSEG underlying source; unconditional admission withheld
 
 [EIA Copyrights and Reuse](https://www.eia.gov/about/copyrights_reuse.php): external
 review reports general public-domain use/distribution of US-government information
@@ -77,11 +91,22 @@ Dollars per Barrel. No special licence field was found in the inspected source
 layout; that is not proof that protected contributed data are absent. Workbook clock
 text is not a proven publication/retrieval timestamp and will not be used as one.
 
-Pending: exact RBRTE product/exception check and a source-bound private admission
-decision. Attribution must retain unknown publication date rather than invent one;
-use the verified snapshot hash/vintage description and add an actual date when evidenced.
+The new human review reports that EIA's official spot-price source notes identify
+**Refinitiv (LSEG)** as the underlying data source. Record this as a human-reviewed
+source finding, not a source-note page personally fetched by Codex; no exact notes
+URL or access instant was supplied and none is invented.
 
-### EC — direct workbook notice plus externally reviewed default, derived scope pending
+Human decision: general EIA reuse supports **provisional internal exploration**, but
+source-specific third-party rights remain unresolved. Preserve `legal_status=
+not_verified`; **do not create an unconditional analytical admission permit**. No
+RBRTE private admission record was emitted, and the permission flags cannot be
+changed to override the structured human withholding decision.
+
+Attribution retains unknown publication date rather than inventing one and records
+the underlying Refinitiv/LSEG source per human review. Source data availability is
+not rights clearance. This source remains outside the admitted subset.
+
+### EC — qualified project-specific private acceptance, not legal clearance
 
 [EU legal notice](https://european-union.europa.eu/legal-notice_en),
 [Weekly Oil Bulletin](https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en):
@@ -105,10 +130,13 @@ by Codex due proxy failure. Conversion is original `/1000`. Calendar-day weighti
 of Monday–Sunday intervals is a clearly labelled project approximation, not evidence
 of seven measured daily prices or an official monthly mean.
 
-Pending: confirm applicability of the externally reviewed general/individual notices
-to private monthly derivation, appropriate credit/change notice, and an explicit
-source-bound private admission decision. No extra permission for publishing values
-is silently folded into this private-analysis decision.
+Human decision: **ACCEPT on a qualified project-specific basis** for private
+retrospective research, including the separate `/1000` conversion and explicitly
+labelled calendar-overlap monthly approximations. Preserve original weekly bytes,
+embedded acknowledgement notice, credit/change notices and all 13 missing months.
+Unresolved third-party/member-state scope limitations remain in the matrix and
+private permit; legal status remains `not_verified` rather than being promoted to
+full legal clearance. No public redistribution approval or legal guarantee follows.
 
 ## Actual diesel missingness — independent of outcomes
 
@@ -141,8 +169,8 @@ prerequisites for private analysis. Missing review evidence cannot be replaced w
 a URL or self-declared `admitted` flag; test permits are synthetic only.
 
 A positive private decision must name the source key, original unit, exact raw hash,
-private-retrospective scope, reviewer and hash-bound human decision evidence. No
-approval flags or success-looking admission files are created by this assessment.
+private-retrospective scope, reviewer and hash-bound human decision evidence. The human approval is recorded only for ECB and qualified EC use; EIA has an
+explicit withholding record. No unapproved source receives a success-looking permit.
 When genuinely supported, the writer emits only per-source hash-bound admission
 metadata in a new private directory, never source values. It rechecks that source's
 own original/normalized hashes and coverage. Diesel admission additionally binds its
@@ -163,10 +191,13 @@ python -m fuel_oil.rights_admission --check --private-dir /PRIVATE/energy-run
 python -m fuel_oil.rights_admission --private-dir /PRIVATE/energy-run --output /PRIVATE/new-admissions
 ```
 
-The actual private verification/writer command ran: **zero admissions written** and
-no admission directory created. This is a real blocked decision, not a missing-file
-claim. Full tests/CI are reported after actual execution; green code tests are not
-scientific admission or legal clearance.
+The actual private verification/writer command rechecked original, normalized and
+monthly hashes/coverage and wrote **exactly two** private records: ECB and qualified
+EC diesel. No RBRTE record exists. They carry matrix/decision/source hashes, the
+day-precision human decision, attribution, all conditions, unresolved limitations,
+no-public-release status and `task_01j_authorized=false`. Source observations remain
+private and unchanged. Existing `quarantined` files are historical QA snapshots;
+the new source-bound permits form a separate private authorisation layer.
 
 ## English credits and change notices (conditional on resolved source scope)
 
@@ -183,37 +214,34 @@ scientific admission or legal clearance.
   calculated by Agentic Analytics Studio from weekly observations; not official
   monthly means. Source acknowledged under the workbook reproduction notice.”
 
-## Concrete decision required before Task 01J
+## Task 01J remains stopped; future admitted-source scope needs approval
 
-The external handoff expressly says it is **not blanket source-specific admission**
-and retains exact-product exception/ownership checks. The remaining review/decision
-must therefore be recorded per source; no approval is assumed from the handoff.
+Current admitted subset: **ECB EUR/USD + qualified EC Germany diesel**, only for
+private retrospective exploratory research under the recorded conditions. RBRTE is
+not unconditionally admitted because Refinitiv/LSEG rights remain unresolved.
 
-Potential subset **after** its own checks and human decision: ECB + EIA could support
-a separately authorised private Brent/FX study without waiting for diesel. They do
-not currently satisfy Task 01J's unchanged requirement for admitted diesel as well;
-any narrower study scope needs explicit human authorisation, not a silent protocol
-change. Diesel inclusion additionally needs a predeclared treatment of the 13 gaps
-and 2022 missing months. No subset is admitted **now**, and no Task 01J work is run.
-
-Requested final review: confirm absence/applicability of third-party exceptions for
-EXR and RBRTE, confirm the exact EC monthly private-derived scope, and approve or
-reject **each** private retrospective admission against this matrix's hash bindings.
-Public raw/derived release and 2026 KBA admission remain separate decisions.
+Task 01J's unchanged scope requires admitted Brent as well as the other energy
+sources; it therefore cannot start automatically. A future study limited to the
+admitted subset requires its **own explicit scope approval and preregistered protocol**,
+including treatment of the 13 gaps/January and April 2022. No models or frozen Task
+01G changes are made here. A 2026 outcome comparison also still requires separately
+verified KBA 2026 data. Public release and historical as-of use remain unapproved.
 
 ## Actually executed validation
 
-Python 3.12.14, existing pinned dependencies; no new dependency:
+Existing pinned Python 3.12.14 environment; no new dependencies:
 
-- Full local suite: **292 passed**, 45.164 s (274 existing + 18 new rights tests).
-- Targeted rights suite: **18 passed**, 0.166 s, offline/synthetic permits only.
-- Actual private raw/normalized/monthly hash and coverage audit passed; attempted
-  writer returned zero admissions and created no admission directory.
-- Both contract examples, KBA audit, unchanged importer metadata check, rights check,
-  Ruff import/format and whitespace checks passed. Earlier acquisition/coverage and
-  source/unit/hash bindings remained unchanged.
-- Initial fixture-root/repeated-fixture/text-format assertion failures were corrected;
-  the final results above passed. No source permission was changed to fix a test.
+- Final full suite for explicit human decisions: **294 passed**, 43.030 s.
+- Targeted rights suite: **20 passed**, 0.141 s. Synthetic tests retain a separate
+  pending baseline; real human decisions are checked against the structured message
+  transcription, including EIA withholding and qualified EC limitations.
+- Actual private check revalidated original/normalized/monthly hashes and coverage;
+  exactly two permits were emitted and bound to the current matrix. No EIA permit.
+- Both contract validators, KBA audit, unchanged importer metadata check, rights
+  check, Ruff import/format, whitespace and protected-path checks passed.
+- No raw files, normalized values, source hashes, frozen protocols, MMM/Stage A or
+  KBA/Trends/Macro data changed. No Task 01J or new outcome fit ran.
 
-Exact-head remote Actions links/conclusions are maintained in the Draft PR after
-observed completion. Green tests are code verification, not source rights clearance.
+Current-head remote Actions evidence is updated in Draft PR #18 only after observed
+completion. Previous-head CI is not evidence for this decision update. No automatic
+merge or public release approval follows from green tests.
