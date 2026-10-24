@@ -54,3 +54,5 @@ jobs:
             --admission "$RUNNER_TEMP/attention-fixture/SYNTHETIC_admission.json" \
             --kba "$RUNNER_TEMP/attention-fixture/SYNTHETIC_kba.csv" \
             --output-dir "$RUNNER_TEMP/attention-diagnostics"
+      - name: Offline product and recall evidence check
+        run: python3 -m product_events.transform --check

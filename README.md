@@ -88,3 +88,9 @@ Task 01G.1 proposes [qualified local-timestamp admission](docs/LOCAL_TIMESTAMP_A
 [Current status](docs/LOCAL_TIMESTAMP_STATUS.md): raw identity verified; private use
 confirmed; explicit human acceptance of the workorder-described local creation-time
 basis is pending. No real diagnostics ran and no Google-confirmed download time is claimed.
+
+Task 01H adds a [German product/availability/recall ledger](docs/TESLA_PRODUCT_RECALL_RESEARCH.md):
+17 curated phase records (10 verified narrow claims, 6 partial, 1 excluded), with
+announcement/order/delivery and notice/remedy kept separate. All 96 availability-index
+months remain unknown; isolated snapshots are insufficient. Run
+`python3 -m product_events.transform --check` offline. No outcome analysis is performed.

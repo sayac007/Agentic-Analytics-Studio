@@ -1,0 +1,1193 @@
+{
+  "ledger_version": "1.0.0",
+  "research_as_of": "2026-10-24",
+  "window": {
+    "start": "2018-01",
+    "end": "2025-12"
+  },
+  "selection_protocol": "Focused milestones selected before any KBA/Trends relationship inspection: initial Model 3/Y German entries, Berlin handovers, Highland/Juniper offers, January 2023 prices, one financing/supply example and distinct physical/OTA recalls. No outcome-conditioned event selection. Not exhaustive; source articles may contain incidental market figures, not extracted as outcomes.",
+  "taxonomy": [
+    {
+      "offering_id": "model3-rwd",
+      "model": "model_3",
+      "trim_scope": "Rear-wheel-drive base",
+      "aliases": [
+        "RWD / Standard Range Plus aliases require version review"
+      ]
+    },
+    {
+      "offering_id": "model3-lr-awd",
+      "model": "model_3",
+      "trim_scope": "Long Range AWD",
+      "aliases": [
+        "Maximale Reichweite"
+      ]
+    },
+    {
+      "offering_id": "model3-performance",
+      "model": "model_3",
+      "trim_scope": "Performance",
+      "aliases": [
+        "Performance"
+      ]
+    },
+    {
+      "offering_id": "modely-rwd",
+      "model": "model_y",
+      "trim_scope": "Rear-wheel-drive base",
+      "aliases": [
+        "RWD"
+      ]
+    },
+    {
+      "offering_id": "modely-lr-awd",
+      "model": "model_y",
+      "trim_scope": "Long Range AWD",
+      "aliases": [
+        "Long Range"
+      ]
+    },
+    {
+      "offering_id": "modely-performance",
+      "model": "model_y",
+      "trim_scope": "Performance",
+      "aliases": [
+        "Performance"
+      ]
+    },
+    {
+      "offering_id": "modely-launch-lr-awd-2025",
+      "model": "model_y",
+      "trim_scope": "2025 Launch Series LR AWD",
+      "aliases": [
+        "Juniper Launch Series"
+      ]
+    },
+    {
+      "offering_id": "models-unspecified",
+      "model": "model_s",
+      "trim_scope": "Legacy trim unspecified",
+      "aliases": [
+        "Not a complete legacy trim census"
+      ]
+    },
+    {
+      "offering_id": "modelx-unspecified",
+      "model": "model_x",
+      "trim_scope": "Legacy trim unspecified",
+      "aliases": [
+        "Not a complete legacy trim census"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "archive-config-body",
+      "url": "https://web.archive.org/web/20230901090712id_/https://www.tesla.com/de_DE/model3/design",
+      "publisher": "Tesla",
+      "source_type": "primary",
+      "accessed_on": "2026-10-24",
+      "publication_date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "response_sha256": "ea4a7d2582d44907042bfbbec285c10d6faa120e8aea3bfcd6f7a2b5f2a52b6e",
+      "content_status": "archived_content_read",
+      "quote_snippet": "\"effective_date\":\"2023-09-01T00:50:00.000Z\",\"market\":\"DE\",\"product\":\"m3\"",
+      "reuse": "Third-party rights not inferred as open; own factual summaries and short attributed excerpts only. No raw text/images/HTML redistributed."
+    },
+    {
+      "source_id": "model3-first",
+      "url": "https://teslamag.de/news/tesla-liefert-die-ersten-model-3-in-deutschland-aus-bilder-23374",
+      "publisher": "Teslamag",
+      "source_type": "secondary",
+      "accessed_on": "2026-10-24",
+      "publication_date": {
+        "value": "2019-02-15",
+        "precision": "day",
+        "role": "published"
+      },
+      "response_sha256": "3cc8c51eea47c47de2404771643e61f058624d06264712db918b599bb3044313",
+      "content_status": "article_read",
+      "quote_snippet": "Nun übergab Tesla auch in Deutschland die ersten Model 3 an Käufer",
+      "reuse": "Third-party rights not inferred as open; own factual summaries and short attributed excerpts only. No raw text/images/HTML redistributed."
+    },
+    {
+      "source_id": "modely-official-de",
+      "url": "https://teslamag.de/news/massenmodell-kein-kleinwagen-tesla-model-y-start-offiziell-deutschland-40279",
+      "publisher": "Teslamag",
+      "source_type": "secondary",
+      "accessed_on": "2026-10-24",
+      "publication_date": {
+        "value": "2021-08-20",
+        "precision": "day",
+        "role": "published"
+      },
+      "response_sha256": "b8a19d6d5596a106cc5c41699846aa07c66d76f654ae7e926800b40a2b9a9c8a",
+      "content_status": "article_read",
+      "quote_snippet": "das am Donnerstag an mehreren Tesla-Standorten offiziell in den deutschen Markt eingeführt wurde",
+      "reuse": "Third-party rights not inferred as open; own factual summaries and short attributed excerpts only. No raw text/images/HTML redistributed."
+    },
+    {
+      "source_id": "modely-first",
+      "url": "https://teslamag.de/news/deutschland-start-tesla-model-y-mehrere-staedten-fruehe-besteller-uebergeben-40371",
+      "publisher": "Teslamag",
+      "source_type": "secondary",
+      "accessed_on": "2026-10-24",
+      "publication_date": {
+        "value": "2021-08-23",
+        "precision": "day",
+        "role": "published"
+      },
+      "response_sha256": "dba799d3af46c3d26584b3c13d3cc7106816407a5b82680100843fb65b98df12",
+      "content_status": "article_read",
+      "quote_snippet": "Eine der ersten überhaupt soll schon am Freitag in Kiel stattgefunden haben",
+      "reuse": "Third-party rights not inferred as open; own factual summaries and short attributed excerpts only. No raw text/images/HTML redistributed."
+    },
+    {
+      "source_id": "berlin-delivery",
+      "url": "https://teslamag.de/news/delivery-day-tesla-ceo-musk-erste-model-y-deutsche-gigafactory-46884",
+      "publisher": "Teslamag",
+      "source_type": "secondary",
+      "accessed_on": "2026-10-24",
+      "publication_date": {
+        "value": "2022-03-22",
+        "precision": "day",
+        "role": "published"
+      },
+      "response_sha256": "e0a15bec3da68ccef6fad427b2b644ad63ec73120a2ed1b7950b9fbb0489b0cd",
+      "content_status": "article_read",
+      "quote_snippet": "Tesla am Dienstag mit den Auslieferungen aus seiner deutschen Gigafactory begonnen",
+      "reuse": "Third-party rights not inferred as open; own factual summaries and short attributed excerpts only. No raw text/images/HTML redistributed."
+    },
+    {
+      "source_id": "berlin-corroboration",
+      "url": "https://teslamag.de/news/deutschland-erste-reine-elektroauto-fabrik-tesla-delivery-day-46893",
+      "publisher": "Teslamag",
+      "source_type": "secondary",
+      "accessed_on": "2026-10-24",
+      "publication_date": {
+        "value": "2022-03-23",
+        "precision": "day",
+        "role": "published"
+      },
+      "response_sha256": "688b0520e7b5b7899f2e20d0b532b39b45a0716772d049020b2f61c50b8b8105",
+      "content_status": "article_read",
+      "quote_snippet": "Vor Ort aber herrschte beste Stimmung, als 30 Besteller am „Delivery Day“ von CEO Elon Musk ihre Model Y Performance übergeben bekamen.",
+      "reuse": "Third-party rights not inferred as open; own factual summaries and short attributed excerpts only. No raw text/images/HTML redistributed."
+    },
+    {
+      "source_id": "highland-open",
+      "url": "https://teslamag.de/news/neues-tesla-model-3-basis-version-1000-euro-mehr-678-km-reichweite-60773",
+      "publisher": "Teslamag",
+      "source_type": "secondary",
+      "accessed_on": "2026-10-24",
+      "publication_date": {
+        "value": "2023-09-01",
+        "precision": "day",
+        "role": "published"
+      },
+      "response_sha256": "deeaad3660aa9fbf6635e49baf43d15b783e6af995efd0cea74a080c343184c9",
+      "content_status": "article_read",
+      "quote_snippet": "ist das Model 3 ab jetzt in einer aufgefrischten Version bestellbar",
+      "reuse": "Third-party rights not inferred as open; own factual summaries and short attributed excerpts only. No raw text/images/HTML redistributed."
+    },
+    {
+      "source_id": "juniper-de",
+      "url": "https://teslamag.de/news/tesla-europa-verkauf-neues-model-y-launch-edition-hoher-preis-64681",
+      "publisher": "Teslamag",
+      "source_type": "secondary",
+      "accessed_on": "2026-10-24",
+      "publication_date": {
+        "value": "2025-01-24",
+        "precision": "day",
+        "role": "published"
+      },
+      "response_sha256": "0482dcbc8aa318e6c57aa1aa2b70476c9c4eba986ec5b58c35744b159c99b945",
+      "content_status": "article_read",
+      "quote_snippet": "Am Freitagmorgen teilte das Unternehmen mit, dass dieses Elektroauto ab sofort zu bestellen ist",
+      "reuse": "Third-party rights not inferred as open; own factual summaries and short attributed excerpts only. No raw text/images/HTML redistributed."
+    },
+    {
+      "source_id": "juniper-delivery",
+      "url": "https://teslamag.de/news/10-25-tesla-model-y-kunden-trump-effekt-dritte-megafactory-akku-analyse-64859",
+      "publisher": "Teslamag",
+      "source_type": "secondary",
+      "accessed_on": "2026-10-24",
+      "publication_date": {
+        "value": "2025-03-09",
+        "precision": "day",
+        "role": "published"
+      },
+      "response_sha256": "3ea5a63f22662d24722628f8ff2db48b5ccdc398a83259cf55792d8aee43364f",
+      "content_status": "article_read",
+      "quote_snippet": "Tesla am Freitag die ersten aufgefrischten Model Y ausgeliefert",
+      "reuse": "Third-party rights not inferred as open; own factual summaries and short attributed excerpts only. No raw text/images/HTML redistributed."
+    },
+    {
+      "source_id": "price-cut-de",
+      "url": "https://teslamag.de/news/tesla-preise-model-y-9100-euro-billiger-model-3-6000-euro-55941",
+      "publisher": "Teslamag",
+      "source_type": "secondary",
+      "accessed_on": "2026-10-24",
+      "publication_date": {
+        "value": "2023-01-13",
+        "precision": "day",
+        "role": "published"
+      },
+      "response_sha256": "cf76171ec1eaf743ce4a794bc6fcdf636d73f4ead47b5d4a07a72e0a316dc701",
+      "content_status": "article_read",
+      "quote_snippet": "In Deutschland beginnt der Einstieg in die Tesla-Welt seit Freitag laut Konfigurator bei 43.990 Euro",
+      "reuse": "Third-party rights not inferred as open; own factual summaries and short attributed excerpts only. No raw text/images/HTML redistributed."
+    },
+    {
+      "source_id": "financing-2023",
+      "url": "https://teslamag.de/news/umweltbonus-endspurt-tesla-model-3-highland-rabatt-model-y-zinsen-62978",
+      "publisher": "Teslamag",
+      "source_type": "secondary",
+      "accessed_on": "2026-10-24",
+      "publication_date": {
+        "value": "2023-12-11",
+        "precision": "day",
+        "role": "published"
+      },
+      "response_sha256": "d5a7af89b42fd3b967af05d4040b76dcd16d93aad51979eb8e6b6e4508c8aca7",
+      "content_status": "article_read",
+      "quote_snippet": "Beim Model Y bietet Tesla Finanzierungen zum reduzierten Satz von 1,97 Prozent an",
+      "reuse": "Third-party rights not inferred as open; own factual summaries and short attributed excerpts only. No raw text/images/HTML redistributed."
+    },
+    {
+      "source_id": "supply-2024",
+      "url": "https://teslamag.de/news/tesla-woche-2-2024-pause-gruenheide-highland-usa-hertz-preise-sinken-63297",
+      "publisher": "Teslamag",
+      "source_type": "secondary",
+      "accessed_on": "2026-10-24",
+      "publication_date": {
+        "value": "2024-01-14",
+        "precision": "day",
+        "role": "published"
+      },
+      "response_sha256": "9d471bc10336a8176e657c77ea4fc99d3c0c78e7f07991b00134a63ab5d9c97d",
+      "content_status": "article_read",
+      "quote_snippet": "Ab Ende Januar soll die Produktion dort zwei Wochen lang weitgehend ruhen",
+      "reuse": "Third-party rights not inferred as open; own factual summaries and short attributed excerpts only. No raw text/images/HTML redistributed."
+    },
+    {
+      "source_id": "physical-conflict",
+      "url": "https://teslamag.de/news/rueckruf-alte-tesla-mcus-china-verwirrung-bei-deutschen-kunden-33867",
+      "publisher": "Teslamag",
+      "source_type": "secondary",
+      "accessed_on": "2026-10-24",
+      "publication_date": {
+        "value": "2021-02-07",
+        "precision": "day",
+        "role": "published"
+      },
+      "response_sha256": "be77ad4cc383de49194ed2ac736ae039c039c269a424c473f9e1ae311633d753",
+      "content_status": "article_read",
+      "quote_snippet": "Andere Besitzer von älteren Model S und Model X dagegen berichteten, noch keine Post bekommen zu haben",
+      "reuse": "Third-party rights not inferred as open; own factual summaries and short attributed excerpts only. No raw text/images/HTML redistributed."
+    },
+    {
+      "source_id": "recall-emmc",
+      "url": "https://www.tesla.com/de_de/support/8gb-emmc-recall-frequently-asked-questions",
+      "publisher": "Tesla",
+      "source_type": "primary",
+      "accessed_on": "2026-10-24",
+      "publication_date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "response_sha256": "55f5b5b298ea30a3c242048da68b664e428c2dc1f6bfb20342a8e9f3742799ae",
+      "content_status": "official_content_read",
+      "quote_snippet": "Tesla wird Sie kontaktieren, sobald die Austauschteile vorrätig sind.",
+      "reuse": "Third-party rights not inferred as open; own factual summaries and short attributed excerpts only. No raw text/images/HTML redistributed."
+    },
+    {
+      "source_id": "recall-hood",
+      "url": "https://www.tesla.com/de_de/support/recall-unintended-front-hood-opening",
+      "publisher": "Tesla",
+      "source_type": "primary",
+      "accessed_on": "2026-10-24",
+      "publication_date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "response_sha256": "3895e592a0834f9308907bcf1bd6fb94d871d4a660526ca25dfa23fb20eefa9a",
+      "content_status": "official_content_read",
+      "quote_snippet": "Ab dem 18. Juni 2024",
+      "reuse": "Third-party rights not inferred as open; own factual summaries and short attributed excerpts only. No raw text/images/HTML redistributed."
+    },
+    {
+      "source_id": "official-product-performance",
+      "url": "https://www.tesla.com/blog/introducing-new-model-3-performance",
+      "publisher": "Tesla",
+      "source_type": "primary",
+      "accessed_on": "2026-10-24",
+      "publication_date": {
+        "value": "2024-04-23",
+        "precision": "day",
+        "role": "published"
+      },
+      "response_sha256": "cd2b2b8ddf59dccdc5c25dcf795a1f306118862bdec9e83496f1ed26247a624b",
+      "content_status": "official_content_read",
+      "quote_snippet": "we are launching the new Model 3 Performance",
+      "reuse": "Third-party rights not inferred as open; own factual summaries and short attributed excerpts only. No raw text/images/HTML redistributed."
+    }
+  ],
+  "parents": [
+    {
+      "parent_id": "model3-german-entry-2019",
+      "description": "model3 german entry 2019"
+    },
+    {
+      "parent_id": "modely-german-entry-2021",
+      "description": "modely german entry 2021"
+    },
+    {
+      "parent_id": "berlin-production-handover-2022",
+      "description": "berlin production handover 2022"
+    },
+    {
+      "parent_id": "highland-german-offer-2023",
+      "description": "highland german offer 2023"
+    },
+    {
+      "parent_id": "juniper-german-offer-2025",
+      "description": "juniper german offer 2025"
+    },
+    {
+      "parent_id": "german-price-action-jan2023",
+      "description": "german price action jan2023"
+    },
+    {
+      "parent_id": "german-financing-dec2023",
+      "description": "german financing dec2023"
+    },
+    {
+      "parent_id": "berlin-supply-interruption-2024",
+      "description": "berlin supply interruption 2024"
+    },
+    {
+      "parent_id": "emmc-recall",
+      "description": "emmc recall"
+    },
+    {
+      "parent_id": "hood-warning-recall",
+      "description": "hood warning recall"
+    },
+    {
+      "parent_id": "global-model3-performance-2024",
+      "description": "global model3 performance 2024"
+    }
+  ],
+  "events": [
+    {
+      "record_version": "1.0.0",
+      "event_id": "model3-first-de",
+      "parent_id": "model3-german-entry-2019",
+      "event_type": "first_delivery_de",
+      "title": "First reported German Model 3 customer handovers",
+      "models": [
+        "model_3"
+      ],
+      "trim_id": null,
+      "geography": {
+        "status": "explicit_de",
+        "evidence": "Article explicitly identifies first customer handovers in Germany."
+      },
+      "date": {
+        "value": "2019-02",
+        "precision": "month",
+        "role": "first_delivered_de"
+      },
+      "end_date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "date_basis": "Article dated February 15 says handovers have now occurred; exact first German day is not stated. Retain February only.",
+      "description": "Belgian port arrival is separate from German customer delivery.",
+      "source_ids": [
+        "model3-first"
+      ],
+      "status": "verified",
+      "conflicts": [],
+      "missing_fields": [
+        "exact_first_delivery_day",
+        "original_delivery_records"
+      ],
+      "rationale": "Include only this narrowly sourced phase; no causal/volume/continuous-availability inference.",
+      "price": null,
+      "recall": null,
+      "financing_terms": null,
+      "provenance_category": "observed_event"
+    },
+    {
+      "record_version": "1.0.0",
+      "event_id": "modely-de-introduction",
+      "parent_id": "modely-german-entry-2021",
+      "event_type": "announcement",
+      "title": "German Model Y press introduction",
+      "models": [
+        "model_y"
+      ],
+      "trim_id": null,
+      "geography": {
+        "status": "explicit_de",
+        "evidence": "Reporter describes the Berlin presentation and simultaneous German Tesla sites."
+      },
+      "date": {
+        "value": "2021-08-19",
+        "precision": "day",
+        "role": "announced"
+      },
+      "end_date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "date_basis": "Friday August 20 article explicitly says Thursday introduction; prior Thursday resolves to August 19.",
+      "description": "Press presentation is not the order-opening date or a customer handover.",
+      "source_ids": [
+        "modely-official-de"
+      ],
+      "status": "verified",
+      "conflicts": [],
+      "missing_fields": [
+        "original_german_order_opening_date"
+      ],
+      "rationale": "Include only this narrowly sourced phase; no causal/volume/continuous-availability inference.",
+      "price": null,
+      "recall": null,
+      "financing_terms": null,
+      "provenance_category": "observed_event"
+    },
+    {
+      "record_version": "1.0.0",
+      "event_id": "modely-first-de",
+      "parent_id": "modely-german-entry-2021",
+      "event_type": "first_delivery_de",
+      "title": "First reported German Model Y customer handovers",
+      "models": [
+        "model_y"
+      ],
+      "trim_id": null,
+      "geography": {
+        "status": "explicit_de",
+        "evidence": "Named German Kiel/Dortmund/Frankfurt handovers are described."
+      },
+      "date": {
+        "value": "2021-08",
+        "precision": "month",
+        "role": "first_delivered_de"
+      },
+      "end_date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "date_basis": "Multiple August handovers; earliest Friday report is tentative, so no exact first day claimed.",
+      "description": "Do not equate European/Chinese launch or website presentation with German delivery.",
+      "source_ids": [
+        "modely-first"
+      ],
+      "status": "verified",
+      "conflicts": [
+        "Earliest Friday handover is qualified; later Sunday/Monday reports and first-in-Europe language do not establish a unique first German day."
+      ],
+      "missing_fields": [
+        "uniquely_confirmed_first_day"
+      ],
+      "rationale": "Include only this narrowly sourced phase; no causal/volume/continuous-availability inference.",
+      "price": null,
+      "recall": null,
+      "financing_terms": null,
+      "provenance_category": "observed_event"
+    },
+    {
+      "record_version": "1.0.0",
+      "event_id": "berlin-performance-first-de",
+      "parent_id": "berlin-production-handover-2022",
+      "event_type": "first_delivery_de",
+      "title": "First German-built Model Y Performance customer handovers",
+      "models": [
+        "model_y"
+      ],
+      "trim_id": "modely-performance",
+      "geography": {
+        "status": "explicit_de",
+        "evidence": "On-site report identifies German Gigafactory handover to customers."
+      },
+      "date": {
+        "value": "2022-03-22",
+        "precision": "day",
+        "role": "first_delivered_de"
+      },
+      "end_date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "date_basis": "March 22 article explicitly says Tuesday handovers began; follow-up article describes the same day.",
+      "description": "First German-built Performance handover, not first ever Model Y in Germany. Capacity targets are not measured supply.",
+      "source_ids": [
+        "berlin-delivery",
+        "berlin-corroboration"
+      ],
+      "status": "verified",
+      "conflicts": [],
+      "missing_fields": [],
+      "rationale": "Include only this narrowly sourced phase; no causal/volume/continuous-availability inference.",
+      "price": null,
+      "recall": null,
+      "financing_terms": null,
+      "provenance_category": "observed_event"
+    },
+    {
+      "record_version": "1.0.0",
+      "event_id": "highland-model_refresh",
+      "parent_id": "highland-german-offer-2023",
+      "event_type": "model_refresh",
+      "title": "Refreshed Model 3 German model refresh",
+      "models": [
+        "model_3"
+      ],
+      "trim_id": null,
+      "geography": {
+        "status": "explicit_de",
+        "evidence": "Article explicitly quotes German configurator and immediate ordering."
+      },
+      "date": {
+        "value": "2023-09-01",
+        "precision": "day",
+        "role": "announced"
+      },
+      "end_date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "date_basis": "September 1 Friday article explicitly says Friday morning official announcement and immediately orderable.",
+      "description": "Expected late-October Europe deliveries are not actual first German delivery evidence.",
+      "source_ids": [
+        "highland-open",
+        "archive-config-body"
+      ],
+      "status": "verified",
+      "conflicts": [],
+      "missing_fields": [
+        "verified_first_german_refresh_delivery_day"
+      ],
+      "rationale": "Include only this narrowly sourced phase; no causal/volume/continuous-availability inference.",
+      "price": null,
+      "recall": null,
+      "financing_terms": null,
+      "provenance_category": "observed_event"
+    },
+    {
+      "record_version": "1.0.0",
+      "event_id": "highland-orders_open",
+      "parent_id": "highland-german-offer-2023",
+      "event_type": "orders_open",
+      "title": "Refreshed Model 3 German orders open",
+      "models": [
+        "model_3"
+      ],
+      "trim_id": null,
+      "geography": {
+        "status": "explicit_de",
+        "evidence": "Article explicitly quotes German configurator and immediate ordering."
+      },
+      "date": {
+        "value": "2023-09-01",
+        "precision": "day",
+        "role": "orders_opened"
+      },
+      "end_date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "date_basis": "September 1 Friday article explicitly says Friday morning official announcement and immediately orderable.",
+      "description": "Expected late-October Europe deliveries are not actual first German delivery evidence.",
+      "source_ids": [
+        "highland-open",
+        "archive-config-body"
+      ],
+      "status": "verified",
+      "conflicts": [],
+      "missing_fields": [
+        "verified_first_german_refresh_delivery_day"
+      ],
+      "rationale": "Include only this narrowly sourced phase; no causal/volume/continuous-availability inference.",
+      "price": null,
+      "recall": null,
+      "financing_terms": null,
+      "provenance_category": "observed_event"
+    },
+    {
+      "record_version": "1.0.0",
+      "event_id": "juniper-model_refresh",
+      "parent_id": "juniper-german-offer-2025",
+      "event_type": "model_refresh",
+      "title": "Refreshed Model Y German model refresh",
+      "models": [
+        "model_y"
+      ],
+      "trim_id": "modely-launch-lr-awd-2025",
+      "geography": {
+        "status": "explicit_de",
+        "evidence": "German configurator and Launch Series LR AWD offer are explicitly described."
+      },
+      "date": {
+        "value": "2025-01-24",
+        "precision": "day",
+        "role": "announced"
+      },
+      "end_date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "date_basis": "Friday January 24 article says company announced immediate orders on Friday morning.",
+      "description": "Asian launch two weeks earlier is not a German opening. Initial March delivery guidance remains a plan until delivery evidence.",
+      "source_ids": [
+        "juniper-de"
+      ],
+      "status": "verified",
+      "conflicts": [],
+      "missing_fields": [
+        "archived_primary_configurator_capture"
+      ],
+      "rationale": "Include only this narrowly sourced phase; no causal/volume/continuous-availability inference.",
+      "price": null,
+      "recall": null,
+      "financing_terms": null,
+      "provenance_category": "observed_event"
+    },
+    {
+      "record_version": "1.0.0",
+      "event_id": "juniper-orders_open",
+      "parent_id": "juniper-german-offer-2025",
+      "event_type": "orders_open",
+      "title": "Refreshed Model Y German orders open",
+      "models": [
+        "model_y"
+      ],
+      "trim_id": "modely-launch-lr-awd-2025",
+      "geography": {
+        "status": "explicit_de",
+        "evidence": "German configurator and Launch Series LR AWD offer are explicitly described."
+      },
+      "date": {
+        "value": "2025-01-24",
+        "precision": "day",
+        "role": "orders_opened"
+      },
+      "end_date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "date_basis": "Friday January 24 article says company announced immediate orders on Friday morning.",
+      "description": "Asian launch two weeks earlier is not a German opening. Initial March delivery guidance remains a plan until delivery evidence.",
+      "source_ids": [
+        "juniper-de"
+      ],
+      "status": "verified",
+      "conflicts": [],
+      "missing_fields": [
+        "archived_primary_configurator_capture"
+      ],
+      "rationale": "Include only this narrowly sourced phase; no causal/volume/continuous-availability inference.",
+      "price": null,
+      "recall": null,
+      "financing_terms": null,
+      "provenance_category": "observed_event"
+    },
+    {
+      "record_version": "1.0.0",
+      "event_id": "juniper-first-de",
+      "parent_id": "juniper-german-offer-2025",
+      "event_type": "first_delivery_de",
+      "title": "First reported German refreshed Model Y handovers",
+      "models": [
+        "model_y"
+      ],
+      "trim_id": null,
+      "geography": {
+        "status": "explicit_de",
+        "evidence": "Article explicitly reports customers receiving vehicles on the German Gigafactory site."
+      },
+      "date": {
+        "value": "2025-03-07",
+        "precision": "day",
+        "role": "first_delivered_de"
+      },
+      "end_date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "date_basis": "Sunday March 9 article explicitly says Friday first handovers; calendar resolves Friday March 7.",
+      "description": "Limited to reported refreshed-model handovers; no sales response or shipment volumes inferred.",
+      "source_ids": [
+        "juniper-delivery"
+      ],
+      "status": "verified",
+      "conflicts": [],
+      "missing_fields": [
+        "individual_vin_records"
+      ],
+      "rationale": "Include only this narrowly sourced phase; no causal/volume/continuous-availability inference.",
+      "price": null,
+      "recall": null,
+      "financing_terms": null,
+      "provenance_category": "observed_event"
+    },
+    {
+      "record_version": "1.0.0",
+      "event_id": "german-price-cut-jan2023",
+      "parent_id": "german-price-action-jan2023",
+      "event_type": "price_change",
+      "title": "German Model 3 and Y price reductions reported",
+      "models": [
+        "model_3",
+        "model_y"
+      ],
+      "trim_id": "model3-rwd",
+      "geography": {
+        "status": "explicit_de",
+        "evidence": "Report explicitly distinguishes German configurator prices from US/China."
+      },
+      "date": {
+        "value": "2023-01-13",
+        "precision": "day",
+        "role": "effective"
+      },
+      "end_date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "date_basis": "Friday January 13 article says German configurator prices changed since Friday.",
+      "description": "Quoted Model 3 RWD after price and reported reduction retained; VAT/subsidy comparability not established. No continuous price series.",
+      "source_ids": [
+        "price-cut-de"
+      ],
+      "status": "partial",
+      "conflicts": [],
+      "missing_fields": [
+        "explicit_vat_basis",
+        "direct_quote_of_before_price",
+        "primary_price_snapshot"
+      ],
+      "rationale": "Retain uncertainty/exclusion; do not turn this into a verified monthly exposure.",
+      "price": {
+        "model": "model_3",
+        "trim": "RWD",
+        "currency": "EUR",
+        "unit": "list_price_per_vehicle",
+        "vat_basis": "unknown",
+        "before": null,
+        "after": 43990,
+        "reported_change": -6000,
+        "basis": "Secondary German-configurator quote; VAT not explicitly stated. Before price not reconstructed from subtraction."
+      },
+      "recall": null,
+      "financing_terms": null,
+      "provenance_category": "observed_event"
+    },
+    {
+      "record_version": "1.0.0",
+      "event_id": "modely-financing-observation",
+      "parent_id": "german-financing-dec2023",
+      "event_type": "financing_offer",
+      "title": "Reported Model Y Long Range financing offer",
+      "models": [
+        "model_y"
+      ],
+      "trim_id": "modely-lr-awd",
+      "geography": {
+        "status": "explicit_de",
+        "evidence": "Report explicitly describes German Tesla homepage/configurator terms."
+      },
+      "date": {
+        "value": "2023-12-11",
+        "precision": "day",
+        "role": "observed_active"
+      },
+      "end_date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "date_basis": "December 11 article describes currently visible offer; observation date is not the start of the promotion.",
+      "description": "Financing terms are separate from list-price changes and government subsidy policy.",
+      "source_ids": [
+        "financing-2023"
+      ],
+      "status": "partial",
+      "conflicts": [],
+      "missing_fields": [
+        "offer_start_date",
+        "complete_apr_tenor_downpayment_terms",
+        "original_terms_capture"
+      ],
+      "rationale": "Retain uncertainty/exclusion; do not turn this into a verified monthly exposure.",
+      "price": null,
+      "recall": null,
+      "financing_terms": "Reported rate 1.97%; nominal versus APR basis not established. Model Y Long Range only; order before December 15, 2023 and receive before year-end. Do not infer continuous availability or current policy from this historical report.",
+      "provenance_category": "observed_event"
+    },
+    {
+      "record_version": "1.0.0",
+      "event_id": "berlin-supply-plan-2024",
+      "parent_id": "berlin-supply-interruption-2024",
+      "event_type": "supply_disruption",
+      "title": "Reported planned German factory interruption",
+      "models": [
+        "model_y"
+      ],
+      "trim_id": null,
+      "geography": {
+        "status": "explicit_de",
+        "evidence": "Source explicitly identifies German Gigafactory and overseas component constraints."
+      },
+      "date": {
+        "value": "2024-01",
+        "precision": "month",
+        "role": "planned_start"
+      },
+      "end_date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "date_basis": "January 14 report says production is planned to largely stop from late January for two weeks; actual start/resumption not verified here.",
+      "description": "Preserve planned versus realized disruption. No production-loss quantity, German-delivery loss or price-shock causality inferred.",
+      "source_ids": [
+        "supply-2024"
+      ],
+      "status": "partial",
+      "conflicts": [],
+      "missing_fields": [
+        "actual_start_day",
+        "actual_end_day",
+        "measured_lost_capacity",
+        "delivery_impacts"
+      ],
+      "rationale": "Retain uncertainty/exclusion; do not turn this into a verified monthly exposure.",
+      "price": null,
+      "recall": null,
+      "financing_terms": null,
+      "provenance_category": "observed_event"
+    },
+    {
+      "record_version": "1.0.0",
+      "event_id": "emmc-recall_notice",
+      "parent_id": "emmc-recall",
+      "event_type": "recall_notice",
+      "title": "German-facing eMMC recall notice",
+      "models": [
+        "model_s",
+        "model_x"
+      ],
+      "trim_id": null,
+      "geography": {
+        "status": "manufacturer_de_guidance",
+        "evidence": "Manufacturer German support FAQ; dated reporting describes German owner emails and absent KBA listing at that time, not a confirmed regulator action date."
+      },
+      "date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "end_date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "date_basis": "Current official FAQ is undated; US/China notice dates and January 22 global software-uptake observation are not German notice/remedy starts.",
+      "description": "Software mitigation plus physical memory replacement. Source says owners await parts; no dated German completion or delivery blockage.",
+      "source_ids": [
+        "recall-emmc",
+        "physical-conflict"
+      ],
+      "status": "partial",
+      "conflicts": [
+        "February 2021 report: some German owners received emails, others did not; KBA entry not found then. Not a timeless proof of no recall.",
+        "Primary FAQ predominantly says 64GB replacement but another answer says 64MB; ledger records remedy category, not asserted replacement capacity."
+      ],
+      "missing_fields": [
+        "german_notice_day",
+        "german_remedy_start",
+        "kba_reference",
+        "affected_german_vehicle_count",
+        "severity_grade"
+      ],
+      "rationale": "Retain uncertainty/exclusion; do not turn this into a verified monthly exposure.",
+      "price": null,
+      "recall": {
+        "kba_reference": null,
+        "affected_de_count": null,
+        "affected_models_and_years": "Model S and Model X built before March 2018 with specified 8GB eMMC MCU; not all such vehicles necessarily still affected.",
+        "defect_period_description": "Manufacture eligibility before March 2018; actual defect-occurrence interval unspecified.",
+        "severity": null,
+        "remedy_category": "software_and_hardware",
+        "delivery_constraint": "not_established",
+        "delivery_constraint_evidence": null
+      },
+      "financing_terms": null,
+      "provenance_category": "observed_event"
+    },
+    {
+      "record_version": "1.0.0",
+      "event_id": "emmc-recall_remedy",
+      "parent_id": "emmc-recall",
+      "event_type": "recall_remedy",
+      "title": "German-facing eMMC recall remedy",
+      "models": [
+        "model_s",
+        "model_x"
+      ],
+      "trim_id": null,
+      "geography": {
+        "status": "manufacturer_de_guidance",
+        "evidence": "Manufacturer German support FAQ; dated reporting describes German owner emails and absent KBA listing at that time, not a confirmed regulator action date."
+      },
+      "date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "end_date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "date_basis": "Current official FAQ is undated; US/China notice dates and January 22 global software-uptake observation are not German notice/remedy starts.",
+      "description": "Software mitigation plus physical memory replacement. Source says owners await parts; no dated German completion or delivery blockage.",
+      "source_ids": [
+        "recall-emmc",
+        "physical-conflict"
+      ],
+      "status": "partial",
+      "conflicts": [
+        "February 2021 report: some German owners received emails, others did not; KBA entry not found then. Not a timeless proof of no recall.",
+        "Primary FAQ predominantly says 64GB replacement but another answer says 64MB; ledger records remedy category, not asserted replacement capacity."
+      ],
+      "missing_fields": [
+        "german_notice_day",
+        "german_remedy_start",
+        "kba_reference",
+        "affected_german_vehicle_count",
+        "severity_grade"
+      ],
+      "rationale": "Retain uncertainty/exclusion; do not turn this into a verified monthly exposure.",
+      "price": null,
+      "recall": {
+        "kba_reference": null,
+        "affected_de_count": null,
+        "affected_models_and_years": "Model S and Model X built before March 2018 with specified 8GB eMMC MCU; not all such vehicles necessarily still affected.",
+        "defect_period_description": "Manufacture eligibility before March 2018; actual defect-occurrence interval unspecified.",
+        "severity": null,
+        "remedy_category": "software_and_hardware",
+        "delivery_constraint": "not_established",
+        "delivery_constraint_evidence": null
+      },
+      "financing_terms": null,
+      "provenance_category": "observed_event"
+    },
+    {
+      "record_version": "1.0.0",
+      "event_id": "hood-recall-notice",
+      "parent_id": "hood-warning-recall",
+      "event_type": "recall_notice",
+      "title": "German manufacturer hood-warning recall notice context",
+      "models": [
+        "model_s",
+        "model_3",
+        "model_x",
+        "model_y"
+      ],
+      "trim_id": null,
+      "geography": {
+        "status": "manufacturer_de_guidance",
+        "evidence": "Official German Tesla support page; no KBA population or national notice date verified."
+      },
+      "date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "end_date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "date_basis": "Page retrieval/publication is not a historical recall-notice date; notice date remains unknown.",
+      "description": "Recall notice phase is separate from earlier software remedy.",
+      "source_ids": [
+        "recall-hood"
+      ],
+      "status": "partial",
+      "conflicts": [
+        "Primary page metadata lists earlier Model 3/S/X years than the visible body."
+      ],
+      "missing_fields": [
+        "dated_german_notice",
+        "kba_reference",
+        "affected_german_count",
+        "resolved_model_year_boundaries"
+      ],
+      "rationale": "Retain uncertainty/exclusion; do not turn this into a verified monthly exposure.",
+      "price": null,
+      "recall": {
+        "kba_reference": null,
+        "affected_de_count": null,
+        "affected_models_and_years": "German page metadata and body disagree on earliest Model 3/S/X years; Model Y 2020-2024 and general model scope retained; exact affected-year boundary unresolved.",
+        "defect_period_description": "Hood-latch warning detection; production/defect interval not verified independently.",
+        "severity": null,
+        "remedy_category": "ota",
+        "delivery_constraint": "not_established",
+        "delivery_constraint_evidence": null
+      },
+      "financing_terms": null,
+      "provenance_category": "observed_event"
+    },
+    {
+      "record_version": "1.0.0",
+      "event_id": "hood-ota-remedy",
+      "parent_id": "hood-warning-recall",
+      "event_type": "recall_remedy",
+      "title": "German manufacturer guidance: hood-warning OTA remedy",
+      "models": [
+        "model_s",
+        "model_3",
+        "model_x",
+        "model_y"
+      ],
+      "trim_id": null,
+      "geography": {
+        "status": "manufacturer_de_guidance",
+        "evidence": "Official Tesla Support Deutschland guidance describes the same OTA remedy; not a verified German VIN rollout census."
+      },
+      "date": {
+        "value": "2024-06-18",
+        "precision": "day",
+        "role": "remedy_available_from"
+      },
+      "end_date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "date_basis": "Visible German body explicitly says affected vehicles received free firmware 2024.20.3 beginning June 18, 2024. This is remedy availability, not notice/publication.",
+      "description": "Source says no workshop booking is required. No claimed recall severity grade, German count, publicity date or delivery shock.",
+      "source_ids": [
+        "recall-hood"
+      ],
+      "status": "verified",
+      "conflicts": [
+        "Metadata/body model-year ranges differ; preserve uncertainty without changing the explicitly stated remedy date."
+      ],
+      "missing_fields": [
+        "german_notice_day",
+        "kba_reference",
+        "affected_german_count",
+        "independent_german_rollout_confirmation"
+      ],
+      "rationale": "Include only this narrowly sourced phase; no causal/volume/continuous-availability inference.",
+      "price": null,
+      "recall": {
+        "kba_reference": null,
+        "affected_de_count": null,
+        "affected_models_and_years": "German page metadata and body disagree on earliest Model 3/S/X years; Model Y 2020-2024 and general model scope retained; exact affected-year boundary unresolved.",
+        "defect_period_description": "Hood-latch warning detection; production/defect interval not verified independently.",
+        "severity": null,
+        "remedy_category": "ota",
+        "delivery_constraint": "not_established",
+        "delivery_constraint_evidence": null
+      },
+      "financing_terms": null,
+      "provenance_category": "observed_event"
+    },
+    {
+      "record_version": "1.0.0",
+      "event_id": "global-performance-announcement",
+      "parent_id": "global-model3-performance-2024",
+      "event_type": "announcement",
+      "title": "Global Model 3 Performance announcement, excluded from DE timing",
+      "models": [
+        "model_3"
+      ],
+      "trim_id": null,
+      "geography": {
+        "status": "not_established",
+        "evidence": "English global manufacturer announcement does not establish Germany-specific order/delivery timing."
+      },
+      "date": {
+        "value": "2024-04-23",
+        "precision": "day",
+        "role": "announced"
+      },
+      "end_date": {
+        "value": null,
+        "precision": "unknown",
+        "role": "unknown"
+      },
+      "date_basis": "Official dated global page says launching; no German date asserted.",
+      "description": "Negative-scope example: do not import global product milestones as German launches.",
+      "source_ids": [
+        "official-product-performance"
+      ],
+      "status": "excluded",
+      "conflicts": [],
+      "missing_fields": [
+        "german_specific_announcement_order_delivery_evidence"
+      ],
+      "rationale": "Retain uncertainty/exclusion; do not turn this into a verified monthly exposure.",
+      "price": null,
+      "recall": null,
+      "financing_terms": null,
+      "provenance_category": "observed_event"
+    }
+  ],
+  "availability_observations": [
+    {
+      "snapshot_id": "highland-configurator-report",
+      "source_ids": [
+        "highland-open",
+        "archive-config-body"
+      ],
+      "observed_on": "2023-09-01",
+      "offering_ids": [
+        "model3-rwd",
+        "model3-lr-awd"
+      ],
+      "scope": "Archived official DE Model 3 Lexicon and secondary configurator report at a point; not entire Tesla catalog.",
+      "complete_census": false,
+      "continuity_established": false,
+      "limitation": "Primary archived Lexicon is dated DE 2023-09-01 with two trim entries; this does not prove checkout success, full all-Tesla census or continuous monthly orderability."
+    },
+    {
+      "snapshot_id": "juniper-configurator-report",
+      "source_ids": [
+        "juniper-de"
+      ],
+      "observed_on": "2025-01-24",
+      "offering_ids": [
+        "modely-launch-lr-awd-2025"
+      ],
+      "scope": "Secondary report of new German Launch Series alongside old Model Y offers; not full catalog.",
+      "complete_census": false,
+      "continuity_established": false,
+      "limitation": "Does not establish all trims, absences, stock or uninterrupted monthly orderability."
+    }
+  ]
+}
