@@ -1,0 +1,113 @@
+{
+  "handoff_review": {
+    "candidate_fetcher_sha256": "2c3017b3ea17fdb9a3c2f711c58add91f2dcf491ef4e92d1bc912c466cd8c7bf",
+    "changes": "No module-global keys, credential-safe errors, content and numeric validation, immutable snapshots, EIA paging and offline tests",
+    "status": "Candidate statements independently unverified; not adopted as rights evidence"
+  },
+  "series": [
+    {
+      "blockers": [
+        "No numeric primary observation retrieved: proxy CONNECT 403",
+        "Primary metadata and dataset-specific rights unverified"
+      ],
+      "definition": "Germany automotive gas oil, with taxes; not Euro-super 95 or E10",
+      "download_candidate": "https://energy.ec.europa.eu/document/download/906e60ca-8b6a-44e7-8589-652854d2fd3f_en?filename=Weekly_Oil_Bulletin_Prices_History_maticni_4web.xlsx",
+      "id": "diesel_de",
+      "metadata_status": "not_verified",
+      "native_frequency_candidate": "weekly",
+      "provider": "European Commission DG Energy",
+      "rights": {
+        "attribution": "European Commission DG Energy; candidate wording pending rights review",
+        "derived_redistribution": "not_verified",
+        "private_analysis": "not_verified",
+        "raw_redistribution": "not_verified",
+        "review_note": "Actual primary notice not readable: proxy CONNECT 403. Handoff interpretations remain unverified.",
+        "review_url": "https://commission.europa.eu/legal-notice_en"
+      },
+      "series_id_candidate": "Exact workbook sheet/column not verified",
+      "source_url": "https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en",
+      "unit_candidate": "EUR_per_1000_litres"
+    },
+    {
+      "blockers": [
+        "No numeric primary observation retrieved: proxy CONNECT 403",
+        "Primary metadata and dataset-specific rights unverified",
+        "EIA_API_KEY not set; authenticated API behavior not tested"
+      ],
+      "definition": "Europe Brent spot FOB; not futures or retail fuel",
+      "download_candidate": "https://api.eia.gov/v2/petroleum/pri/spt/data/",
+      "id": "brent_usd",
+      "metadata_status": "not_verified",
+      "native_frequency_candidate": "monthly or daily",
+      "provider": "U.S. EIA",
+      "rights": {
+        "attribution": "U.S. EIA; candidate wording pending rights review",
+        "derived_redistribution": "not_verified",
+        "private_analysis": "not_verified",
+        "raw_redistribution": "not_verified",
+        "review_note": "Actual primary notice not readable: proxy CONNECT 403. Handoff interpretations remain unverified.",
+        "review_url": "https://www.eia.gov/about/copyrights_reuse.php"
+      },
+      "series_id_candidate": "RBRTE (candidate facet)",
+      "source_url": "https://www.eia.gov/dnav/pet/hist/RBRTEd.htm",
+      "unit_candidate": "USD_per_barrel"
+    },
+    {
+      "blockers": [
+        "No numeric primary observation retrieved: proxy CONNECT 403",
+        "Primary metadata and dataset-specific rights unverified"
+      ],
+      "definition": "USD per one EUR reference rate; monthly definition requires returned metadata verification",
+      "download_candidate": "https://data-api.ecb.europa.eu/service/data/EXR/M.USD.EUR.SP00.A?startPeriod=2018-01&endPeriod=2018-01&format=csvdata",
+      "id": "eurusd",
+      "metadata_status": "not_verified",
+      "native_frequency_candidate": "monthly or daily",
+      "provider": "ECB",
+      "rights": {
+        "attribution": "ECB; candidate wording pending rights review",
+        "derived_redistribution": "not_verified",
+        "private_analysis": "not_verified",
+        "raw_redistribution": "not_verified",
+        "review_note": "Actual primary notice not readable: proxy CONNECT 403. Handoff interpretations remain unverified.",
+        "review_url": "https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html"
+      },
+      "series_id_candidate": "EXR.M.USD.EUR.SP00.A / EXR.D.USD.EUR.SP00.A (candidate keys)",
+      "source_url": "https://data.ecb.europa.eu/data/datasets/EXR/EXR.M.USD.EUR.SP00.A",
+      "unit_candidate": "USD_per_EUR"
+    },
+    {
+      "blockers": [
+        "No numeric primary observation retrieved: proxy CONNECT 403",
+        "Primary metadata and dataset-specific rights unverified",
+        "No verified national E10 history/aggregation/rights; exclude from admitted dataset"
+      ],
+      "definition": "German nationwide Super E10 retail history; no substitution of Euro-super 95",
+      "download_candidate": null,
+      "id": "e10_de",
+      "metadata_status": "not_verified",
+      "native_frequency_candidate": "unverified",
+      "provider": "No verified provider",
+      "rights": {
+        "attribution": "No verified provider; candidate wording pending rights review",
+        "derived_redistribution": "not_verified",
+        "private_analysis": "not_verified",
+        "raw_redistribution": "not_verified",
+        "review_note": "Actual primary notice not readable: proxy CONNECT 403. Handoff interpretations remain unverified.",
+        "review_url": "https://creativecommons.tankerkoenig.de/"
+      },
+      "series_id_candidate": null,
+      "source_url": "https://www.bundeskartellamt.de/DE/Aufgaben/MarkttransparenzstelleFuerKraftstoffe/markttransparenzstellefuerkraftstoffe_node.html",
+      "unit_candidate": "EUR_per_litre"
+    }
+  ],
+  "status": "blocked_acquisition",
+  "target": {
+    "frozen_comparison_window": "2018-01/2025-12",
+    "latest_completed_month": "2026-09",
+    "partial_months_excluded": [
+      "2026-10"
+    ],
+    "retrieval_date": "2026-10-24"
+  },
+  "version": "1.0.0"
+}

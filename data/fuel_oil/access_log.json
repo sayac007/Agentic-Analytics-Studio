@@ -1,0 +1,105 @@
+{
+  "eia_key_present": false,
+  "requests": [
+    {
+      "bytes": 0,
+      "content_type": null,
+      "error": "URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+      "id": "ec_history",
+      "numeric_observation_verified": false,
+      "requested_at": "2026-10-24T10:59:14.722290+00:00",
+      "status": null,
+      "url": "https://energy.ec.europa.eu/document/download/906e60ca-8b6a-44e7-8589-652854d2fd3f_en?filename=Weekly_Oil_Bulletin_Prices_History_maticni_4web.xlsx"
+    },
+    {
+      "bytes": 0,
+      "content_type": null,
+      "error": "URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+      "id": "ec_landing",
+      "numeric_observation_verified": false,
+      "requested_at": "2026-10-24T10:59:14.722828+00:00",
+      "status": null,
+      "url": "https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en"
+    },
+    {
+      "bytes": 0,
+      "content_type": null,
+      "error": "URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+      "id": "eia_test",
+      "numeric_observation_verified": false,
+      "requested_at": "2026-10-24T10:59:14.723256+00:00",
+      "status": null,
+      "url": "https://api.eia.gov/v2/petroleum/pri/spt/data/?frequency=monthly&data[0]=value&facets[series][]=RBRTE&start=2018-01&end=2018-01&length=1"
+    },
+    {
+      "bytes": 0,
+      "content_type": null,
+      "error": "URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+      "id": "fx_test",
+      "numeric_observation_verified": false,
+      "requested_at": "2026-10-24T10:59:14.723661+00:00",
+      "status": null,
+      "url": "https://data-api.ecb.europa.eu/service/data/EXR/M.USD.EUR.SP00.A?startPeriod=2018-01&endPeriod=2018-01&format=csvdata"
+    },
+    {
+      "bytes": 0,
+      "content_type": null,
+      "error": "URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+      "id": "ec_rights",
+      "numeric_observation_verified": false,
+      "requested_at": "2026-10-24T10:59:14.744040+00:00",
+      "status": null,
+      "url": "https://commission.europa.eu/legal-notice_en"
+    },
+    {
+      "bytes": 0,
+      "content_type": null,
+      "error": "URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+      "id": "eia_rights",
+      "numeric_observation_verified": false,
+      "requested_at": "2026-10-24T10:59:14.746615+00:00",
+      "status": null,
+      "url": "https://www.eia.gov/about/copyrights_reuse.php"
+    },
+    {
+      "bytes": 0,
+      "content_type": null,
+      "error": "URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+      "id": "ecb_rights",
+      "numeric_observation_verified": false,
+      "requested_at": "2026-10-24T10:59:14.749768+00:00",
+      "status": null,
+      "url": "https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html"
+    },
+    {
+      "bytes": 0,
+      "content_type": null,
+      "error": "URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+      "id": "mtsk",
+      "numeric_observation_verified": false,
+      "requested_at": "2026-10-24T10:59:14.751875+00:00",
+      "status": null,
+      "url": "https://www.bundeskartellamt.de/DE/Aufgaben/MarkttransparenzstelleFuerKraftstoffe/markttransparenzstellefuerkraftstoffe_node.html"
+    },
+    {
+      "bytes": 0,
+      "content_type": null,
+      "error": "URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+      "id": "tanker",
+      "numeric_observation_verified": false,
+      "requested_at": "2026-10-24T10:59:14.760609+00:00",
+      "status": null,
+      "url": "https://creativecommons.tankerkoenig.de/"
+    },
+    {
+      "bytes": 0,
+      "content_type": null,
+      "error": "URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+      "id": "adac",
+      "numeric_observation_verified": false,
+      "requested_at": "2026-10-24T10:59:14.763768+00:00",
+      "status": null,
+      "url": "https://www.adac.de/verkehr/tanken-kraftstoff-antrieb/deutschland/kraftstoffpreisentwicklung/"
+    }
+  ]
+}

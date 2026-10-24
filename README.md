@@ -101,3 +101,9 @@ admitted (0/96 and 0/60 verified months for each candidate). Monthly earnings ar
 **unverified**, not assumed unavailable. Run `python3 -m macro_controls.pipeline --check`;
 synthetic fixtures exercise native-frequency normalization, provenance and calendar
 arithmetic. No expanded model, outcome join or frozen-protocol change is included.
+
+Task 01I adds [fuel/oil/FX acquisition and private/manual handoff](docs/GERMAN_FUEL_OIL_ACQUISITION.md).
+All ten official requests are proxy-blocked; no real observations acquired or admitted
+(0/96 frozen and 0/105 extended verified months per candidate). E10 is not substituted
+with Euro-super 95. Run `python -m fuel_oil.fetch_fuel_oil --check` offline; tests use
+synthetic fixtures only. No model, frozen-protocol or Macro admission change.
