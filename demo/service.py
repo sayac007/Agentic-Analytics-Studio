@@ -1,5 +1,6 @@
 """Synthetic-only adapter over the unchanged, isolated Stage-A engine."""
 import csv
+import hashlib
 import json
 from pathlib import Path
 import tempfile
@@ -81,5 +82,21 @@ def summarize(root, model):
                             synthetic_reference=reference, simulated_media=truth['true_contribution_monthly'],
                             estimated_baseline=(prediction-media).tolist(), estimated_media=media.tolist(),
                             prediction=prediction.tolist(), residual=(outcome-prediction).tolist(), spend=spend.tolist()),
-                hashes=dict(data=result['data_sha256'], inventory=__import__('hashlib').sha256((root/'inventory.json').read_bytes()).hexdigest()),
+                hashes=dict(data=result['data_sha256'], inventory=hashlib.sha256((root/'inventory.json').read_bytes()).hexdigest()),
                 software=result['software'])
+
+
+def describe_dataset():
+    """Actual seeded demo data preview using the same generator, without fitting."""
+    from studio.generate import generate
+    from studio.pipeline import SOURCE
+    raw = (SOURCE / 'config/task-01a.json').read_bytes()
+    with tempfile.TemporaryDirectory(prefix='aas-synthetic-preview-') as tmp:
+        root = Path(tmp)
+        (root / 'protocol.json').write_bytes(raw)
+        truth = generate(root, json.loads(raw))
+        with (root / 'safe/data.csv').open(newline='') as f:
+            rows = list(csv.DictReader(f))
+        return dict(metadata=DATASET, preview=rows[:12], preview_months=12,
+                    total_months=len(rows), data_sha256=truth['data']['sha256'],
+                    note='First 12 of 72 generated synthetic months; no fitting. Reference/truth are not estimator inputs.')

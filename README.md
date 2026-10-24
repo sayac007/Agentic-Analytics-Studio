@@ -5,6 +5,21 @@ runs a fully synthetic Stage-A benchmark**, with an intentionally difficult base
 known media transformations and honest recovery diagnostics. It is not evidence of
 real Tesla advertising effectiveness.
 
+## Local browser demo — Task 02 MVP
+
+Python 3.12 + Git, from repository root (Linux):
+
+```sh
+python3.12 -m venv .venv
+.venv/bin/python -m pip install -r requirements-demo.lock
+.venv/bin/python -m demo
+```
+
+Open `http://127.0.0.1:8000`: choose **Synthetic MMM Demo**, run the analysis,
+compare the two predefined models, export the synthetic report, or try the four
+rule-based assistant requests. [Instructions and limitations](docs/LOCAL_DEMO.md).
+No keys, cloud account, real data or frontend build are required.
+
 ## Run the synthetic pipeline
 
 Python 3.12 and Git are required. From repository root:
@@ -128,6 +143,8 @@ Only admitted ECB FX, qualified EC diesel and audited retrospective Tesla counts
 used; no Brent or 2026 outcomes. Real outputs stay private; CI uses synthetic fixtures.
 This does not execute Task 01J or change Task 01G.
 
-Task 02A adds a [local synthetic browser demo](docs/LOCAL_DEMO.md). Install
+Task 02A–02C adds a [local synthetic browser demo](docs/LOCAL_DEMO.md). Install
 `requirements-demo.lock`, then run `python -m demo` and open `http://127.0.0.1:8000`.
 Only project-generated synthetic data are available; no keys or cloud setup required.
+The demo includes a matched model comparison, synthetic Markdown report export,
+and four rule-based language requests backed by allowlisted tools (no LLM or MCP server).

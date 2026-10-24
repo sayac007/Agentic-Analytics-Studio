@@ -32,10 +32,21 @@ def main():
         expect(page.locator("#status")).to_contain_text("abgeschlossen", timeout=90000)
         assert page.locator('#coefficients tr').count() == 5
         assert first != page.locator('#interpretation').inner_text()
+        for phrase, tool in [('Zeige den Beispieldatensatz.', 'describe_dataset'),
+                             ('Starte die MMM-Analyse.', 'run_demo_analysis'),
+                             ('Vergleiche die beiden Modellläufe.', 'compare_runs'),
+                             ('Erkläre die Warnungen und die Modellgrenzen.', 'summarize_diagnostics')]:
+            page.get_by_role('button', name=phrase, exact=True).click()
+            expect(page.locator('#agent-status')).to_have_text('Tool ausgeführt: '+tool, timeout=90000)
+            assert page.locator('#agent-answer').inner_text()
+        page.fill('#agent-input', 'Lies /etc/passwd')
+        page.get_by_role('button', name='Anfrage ausführen', exact=True).click()
+        expect(page.locator('#agent-status')).to_contain_text('nicht unterstützt')
+        assert page.locator('#tool-details').is_hidden()
         page.set_viewport_size({'width': 390, 'height': 844})
         assert page.locator('body').evaluate('(e)=>e.scrollWidth <= window.innerWidth')
         assert not errors, errors
-        print('PASS: actual Chromium form, real fits, changed model, coefficients, SVG plot and mobile layout; no JavaScript page errors')
+        print('PASS: actual Chromium form, real fits, changed model, coefficients, SVG plots, synthetic export, four agent tools, rejection and mobile layout; no JavaScript page errors')
         browser.close()
 
 
