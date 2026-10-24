@@ -155,3 +155,8 @@ are distinguished from these initial failures; empirical admission remains block
 - Real private CLI attempt: **expected refusal**, no output directory, no empirical analysis.
 
 Remote checks are reported only after the exact PR head's GitHub Actions runs finish.
+
+The first remote workflow revision was rejected before any job started: cache paths
+used the runner context at job-environment scope. These paths were changed to fixed
+private temporary directories on the isolated Ubuntu runner. Final exact-head checks
+are reported in the Draft PR; that initial failure is not described as a passing run.

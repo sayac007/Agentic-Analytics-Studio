@@ -13,8 +13,8 @@ jobs:
     env:
       OPENBLAS_NUM_THREADS: '1'
       OMP_NUM_THREADS: '1'
-      MPLCONFIGDIR: ${{ runner.temp }}/matplotlib
-      XDG_CACHE_HOME: ${{ runner.temp }}/cache
+      MPLCONFIGDIR: /tmp/agentic-attention-matplotlib
+      XDG_CACHE_HOME: /tmp/agentic-attention-cache
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
