@@ -64,3 +64,5 @@ jobs:
             --raw tests/fixtures/macro/cpi.csv \
             --provenance tests/fixtures/macro/cpi.provenance.json \
             --derive cpi-yoy --output "$RUNNER_TEMP/SYNTHETIC-macro-cpi.json"
+      - name: Offline fuel oil FX blocked-acquisition check
+        run: python3 -m fuel_oil.fetch_fuel_oil --check

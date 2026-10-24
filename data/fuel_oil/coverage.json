@@ -1,0 +1,109 @@
+{
+  "empirical_completion": false,
+  "historical_as_of": "not_established",
+  "partial_2026_months_excluded": [
+    "2026-10"
+  ],
+  "scope": "BLOCKED_ACQUISITION_NO_REAL_OBSERVATIONS",
+  "series": [
+    {
+      "admitted": false,
+      "id": "diesel_de",
+      "reason": [
+        "No numeric primary observation retrieved: proxy CONNECT 403",
+        "Primary metadata and dataset-specific rights unverified"
+      ],
+      "windows": [
+        {
+          "end": "2025-12",
+          "expected_months": 96,
+          "missing_or_unverified_months": 96,
+          "observed_months": 0,
+          "start": "2018-01"
+        },
+        {
+          "end": "2026-09",
+          "expected_months": 105,
+          "missing_or_unverified_months": 105,
+          "observed_months": 0,
+          "start": "2018-01"
+        }
+      ]
+    },
+    {
+      "admitted": false,
+      "id": "brent_usd",
+      "reason": [
+        "No numeric primary observation retrieved: proxy CONNECT 403",
+        "Primary metadata and dataset-specific rights unverified",
+        "EIA_API_KEY not set; authenticated API behavior not tested"
+      ],
+      "windows": [
+        {
+          "end": "2025-12",
+          "expected_months": 96,
+          "missing_or_unverified_months": 96,
+          "observed_months": 0,
+          "start": "2018-01"
+        },
+        {
+          "end": "2026-09",
+          "expected_months": 105,
+          "missing_or_unverified_months": 105,
+          "observed_months": 0,
+          "start": "2018-01"
+        }
+      ]
+    },
+    {
+      "admitted": false,
+      "id": "eurusd",
+      "reason": [
+        "No numeric primary observation retrieved: proxy CONNECT 403",
+        "Primary metadata and dataset-specific rights unverified"
+      ],
+      "windows": [
+        {
+          "end": "2025-12",
+          "expected_months": 96,
+          "missing_or_unverified_months": 96,
+          "observed_months": 0,
+          "start": "2018-01"
+        },
+        {
+          "end": "2026-09",
+          "expected_months": 105,
+          "missing_or_unverified_months": 105,
+          "observed_months": 0,
+          "start": "2018-01"
+        }
+      ]
+    },
+    {
+      "admitted": false,
+      "id": "e10_de",
+      "reason": [
+        "No numeric primary observation retrieved: proxy CONNECT 403",
+        "Primary metadata and dataset-specific rights unverified",
+        "No verified national E10 history/aggregation/rights; exclude from admitted dataset"
+      ],
+      "windows": [
+        {
+          "end": "2025-12",
+          "expected_months": 96,
+          "missing_or_unverified_months": 96,
+          "observed_months": 0,
+          "start": "2018-01"
+        },
+        {
+          "end": "2026-09",
+          "expected_months": 105,
+          "missing_or_unverified_months": 105,
+          "observed_months": 0,
+          "start": "2018-01"
+        }
+      ]
+    }
+  ],
+  "sources_sha256": "8f063cd6c7fc37c07643319318b29893febbc3cd77a103a0dce48422fc497312"
+}

@@ -1,0 +1,6 @@
+measurement_date,country,grade,taxes,unit,value
+2019-12-30,DE,automotive_gas_oil,with_taxes,EUR_per_1000_litres,1000
+2020-01-06,DE,automotive_gas_oil,with_taxes,EUR_per_1000_litres,1100
+2020-01-13,DE,automotive_gas_oil,with_taxes,EUR_per_1000_litres,1200
+2020-01-20,DE,automotive_gas_oil,with_taxes,EUR_per_1000_litres,1300
+2020-01-27,DE,automotive_gas_oil,with_taxes,EUR_per_1000_litres,1400

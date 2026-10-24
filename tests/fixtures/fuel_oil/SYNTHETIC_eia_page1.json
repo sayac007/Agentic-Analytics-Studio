@@ -1,0 +1,14 @@
+{
+  "response": {
+    "frequency": "monthly",
+    "total": "3",
+    "data": [
+      {
+        "period": "2020-03",
+        "series": "RBRTE",
+        "units": "Dollars per Barrel",
+        "value": "40"
+      }
+    ]
+  }
+}
