@@ -1,0 +1,692 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "ledger_version": {
+      "const": "1.0.0"
+    },
+    "research_as_of": {
+      "type": "string",
+      "format": "date"
+    },
+    "window": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "const": "2018-01"
+        },
+        "end": {
+          "const": "2025-12"
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ],
+      "additionalProperties": false
+    },
+    "selection_protocol": {
+      "type": "string",
+      "minLength": 1
+    },
+    "taxonomy": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "offering_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "model": {
+            "type": "string",
+            "minLength": 1
+          },
+          "trim_scope": {
+            "type": "string",
+            "minLength": 1
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "offering_id",
+          "model",
+          "trim_scope",
+          "aliases"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https://"
+          },
+          "publisher": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_type": {
+            "enum": [
+              "primary",
+              "secondary"
+            ]
+          },
+          "accessed_on": {
+            "type": "string",
+            "format": "date"
+          },
+          "publication_date": {
+            "type": "object",
+            "properties": {
+              "precision": {
+                "enum": [
+                  "day",
+                  "month",
+                  "year",
+                  "unknown"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "role": {
+                "enum": [
+                  "published",
+                  "announced",
+                  "orders_opened",
+                  "first_delivered_de",
+                  "effective",
+                  "observed_active",
+                  "remedy_available_from",
+                  "planned_start",
+                  "ended",
+                  "planned_end",
+                  "unknown"
+                ]
+              }
+            },
+            "required": [
+              "precision",
+              "value",
+              "role"
+            ],
+            "additionalProperties": false
+          },
+          "response_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "content_status": {
+            "enum": [
+              "article_read",
+              "official_content_read",
+              "archived_content_read"
+            ]
+          },
+          "quote_snippet": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "reuse": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "source_id",
+          "url",
+          "publisher",
+          "source_type",
+          "accessed_on",
+          "publication_date",
+          "response_sha256",
+          "content_status",
+          "quote_snippet",
+          "reuse"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "parents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "parent_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "parent_id",
+          "description"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "record_version": {
+            "const": "1.0.0"
+          },
+          "event_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "parent_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "event_type": {
+            "enum": [
+              "announcement",
+              "orders_open",
+              "first_delivery_de",
+              "model_refresh",
+              "variant_added",
+              "variant_removed",
+              "price_change",
+              "financing_offer",
+              "supply_disruption",
+              "recall_notice",
+              "recall_remedy"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "models": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "trim_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "geography": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "enum": [
+                  "explicit_de",
+                  "manufacturer_de_guidance",
+                  "not_established",
+                  "foreign"
+                ]
+              },
+              "evidence": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "status",
+              "evidence"
+            ],
+            "additionalProperties": false
+          },
+          "date": {
+            "type": "object",
+            "properties": {
+              "precision": {
+                "enum": [
+                  "day",
+                  "month",
+                  "year",
+                  "unknown"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "role": {
+                "enum": [
+                  "published",
+                  "announced",
+                  "orders_opened",
+                  "first_delivered_de",
+                  "effective",
+                  "observed_active",
+                  "remedy_available_from",
+                  "planned_start",
+                  "ended",
+                  "planned_end",
+                  "unknown"
+                ]
+              }
+            },
+            "required": [
+              "precision",
+              "value",
+              "role"
+            ],
+            "additionalProperties": false
+          },
+          "end_date": {
+            "type": "object",
+            "properties": {
+              "precision": {
+                "enum": [
+                  "day",
+                  "month",
+                  "year",
+                  "unknown"
+                ]
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "role": {
+                "enum": [
+                  "published",
+                  "announced",
+                  "orders_opened",
+                  "first_delivered_de",
+                  "effective",
+                  "observed_active",
+                  "remedy_available_from",
+                  "planned_start",
+                  "ended",
+                  "planned_end",
+                  "unknown"
+                ]
+              }
+            },
+            "required": [
+              "precision",
+              "value",
+              "role"
+            ],
+            "additionalProperties": false
+          },
+          "date_basis": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9_-]*$"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "status": {
+            "enum": [
+              "verified",
+              "partial",
+              "unverified",
+              "excluded"
+            ]
+          },
+          "conflicts": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "missing_fields": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1
+          },
+          "price": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "model": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "trim": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "currency": {
+                    "enum": [
+                      "EUR"
+                    ]
+                  },
+                  "unit": {
+                    "enum": [
+                      "list_price_per_vehicle"
+                    ]
+                  },
+                  "vat_basis": {
+                    "enum": [
+                      "includes_vat",
+                      "excludes_vat",
+                      "unknown"
+                    ]
+                  },
+                  "before": {
+                    "anyOf": [
+                      {
+                        "type": "number",
+                        "minimum": 0
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "after": {
+                    "anyOf": [
+                      {
+                        "type": "number",
+                        "minimum": 0
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "reported_change": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "basis": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "model",
+                  "trim",
+                  "currency",
+                  "unit",
+                  "vat_basis",
+                  "before",
+                  "after",
+                  "reported_change",
+                  "basis"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "recall": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "kba_reference": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "affected_de_count": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "affected_models_and_years": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "defect_period_description": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "severity": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "remedy_category": {
+                    "enum": [
+                      "ota",
+                      "workshop_hardware",
+                      "software_and_hardware",
+                      "unknown"
+                    ]
+                  },
+                  "delivery_constraint": {
+                    "enum": [
+                      "not_established",
+                      "documented"
+                    ]
+                  },
+                  "delivery_constraint_evidence": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "kba_reference",
+                  "affected_de_count",
+                  "affected_models_and_years",
+                  "defect_period_description",
+                  "severity",
+                  "remedy_category",
+                  "delivery_constraint",
+                  "delivery_constraint_evidence"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "financing_terms": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "provenance_category": {
+            "enum": [
+              "observed_event",
+              "derived_indicator",
+              "hypothesis"
+            ]
+          }
+        },
+        "required": [
+          "record_version",
+          "event_id",
+          "parent_id",
+          "event_type",
+          "title",
+          "models",
+          "trim_id",
+          "geography",
+          "date",
+          "end_date",
+          "date_basis",
+          "description",
+          "source_ids",
+          "status",
+          "conflicts",
+          "missing_fields",
+          "rationale",
+          "price",
+          "recall",
+          "financing_terms",
+          "provenance_category"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "availability_observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "snapshot_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9_-]*$"
+            },
+            "minItems": 1
+          },
+          "observed_on": {
+            "type": "string",
+            "format": "date"
+          },
+          "offering_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9_-]*$"
+            }
+          },
+          "scope": {
+            "type": "string",
+            "minLength": 1
+          },
+          "complete_census": {
+            "const": false
+          },
+          "continuity_established": {
+            "const": false
+          },
+          "limitation": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "snapshot_id",
+          "source_ids",
+          "observed_on",
+          "offering_ids",
+          "scope",
+          "complete_census",
+          "continuity_established",
+          "limitation"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "ledger_version",
+    "research_as_of",
+    "window",
+    "selection_protocol",
+    "taxonomy",
+    "sources",
+    "parents",
+    "events",
+    "availability_observations"
+  ],
+  "additionalProperties": false
+}

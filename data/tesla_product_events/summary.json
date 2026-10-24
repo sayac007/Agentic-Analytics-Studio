@@ -1,0 +1,39 @@
+{
+  "by_status": {
+    "excluded": 1,
+    "partial": 6,
+    "verified": 10
+  },
+  "by_type": {
+    "announcement": 2,
+    "financing_offer": 1,
+    "first_delivery_de": 4,
+    "model_refresh": 2,
+    "orders_open": 2,
+    "price_change": 1,
+    "recall_notice": 2,
+    "recall_remedy": 2,
+    "supply_disruption": 1
+  },
+  "confirmed_inactive_months": 0,
+  "events": 17,
+  "ledger_canonical_sha256": "c9cb677ae8ea41ef872c2cd68e7d9c81dd244ba8a5c0a84051fddabc9039ef56",
+  "ledger_version": "1.0.0",
+  "limitations": "Nonexhaustive point evidence, not absence or causal exposure; MAI unsupported by isolated snapshots.",
+  "lineage": "derived_indicator",
+  "mai_observed_months": 0,
+  "monthly_csv_sha256": "91debd36693eeeb59290ef89a90b001069d04e92525284dc12edfc3c8d4d9ddb",
+  "months": 96,
+  "months_without_verified_dated_event": 89,
+  "parents": 11,
+  "sources": 16,
+  "verified_event_months": [
+    "2019-02",
+    "2021-08",
+    "2022-03",
+    "2023-09",
+    "2024-06",
+    "2025-01",
+    "2025-03"
+  ]
+}

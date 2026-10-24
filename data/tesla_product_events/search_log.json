@@ -1,0 +1,373 @@
+{
+  "selection_frozen_before_outcome_relationships": true,
+  "requests": [
+    {
+      "retrieved_at": "2026-10-24T07:51:47.088463+00:00",
+      "id": "recall-index",
+      "url": "https://www.tesla.com/de_de/recall",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:51:46.885369+00:00",
+      "id": "recall-support",
+      "url": "https://www.tesla.com/de_de/support/vehicle-recalls",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:51:45.356141+00:00",
+      "id": "recall-emmc",
+      "url": "https://www.tesla.com/de_de/support/8gb-emmc-recall-frequently-asked-questions",
+      "final_url": "https://www.tesla.com/de_de/support/8gb-emmc-recall-frequently-asked-questions",
+      "status": 200,
+      "bytes": 1061012,
+      "sha256": "55f5b5b298ea30a3c242048da68b664e428c2dc1f6bfb20342a8e9f3742799ae"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:51:45.351077+00:00",
+      "id": "recall-hood",
+      "url": "https://www.tesla.com/de_de/support/recall-unintended-front-hood-opening",
+      "final_url": "https://www.tesla.com/de_de/support/recall-unintended-front-hood-opening",
+      "status": 200,
+      "bytes": 1046220,
+      "sha256": "3895e592a0834f9308907bcf1bd6fb94d871d4a660526ca25dfa23fb20eefa9a"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:51:46.280347+00:00",
+      "id": "recall-rear-camera",
+      "url": "https://www.tesla.com/de_de/support/recall-of-certain-model-3-vehicles-for-rearview-camera",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:51:46.843285+00:00",
+      "id": "kba-recalls",
+      "url": "https://www.kba.de/DE/Marktueberwachung/Rueckrufe/rueckrufe_node.html",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:51:46.287414+00:00",
+      "id": "kba-db",
+      "url": "https://www.kba-online.de/gpsg/startServlet?adress=gpsg",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:51:49.150605+00:00",
+      "id": "search-model3",
+      "url": "https://teslamag.de/?s=Model+3+erste+Deutschland+Februar+2019",
+      "final_url": "https://teslamag.de/?s=Model+3+erste+Deutschland+Februar+2019",
+      "status": 200,
+      "bytes": 89173,
+      "sha256": "61ef78be58433abcf1abc1ab98e82cbd16126992c7a3bf0b85c36863272d5e2f"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:51:49.531555+00:00",
+      "id": "search-modely",
+      "url": "https://teslamag.de/?s=Model+Y+erste+Auslieferungen+Deutschland+2021",
+      "final_url": "https://teslamag.de/?s=Model+Y+erste+Auslieferungen+Deutschland+2021",
+      "status": 200,
+      "bytes": 87213,
+      "sha256": "c69c1b2dcfae5064bff606ce86d5327fa18ef7164a539a9aaa01de286fcc02a6"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:51:49.531635+00:00",
+      "id": "search-highland",
+      "url": "https://teslamag.de/?s=Model+3+Highland+September+2023",
+      "final_url": "https://teslamag.de/?s=Model+3+Highland+September+2023",
+      "status": 200,
+      "bytes": 85817,
+      "sha256": "1b184f35781073afc34bdd32cdaef0d0223e2e57d2131674d76ed1ce02312891"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:51:49.182284+00:00",
+      "id": "search-juniper",
+      "url": "https://teslamag.de/?s=Model+Y+neu+Deutschland+Januar+2025",
+      "final_url": "https://teslamag.de/?s=Model+Y+neu+Deutschland+Januar+2025",
+      "status": 200,
+      "bytes": 86657,
+      "sha256": "80ec52028b76402fe5f7ccafea83c3146172152dda4b578b7c9f7f57f027c8d6"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:51:53.091027+00:00",
+      "id": "search-price",
+      "url": "https://www.electrive.net/?s=Tesla+13+Januar+2023+Preise",
+      "final_url": "https://www.electrive.net/?s=Tesla+13+Januar+2023+Preise",
+      "status": 200,
+      "bytes": 76273,
+      "sha256": "cba3947c62373d8346b5411d37cafc5260a31d2a0e8b3763447aae2fc790dcb3"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:51:50.795048+00:00",
+      "id": "search-physical",
+      "url": "https://teslamag.de/?s=R%C3%BCckruf+eMMC+2021",
+      "final_url": "https://teslamag.de/?s=R%C3%BCckruf+eMMC+2021",
+      "status": 200,
+      "bytes": 50822,
+      "sha256": "0174521cdc349c2769473cb1e14f5a4651536270a366623be3b7021816e83fa0"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:51:50.571631+00:00",
+      "id": "search-ota",
+      "url": "https://teslamag.de/?s=R%C3%BCckruf+Kofferraum+2024",
+      "final_url": "https://teslamag.de/?s=R%C3%BCckruf+Kofferraum+2024",
+      "status": 200,
+      "bytes": 44679,
+      "sha256": "33e269687e8879ffa88c2163dcde4bf00309dec61c5e9d1c1c9eaba2185c8ce6"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:51:50.448640+00:00",
+      "id": "search-supply",
+      "url": "https://teslamag.de/?s=Gr%C3%BCnheide+Produktion+Pause+Januar+2024",
+      "final_url": "https://teslamag.de/?s=Gr%C3%BCnheide+Produktion+Pause+Januar+2024",
+      "status": 200,
+      "bytes": 62978,
+      "sha256": "c2bdab9ff42db1ea322bfdc9637a419f9721ea01a221a84f43dc7aa4901dec44"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:53:43.878578+00:00",
+      "id": "product3-2019-search",
+      "url": "https://teslamag.de/?s=Model+3&year=2019&monthnum=2",
+      "final_url": "https://teslamag.de/?s=Model+3&year=2019&monthnum=2",
+      "status": 200,
+      "bytes": 87583,
+      "sha256": "89faf70ade16887b2795747638e84b4a7fbb4c957154747eb17220166ae03c4c"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:53:43.918169+00:00",
+      "id": "producty-2021-search",
+      "url": "https://teslamag.de/?s=Model+Y&year=2021&monthnum=8",
+      "final_url": "https://teslamag.de/?s=Model+Y&year=2021&monthnum=8",
+      "status": 200,
+      "bytes": 87938,
+      "sha256": "e3bf7c7e065eb3d701ad25501a04cb78146816010d5ea6ab4933c29c7bea0590"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:53:43.920870+00:00",
+      "id": "highland-2023-search",
+      "url": "https://teslamag.de/?s=Highland&year=2023&monthnum=9",
+      "final_url": "https://teslamag.de/?s=Highland&year=2023&monthnum=9",
+      "status": 200,
+      "bytes": 81293,
+      "sha256": "1e615714594d2b6857ae51621e60b840aa8a0825b67c464dca2e6902b34cc11d"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:53:43.660942+00:00",
+      "id": "juniper-2025-search",
+      "url": "https://teslamag.de/?s=Model+Y&year=2025&monthnum=1",
+      "final_url": "https://teslamag.de/?s=Model+Y&year=2025&monthnum=1",
+      "status": 200,
+      "bytes": 76809,
+      "sha256": "01c0bd172041ef22e879b7ac0651e0f857640a2d61e135961d22360f4e83b6da"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:53:44.651613+00:00",
+      "id": "electrive-price",
+      "url": "https://www.electrive.net/2023/01/13/tesla-senkt-preise-fuer-model-3-und-model-y-deutlich/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:53:44.772075+00:00",
+      "id": "electrive-refresh",
+      "url": "https://www.electrive.net/2023/09/01/tesla-stellt-neues-model-3-vor/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:53:44.652598+00:00",
+      "id": "electrive-juniper",
+      "url": "https://www.electrive.net/2025/01/24/tesla-startet-bestellannahme-fuer-neues-model-y-in-europa/",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:53:44.958041+00:00",
+      "id": "physical-conflict",
+      "url": "https://teslamag.de/news/rueckruf-alte-tesla-mcus-china-verwirrung-bei-deutschen-kunden-33867",
+      "final_url": "https://teslamag.de/news/rueckruf-alte-tesla-mcus-china-verwirrung-bei-deutschen-kunden-33867",
+      "status": 200,
+      "bytes": 59720,
+      "sha256": "be77ad4cc383de49194ed2ac736ae039c039c269a424c473f9e1ae311633d753"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:53:44.966619+00:00",
+      "id": "supply-2024",
+      "url": "https://teslamag.de/news/tesla-woche-2-2024-pause-gruenheide-highland-usa-hertz-preise-sinken-63297",
+      "final_url": "https://teslamag.de/news/tesla-woche-2-2024-pause-gruenheide-highland-usa-hertz-preise-sinken-63297",
+      "status": 200,
+      "bytes": 61598,
+      "sha256": "9d471bc10336a8176e657c77ea4fc99d3c0c78e7f07991b00134a63ab5d9c97d"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:53:46.002743+00:00",
+      "id": "kba-discovery",
+      "url": "https://www.kba.de/DE/Marktueberwachung/Produktsicherheit/Rueckrufe/rueckrufe_node.html",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:53:46.205990+00:00",
+      "id": "berlin-primary",
+      "url": "https://www.tesla.com/de_de/blog/gigafactory-berlin-brandenburg",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:53:46.295079+00:00",
+      "id": "cybertruck-global",
+      "url": "https://www.tesla.com/blog/introducing-cybertruck",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:55:07.207197+00:00",
+      "id": "model3-first",
+      "url": "https://teslamag.de/news/tesla-liefert-die-ersten-model-3-in-deutschland-aus-bilder-23374",
+      "final_url": "https://teslamag.de/news/tesla-liefert-die-ersten-model-3-in-deutschland-aus-bilder-23374",
+      "status": 200,
+      "bytes": 68056,
+      "sha256": "3cc8c51eea47c47de2404771643e61f058624d06264712db918b599bb3044313"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:55:07.337567+00:00",
+      "id": "modely-first",
+      "url": "https://teslamag.de/news/deutschland-start-tesla-model-y-mehrere-staedten-fruehe-besteller-uebergeben-40371",
+      "final_url": "https://teslamag.de/news/deutschland-start-tesla-model-y-mehrere-staedten-fruehe-besteller-uebergeben-40371",
+      "status": 200,
+      "bytes": 59348,
+      "sha256": "dba799d3af46c3d26584b3c13d3cc7106816407a5b82680100843fb65b98df12"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:55:07.140765+00:00",
+      "id": "modely-official-de",
+      "url": "https://teslamag.de/news/massenmodell-kein-kleinwagen-tesla-model-y-start-offiziell-deutschland-40279",
+      "final_url": "https://teslamag.de/news/massenmodell-kein-kleinwagen-tesla-model-y-start-offiziell-deutschland-40279",
+      "status": 200,
+      "bytes": 62546,
+      "sha256": "b8a19d6d5596a106cc5c41699846aa07c66d76f654ae7e926800b40a2b9a9c8a"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:55:07.342137+00:00",
+      "id": "juniper-de",
+      "url": "https://teslamag.de/news/tesla-europa-verkauf-neues-model-y-launch-edition-hoher-preis-64681",
+      "final_url": "https://teslamag.de/news/tesla-europa-verkauf-neues-model-y-launch-edition-hoher-preis-64681",
+      "status": 200,
+      "bytes": 58169,
+      "sha256": "0482dcbc8aa318e6c57aa1aa2b70476c9c4eba986ec5b58c35744b159c99b945"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:55:08.240476+00:00",
+      "id": "juniper-delivery",
+      "url": "https://teslamag.de/news/10-25-tesla-model-y-kunden-trump-effekt-dritte-megafactory-akku-analyse-64859",
+      "final_url": "https://teslamag.de/news/10-25-tesla-model-y-kunden-trump-effekt-dritte-megafactory-akku-analyse-64859",
+      "status": 200,
+      "bytes": 64574,
+      "sha256": "3ea5a63f22662d24722628f8ff2db48b5ccdc398a83259cf55792d8aee43364f"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:55:07.689548+00:00",
+      "id": "highland-search-p2",
+      "url": "https://teslamag.de/?s=Highland&year=2023&monthnum=9&paged=2",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:55:08.080150+00:00",
+      "id": "price-search-2023",
+      "url": "https://teslamag.de/?s=Preise&year=2023&monthnum=1",
+      "final_url": "https://teslamag.de/?s=Preise&year=2023&monthnum=1",
+      "status": 200,
+      "bytes": 87306,
+      "sha256": "104df929fed3bc29182371a70c0494ecd944e479f35e699c3ec12980d357a47d"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:55:08.200806+00:00",
+      "id": "berlin-search-2022",
+      "url": "https://teslamag.de/?s=Auslieferungen&year=2022&monthnum=3",
+      "final_url": "https://teslamag.de/?s=Auslieferungen&year=2022&monthnum=3",
+      "status": 200,
+      "bytes": 88293,
+      "sha256": "51f4929df9c396987ab4ab22ebbed8b088d9ed4b135ca7caf7c96beb023eb375"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:55:08.620423+00:00",
+      "id": "official-product-performance",
+      "url": "https://www.tesla.com/blog/introducing-new-model-3-performance",
+      "final_url": "https://www.tesla.com/blog/introducing-new-model-3-performance",
+      "status": 200,
+      "bytes": 1043308,
+      "sha256": "cd2b2b8ddf59dccdc5c25dcf795a1f306118862bdec9e83496f1ed26247a624b"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:55:09.568746+00:00",
+      "id": "electrive-price-search2",
+      "url": "https://www.electrive.net/?s=Tesla+Preissenkung&year=2023&monthnum=1",
+      "final_url": "https://www.electrive.net/",
+      "status": 200,
+      "bytes": 122203,
+      "sha256": "a456654c1ca0affa977ccfb8ca7f3eeece987e4036c6a85dd28bd9786b2cbff4"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:57:49.582936+00:00",
+      "id": "price-cut-de",
+      "url": "https://teslamag.de/news/tesla-preise-model-y-9100-euro-billiger-model-3-6000-euro-55941",
+      "final_url": "https://teslamag.de/news/tesla-preise-model-y-9100-euro-billiger-model-3-6000-euro-55941",
+      "status": 200,
+      "bytes": 57515,
+      "sha256": "cf76171ec1eaf743ce4a794bc6fcdf636d73f4ead47b5d4a07a72e0a316dc701"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:57:49.188042+00:00",
+      "id": "highland-open",
+      "url": "https://teslamag.de/news/neues-tesla-model-3-basis-version-1000-euro-mehr-678-km-reichweite-60773",
+      "final_url": "https://teslamag.de/news/neues-tesla-model-3-basis-version-1000-euro-mehr-678-km-reichweite-60773",
+      "status": 200,
+      "bytes": 60263,
+      "sha256": "deeaad3660aa9fbf6635e49baf43d15b783e6af995efd0cea74a080c343184c9"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:57:49.710756+00:00",
+      "id": "berlin-delivery",
+      "url": "https://teslamag.de/news/delivery-day-tesla-ceo-musk-erste-model-y-deutsche-gigafactory-46884",
+      "final_url": "https://teslamag.de/news/delivery-day-tesla-ceo-musk-erste-model-y-deutsche-gigafactory-46884",
+      "status": 200,
+      "bytes": 57490,
+      "sha256": "e0a15bec3da68ccef6fad427b2b644ad63ec73120a2ed1b7950b9fbb0489b0cd"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:57:49.064388+00:00",
+      "id": "berlin-corroboration",
+      "url": "https://teslamag.de/news/deutschland-erste-reine-elektroauto-fabrik-tesla-delivery-day-46893",
+      "final_url": "https://teslamag.de/news/deutschland-erste-reine-elektroauto-fabrik-tesla-delivery-day-46893",
+      "status": 200,
+      "bytes": 60152,
+      "sha256": "688b0520e7b5b7899f2e20d0b532b39b45a0716772d049020b2f61c50b8b8105"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:57:49.715811+00:00",
+      "id": "financing-2023",
+      "url": "https://teslamag.de/news/umweltbonus-endspurt-tesla-model-3-highland-rabatt-model-y-zinsen-62978",
+      "final_url": "https://teslamag.de/news/umweltbonus-endspurt-tesla-model-3-highland-rabatt-model-y-zinsen-62978",
+      "status": 200,
+      "bytes": 57704,
+      "sha256": "d5a7af89b42fd3b967af05d4040b76dcd16d93aad51979eb8e6b6e4508c8aca7"
+    },
+    {
+      "retrieved_at": "2026-10-24T07:57:50.672542+00:00",
+      "id": "kba-entry",
+      "url": "https://www.kba.de/DE/Marktueberwachung/Produktsicherheit/produktsicherheit_node.html",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:08:05.800753+00:00",
+      "id": "archive-config-probe",
+      "url": "https://web.archive.org/cdx/search/cdx?url=tesla.com%2Fde_de%2Fmodel3%2Fdesign%2A&output=json&from=20230901&to=20230902&filter=statuscode:200&filter=mimetype:text%2Fhtml&collapse=digest&limit=3",
+      "final_url": "https://web.archive.org/cdx/search/cdx?url=tesla.com%2Fde_de%2Fmodel3%2Fdesign%2A&output=json&from=20230901&to=20230902&filter=statuscode:200&filter=mimetype:text%2Fhtml&collapse=digest&limit=3",
+      "status": 200,
+      "bytes": 552,
+      "sha256": "1cd136aa76db68496b99f3b3a849a412cd9db29e9de4cdb6136240582bcda905"
+    },
+    {
+      "retrieved_at": "2026-10-24T08:08:38.158686+00:00",
+      "id": "archive-config-body",
+      "url": "https://web.archive.org/web/20230901090712id_/https://www.tesla.com/de_DE/model3/design",
+      "final_url": "https://web.archive.org/web/20230901090712id_/https://www.tesla.com/de_DE/model3/design",
+      "status": 200,
+      "bytes": 378001,
+      "sha256": "ea4a7d2582d44907042bfbbec285c10d6faa120e8aea3bfcd6f7a2b5f2a52b6e"
+    }
+  ],
+  "method": "Small verified-TLS GETs; failed guesses, blocked regulator access and irrelevant search redirects recorded. Raw pages stay outside Git; no access restrictions bypassed. Outcome-conditioned search headlines ignored; no KBA or Trends tables consulted.",
+  "stop_rule": "Focused initial pass only; no exhaustive article search or outcome fitting."
+}
