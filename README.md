@@ -114,3 +114,9 @@ with complete temporal weekly overlap (13 gaps). All analytical admissions remai
 blocked: ECB/EIA rights and diesel derived-use review remain unresolved.
 The user-cited official unit convention enables private EUR/litre and monthly QA.
 No real observations are committed. Run `python -m fuel_oil.import_energy --check-metadata`.
+
+Task 01I.2 adds an [energy rights/admission matrix](docs/ENERGY_RIGHTS_ADMISSION.md).
+The human research handoff is preserved as externally reviewed general-policy evidence;
+source-specific exceptions and explicit private admission decisions remain pending.
+All 13 diesel gaps (including January/April 2022) remain unfilled. Run
+`python -m fuel_oil.rights_admission --check`; no Task 01J analysis or real-value publication.

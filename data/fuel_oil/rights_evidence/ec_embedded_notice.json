@@ -1,0 +1,18 @@
+{
+  "evidence_type": "embedded_file_notice",
+  "excerpt": "Reproduction is authorised provided the source is acknowledged.",
+  "locations": [
+    {
+      "cell": "B1115",
+      "cell_text_sha256": "89a2c7ff9ad7eb2885498f4592c427d8bd23ecffd9179e8c54ba5408f650055f"
+    },
+    {
+      "cell": "B1117",
+      "cell_text_sha256": "93a503e1b35228803656c4e17d2c3f037c3616ff53d0696e620d6daaa35804a9"
+    }
+  ],
+  "reviewed_at": "2026-10-24T13:47:09.189730+00:00",
+  "scope": "Source reproduction with attribution; derived monthly approximations not explicitly addressed",
+  "sheet": "Prices with taxes",
+  "source_raw_sha256": "7e019a27fe2df6f324ec7a7c551b98142713fbee32aa7a030906101ffc22b2fd"
+}

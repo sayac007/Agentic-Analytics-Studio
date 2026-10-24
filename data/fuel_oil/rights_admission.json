@@ -1,0 +1,244 @@
+{
+  "diesel_missingness": {
+    "complete_2022_months": 10,
+    "counts_by_year": {
+      "2018": 2,
+      "2019": 3,
+      "2020": 3,
+      "2021": 3,
+      "2022": 2
+    },
+    "effect_on_2022": "January and April missing; energy episode definition, lags and sample support must address these gaps before any analysis",
+    "interpolation": "none",
+    "missing_2022_months": [
+      "2022-01",
+      "2022-04"
+    ],
+    "missing_months": [
+      "2018-04",
+      "2018-12",
+      "2019-01",
+      "2019-04",
+      "2019-12",
+      "2020-01",
+      "2020-04",
+      "2020-12",
+      "2021-01",
+      "2021-04",
+      "2021-12",
+      "2022-01",
+      "2022-04"
+    ],
+    "scope": "Incomplete monthly overlap approximations remain null; no outcome inspected"
+  },
+  "e10_status": "excluded_not_verified",
+  "external_handoff": {
+    "codex_accessed_policy_pages": false,
+    "evidence_file": "data/fuel_oil/rights_evidence/externally_reviewed_policy_handoff_2026-10-24.md",
+    "evidence_hash": "a2f59643b5bc5cc9ca9c2eca50a7fc681886083248d91b3a088bc82980e2640d",
+    "policy_review_date": "2026-10-24",
+    "reviewer": "external_human_research_handoff",
+    "scope": "General primary policies externally accessed/reviewed; summary not complete legal copy or blanket source-specific approval"
+  },
+  "historical_point_in_time": "not_established",
+  "reviews": [
+    {
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "evidence_hash": null,
+      "evidence_type": "failed_request_not_policy_evidence",
+      "id": "ecb",
+      "reviewed_at": "2026-10-24T13:45:09.216224+00:00",
+      "status": null,
+      "url": "https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html"
+    },
+    {
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "evidence_hash": null,
+      "evidence_type": "failed_request_not_policy_evidence",
+      "id": "eia",
+      "reviewed_at": "2026-10-24T13:45:09.216679+00:00",
+      "status": null,
+      "url": "https://www.eia.gov/about/copyrights_reuse.php"
+    },
+    {
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "evidence_hash": null,
+      "evidence_type": "failed_request_not_policy_evidence",
+      "id": "ec",
+      "reviewed_at": "2026-10-24T13:45:09.217087+00:00",
+      "status": null,
+      "url": "https://european-union.europa.eu/legal-notice_en"
+    },
+    {
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "evidence_hash": null,
+      "evidence_type": "failed_request_not_policy_evidence",
+      "id": "wob",
+      "reviewed_at": "2026-10-24T13:45:09.231606+00:00",
+      "status": null,
+      "url": "https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en"
+    },
+    {
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "evidence_hash": null,
+      "evidence_type": "failed_request_not_policy_evidence",
+      "id": "unit",
+      "reviewed_at": "2026-10-24T13:45:09.233292+00:00",
+      "status": null,
+      "url": "https://eur-lex.europa.eu/eli/dec/1999/566/oj/eng/pdf"
+    }
+  ],
+  "series": [
+    {
+      "admission_reasons": [
+        "Private analytical use not verified/permitted for the specified scope",
+        "Policy coverage of exact source and intended analytical transformation unresolved",
+        "Source-specific third-party/notice applicability review pending",
+        "Explicit source-bound human private-admission decision missing"
+      ],
+      "analysis_scope": "private retrospective source-native monthly series",
+      "analysis_scope_verified": false,
+      "analysis_unit": "USD_per_EUR",
+      "analytical_admission": "blocked",
+      "conditions": [
+        "No permission inferred from provider domain, URL or file presence"
+      ],
+      "evidence_file": "data/fuel_oil/rights_evidence/externally_reviewed_policy_handoff_2026-10-24.md",
+      "evidence_hash": "a2f59643b5bc5cc9ca9c2eca50a7fc681886083248d91b3a088bc82980e2640d",
+      "evidence_type": "externally_reviewed_primary_policy_handoff",
+      "general_policy_status": "externally_reviewed",
+      "historical_point_in_time": "not_established",
+      "human_admission_decision": null,
+      "human_admission_required": true,
+      "id": "eurusd",
+      "limitations": [
+        "Absent actual download time and URL retained as provenance gaps, not invented new hard gates",
+        "No historical point-in-time admission",
+        "Missing source flags and precise ECB monthly collection convention are not fabricated",
+        "Externally reviewed general policy accepted; full authoritative text not copied here and not personally fetched by Codex",
+        "Handoff expressly leaves source-specific exceptions unresolved; no blanket admission",
+        "Final private retrospective decision requires source-specific review, not public redistribution permission"
+      ],
+      "policy_title": "ESCB statistics reuse policy (externally reviewed; not personally accessed by Codex)",
+      "private_analysis": "not_verified",
+      "public_derived_redistribution": "not_verified",
+      "public_raw_redistribution": "not_verified",
+      "raw_sha256": "26a92c9b9a24414e864a03bd4f7ba7c4a482793845594121e9745c606017355b",
+      "raw_sha256_verified": true,
+      "review_timestamp_meaning": "Own decision assessment, not a claim to have read inaccessible policy text",
+      "reviewed_at": "2026-10-24T13:53:59.476145+00:00",
+      "series_id": "EXR.M.USD.EUR.SP00.A",
+      "source_definition_verified": true,
+      "source_notice_url": "https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html",
+      "source_specific_review_note": "Uploaded file confirms exact EXR/monthly USD per EUR; no source-agency/third-party licence field in this portal export. General ESCB policy externally reviewed; exact-product third-party/exception coverage still needs confirmation.",
+      "source_specific_review_status": "pending",
+      "supporting_evidence": [],
+      "unit": "USD_per_EUR",
+      "unit_verified": true
+    },
+    {
+      "admission_reasons": [
+        "Private analytical use not verified/permitted for the specified scope",
+        "Policy coverage of exact source and intended analytical transformation unresolved",
+        "Source-specific third-party/notice applicability review pending",
+        "Explicit source-bound human private-admission decision missing"
+      ],
+      "analysis_scope": "private retrospective source-native monthly series",
+      "analysis_scope_verified": false,
+      "analysis_unit": "USD_per_barrel",
+      "analytical_admission": "blocked",
+      "conditions": [
+        "No permission inferred from provider domain, URL or file presence"
+      ],
+      "evidence_file": "data/fuel_oil/rights_evidence/externally_reviewed_policy_handoff_2026-10-24.md",
+      "evidence_hash": "a2f59643b5bc5cc9ca9c2eca50a7fc681886083248d91b3a088bc82980e2640d",
+      "evidence_type": "externally_reviewed_primary_policy_handoff",
+      "general_policy_status": "externally_reviewed",
+      "historical_point_in_time": "not_established",
+      "human_admission_decision": null,
+      "human_admission_required": true,
+      "id": "brent_usd",
+      "limitations": [
+        "Absent actual download time and URL retained as provenance gaps, not invented new hard gates",
+        "No historical point-in-time admission",
+        "Missing source flags and precise ECB monthly collection convention are not fabricated",
+        "Externally reviewed general policy accepted; full authoritative text not copied here and not personally fetched by Codex",
+        "Handoff expressly leaves source-specific exceptions unresolved; no blanket admission",
+        "Final private retrospective decision requires source-specific review, not public redistribution permission"
+      ],
+      "policy_title": "EIA Copyrights and Reuse (externally reviewed; not personally accessed by Codex)",
+      "private_analysis": "not_verified",
+      "public_derived_redistribution": "not_verified",
+      "public_raw_redistribution": "not_verified",
+      "raw_sha256": "5881bc058aa7d641dc41ef254f6991e101c952e112284f0eb5a994514b401cb7",
+      "raw_sha256_verified": true,
+      "review_timestamp_meaning": "Own decision assessment, not a claim to have read inaccessible policy text",
+      "reviewed_at": "2026-10-24T13:53:59.476159+00:00",
+      "series_id": "RBRTE",
+      "source_definition_verified": true,
+      "source_notice_url": "https://www.eia.gov/about/copyrights_reuse.php",
+      "source_specific_review_note": "Actual OLE XLS confirms EIA RBRTE/monthly USD per barrel; no special licensing field found in the inspected source-identifying layout. Absence is not proof that protected third-party contributions do not apply. General EIA policy externally reviewed; source-specific exception confirmation pending.",
+      "source_specific_review_status": "pending",
+      "supporting_evidence": [],
+      "unit": "USD_per_barrel",
+      "unit_verified": true
+    },
+    {
+      "admission_reasons": [
+        "Private analytical use not verified/permitted for the specified scope",
+        "Policy coverage of exact source and intended analytical transformation unresolved",
+        "Source-specific third-party/notice applicability review pending",
+        "Explicit source-bound human private-admission decision missing"
+      ],
+      "analysis_scope": "private monthly calendar-overlap approximations",
+      "analysis_scope_verified": false,
+      "analysis_unit": "EUR_per_litre",
+      "analytical_admission": "blocked",
+      "conditions": [
+        "Keep real values private under the workorder irrespective of raw reuse status",
+        "Source acknowledgement required for EC literal reproduction"
+      ],
+      "evidence_file": "data/fuel_oil/rights_evidence/externally_reviewed_policy_handoff_2026-10-24.md",
+      "evidence_hash": "a2f59643b5bc5cc9ca9c2eca50a7fc681886083248d91b3a088bc82980e2640d",
+      "evidence_type": "externally_reviewed_primary_policy_handoff",
+      "general_policy_status": "externally_reviewed",
+      "historical_point_in_time": "not_established",
+      "human_admission_decision": null,
+      "human_admission_required": true,
+      "id": "diesel_de",
+      "limitations": [
+        "Unit accepted from user-cited Decision 1999/566/EC plus independent workbook mapping; legal PDF unread due proxy",
+        "Raw permission applies to literal source reproduction with attribution, not a finding about monthly derived use",
+        "Private handling of originals supported; intended derived analytical scope remains not_verified",
+        "Not_verified is unresolved, not a legal prohibition",
+        "Externally reviewed general policy accepted; full authoritative text not copied here and not personally fetched by Codex",
+        "Handoff expressly leaves source-specific exceptions unresolved; no blanket admission",
+        "Final private retrospective decision requires source-specific review, not public redistribution permission"
+      ],
+      "policy_title": "Actual workbook reproduction notice + externally reviewed EU general reuse policy",
+      "private_analysis": "not_verified",
+      "public_derived_redistribution": "not_verified",
+      "public_raw_redistribution": "permitted",
+      "raw_sha256": "7e019a27fe2df6f324ec7a7c551b98142713fbee32aa7a030906101ffc22b2fd",
+      "raw_sha256_verified": true,
+      "review_timestamp_meaning": "Own decision assessment, not a claim to have read inaccessible policy text",
+      "reviewed_at": "2026-10-24T13:53:59.476163+00:00",
+      "series_id": "DE_price_with_tax_diesel",
+      "source_definition_verified": true,
+      "source_notice_url": "https://european-union.europa.eu/legal-notice_en",
+      "source_specific_review_note": "Actual workbook notice supports acknowledged literal reproduction. General EU CC BY default and modification/change-notice rules externally reviewed, but handoff retains dataset ownership/member-state/individual-notice questions for project monthly approximations. Exact source-specific derived scope and human admission pending.",
+      "source_specific_review_status": "pending",
+      "supporting_evidence": [
+        {
+          "evidence_file": "data/fuel_oil/rights_evidence/ec_embedded_notice.json",
+          "evidence_hash": "6efde2d3d7534ad4e9ccb7bffd10592642ac3d7bf5e4d57857d33a0854f1d5c3",
+          "scope": "Exact workbook reproduction notice; raw copying with source acknowledgement only"
+        }
+      ],
+      "unit": "EUR_per_1000_litres",
+      "unit_verified": true
+    }
+  ],
+  "source_catalog_sha256": "c740caafa72379ab19e1f0528affa8be2c6f3b2638994086719c63c3906a375d",
+  "version": "1.0.0"
+}
