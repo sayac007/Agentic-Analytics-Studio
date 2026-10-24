@@ -111,5 +111,6 @@ synthetic fixtures only. No model, frozen-protocol or Macro admission change.
 Task 01I.1 adds [actual-format energy upload adapters and private QA](docs/REAL_ENERGY_DATA_IMPORT.md).
 ECB and Brent have 96/105 complete source-native months; diesel has 83/92 months
 with complete temporal weekly overlap (13 gaps). All analytical admissions remain
-blocked: ECB/EIA rights and diesel currency/derived-use review remain unresolved.
+blocked: ECB/EIA rights and diesel derived-use review remain unresolved.
+The user-cited official unit convention enables private EUR/litre and monthly QA.
 No real observations are committed. Run `python -m fuel_oil.import_energy --check-metadata`.

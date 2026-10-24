@@ -113,6 +113,25 @@ class EnergyImportTests(unittest.TestCase):
         self.assertEqual(rows[0]["unit"], "currency_not_explicit_per_1000_litres")
         self.assertNotIn("eur_per_litre", rows[0])
 
+    def test_user_cited_unit_convention_requires_independent_mapping(self):
+        evidence = {
+            "unit": "EUR_per_1000_litres",
+            "basis": "user_attested_official_convention_and_independently_verified_mapping",
+            "citation": "https://eur-lex.europa.eu/eli/dec/1999/566/oj/eng/pdf",
+        }
+        rows = e.parse_diesel(self.raws()["diesel_de"], evidence)
+        self.assertEqual(rows[0]["value"], 1000)
+        self.assertEqual(rows[0]["unit"], "EUR_per_1000_litres")
+        self.assertEqual(rows[0]["eur_per_litre"], 1)
+        with self.assertRaises(ValueError):
+            e.parse_diesel(
+                self.mutated_wob("BD1", "FR_price_with_tax_diesel"), evidence
+            )
+        with self.assertRaises(ValueError):
+            e.parse_diesel(
+                self.raws()["diesel_de"], dict(evidence, unit="EUR_per_litre")
+            )
+
     def test_wob_wrong_grade_country_tax_unit_or_date(self):
         for cell, value in [
             ("BD1", "FR_price_with_tax_diesel"),

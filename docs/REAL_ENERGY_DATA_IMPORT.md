@@ -46,7 +46,7 @@ unknown timezone/meaning, **not** a proven publication or download instant. No s
 status/revision flags are supplied. No daily Brent-EUR series is generated: dividing
 these monthly Brent and FX means would not produce the mean of matched daily ratios.
 
-### EC Germany diesel: identified grade/tax/volume, currency unresolved
+### EC Germany diesel: independently mapped column and cited official unit convention
 
 Actual selection:
 
@@ -60,19 +60,26 @@ Actual selection:
   and warn about cross-country comparisons. The preliminary-weight note refers to
   EU/EUR aggregates; it does not prove German observations are unrevised.
 
-**No explicit EUR currency marker was found in these headers or selected-cell
-format (`0.0`).** `EUR` elsewhere labels the eurozone aggregate, not necessarily the
-unit of BD. Germany's currency or the earlier handoff is not substituted for source
-unit evidence. Store native values as `currency_not_explicit_per_1000_litres` and
-block EUR/litre conversion and monthly **price** aggregation pending confirmation
-from an official dataset unit notice or exact source cells. No ambiguity remains
-about diesel/country/tax column; the remaining unit question is specifically currency.
+The selected header/cell format does not itself state currency. The user supplied
+[Decision 1999/566/EC, Annex](https://eur-lex.europa.eu/eli/dec/1999/566/oj/eng/pdf),
+section “Definition of prices net of duties and taxes in force each Monday”, as the
+official Oil Bulletin unit convention (fuel pump prices per 1,000 litres, national
+currencies and euros), and specified EUR/1,000 litres for this independently verified
+German diesel column. The catalog records this as **user-attested official convention
+plus independently verified workbook mapping**. The direct PDF request also failed
+with proxy CONNECT 403: the primary text was not independently read here. Do not
+claim the decision itself identifies column BD; that mapping comes from the file.
 
-The seven-day Monday–Sunday overlap convention from Task 01I is used only to
-calculate **temporal coverage**. Missing weeks are not extended. No actual constant
-daily prices or official monthly means are claimed. Once currency and admission are
-reviewed, the existing tested overlap approximation can be used in a separately
-reviewed run. E10 remains excluded; no Euro-super/E5/E10 relabelling.
+Accept the instructed source unit **EUR per 1,000 litres** for private QA, preserve
+original values, and add `EUR/litre = original / 1000`. Without the explicit unit
+evidence record the parser still refuses to infer EUR from the filename or country.
+Unit evidence never overrides a wrong country/grade/tax/volume mapping.
+
+The existing Monday–Sunday calendar-day overlap approximation now produces a separate
+**private quarantined monthly series**, with every missing/partial month null. This
+is not a statement that daily prices were measured as constant or an official monthly
+mean. Derived-use review remains unresolved, so this is not final analytical or
+redistribution admission. E10 remains excluded; no Euro-super/E5/E10 relabelling.
 
 ## Computed coverage and QA
 
@@ -83,8 +90,8 @@ reviewed run. E10 remains excluded; no Euro-super/E5/E10 relabelling.
 | EC diesel, complete temporal overlap only | 83 / 13 | 92 / 13 | 0 / 0 |
 
 All counts were computed from the actual uploaded originals. For diesel “observed”
-means enough source dates to cover the month under the declared interval convention,
-**not** a verified monthly price/unit or an admitted observation. Missing intervals
+means enough source dates to calculate the declared monthly approximation,
+**not** an official monthly mean or an admitted analytical observation. Missing intervals
 are real gaps under that rule, not imputed holidays. The 13 incomplete months are
 listed in the machine report; none are silently filled or removed.
 
@@ -100,8 +107,8 @@ blocked from analytical admission; observed coverage and admission are separate 
 
 ## Rights and provenance decisions
 
-Four fresh official requests attempted the ECB ESCB reuse policy, EIA copyright,
-EC WOB landing page and Commission legal notice. All failed at the environment
+Five fresh official requests attempted the ECB ESCB reuse policy, EIA copyright,
+EC WOB landing page, Commission legal notice and the user-cited EUR-Lex decision. All failed at the environment
 proxy with CONNECT 403; exact UTC request instants/errors are recorded in the public
 catalog. These are environment errors, not publisher denials or proof of absent terms.
 
@@ -114,7 +121,7 @@ catalog. These are environment errors, not publisher denials or proof of absent 
   the prior third-party handoff claim. Private handling is supported by that notice;
   raw reuse is conditional on acknowledgement. Derived-use scope is not separately
   established here. In any case the workorder requires real values to remain private,
-  and currency/admission still block a ready analytical series.
+  and derived-use/admission review still blocks a ready analytical series.
 - All actual download URLs/times are **unknown**. User upload, filename timestamp,
   own local ingestion time and workbook timestamp do not establish original download.
   Source-reference URLs are documented as references, not claimed retrieval evidence.
@@ -125,7 +132,7 @@ catalog. These are environment errors, not publisher denials or proof of absent 
 Conditional attribution: “Source: European Commission, Weekly Oil Bulletin,
 Germany automotive gas oil, prices with taxes; source acknowledged under the
 reproduction notice in the uploaded workbook.” Add exact snapshot hash and any
-transformation/change notice after currency/derived-use review. Existing
+transformation/change notice after derived-use review. Existing
 [ECB/EIA attribution candidates](DATA_SOURCES_FUEL_OIL.md) remain conditional.
 
 ## Implementation, private outputs and replay
@@ -155,13 +162,13 @@ and overwrite are refused. Missing/mutated files, wrong provenance, bad header/l
 or failed numeric validation produce no completed output. Raw copies are immutable.
 
 Private output contains three unchanged raw copies, three
-`*.quarantined.json` native series, `summary.json`, a source-to-normalized SHA-256
+`*.quarantined.json` native series, a separate diesel monthly-approximation quarantine, `summary.json`, a source-to-normalized SHA-256
 `inventory.json`, and a separate `local_ingestion.json`. Normalized files contain
 source locations, original dates/units/status, exact raw hash, unknown vintage/time
-and `NOT_ADMITTED` quarantine status. No ready admitted dataset or monthly diesel
-price series is generated. Local ingestion time is labelled solely as own handling.
+and `NOT_ADMITTED` quarantine status. No ready admitted dataset is generated; the private diesel approximation remains
+explicitly quarantined with source/unit evidence and transformation labels. Local ingestion time is labelled solely as own handling.
 
-Actual reprocessing was executed twice: **eight** raw/normalized/summary/inventory
+Actual reprocessing was executed twice: **nine** raw/normalized/summary/inventory
 artifacts reproduced byte-for-byte. Own ingestion timestamps are intentionally separate.
 Private files are accessible only in the execution workspace through its terminal or
 an authorised workspace file-transfer/export facility. A workspace pathname is **not
@@ -175,16 +182,16 @@ KBA, Trends, Macro admission, MMM/Stage A and frozen protocols are unchanged.
 
 ## Actually executed checks
 
-Python 3.12.14 with existing pinned dependencies:
+Python 3.12.14, existing pinned dependencies:
 
-- Full suite: **273 passed**, 40.751 s (257 existing + 16 actual-layout tests).
-- Final targeted suite: **16 passed**, 0.139 s, with synthetic fixtures only.
-- Both example contract validators, KBA audit, unchanged Task 01I blocked-access
-  report check, new metadata-only check, Ruff import/format and whitespace checks passed.
-- Real private reprocessing: two final runs, eight artifacts byte-identical; raw
-  inputs never modified. Ingestion-clock file intentionally differs and is separate.
-- Protected-path review: no KBA/Trends/Macro/MMM/contracts/frozen-protocol changes.
+- Final full suite after unit-evidence integration: **274 passed**, 45.258 s
+  (257 existing + 17 source-layout/unit tests).
+- Final targeted suite: **17 passed**, 0.164 s, synthetic fixtures only.
+- Both contract validators, KBA audit, unchanged old fuel/oil blocked report check,
+  new metadata-only check, Ruff import/format and whitespace checks passed.
+- Two final real-input runs: **nine** raw/normalized/monthly-QA/summary/inventory
+  artifacts byte-identical; own ingestion-clock file separate. Raw files unchanged.
+- No KBA/Trends/Macro/MMM/contracts/frozen-protocol changes. No outcome fitting.
 
-Exact-head remote Actions results are recorded in the Draft PR after observed
-completion. Local success alone is not reported as CI success. No live API or real
-uploaded raw/normalized file is required by CI.
+Exact-head remote Actions results are maintained in the Draft PR after observed
+completion. No real uploaded raw/normalized file is required by CI.

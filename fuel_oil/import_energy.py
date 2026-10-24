@@ -12,7 +12,14 @@ import re
 import openpyxl
 import xlrd
 
-from fuel_oil.fetch_fuel_oil import encoded, sha, numeric, month_range, unique
+from fuel_oil.fetch_fuel_oil import (
+    encoded,
+    sha,
+    numeric,
+    month_range,
+    unique,
+    weekly_monthly,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 KEY = "EXR.M.USD.EUR.SP00.A"
@@ -165,7 +172,15 @@ def open_wob(raw):
         raise
 
 
-def parse_diesel(raw):
+def parse_diesel(raw, unit_evidence=None):
+    if unit_evidence is not None and (
+        unit_evidence.get("unit") != "EUR_per_1000_litres"
+        or unit_evidence.get("basis")
+        != "user_attested_official_convention_and_independently_verified_mapping"
+        or unit_evidence.get("citation")
+        != "https://eur-lex.europa.eu/eli/dec/1999/566/oj/eng/pdf"
+    ):
+        raise ValueError("Unreviewed currency evidence")
     b, s = open_wob(raw)
     rows, notes, ended = [], [], False
     try:
@@ -188,7 +203,9 @@ def parse_diesel(raw):
                         value=value,
                         frequency="weekly",
                         series_id="DE_price_with_tax_diesel",
-                        unit="currency_not_explicit_per_1000_litres",
+                        unit="EUR_per_1000_litres"
+                        if unit_evidence
+                        else "currency_not_explicit_per_1000_litres",
                         country="DE",
                         grade="automotive_gas_oil",
                         taxes="with_taxes",
@@ -204,6 +221,10 @@ def parse_diesel(raw):
                 notes.extend(str(v) for v in r if isinstance(v, str))
         if not any(NOTICE in n for n in notes):
             raise ValueError("Expected embedded reproduction notice missing")
+        if unit_evidence:
+            for r in rows:
+                r["eur_per_litre"] = None if r["value"] is None else r["value"] / 1000
+                r["original_volume_unit"] = "1000 l"
         return unique(rows)
     finally:
         b.close()
@@ -301,7 +322,7 @@ def coverage(rows, start, end, as_of):
         "status_flags_unknown_months": len(expected),
         "admitted_months": 0,
         "blocked_months": len(expected),
-        "measurement_basis": "Temporal seven-day interval coverage only; no currency conversion or monthly price admitted"
+        "measurement_basis": "Temporal seven-day interval coverage; monthly price admission is separate"
         if weekly
         else "Source-native monthly values",
     }
@@ -337,7 +358,12 @@ def run(paths, output, as_of, rights_log, fixture=False):
         ):
             raise ValueError("Original source filename/bytes/hash drift")
     inventory = inspect_inputs(raws)  # Must succeed BEFORE any numeric extraction.
-    parsers = {"eurusd": parse_fx, "brent_usd": parse_brent, "diesel_de": parse_diesel}
+    unit_evidence = catalog["files"]["diesel_de"].get("unit_evidence")
+    parsers = {
+        "eurusd": parse_fx,
+        "brent_usd": parse_brent,
+        "diesel_de": lambda raw: parse_diesel(raw, unit_evidence),
+    }
     parsed = {k: fn(raws[k]) for k, fn in parsers.items()}
     summary = {
         "version": "1.0.0",
@@ -367,9 +393,18 @@ def run(paths, output, as_of, rights_log, fixture=False):
         ]
         reasons = []
         if k == "diesel_de":
-            reasons.append(
-                "Currency not explicit in selected workbook headers; EUR conversion and price aggregation blocked"
-            )
+            if unit_evidence:
+                inventory[k]["currency"] = (
+                    "EUR per 1000 litres accepted from user-cited official convention plus independently checked mapping; primary PDF fetch proxy-blocked"
+                )
+                inventory[k]["unit_evidence"] = unit_evidence
+                reasons.append(
+                    "Derived-use scope not independently verified; private QA normalization is not final analytical admission"
+                )
+            else:
+                reasons.append(
+                    "Currency not explicit in selected workbook headers; EUR conversion and price aggregation blocked"
+                )
         else:
             reasons.append(
                 "Primary rights notice unreachable; private/raw/derived permission not verified"
@@ -425,6 +460,22 @@ def run(paths, output, as_of, rights_log, fixture=False):
         artifacts[k] = {
             "raw_sha256": sha(raws[k]),
             "normalized_sha256": sha(normalized),
+        }
+    if unit_evidence:
+        monthly = weekly_monthly(parsed["diesel_de"], "2018-01", "2026-10", as_of)
+        payload = encoded(
+            {
+                "status": "QUARANTINED_PRIVATE_DERIVED_QA_NOT_ADMITTED",
+                "raw_sha256": sha(raws["diesel_de"]),
+                "unit_evidence": unit_evidence,
+                "observations": monthly,
+                "warning": "Derived seven-day overlap approximation, not official monthly means; missing/partial months null",
+            }
+        )
+        (output / "diesel_de.monthly_approx.quarantined.json").write_bytes(payload)
+        artifacts["diesel_monthly_approx"] = {
+            "raw_sha256": sha(raws["diesel_de"]),
+            "normalized_sha256": sha(payload),
         }
     (output / "inventory.json").write_bytes(
         encoded({"artifacts": artifacts, "summary_sha256": sha(encoded(summary))})

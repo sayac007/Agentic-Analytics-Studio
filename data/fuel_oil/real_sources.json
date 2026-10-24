@@ -25,8 +25,18 @@
       "rights_private_analysis": "embedded_reproduction_notice_reviewed",
       "rights_raw_redistribution": "conditional_embedded_notice_but_keep_private",
       "sha256": "7e019a27fe2df6f324ec7a7c551b98142713fbee32aa7a030906101ffc22b2fd",
-      "source_identification": "EC XLSX Prices with taxes!A/BB/BD; DE automotive gas oil; 1000 l; currency not explicit",
-      "source_url_reference": "https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en"
+      "source_identification": "EC XLSX Prices with taxes!A/BB/BD; DE automotive gas oil; EUR per 1000 l via user-cited official convention",
+      "source_url_reference": "https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en",
+      "unit_evidence": {
+        "basis": "user_attested_official_convention_and_independently_verified_mapping",
+        "citation": "https://eur-lex.europa.eu/eli/dec/1999/566/oj/eng/pdf",
+        "conversion": "EUR_per_litre = EUR_per_1000_litres / 1000",
+        "independent_primary_fetch_status": "proxy_CONNECT_403",
+        "recorded_on": "2026-10-24",
+        "scope": "General Oil Bulletin fuel unit convention; BD mapping independently verified from workbook",
+        "section": "Annex: Definition of prices net of duties and taxes in force each Monday",
+        "unit": "EUR_per_1000_litres"
+      }
     },
     "eurusd": {
       "actual_download_time": null,
@@ -63,6 +73,12 @@
       "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
       "requested_at": "2026-10-24T12:35:34.587957+00:00",
       "url": "https://commission.europa.eu/legal-notice_en"
+    },
+    {
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "evidence_role": "User-provided official unit convention; workbook mapping independently verified",
+      "requested_at": "2026-10-24T12:48:35.123653+00:00",
+      "url": "https://eur-lex.europa.eu/eli/dec/1999/566/oj/eng/pdf"
     }
   ],
   "scope": "USER_SUPPLIED_ORIGINALS",
