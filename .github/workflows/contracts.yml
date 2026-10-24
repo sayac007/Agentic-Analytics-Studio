@@ -17,6 +17,8 @@ jobs:
       XDG_CACHE_HOME: /tmp/agentic-attention-cache
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -70,3 +72,11 @@ jobs:
         run: python3 -m fuel_oil.import_energy --check-metadata
       - name: Offline source-specific energy rights check
         run: python3 -m fuel_oil.rights_admission --check
+      - name: Synthetic-only scoped private energy study smoke
+        run: |
+          python3 tests/fixtures/scoped_energy/generate.py --output "$RUNNER_TEMP/scoped-energy-fixture"
+          python3 -m fuel_oil.scoped_study --fixture \
+            --energy-dir "$RUNNER_TEMP/scoped-energy-fixture/energy" \
+            --permits-dir "$RUNNER_TEMP/scoped-energy-fixture/permits" \
+            --kba "$RUNNER_TEMP/scoped-energy-fixture/SYNTHETIC_kba.csv" \
+            --output "$RUNNER_TEMP/scoped-energy-study"

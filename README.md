@@ -121,3 +121,9 @@ research; exactly two hash-bound private permits were generated. EIA/RBRTE retai
 `not_verified` third-party rights (Refinitiv/LSEG); no unconditional permit is created.
 All 13 diesel gaps remain unfilled. No public release, historical as-of approval or
 Task 01J execution. Run `python -m fuel_oil.rights_admission --check` offline.
+
+Task 01I.3 implements the separately authorised [scoped private energy study](docs/SCOPED_ENERGY_STUDY_STATUS.md)
+under its [frozen preregistered protocol](docs/SCOPED_ENERGY_ECONOMETRIC_PROTOCOL.md).
+Only admitted ECB FX, qualified EC diesel and audited retrospective Tesla counts are
+used; no Brent or 2026 outcomes. Real outputs stay private; CI uses synthetic fixtures.
+This does not execute Task 01J or change Task 01G.
