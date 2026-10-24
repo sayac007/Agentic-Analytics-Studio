@@ -1,6 +1,6 @@
 # Codex Workorder — Task 01I: Real Fuel, Oil & FX Acquisition
 
-Repository: `sayac007/Agentic-Analytics-Studio`  
+Repository: `sayac007/Agentic-Analytics-Studio`
 Language: English for all repository content and deliverables.
 
 ## Objective
