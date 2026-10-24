@@ -83,3 +83,8 @@ are **blocked on exact retrieval evidence**. The user has confirmed lawful priva
 analytical use; publication of values remains a separate review.
 No real Trends/KBA analysis was performed. Install `requirements-attention.lock`;
 only the documented synthetic-fixture path has executed successfully.
+
+Task 01G.1 proposes [qualified local-timestamp admission](docs/LOCAL_TIMESTAMP_ADMISSION.md).
+[Current status](docs/LOCAL_TIMESTAMP_STATUS.md): raw identity verified; private use
+confirmed; explicit human acceptance of the workorder-described local creation-time
+basis is pending. No real diagnostics ran and no Google-confirmed download time is claimed.

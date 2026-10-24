@@ -36,7 +36,7 @@ def admit(raw_path, metadata_path, import_dir, admission_path, kba_path, fixture
     meta = json.loads(meta_raw)
     # Intentionally before reading the KBA values or importing diagnostic libraries.
     rows, fresh = build_import(raw, meta, fixture)
-    if meta["version"] != "1.1.0" or fresh["status"] != (
+    if meta["version"] not in {"1.1.0", "1.2.0"} or fresh["status"] != (
         "synthetic_fixture" if fixture else "empirically_populated"
     ):
         raise ValueError("Requires an admitted extended Trends import")
@@ -61,9 +61,19 @@ def admit(raw_path, metadata_path, import_dir, admission_path, kba_path, fixture
     ]:
         if a.get(key) != expected:
             raise ValueError("Admission hash mismatch: " + key)
+    if meta["version"] == "1.2.0":
+        amendment = ROOT / "docs/LOCAL_TIMESTAMP_ADMISSION.md"
+        if a.get("local_timestamp_basis_accepted") is not True or a.get(
+            "local_timestamp_amendment_sha256"
+        ) != sha(amendment.read_bytes()):
+            raise ValueError(
+                "Separate human acceptance of local-time amendment is required"
+            )
     if not fixture:
         if timestamp(a["reviewed_at"]) < timestamp(meta["retrieved_at"]):
-            raise ValueError("Human review cannot predate the export")
+            raise ValueError(
+                "Human review cannot predate the declared analysis timestamp"
+            )
         if (
             a.get("source_review_confirmed") is not True
             or a.get("terms_review_confirmed") is not True
@@ -109,7 +119,7 @@ def admit(raw_path, metadata_path, import_dir, admission_path, kba_path, fixture
             or entry["raw_sha256"] != sha(raw)
         ):
             raise ValueError("Tampered/incorrect derived subset")
-    return rows, {
+    provenance = {
         "label": "SYNTHETIC_FIXTURE_ONLY"
         if fixture
         else "PRIVATE_RETROSPECTIVE_EXPLORATORY",
@@ -122,6 +132,13 @@ def admit(raw_path, metadata_path, import_dir, admission_path, kba_path, fixture
         "source_normalization": meta["normalization"],
         "source_window": meta["source_window"],
     }
+
+    if meta["version"] == "1.2.0":
+        provenance["timestamp_evidence"] = fresh["timestamp_evidence"]
+        provenance["local_timestamp_amendment_sha256"] = a[
+            "local_timestamp_amendment_sha256"
+        ]
+    return rows, provenance
 
 
 def join_months(trends, kba_path, fixture=False):
