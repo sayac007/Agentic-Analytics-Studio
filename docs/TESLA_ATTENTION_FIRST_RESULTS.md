@@ -11,9 +11,12 @@ preserved; no index values or screenshot/personal UI details are published.
 
 **No real Trends/KBA join, correlation, diagnostic test, regression or plot was run.**
 The original download was reported on **2026-10-23 Europe/Berlin**, but the exact
-clock time is unknown. Source-URL/filter evidence cannot manufacture it. Private-use
-rights confirmation under reviewed Google Terms/export conditions was explicitly
-requested and remains unconfirmed. No independent legal verification is claimed.
+clock time is unknown. Source-URL/filter evidence cannot manufacture it. The user explicitly confirmed lawful private analytical use on **2026-10-24**,
+citing [Google export/citation help](https://support.google.com/trends/answer/4365538?hl=en)
+and [Trends guidance](https://support.google.com/trends/answer/87285?hl=en). This records
+the user's reviewed-use confirmation, not independent legal verification. Attribution:
+**Data source: Google Trends (https://www.google.com/trends)**. Publication of actual
+values remains a separate review. The exact download-time gate is still unresolved.
 
 A real-input CLI attempt using the existing private sidecar was actually made and
 **refused at the retrieval-timestamp gate**, before KBA values were joined or any
@@ -111,8 +114,9 @@ At the actual new export, accurately record the download-completion instant with
 its timezone and precision, preserve the original bytes, and calculate SHA-256.
 A new download event needs its own evidence even if its content happens to match
 an older file. Keep both originals separate; no timestamp backdating or silent
-replacement. Confirm lawful private analytical use **after reviewing** Google Terms
-and applicable export conditions; value redistribution needs a separate decision.
+replacement. Retain the user's recorded private-use confirmation and cited terms/export conditions;
+check any changed conditions for a new export. Value redistribution needs a separate
+decision. Do not request the same private-use confirmation again without a new reason.
 
 Complete the existing extended importer sidecar privately with actual facts, then
 run the importer without fixture mode to a new private directory. Keep 2026's current
@@ -160,3 +164,12 @@ The first remote workflow revision was rejected before any job started: cache pa
 used the runner context at job-environment scope. These paths were changed to fixed
 private temporary directories on the isolated Ubuntu runner. Final exact-head checks
 are reported in the Draft PR; that initial failure is not described as a passing run.
+
+### Rights-confirmation follow-up (2026-10-24)
+
+The later explicit user response resolves the private-use-confirmation blocker.
+A new private sidecar records this confirmation while retaining the unknown original
+retrieval timestamp; the old evidence is preserved. No download instant was invented,
+no real calculation was run, and no real values were published. A newly timestamped
+official export (or genuine recoverable exact original evidence) is still required.
+The frozen protocol and source/import/admission gates are unchanged.

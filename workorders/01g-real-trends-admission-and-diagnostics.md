@@ -51,14 +51,18 @@ Create a Draft PR, do not merge. The acceptance criterion is either (a) a reprod
 - [x] Required PR #9 merge confirmed; current main used.
 - [x] Protocol frozen first in commit `24b3462`; no real cross-series result inspected.
 - [x] Actual original private bytes found and required raw SHA-256 independently verified.
-- [x] Exact original download time remains unknown; lawful private-use confirmation was requested and remains unconfirmed. No permission or timestamp fabricated.
+- [x] Exact original download time remains unknown; lawful private-use confirmation was subsequently received explicitly on 2026-10-24 and recorded with cited sources. No timestamp or publication approval fabricated.
 - [x] Real-input CLI attempt refused at timestamp validation before join/analysis; no result directory.
 - [x] Deterministic private CLI, separate human-admission template, synthetic fixture generator/tests and English pending-results report delivered.
 - [x] Full local suite: 187 passed (12 new), 37.124 s. Targeted new suite: 12 passed. Pinned installation, pip check, existing offline artifact checks, lints and whitespace checks passed.
 - [x] No real raw/subset/result values, user screenshot or private legal-review records published.
 - [x] KBA observations, Statistical Contracts, Stage-A results/engine, estimator isolation and upstream repositories unchanged.
-- [ ] Actual exact-timestamp export evidence and human private-use/source/terms review remain prerequisites.
+- [ ] Actual exact-timestamp export evidence and source-specific admission remain prerequisites; private-use confirmation is recorded.
 - [ ] Exact-head CI outcomes and run URLs are maintained in the Draft PR after completion.
 
 Initial duplicate-outside-window negative-test failure and fixture import-placement
 lint warning were corrected. Fixture results are software evidence only. No automatic merge.
+
+Follow-up 2026-10-24: user private-use confirmation recorded in the current status and
+results documentation; no code/protocol/strict timestamp gate changed and no empirical
+analysis was performed. Real-value publication remains separately reviewable.
