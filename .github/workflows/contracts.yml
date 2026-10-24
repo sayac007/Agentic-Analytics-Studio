@@ -66,3 +66,5 @@ jobs:
             --derive cpi-yoy --output "$RUNNER_TEMP/SYNTHETIC-macro-cpi.json"
       - name: Offline fuel oil FX blocked-acquisition check
         run: python3 -m fuel_oil.fetch_fuel_oil --check
+      - name: Offline real energy metadata-only check
+        run: python3 -m fuel_oil.import_energy --check-metadata

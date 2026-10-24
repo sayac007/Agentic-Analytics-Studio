@@ -107,3 +107,9 @@ All ten official requests are proxy-blocked; no real observations acquired or ad
 (0/96 frozen and 0/105 extended verified months per candidate). E10 is not substituted
 with Euro-super 95. Run `python -m fuel_oil.fetch_fuel_oil --check` offline; tests use
 synthetic fixtures only. No model, frozen-protocol or Macro admission change.
+
+Task 01I.1 adds [actual-format energy upload adapters and private QA](docs/REAL_ENERGY_DATA_IMPORT.md).
+ECB and Brent have 96/105 complete source-native months; diesel has 83/92 months
+with complete temporal weekly overlap (13 gaps). All analytical admissions remain
+blocked: ECB/EIA rights and diesel currency/derived-use review remain unresolved.
+No real observations are committed. Run `python -m fuel_oil.import_energy --check-metadata`.

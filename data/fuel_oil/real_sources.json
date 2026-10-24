@@ -1,0 +1,70 @@
+{
+  "files": {
+    "brent_usd": {
+      "actual_download_time": null,
+      "actual_download_url": null,
+      "admitted": false,
+      "bytes": 55296,
+      "filename": "RBRTEm.xls",
+      "metadata_status": "identified_from_uploaded_original; actual retrieval evidence missing",
+      "rights_derived_redistribution": "not_verified",
+      "rights_private_analysis": "not_verified",
+      "rights_raw_redistribution": "not_verified",
+      "sha256": "5881bc058aa7d641dc41ef254f6991e101c952e112284f0eb5a994514b401cb7",
+      "source_identification": "EIA OLE XLS Contents/Data 1 RBRTE, Monthly, Dollars per Barrel",
+      "source_url_reference": "https://www.eia.gov/dnav/pet/hist/RBRTEm.htm"
+    },
+    "diesel_de": {
+      "actual_download_time": null,
+      "actual_download_url": null,
+      "admitted": false,
+      "bytes": 4491517,
+      "filename": "Weekly_Oil_Bulletin_Prices_History_maticni_4web.xlsx",
+      "metadata_status": "identified_from_uploaded_original; actual retrieval evidence missing",
+      "rights_derived_redistribution": "not_verified",
+      "rights_private_analysis": "embedded_reproduction_notice_reviewed",
+      "rights_raw_redistribution": "conditional_embedded_notice_but_keep_private",
+      "sha256": "7e019a27fe2df6f324ec7a7c551b98142713fbee32aa7a030906101ffc22b2fd",
+      "source_identification": "EC XLSX Prices with taxes!A/BB/BD; DE automotive gas oil; 1000 l; currency not explicit",
+      "source_url_reference": "https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en"
+    },
+    "eurusd": {
+      "actual_download_time": null,
+      "actual_download_url": null,
+      "admitted": false,
+      "bytes": 10745,
+      "filename": "ECB Data Portal_20261024135113.csv",
+      "metadata_status": "identified_from_uploaded_original; actual retrieval evidence missing",
+      "rights_derived_redistribution": "not_verified",
+      "rights_private_analysis": "not_verified",
+      "rights_raw_redistribution": "not_verified",
+      "sha256": "26a92c9b9a24414e864a03bd4f7ba7c4a482793845594121e9745c606017355b",
+      "source_identification": "ECB Portal CSV header EXR.M.USD.EUR.SP00.A; USD per EUR",
+      "source_url_reference": "https://data.ecb.europa.eu/data/datasets/EXR/EXR.M.USD.EUR.SP00.A"
+    }
+  },
+  "rights_review_requests": [
+    {
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "requested_at": "2026-10-24T12:35:34.564679+00:00",
+      "url": "https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html"
+    },
+    {
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "requested_at": "2026-10-24T12:35:34.578117+00:00",
+      "url": "https://www.eia.gov/about/copyrights_reuse.php"
+    },
+    {
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "requested_at": "2026-10-24T12:35:34.583800+00:00",
+      "url": "https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en"
+    },
+    {
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "requested_at": "2026-10-24T12:35:34.587957+00:00",
+      "url": "https://commission.europa.eu/legal-notice_en"
+    }
+  ],
+  "scope": "USER_SUPPLIED_ORIGINALS",
+  "version": "1.0.0"
+}
