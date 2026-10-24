@@ -1,0 +1,3 @@
+cell,seed,design,confounding,effect_fraction,model,status,reason,beta,se,lower,upper,beta_ratio,snr,rejection,positive_detection,wrong_sign_rejection,covers_truth,sign_uncertain,not_identified,extrapolated_counterfactual
+legacy-always_on-independent-0.08,42,always_on,independent,0.08,with-quarter,estimated,,-418.8804547719116,798.9061357379026,-1984.7077078462685,1146.9467983024451,-1.3606364405185716,0.12484015318052444,False,False,False,True,True,True,True
+legacy-always_on-independent-0.08,42,always_on,independent,0.08,without-quarter,estimated,,-460.563321033821,873.9747854886369,-2173.522423987669,1252.3957819200268,-1.4960336072641496,0.12484015318052444,False,False,False,True,True,True,True

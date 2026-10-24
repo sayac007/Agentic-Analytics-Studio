@@ -24,9 +24,18 @@ jobs:
         run: python -m research_benchmark.run --output artifacts/research-task02
       - name: Verify complete data manifest and grid
         run: python -m research_benchmark.verify artifacts/research-task02
+      - name: Render results-first report from verified outputs (no refit)
+        run: python scripts/render_portfolio.py --source artifacts/research-task02 --output artifacts/portfolio-preview --readme artifacts/portfolio-README.md
       - uses: actions/upload-artifact@v4
         with:
           name: synthetic-identifiability-${{ github.sha }}
           path: artifacts/research-task02/
+          if-no-files-found: error
+          retention-days: 30
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: synthetic-portfolio-${{ github.sha }}
+          path: artifacts/portfolio-preview/
           if-no-files-found: error
           retention-days: 30
