@@ -1,0 +1,6 @@
+{
+  "raw_sha256": "af347a1cab1a77d8ea4d49d51789878f73b9c8e2db72ffecf15aa0a75bedaf53",
+  "source_url": "https://example.org/SYNTHETIC/cpi.csv",
+  "retrieved_at": "2026-10-24T08:50:00+00:00",
+  "release_or_vintage": "SYNTHETIC fixture v1; fixed test timestamp, not a source release"
+}

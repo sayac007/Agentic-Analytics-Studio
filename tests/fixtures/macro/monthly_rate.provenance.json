@@ -1,0 +1,6 @@
+{
+  "raw_sha256": "ae61e7e34acae4a48d122ea6779679e4395dfe8f8c657ce406a4ec8d4266bbc8",
+  "source_url": "https://example.org/SYNTHETIC/monthly_rate.csv",
+  "retrieved_at": "2026-10-24T08:50:00+00:00",
+  "release_or_vintage": "SYNTHETIC fixture v1; fixed test timestamp, not a source release"
+}

@@ -1,0 +1,268 @@
+{
+  "catalog_sha256": "b22008113c34ffddd659234e2d09097b0d8770cbbcd3467f7f66134a60c1585a",
+  "historical_as_of": "not_established",
+  "scope": "NO_REAL_OBSERVATIONS_ACQUIRED",
+  "series": [
+    {
+      "blockers": [
+        "Official metadata and vintage/coverage not read: proxy CONNECT 403",
+        "Series-specific rights and units/adjustment not admitted",
+        "No official raw observations acquired"
+      ],
+      "id": "consumer_credit",
+      "native_frequency_verified": false,
+      "series_id": null,
+      "status": "blocked_not_verified",
+      "windows": [
+        {
+          "end": "2025-12",
+          "expected_months": 96,
+          "missing_or_unverified_months": 96,
+          "start": "2018-01",
+          "values_inferred": false,
+          "verified_monthly_observations": 0
+        },
+        {
+          "end": "2025-12",
+          "expected_months": 60,
+          "missing_or_unverified_months": 60,
+          "start": "2021-01",
+          "values_inferred": false,
+          "verified_monthly_observations": 0
+        }
+      ]
+    },
+    {
+      "blockers": [
+        "Official metadata and vintage/coverage not read: proxy CONNECT 403",
+        "Series-specific rights and units/adjustment not admitted",
+        "No official raw observations acquired"
+      ],
+      "id": "deposit_facility",
+      "native_frequency_verified": false,
+      "series_id": null,
+      "status": "blocked_not_verified",
+      "windows": [
+        {
+          "end": "2025-12",
+          "expected_months": 96,
+          "missing_or_unverified_months": 96,
+          "start": "2018-01",
+          "values_inferred": false,
+          "verified_monthly_observations": 0
+        },
+        {
+          "end": "2025-12",
+          "expected_months": 60,
+          "missing_or_unverified_months": 60,
+          "start": "2021-01",
+          "values_inferred": false,
+          "verified_monthly_observations": 0
+        }
+      ]
+    },
+    {
+      "blockers": [
+        "Official metadata and vintage/coverage not read: proxy CONNECT 403",
+        "Series-specific rights and units/adjustment not admitted",
+        "No official raw observations acquired"
+      ],
+      "id": "euribor_3m",
+      "native_frequency_verified": false,
+      "series_id": null,
+      "status": "blocked_not_verified",
+      "windows": [
+        {
+          "end": "2025-12",
+          "expected_months": 96,
+          "missing_or_unverified_months": 96,
+          "start": "2018-01",
+          "values_inferred": false,
+          "verified_monthly_observations": 0
+        },
+        {
+          "end": "2025-12",
+          "expected_months": 60,
+          "missing_or_unverified_months": 60,
+          "start": "2021-01",
+          "values_inferred": false,
+          "verified_monthly_observations": 0
+        }
+      ]
+    },
+    {
+      "blockers": [
+        "Official metadata and vintage/coverage not read: proxy CONNECT 403",
+        "Series-specific rights and units/adjustment not admitted",
+        "No official raw observations acquired"
+      ],
+      "id": "cpi_index",
+      "native_frequency_verified": false,
+      "series_id": null,
+      "status": "blocked_not_verified",
+      "windows": [
+        {
+          "end": "2025-12",
+          "expected_months": 96,
+          "missing_or_unverified_months": 96,
+          "start": "2018-01",
+          "values_inferred": false,
+          "verified_monthly_observations": 0
+        },
+        {
+          "end": "2025-12",
+          "expected_months": 60,
+          "missing_or_unverified_months": 60,
+          "start": "2021-01",
+          "values_inferred": false,
+          "verified_monthly_observations": 0
+        }
+      ]
+    },
+    {
+      "blockers": [
+        "Official metadata and vintage/coverage not read: proxy CONNECT 403",
+        "Series-specific rights and units/adjustment not admitted",
+        "No official raw observations acquired"
+      ],
+      "id": "cpi_inflation_yoy",
+      "native_frequency_verified": false,
+      "series_id": null,
+      "status": "blocked_not_verified",
+      "windows": [
+        {
+          "end": "2025-12",
+          "expected_months": 96,
+          "missing_or_unverified_months": 96,
+          "start": "2018-01",
+          "values_inferred": false,
+          "verified_monthly_observations": 0
+        },
+        {
+          "end": "2025-12",
+          "expected_months": 60,
+          "missing_or_unverified_months": 60,
+          "start": "2021-01",
+          "values_inferred": false,
+          "verified_monthly_observations": 0
+        }
+      ]
+    },
+    {
+      "blockers": [
+        "Official metadata and vintage/coverage not read: proxy CONNECT 403",
+        "Series-specific rights and units/adjustment not admitted",
+        "No official raw observations acquired"
+      ],
+      "id": "real_earnings",
+      "native_frequency_verified": false,
+      "series_id": null,
+      "status": "blocked_not_verified",
+      "windows": [
+        {
+          "end": "2025-12",
+          "expected_months": 96,
+          "missing_or_unverified_months": 96,
+          "start": "2018-01",
+          "values_inferred": false,
+          "verified_monthly_observations": 0
+        },
+        {
+          "end": "2025-12",
+          "expected_months": 60,
+          "missing_or_unverified_months": 60,
+          "start": "2021-01",
+          "values_inferred": false,
+          "verified_monthly_observations": 0
+        }
+      ]
+    },
+    {
+      "blockers": [
+        "Official metadata and vintage/coverage not read: proxy CONNECT 403",
+        "Series-specific rights and units/adjustment not admitted",
+        "No official raw observations acquired"
+      ],
+      "id": "nominal_earnings",
+      "native_frequency_verified": false,
+      "series_id": null,
+      "status": "blocked_not_verified",
+      "windows": [
+        {
+          "end": "2025-12",
+          "expected_months": 96,
+          "missing_or_unverified_months": 96,
+          "start": "2018-01",
+          "values_inferred": false,
+          "verified_monthly_observations": 0
+        },
+        {
+          "end": "2025-12",
+          "expected_months": 60,
+          "missing_or_unverified_months": 60,
+          "start": "2021-01",
+          "values_inferred": false,
+          "verified_monthly_observations": 0
+        }
+      ]
+    },
+    {
+      "blockers": [
+        "Official metadata and vintage/coverage not read: proxy CONNECT 403",
+        "Series-specific rights and units/adjustment not admitted",
+        "No official raw observations acquired"
+      ],
+      "id": "bophh_expected_inflation_12m",
+      "native_frequency_verified": false,
+      "series_id": null,
+      "status": "blocked_not_verified",
+      "windows": [
+        {
+          "end": "2025-12",
+          "expected_months": 96,
+          "missing_or_unverified_months": 96,
+          "start": "2018-01",
+          "values_inferred": false,
+          "verified_monthly_observations": 0
+        },
+        {
+          "end": "2025-12",
+          "expected_months": 60,
+          "missing_or_unverified_months": 60,
+          "start": "2021-01",
+          "values_inferred": false,
+          "verified_monthly_observations": 0
+        }
+      ]
+    },
+    {
+      "blockers": [
+        "Official metadata and vintage/coverage not read: proxy CONNECT 403",
+        "Series-specific rights and units/adjustment not admitted",
+        "No official raw observations acquired"
+      ],
+      "id": "ces_de_expected_inflation_12m",
+      "native_frequency_verified": false,
+      "series_id": null,
+      "status": "blocked_not_verified",
+      "windows": [
+        {
+          "end": "2025-12",
+          "expected_months": 96,
+          "missing_or_unverified_months": 96,
+          "start": "2018-01",
+          "values_inferred": false,
+          "verified_monthly_observations": 0
+        },
+        {
+          "end": "2025-12",
+          "expected_months": 60,
+          "missing_or_unverified_months": 60,
+          "start": "2021-01",
+          "values_inferred": false,
+          "verified_monthly_observations": 0
+        }
+      ]
+    }
+  ]
+}

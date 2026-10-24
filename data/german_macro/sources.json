@@ -1,0 +1,311 @@
+{
+  "scope": "blocked_research",
+  "series": [
+    {
+      "blockers": [
+        "Official metadata and vintage/coverage not read: proxy CONNECT 403",
+        "Series-specific rights and units/adjustment not admitted",
+        "No official raw observations acquired"
+      ],
+      "candidate_series_id": "MIR.M.DE.B.A2B.A.R.A.2250.EUR.N",
+      "country": "DE",
+      "definition": "New-business loans for consumption to households and NPISH; financing-cost proxy, not Tesla APR",
+      "definition_details": {
+        "aggregation": "Do not mix fixation categories or business volumes",
+        "coverage_start_end": null,
+        "fixation": "Total initial rate fixation; indirect search lead only",
+        "rate_concept": "AAR/NDER is not APRC including all charges; full definition requires official verification",
+        "target_frequency": "M",
+        "target_unit": "percent_per_annum"
+      },
+      "evidence": [
+        "ddg-mir"
+      ],
+      "frequency": "unverified",
+      "id": "consumer_credit",
+      "metadata_status": "not_verified",
+      "provider": "ECB / Deutsche Bundesbank",
+      "rights": {
+        "attribution": "ECB / Deutsche Bundesbank",
+        "note": "Official rights body blocked. Search leads are not a complete series-specific reuse review; no observations redistributed.",
+        "status": "not_verified",
+        "url": "https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html"
+      },
+      "seasonal_adjustment": "unverified",
+      "series_id": null,
+      "source_url": "https://data.ecb.europa.eu/data/datasets/MIR/MIR.M.DE.B.A2B.A.R.A.2250.EUR.N",
+      "unit": "unverified"
+    },
+    {
+      "blockers": [
+        "Official metadata and vintage/coverage not read: proxy CONNECT 403",
+        "Series-specific rights and units/adjustment not admitted",
+        "No official raw observations acquired"
+      ],
+      "candidate_series_id": "FM.D.U2.EUR.4F.KR.DFR.LEV",
+      "country": "U2",
+      "definition": "Deposit facility policy rate, euro-area reference applicable to Germany; not retail borrowing cost",
+      "definition_details": {
+        "candidate_key_status": "Unverified lookup hypothesis, not independently confirmed",
+        "event_table": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html",
+        "monthly_rule": "Calendar-day arithmetic mean only if every day has an explicit value; no forward fill from change events",
+        "target_frequency": "D",
+        "target_unit": "percent_per_annum"
+      },
+      "evidence": [],
+      "frequency": "unverified",
+      "id": "deposit_facility",
+      "metadata_status": "not_verified",
+      "provider": "ECB",
+      "rights": {
+        "attribution": "ECB",
+        "note": "Official rights body blocked. Search leads are not a complete series-specific reuse review; no observations redistributed.",
+        "status": "not_verified",
+        "url": "https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html"
+      },
+      "seasonal_adjustment": "unverified",
+      "series_id": null,
+      "source_url": "https://data.ecb.europa.eu/data/datasets/FM/FM.D.U2.EUR.4F.KR.DFR.LEV",
+      "unit": "unverified"
+    },
+    {
+      "blockers": [
+        "Official metadata and vintage/coverage not read: proxy CONNECT 403",
+        "Series-specific rights and units/adjustment not admitted",
+        "No official raw observations acquired"
+      ],
+      "candidate_series_id": "FM.M.U2.EUR.RT.MM.EURIBOR3MD_.HSTA",
+      "country": "U2",
+      "definition": "Three-month unsecured interbank reference, not household credit rate",
+      "definition_details": {
+        "aggregation": "Monthly average convention and eligible-day definition require verification",
+        "candidate_key_status": "Unverified lookup hypothesis",
+        "rights_warning": "ESCB free reuse excludes third-party data without originator permission; EMMI-specific terms unresolved",
+        "target_frequency": "M",
+        "target_unit": "percent_per_annum"
+      },
+      "evidence": [],
+      "frequency": "unverified",
+      "id": "euribor_3m",
+      "metadata_status": "not_verified",
+      "provider": "ECB / EMMI (originator to verify)",
+      "rights": {
+        "attribution": "ECB / EMMI (originator to verify)",
+        "note": "Official rights body blocked. Search leads are not a complete series-specific reuse review; no observations redistributed.",
+        "status": "not_verified",
+        "url": "https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html"
+      },
+      "seasonal_adjustment": "unverified",
+      "series_id": null,
+      "source_url": "https://data.ecb.europa.eu/data/datasets/FM/FM.M.U2.EUR.RT.MM.EURIBOR3MD_.HSTA",
+      "unit": "unverified"
+    },
+    {
+      "blockers": [
+        "Official metadata and vintage/coverage not read: proxy CONNECT 403",
+        "Series-specific rights and units/adjustment not admitted",
+        "No official raw observations acquired"
+      ],
+      "candidate_series_id": "GENESIS table 61111-0002 (not an exact selected series)",
+      "country": "DE",
+      "definition": "German national CPI, all items; do not substitute HICP",
+      "definition_details": {
+        "breaks": "Search lead mentions December 2024 classification effects; inspect table footnotes before use",
+        "lookback": "Retrieve 2017 as well if deriving YoY for all 2018 months",
+        "table_vs_series": "Table ID alone does not identify measure/base/unit/adjustment",
+        "target_frequency": "M",
+        "target_unit": "index with verified common base"
+      },
+      "evidence": [
+        "ddg-cpi"
+      ],
+      "frequency": "unverified",
+      "id": "cpi_index",
+      "metadata_status": "not_verified",
+      "provider": "Destatis",
+      "rights": {
+        "attribution": "Destatis",
+        "note": "Official rights body blocked. Search leads are not a complete series-specific reuse review; no observations redistributed.",
+        "status": "not_verified",
+        "url": "https://www.destatis.de/DE/Service/Impressum/copyright-genesis-online.html"
+      },
+      "seasonal_adjustment": "unverified",
+      "series_id": null,
+      "source_url": "https://genesis.destatis.de/datenbank/online/statistic/61111/table/61111-0002",
+      "unit": "unverified"
+    },
+    {
+      "blockers": [
+        "Official metadata and vintage/coverage not read: proxy CONNECT 403",
+        "Series-specific rights and units/adjustment not admitted",
+        "No official raw observations acquired"
+      ],
+      "candidate_series_id": null,
+      "country": "DE",
+      "definition": "National all-items CPI change from same month of previous year",
+      "definition_details": {
+        "source_candidate": "cpi_index",
+        "target_frequency": "M",
+        "target_unit": "percent_yoy",
+        "transformation": "100*(I[t]/I[t-12]-1); same calendar month, same base and vintage; absent input remains missing"
+      },
+      "evidence": [],
+      "frequency": "unverified",
+      "id": "cpi_inflation_yoy",
+      "metadata_status": "not_verified",
+      "provider": "Destatis / derived",
+      "rights": {
+        "attribution": "Destatis / derived",
+        "note": "Official rights body blocked. Search leads are not a complete series-specific reuse review; no observations redistributed.",
+        "status": "not_verified",
+        "url": "https://www.destatis.de/DE/Service/Impressum/copyright-genesis-online.html"
+      },
+      "seasonal_adjustment": "unverified",
+      "series_id": null,
+      "source_url": "https://genesis.destatis.de/datenbank/online/statistic/61111/table/61111-0002",
+      "unit": "unverified"
+    },
+    {
+      "blockers": [
+        "Official metadata and vintage/coverage not read: proxy CONNECT 403",
+        "Series-specific rights and units/adjustment not admitted",
+        "No official raw observations acquired"
+      ],
+      "candidate_series_id": "GENESIS table 62361-0001 (monthly search lead; exact series unresolved)",
+      "country": "DE",
+      "definition": "Real earnings index, Germany, native frequency retained",
+      "definition_details": {
+        "comparability": "Verify 2022 earnings survey change, historical linking and real-income CPI deflator before any splicing",
+        "monthly_availability": "not_verified; do NOT claim not_monthly_available yet",
+        "monthly_lead": "Search result for official statistic lists table 62361-0001 as Germany, months. Span/basis/breaks not established.",
+        "no_interpolation": true,
+        "quarterly_alternative": "https://www-genesis.destatis.de/datenbank/online/statistic/62361/table/62361-0010",
+        "quarterly_lead": "62361-0010: Germany, quarters; search lead 2007\u20132026. Official body blocked.",
+        "target_frequency": "M only if genuinely verified; otherwise Q retained"
+      },
+      "evidence": [
+        "ddg-wages"
+      ],
+      "frequency": "unverified",
+      "id": "real_earnings",
+      "metadata_status": "not_verified",
+      "provider": "Destatis",
+      "rights": {
+        "attribution": "Destatis",
+        "note": "Official rights body blocked. Search leads are not a complete series-specific reuse review; no observations redistributed.",
+        "status": "not_verified",
+        "url": "https://www.destatis.de/DE/Service/Impressum/copyright-genesis-online.html"
+      },
+      "seasonal_adjustment": "unverified",
+      "series_id": null,
+      "source_url": "https://www-genesis.destatis.de/datenbank/online/statistic/62361/table/62361-0001",
+      "unit": "unverified"
+    },
+    {
+      "blockers": [
+        "Official metadata and vintage/coverage not read: proxy CONNECT 403",
+        "Series-specific rights and units/adjustment not admitted",
+        "No official raw observations acquired"
+      ],
+      "candidate_series_id": "GENESIS table 62361-0001 (monthly search lead; exact series unresolved)",
+      "country": "DE",
+      "definition": "Nominal earnings index, Germany, native frequency retained",
+      "definition_details": {
+        "comparability": "Verify 2022 earnings survey change, historical linking and real-income CPI deflator before any splicing",
+        "monthly_availability": "not_verified; do NOT claim not_monthly_available yet",
+        "monthly_lead": "Search result for official statistic lists table 62361-0001 as Germany, months. Span/basis/breaks not established.",
+        "no_interpolation": true,
+        "quarterly_alternative": "https://www-genesis.destatis.de/datenbank/online/statistic/62361/table/62361-0010",
+        "quarterly_lead": "62361-0010: Germany, quarters; search lead 2007\u20132026. Official body blocked.",
+        "target_frequency": "M only if genuinely verified; otherwise Q retained"
+      },
+      "evidence": [
+        "ddg-wages"
+      ],
+      "frequency": "unverified",
+      "id": "nominal_earnings",
+      "metadata_status": "not_verified",
+      "provider": "Destatis",
+      "rights": {
+        "attribution": "Destatis",
+        "note": "Official rights body blocked. Search leads are not a complete series-specific reuse review; no observations redistributed.",
+        "status": "not_verified",
+        "url": "https://www.destatis.de/DE/Service/Impressum/copyright-genesis-online.html"
+      },
+      "seasonal_adjustment": "unverified",
+      "series_id": null,
+      "source_url": "https://www-genesis.destatis.de/datenbank/online/statistic/62361/table/62361-0001",
+      "unit": "unverified"
+    },
+    {
+      "blockers": [
+        "Official metadata and vintage/coverage not read: proxy CONNECT 403",
+        "Series-specific rights and units/adjustment not admitted",
+        "No official raw observations acquired"
+      ],
+      "candidate_series_id": null,
+      "country": "DE",
+      "definition": "Households in Germany: expected inflation over next 12 months; intended mean, distinct from longer horizons",
+      "definition_details": {
+        "coverage": "Indirect research lead: 2019 pilots, regular monthly from April 2020; not admitted as a complete series",
+        "dataset_lead": "6WBHH01 appears in search snippet; not an exact observation series identifier",
+        "population": "Search lead: German citizens aged 16+; actual sampling/weighting/online coverage needs official review",
+        "statistic": "Official-page search lead says average; exact weighted/trimmed definition not verified",
+        "target_frequency": "M",
+        "target_unit": "percent_expected_inflation"
+      },
+      "evidence": [
+        "ddg-expectations"
+      ],
+      "frequency": "unverified",
+      "id": "bophh_expected_inflation_12m",
+      "metadata_status": "not_verified",
+      "provider": "Deutsche Bundesbank",
+      "rights": {
+        "attribution": "Deutsche Bundesbank",
+        "note": "Official rights body blocked. Search leads are not a complete series-specific reuse review; no observations redistributed.",
+        "status": "not_verified",
+        "url": "https://www.bundesbank.de/en/service/copyright"
+      },
+      "seasonal_adjustment": "unverified",
+      "series_id": null,
+      "source_url": "https://www.bundesbank.de/en/bundesbank/research/survey-on-consumer-expectations-bop-hh/inflation-expectations-848334",
+      "unit": "unverified"
+    },
+    {
+      "blockers": [
+        "Official metadata and vintage/coverage not read: proxy CONNECT 403",
+        "Series-specific rights and units/adjustment not admitted",
+        "No official raw observations acquired"
+      ],
+      "candidate_series_id": null,
+      "country": "DE",
+      "definition": "Germany-specific consumer expectations of inflation over next 12 months; intended weighted median, not euro-area aggregate or mean",
+      "definition_details": {
+        "breaks": "Verify survey rollout, weighting/sample changes and DE publication availability",
+        "coverage_start_end": null,
+        "horizon": "Next 12 months; never mix 3-year expectations",
+        "population": "Not verified; do not substitute BOP-HH population",
+        "statistic": "Median required for this candidate; mean is a separate series",
+        "target_frequency": "M",
+        "target_unit": "percent_expected_inflation"
+      },
+      "evidence": [],
+      "frequency": "unverified",
+      "id": "ces_de_expected_inflation_12m",
+      "metadata_status": "not_verified",
+      "provider": "ECB CES",
+      "rights": {
+        "attribution": "ECB CES",
+        "note": "Official rights body blocked. Search leads are not a complete series-specific reuse review; no observations redistributed.",
+        "status": "not_verified",
+        "url": "https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html"
+      },
+      "seasonal_adjustment": "unverified",
+      "series_id": null,
+      "source_url": "https://www.ecb.europa.eu/stats/ecb_surveys/consumer_exp_survey/html/index.en.html",
+      "unit": "unverified"
+    }
+  ],
+  "version": "1.0.0"
+}
