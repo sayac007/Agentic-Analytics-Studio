@@ -148,3 +148,24 @@ Task 02A–02C adds a [local synthetic browser demo](docs/LOCAL_DEMO.md). Instal
 Only project-generated synthetic data are available; no keys or cloud setup required.
 The demo includes a matched model comparison, synthetic Markdown report export,
 and four rule-based language requests backed by allowlisted tools (no LLM or MCP server).
+
+## Synthetic result export — package 1
+
+Successful **Contract validation** runs expose `synthetic-stage-a-<commit>` under
+GitHub Actions → selected run → **Artifacts** (GitHub login may be required).
+Download and extract that artifact for the complete Stage-A report, both fitted
+models, predictions, comparisons, synthetic truth/reference, runtime and existing
+hash inventory. It is retained for seven days; failed checks publish nothing.
+
+Everything in this export is **SYNTHETIC / NOT EMPIRICAL**, including files under
+`private/` (an estimator-access boundary, not private empirical observations).
+The export gate validates original hashes/contracts and exact membership, and
+rejects observed/uncleared provenance. KBA, Trends, energy studies, permits, keys
+and unrelated workspace files are excluded. No backup export branch is needed.
+Locally verify an extracted bundle with `python -m studio.export <directory>`.
+No statistical method, frozen protocol or private empirical result changes.
+
+Package 3 adds [primary-source macro/energy acquisition and QA](DATA_SOURCES.md):
+consumer-credit AAR/NDER, national CPI, EUR/USD and qualified German diesel.
+Actual raw snapshots/normalized values stay private; Brent remains rights-blocked.
+No new model or historical-protocol change.
