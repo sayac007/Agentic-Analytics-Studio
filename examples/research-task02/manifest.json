@@ -1,0 +1,16 @@
+{
+  "files": {
+    "legacy_flags.csv": "31fded55d3f88316f4d006bc552b100301f229b7d32a3f9814b2f1e20b481003",
+    "mde.csv": "4f785370cd891b2d135749f4919816692662d783a8a9fa0215985b41430bfd21",
+    "power.png": "412ba1d59cf353210d1f383929d708e675d81646abd117f0b7a9f89d32df8c94",
+    "protocol.json": "71b84713c9c980db172e7bf5692bc85d9912021f85c5f23701d68df67a4a0723",
+    "report.md": "0e30712f48b7fbbd1e3a0abb4b3bede25784ecd291c4ef155b4db629f4028149",
+    "summary.csv": "6cab2b4d40b49e9d020a98c27c92065b5ef5e7dca1c4997350ed2cc0dfd7cb8f"
+  },
+  "kind": "synthetic_presentation_subset_not_full_seed_data",
+  "protocol_sha256": "71b84713c9c980db172e7bf5692bc85d9912021f85c5f23701d68df67a4a0723",
+  "scope": "SYNTHETIC_ONLY",
+  "seeds_per_cell": 1000,
+  "source_code_commit": "1f53bd303094db0bbcbf92ed1662ee6a49fde6a1",
+  "source_data_manifest_sha256": "4c0c33200361592f131289f2de48e6f96de5e40819d70617817390d80ad82467"
+}
