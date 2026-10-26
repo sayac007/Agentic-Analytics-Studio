@@ -17,7 +17,7 @@ Acceptance executed on Linux:
 - [x] Project/legacy-route isolation, failure/corruption refusal and atomic rollback.
 - [x] Existing analytics and real browser workflow preserved; 348 full-suite tests pass.
 - [x] Scope and official Codex/LLM-interface documentation assessed before code.
-- [ ] Draft PR and remote CI: record observed status in the PR.
+- [x] Draft PR #26 created; observed remote CI results recorded in the PR.
 
 General conversational AI, empirical project import and development execution remain
 explicitly deferred. See the architecture decision for commands, limitations and
