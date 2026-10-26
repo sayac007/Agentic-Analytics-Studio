@@ -147,3 +147,8 @@ rejects observed/uncleared provenance. KBA, Trends, energy studies, permits, key
 and unrelated workspace files are excluded. No backup export branch is needed.
 Locally verify an extracted bundle with `python -m studio.export <directory>`.
 No statistical method, frozen protocol or private empirical result changes.
+
+Package 3 adds [primary-source macro/energy acquisition and QA](DATA_SOURCES.md):
+consumer-credit AAR/NDER, national CPI, EUR/USD and qualified German diesel.
+Actual raw snapshots/normalized values stay private; Brent remains rights-blocked.
+No new model or historical-protocol change.
