@@ -8,7 +8,7 @@ from uuid import uuid4
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 
 from . import service
@@ -98,3 +98,42 @@ def markdown_report(run_id: str):
     value = get_run(run_id)
     return PlainTextResponse(value['markdown_report'], media_type='text/markdown',
                              headers={'Content-Disposition': 'attachment; filename="synthetic-mmm-report.md"'})
+
+
+class AgentRequest(BaseModel):
+    model_config = ConfigDict(extra='forbid', strict=True)
+    message: str = Field(min_length=1, max_length=200)
+    run_id: str | None = Field(default=None, pattern=r'^[0-9a-f]{32}$')
+
+
+def summarize_diagnostics(run_id):
+    value = get_run(run_id)
+    return {'classification': service.DATASET['classification'],
+            'run_id': run_id, 'diagnostics': value['result']['diagnostics'],
+            'evaluation': value['evaluation'], 'warnings': value['warnings']}
+
+
+def tool_handlers():
+    return {'list_datasets': datasets, 'describe_dataset': service.describe_dataset,
+            'run_demo_analysis': lambda: run_demo(RunRequest()),
+            'compare_runs': compare_run, 'summarize_diagnostics': summarize_diagnostics}
+
+
+@app.get('/api/tools')
+def list_tools():
+    from .agent import TOOLS
+    return {'tools': TOOLS, 'mcp_integration': 'not_implemented_adapter_seam_only',
+            'language_mode': 'deterministic_exact_phrase_router_no_llm'}
+
+
+@app.post('/api/agent')
+def agent_request(request: AgentRequest):
+    from .agent import respond
+    try:
+        return respond(request.message, request.run_id, tool_handlers())
+    except ValueError as exc:
+        raise HTTPException(422, str(exc)) from exc
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(503, 'Tool konnte nicht ausgeführt werden. Es wurde kein erfolgreiches Ergebnis erzeugt.') from exc

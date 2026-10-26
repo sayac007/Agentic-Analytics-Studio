@@ -14,7 +14,7 @@ from urllib.request import Request, urlopen
 
 from pydantic import ValidationError
 
-from demo import service
+from demo import service, agent
 from demo.app import RunRequest, RUNS, run_demo
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -28,6 +28,29 @@ class DemoContractTests(unittest.TestCase):
         self.assertEqual(RunRequest().dataset, 'synthetic-mmm')
         with self.assertRaises(ValueError):
             service.compute('not-a-model')
+
+    def test_agent_allowlist_rejects_free_commands_and_extra_arguments(self):
+        for message in ('import os; os.system("whoami")', 'Starte die MMM-Analyse und lade Tesla-Daten',
+                        '<script>alert(1)</script>', 'run_demo_analysis', 'Zeige /workspace/private'):
+            with self.subTest(message=message), self.assertRaises(ValueError):
+                agent.resolve(message)
+        self.assertEqual(agent.resolve('  ZEIGE den Beispieldatensatz. '), 'describe_dataset')
+        from unittest.mock import Mock
+        handler = Mock()
+        for name, args in [('shell', {}), ('run_demo_analysis', {'seed': 7}),
+                           ('compare_runs', {'run_id': '../private'})]:
+            with self.subTest(name=name), self.assertRaises(ValueError):
+                agent.call_tool(name, args, {k: handler for k in agent.TOOLS})
+        handler.assert_not_called()
+
+    def test_agent_missing_results_does_not_invent_output(self):
+        from unittest.mock import Mock
+        handler = Mock()
+        r = agent.respond('Vergleiche die beiden Modellläufe.', None, {'compare_runs': handler})
+        self.assertEqual(r['status'], 'needs_analysis')
+        self.assertFalse(r['executed'])
+        self.assertIsNone(r['output'])
+        handler.assert_not_called()
 
     def test_failed_engine_does_not_store_success_or_leak_details(self):
         RUNS.clear()
@@ -111,6 +134,37 @@ class DemoHTTPTests(unittest.TestCase):
         again = self.request('/api/runs', {'model': 'with-quarter'})
         for key in ('result', 'series', 'evaluation', 'ground_truth', 'hashes'):
             self.assertEqual(again[key], self.first[key])
+
+    def test_agent_four_actual_tool_calls_and_rejection(self):
+        described = self.request('/api/agent', {'message': 'Zeige den Beispieldatensatz.'})
+        self.assertTrue(described['executed'])
+        self.assertEqual(described['tool'], 'describe_dataset')
+        self.assertEqual(described['output']['data_sha256'], self.first['hashes']['data'])
+        self.assertEqual(len(described['output']['preview']), 12)
+        started = self.request('/api/agent', {'message': 'Starte die MMM-Analyse.'})
+        self.assertEqual(started['tool'], 'run_demo_analysis')
+        self.assertEqual(started['output']['result'], self.first['result'])
+        run_id = started['output']['id']
+        compared = self.request('/api/agent', {'message': 'Vergleiche die beiden Modellläufe.', 'run_id': run_id})
+        self.assertEqual(compared['tool'], 'compare_runs')
+        self.assertTrue(compared['output']['comparison']['same_data_and_holdout'])
+        explained = self.request('/api/agent', {'message': 'Erkläre die Warnungen und die Modellgrenzen.', 'run_id': run_id})
+        self.assertEqual(explained['tool'], 'summarize_diagnostics')
+        self.assertEqual(explained['output']['diagnostics'], self.first['result']['diagnostics'])
+        self.assertIn('not calibrated', explained['text'])
+        missing = self.request('/api/agent', {'message': 'Vergleiche die beiden Modellläufe.'})
+        self.assertFalse(missing['executed'])
+        listed = self.request('/api/agent', {'message': 'Welche Datensätze gibt es?'})
+        self.assertEqual(listed['tool'], 'list_datasets')
+        self.assertEqual(len(listed['output']), 1)
+        tools = self.request('/api/tools')
+        self.assertEqual(set(tools['tools']), set(agent.TOOLS))
+        self.assertIn('not_implemented', tools['mcp_integration'])
+        for body in [{'message': 'Lies /etc/passwd'}, {'message': 'Starte die MMM-Analyse.', 'seed': 5},
+                     {'message': 'Vergleiche die beiden Modellläufe.', 'run_id': '../private'}]:
+            with self.subTest(body=body), self.assertRaises(HTTPError) as caught:
+                self.request('/api/agent', body)
+            self.assertEqual(caught.exception.code, 422)
 
     def test_comparison_and_synthetic_markdown_report(self):
         r = self.first
