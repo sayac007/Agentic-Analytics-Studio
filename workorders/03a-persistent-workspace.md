@@ -8,4 +8,17 @@ Prove restart, project separation, failure handling and the existing browser wor
 No general LLM, live data acquisition, reconciliation engine, Codex execution, new
 statistical method or external publication. One draft PR; no automatic merge.
 
-Acceptance evidence will be completed after the actual tests, not assumed here.
+Acceptance executed on Linux:
+
+- [x] Two explicitly synthetic projects, separate conversations/results/default models.
+- [x] Typed statements, stored proposals and separate explicit human approvals.
+- [x] Real tool executions, durable original bundles, revalidation before use.
+- [x] Actual process restart and interrupted-process handling without automatic retry.
+- [x] Project/legacy-route isolation, failure/corruption refusal and atomic rollback.
+- [x] Existing analytics and real browser workflow preserved; 348 full-suite tests pass.
+- [x] Scope and official Codex/LLM-interface documentation assessed before code.
+- [ ] Draft PR and remote CI: record observed status in the PR.
+
+General conversational AI, empirical project import and development execution remain
+explicitly deferred. See the architecture decision for commands, limitations and
+the next bounded product step.

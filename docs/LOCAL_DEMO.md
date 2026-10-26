@@ -1,4 +1,4 @@
-# Task 02A–02C — local synthetic analytics demo
+# Task 02A–02C / 03A — local synthetic analytics workspace
 
 ## Small architecture
 
@@ -9,7 +9,9 @@ The existing engine already pins HypoForge adstock/Hill and isolates estimator i
 from generator reference/truth. The adapter reads synthetic truth only after fitting.
 No existing contract, engine implementation, frozen protocol or empirical input changes.
 
-Only `Synthetic MMM Demo`, seed 42, is available. The allowed configuration selects
+Only `Synthetic MMM Demo`, seed 42, is available. Two separate projects use this
+same asset, with `with-quarter` and `without-quarter` defaults. They are not two
+different datasets. The allowed configuration selects
 the predeclared with/without-quarter-end model. The unchanged pipeline computes both
 on the same synthetic data; 02A displays the selected one. Changing this selection
 changes estimates, not the underlying data. No freeform seed/model/path/upload input.
@@ -38,9 +40,36 @@ py -3.12 -m venv .venv
 ```
 
 The last command is the single start command after installation; UI and API share
-one port. Bind is loopback-only. No multiuser/deployment/authentication claim. Five
-recent results are retained in process memory, lost on restart; temporary synthetic
-engine bundles are deleted after reading. No file browsing or private data routes.
+one port. Bind is loopback-only. No multiuser/deployment/authentication claim.
+SQLite and the complete original validated synthetic bundles persist in
+`.aas-workspace/` in the launch directory, excluded from Git. Set `AAS_WORKSPACE_DIR`
+on the server to use another dedicated directory; no HTTP request accepts a path.
+Only one application process/worker may open that directory at a time.
+No file browsing or private empirical-data routes.
+
+Choose a project, write a note, run an analysis, then stop and restart the server.
+The selected project can be bookmarked in the URL; its latest result opens after
+artifact/hash revalidation. Use **Wo haben wir aufgehört?** to retrieve actual
+context and current warnings. No previous Tesla study or conversation is imported.
+Stored statements, unexecuted decision/development-work-order proposals, explicit
+human approvals and verified tool outputs have separate labels. A proposal approval
+only records your decision; it executes no tool and changes no data, method or code.
+There is no LLM, so unsupported text is saved as a note with an honest acknowledgement.
+
+The view shows the last 40 messages and 20 runs/executions/decisions; older records
+remain in SQLite. Historical run metadata means **validated at creation**. Opening
+a result, report, comparison or resume response checks the original bundle again.
+An interrupted operation is labelled interrupted on restart, never retried or treated
+as successful. Corrupt or incompatible workspaces fail rather than resetting history.
+
+The directory is owner-private on tested Linux; it is not encrypted. Do not paste
+credentials or proprietary data into this synthetic prototype. Back up the SQLite
+file **and** `runs/` together while the server is stopped. Runs grow without eviction;
+failed/interrupted fits can leave unreferenced partial directories, retained for
+inspection and never shown as successes. Cleanup/retention must be done offline;
+automatic deletion, migrations and production backup are outside this increment.
+Windows commands above remain untested; Windows filesystem/lock behavior is not
+certified. [Architecture and official integration review](PERSISTENT_WORKSPACE.md).
 
 ## Checks and limits
 
@@ -69,6 +98,7 @@ normalization). No LLM/API key. Four buttons demonstrate real tools:
 | Starte die MMM-Analyse. | run_demo_analysis |
 | Vergleiche die beiden Modellläufe. | compare_runs |
 | Erkläre die Warnungen und die Modellgrenzen. | summarize_diagnostics |
+| Wo haben wir aufgehört? | resume_workspace |
 
 `Welche Datensätze gibt es?` also maps to `list_datasets`. The first tool previews
 12 actually generated rows without fitting; the second executes a fresh fixed
@@ -78,7 +108,12 @@ tool, execution status and actual structured output. Arbitrary commands and extr
 arguments are rejected. No application-defined shell/eval/network tools exist; the
 unchanged core engine itself uses its established isolated estimator subprocess.
 
-API: `GET /api/datasets`, `POST /api/runs` (dataset/model literals only),
+Project API: `GET /api/projects`, `GET /api/projects/{project}/workspace`,
+`POST /api/projects/{project}/messages` (conversation ID plus text and optional run ID),
+and project-scoped `/runs`, `/runs/{id}`, `/comparison`, `/report`, `/decisions`,
+`/decisions/{id}/approve`. Project identity and record ownership are checked server-side.
+The legacy Task 02 API remains restricted to the first project:
+`GET /api/datasets`, `POST /api/runs` (dataset/model literals only),
 `GET /api/runs/{id}`, `/comparison`, `/report`, `POST /api/agent` (message/run_id),
 `GET /api/tools`. Strict request models reject unknown fields. `demo.agent.call_tool`
 is the allowlisted typed-argument adapter seam for a future transport; it is **not**
@@ -92,10 +127,22 @@ Optional automated browser check (Playwright 1.56.0, existing system Chromium):
 .venv/bin/python scripts/demo_browser_smoke.py
 ```
 
-Start the app in a second terminal first. Set `DEMO_CHROMIUM` if Chromium is installed
+Start the app in a second terminal first for that legacy smoke. Set `DEMO_CHROMIUM` if Chromium is installed
 elsewhere. This optional check clicks the form twice, verifies changed coefficients,
 the SVG series and a narrow viewport. Linux Chromium was actually exercised; this is
 an automated browser check, not a claim of manual nontechnical user acceptance.
+
+The self-contained persistent-workspace browser smoke starts its own temporary
+server on a free port, with no existing user history, and actually restarts it:
+
+```sh
+.venv/bin/python scripts/workspace_browser_smoke.py
+```
+
+It checks notes rendered as text, explicit proposal approval, real fits, all four
+analytics tools, exports, project separation, resume and original results after
+restart. The ordinary full unittest CI also includes real HTTP restart, integrity,
+failure and project-isolation checks without needing Chromium.
 
 
 ## Live demo checklist

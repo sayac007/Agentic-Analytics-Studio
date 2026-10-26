@@ -33,19 +33,29 @@ def load_json(root, name):
     return json.loads((root / name).read_text())
 
 
-def compute(model):
+def compute(model, output=None):
     if model not in ('with-quarter', 'without-quarter'):
         raise ValueError('Unknown predefined model')
-    # No input paths/uploads/source selectors; generated data are synthetic by construction.
+    # output is a server-owned destination, never an HTTP/tool argument.
+    if output is not None:
+        return load_result(run(Path(output)), model)
     with tempfile.TemporaryDirectory(prefix='aas-synthetic-demo-') as tmp:
         root = run(Path(tmp) / 'bundle')
-        verify_bundle(root)  # Never present unvalidated result artifacts.
-        variants = {name: summarize(root, name) for name in ('with-quarter', 'without-quarter')}
-        selected = dict(variants[model])
-        selected['variants'] = variants
-        selected['comparison'] = load_json(root, 'comparison.json')
-        selected['markdown_report'] = (root / 'report.md').read_text()
-        return selected
+        return load_result(root, model)
+
+
+def load_result(root, model):
+    """Reopen original artifacts; no generator or estimator execution on restore."""
+    if model not in ('with-quarter', 'without-quarter'):
+        raise ValueError('Unknown predefined model')
+    root = Path(root)
+    verify_bundle(root)
+    variants = {name: summarize(root, name) for name in ('with-quarter', 'without-quarter')}
+    selected = dict(variants[model])
+    selected['variants'] = variants
+    selected['comparison'] = load_json(root, 'comparison.json')
+    selected['markdown_report'] = (root / 'report.md').read_text()
+    return selected
 
 
 def summarize(root, model):

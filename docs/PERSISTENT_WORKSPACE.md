@@ -45,6 +45,8 @@ for these short fixed fits; no queue, auto-retry or background scheduler is need
   transactions. One process/worker owns a workspace through an OS process lock.
   Startup refuses corruption/unsupported schemas and marks unfinished tool calls
   interrupted; it never retries or invents success. No transaction spans a fit.
+  Failed/interrupted runs may retain unreferenced partial bundles. They are not
+  successful history; inspect/clean them only while the application is stopped.
 - **Location:** server-only `AAS_WORKSPACE_DIR`, default `.aas-workspace/` in the
   launch directory, excluded from Git. Private owner directory, database and lock;
   reject symlink storage entries. No browser-supplied paths or empirical imports.
@@ -60,6 +62,9 @@ for these short fixed fits; no queue, auto-retry or background scheduler is need
 - **Context:** recent 40 messages and 20 runs/executions/decisions, with full records
   remaining in SQLite and older runs directly addressable by ID. No semantic search,
   transcript-derived memory or silent truncation presented as complete history.
+  Non-compute tool records retain compact actual snapshots/references and a SHA-256
+  over `json.dumps(output, sort_keys=True, ensure_ascii=False, allow_nan=False).encode()`.
+  Resume stores its summary/counts/latest run reference, never recursive context copies.
 - **Results:** retain the original immutable pipeline bundle, inventory hash, data
   identity, software and estimator configuration. Validate before a single atomic
   run/success commit, then verify bundle/hash again before use. A cached conversation
@@ -111,6 +116,28 @@ now. No 0.1% automatic acceptance rule is introduced.
 
 ## Implementation and validation evidence
 
-Implementation, exact commands, observed results and remaining limits are recorded
-below and in the PR after execution; the acceptance list above is a target, not a
-claim that tests or integrations have already passed.
+Implemented in `demo/workspace.py` (SQLite/ownership/artifact lifecycle),
+`demo/app.py` (project routes, durable tools/context), `demo/service.py` (original
+bundle restore), `demo/agent.py` (resume and permissions) and the existing static UI.
+No dependency locks, statistical engine, contracts or frozen protocols changed.
+
+Executed on Linux, Python 3.12.14, after final application changes:
+
+- `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m unittest discover -s tests -v`:
+  **348 tests passed, 79.542s**. Includes 10 storage tests and 5 actual-process HTTP
+  tests: original results after restart, project/legacy-route isolation, crash
+  interruption, strict inputs, corruption refusal and atomic publication rollback.
+- `python scripts/workspace_browser_smoke.py`: **PASS**, actual Playwright 1.56.0
+  and system Chromium, its own temporary server/workspace. Literal script text,
+  explicit approval, three real synthetic fits, four tools/comparison/report,
+  two-project separation, reload and real process restart, unchanged run IDs/hashes
+  and execution counts on restore, resume, 390px layout, no JavaScript page errors.
+- A separate demo-only environment also passed the 14 workspace tests present at
+  that check (18.858s); no research-only runtime dependency was needed.
+- Both `python contracts/validate.py` and its separate generator-example check,
+  `node --check demo/static/app.js`, `git diff --check` and `pip check`: passed.
+
+Remote CI evidence belongs in the PR after observation. The existing full-suite
+workflow discovers the new storage/restart tests; no unobserved green run is assumed.
+No remote LLM, SDK execution, empirical import, independent human acceptance,
+Windows certification or production deployment was tested or claimed.

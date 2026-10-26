@@ -5,7 +5,7 @@ runs a fully synthetic Stage-A benchmark**, with an intentionally difficult base
 known media transformations and honest recovery diagnostics. It is not evidence of
 real Tesla advertising effectiveness.
 
-## Local browser demo — Task 02 MVP
+## Local persistent workspace — Task 03A
 
 Python 3.12 + Git, from repository root (Linux):
 
@@ -15,10 +15,16 @@ python3.12 -m venv .venv
 .venv/bin/python -m demo
 ```
 
-Open `http://127.0.0.1:8000`: choose **Synthetic MMM Demo**, run the analysis,
-compare the two predefined models, export the synthetic report, or try the four
-rule-based assistant requests. [Instructions and limitations](docs/LOCAL_DEMO.md).
-No keys, cloud account, real data or frontend build are required.
+Open `http://127.0.0.1:8000`: choose a project, save a note, run **Synthetic MMM Demo**,
+compare the predefined models or export the synthetic report. Stop and restart the
+app: the conversation, proposals and original validated results remain available.
+**Wo haben wir aufgehört?** retrieves real stored context and rechecks the latest run.
+The two projects share one synthetic monthly asset with different default models;
+their conversations and results are separate. Free text is an unverified note,
+not a general AI conversation. No LLM, Codex execution, keys or cloud account.
+
+State is local in Git-ignored `.aas-workspace/`; keep this folder to resume.
+[Usage and limits](docs/LOCAL_DEMO.md) · [critical architecture assessment](docs/PERSISTENT_WORKSPACE.md).
 
 ## Run the synthetic pipeline
 
@@ -55,9 +61,10 @@ saved. The example has poor recovery, which remains visible rather than correcte
 
 ## Scope
 
-No observed-baseline MMM execution, transform search, scenario grid, Bayesian model, geo-test, UI
-or MCP server is included. No empirical power, validated MDE, actual 95% coverage or
-real causal marketing ROI is claimed. WKR, HypoForge and Kinderwelt remain independent;
+The Stage-A pipeline has fixed transformations. The separate research Task 02
+benchmark evaluates a preregistered synthetic scenario grid; the product workspace
+does not search or tune models. No general LLM, MCP server, Bayesian model, geo-test,
+validated MDE or real causal marketing ROI is claimed. WKR, HypoForge and Kinderwelt remain independent;
 HypoForge is consumed only as a dependency pinned to its audited Git commit.
 
 See [Source audit](docs/SOURCE_CATALOG.md) and [Contracts](contracts/README.md).
