@@ -1,5 +1,10 @@
 # Task 03A: persistent local workspace
 
+This records the Task 03A decision and its original verification. Task 03B adds
+optional external conversation and an additive SQLite schema-2 migration; see
+[the current conversational-agent guide](CONVERSATIONAL_AGENT.md). Local mode and
+the existing validated analytics boundaries remain available.
+
 ## Independent assessment before implementation
 
 Reviewed against main `77fb75b` on 2026-10-26. The product Task 02 MVP

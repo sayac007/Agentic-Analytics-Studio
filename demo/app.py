@@ -9,6 +9,7 @@ from typing import Literal
 from uuid import uuid4
 
 from fastapi import FastAPI, HTTPException, Request
+from fastapi.exceptions import RequestValidationError
 from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field
@@ -16,9 +17,12 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 
 from . import agent, service
 from .workspace import Workspace, WorkspaceError, MissingRecord
+from . import conversation
+from .openai_provider import Config, ConversationError
 
 DEFAULT_PROJECT = 'synthetic-quarter'
 RUN_LOCK = Lock()
+AI_LOCK = Lock()
 STATIC = Path(__file__).with_name('static')
 
 
@@ -26,6 +30,7 @@ STATIC = Path(__file__).with_name('static')
 async def lifespan(application):
     workspace = Workspace(Path(os.environ.get('AAS_WORKSPACE_DIR', '.aas-workspace')))
     application.state.workspace = workspace
+    application.state.ai_config = Config.from_env()
     try:
         yield
     finally:
@@ -39,6 +44,21 @@ app.mount('/static', StaticFiles(directory=STATIC), name='static')
 
 def get_workspace():
     return app.state.workspace
+
+
+def get_ai_config():
+    return app.state.ai_config
+
+
+@app.exception_handler(ConversationError)
+async def conversation_error(request, exc):
+    return JSONResponse({'detail': exc.message, 'code': exc.code, 'mode': 'openai'}, status_code=exc.status)
+
+
+@app.exception_handler(RequestValidationError)
+async def invalid_request(request, exc):
+    # Framework error payloads otherwise echo invalid input, including pasted secrets.
+    return JSONResponse({'detail': 'Ungültige Anfrage oder nicht freigegebene Felder.'}, status_code=422)
 
 
 @app.exception_handler(MissingRecord)
@@ -82,6 +102,17 @@ class MessageRequest(StrictRequest):
     message: str = Field(min_length=1, max_length=4000, pattern=r'\S')
     conversation_id: str = Field(pattern=r'^[0-9a-f]{32}$')
     run_id: str | None = Field(default=None, pattern=r'^[0-9a-f]{32}$')
+    approved_decision_ids: list[str] = Field(default_factory=list, max_length=3)
+    mode: Literal['local', 'openai'] = 'local'
+    consent: bool = False
+    context_sha256: str | None = Field(default=None, pattern=r'^[0-9a-f]{64}$')
+
+
+class ContextRequest(StrictRequest):
+    message: str = Field(min_length=1, max_length=2000, pattern=r'\S')
+    conversation_id: str = Field(pattern=r'^[0-9a-f]{32}$')
+    run_id: str | None = Field(default=None, pattern=r'^[0-9a-f]{32}$')
+    approved_decision_ids: list[str] = Field(default_factory=list, max_length=3)
 
 
 class DecisionRequest(StrictRequest):
@@ -97,7 +128,12 @@ def index():
 @app.get('/api/health')
 def health():
     return {'status': 'ready', 'classification': 'SYNTHETIC / NOT EMPIRICAL',
-            'storage': 'sqlite', 'workspace_schema': 1, 'llm': 'not_integrated'}
+            'storage': 'sqlite', 'workspace_schema': 2, 'llm': 'optional_openai_opt_in'}
+
+
+@app.get('/api/ai/status')
+def ai_status():
+    return get_ai_config().status()
 
 
 @app.get('/api/datasets')
@@ -127,6 +163,7 @@ def diagnostics(project_id, run_id):
     value = load_run(project_id, run_id)
     return {'classification': service.DATASET['classification'], 'run_id': run_id,
             'diagnostics': value['result']['diagnostics'],
+            'coefficients': value['result']['coefficients'], 'metrics': value['result']['metrics'],
             'evaluation': value['evaluation'], 'warnings': value['warnings']}
 
 
@@ -195,8 +232,11 @@ def execute_tool(project_id, conversation_id, name, arguments, model=None):
         if execution:
             ws.finish_execution(project_id, execution['id'], 'failed', error_code='tool_failed')
         if isinstance(exc, (HTTPException, MissingRecord, WorkspaceError)):
+            exc.tool_execution_id = execution['id'] if execution else None
             raise
-        raise HTTPException(503, 'Analysis/tool failed validation or runtime checks. No successful result was stored.') from exc
+        failure = HTTPException(503, 'Analysis/tool failed validation or runtime checks. No successful result was stored.')
+        failure.tool_execution_id = execution['id'] if execution else None
+        raise failure from exc
     finally:
         if compute:
             RUN_LOCK.release()
@@ -273,7 +313,14 @@ def projects():
 
 @app.get('/api/projects/{project_id}/workspace')
 def project_workspace(project_id: str):
-    return get_workspace().context(project_id)
+    state = get_workspace().context(project_id)
+    state['ai'] = get_workspace().ai_state(project_id)
+    return state
+
+
+@app.post('/api/projects/{project_id}/agent-context')
+def agent_context(project_id: str, request: ContextRequest):
+    return conversation.preview(get_workspace(), project_id, request, get_ai_config(), load_run)
 
 
 @app.post('/api/projects/{project_id}/runs')
@@ -299,6 +346,13 @@ def project_report(project_id: str, run_id: str):
 @app.post('/api/projects/{project_id}/messages')
 def project_message(project_id: str, request: MessageRequest):
     ws = get_workspace()
+    if request.mode == 'openai':
+        if not AI_LOCK.acquire(blocking=False):
+            raise HTTPException(409, 'Ein externer Dialog läuft bereits. Bitte warten.')
+        try:
+            return conversation.respond(ws, project_id, request, get_ai_config(), load_run, execute_tool)
+        finally:
+            AI_LOCK.release()
     project = ws.project(project_id)
     if request.conversation_id != project['conversation_id']:
         raise MissingRecord('Conversation does not belong to project')
