@@ -15,7 +15,8 @@ from urllib.request import Request, urlopen
 from pydantic import ValidationError
 
 from demo import service, agent
-from demo.app import RunRequest, RUNS, run_demo
+from demo.app import RunRequest, run_demo
+from demo.workspace import Workspace
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -53,14 +54,22 @@ class DemoContractTests(unittest.TestCase):
         handler.assert_not_called()
 
     def test_failed_engine_does_not_store_success_or_leak_details(self):
-        RUNS.clear()
-        with patch('demo.service.compute', side_effect=RuntimeError('/private/credential')):
-            from fastapi import HTTPException
-            with self.assertRaises(HTTPException) as caught:
-                run_demo(RunRequest())
-        self.assertEqual(caught.exception.status_code, 503)
-        self.assertNotIn('credential', caught.exception.detail)
-        self.assertFalse(RUNS)
+        with tempfile.TemporaryDirectory() as tmp:
+            workspace = Workspace(tmp)
+            try:
+                for exception in (RuntimeError('/private/credential'), ValueError('/private/credential')):
+                    with patch('demo.app.get_workspace', return_value=workspace), \
+                            patch('demo.service.compute', side_effect=exception):
+                        from fastapi import HTTPException
+                        with self.assertRaises(HTTPException) as caught:
+                            run_demo(RunRequest())
+                    self.assertEqual(caught.exception.status_code, 503)
+                    self.assertNotIn('credential', caught.exception.detail)
+                context = workspace.context('synthetic-quarter')
+                self.assertFalse(context['runs'])
+                self.assertTrue(all(e['status'] == 'failed' for e in context['executions']))
+            finally:
+                workspace.close()
 
 
 class DemoHTTPTests(unittest.TestCase):
@@ -71,7 +80,9 @@ class DemoHTTPTests(unittest.TestCase):
             port = sock.getsockname()[1]
         cls.base = f'http://127.0.0.1:{port}'
         cls.log = tempfile.TemporaryFile()
-        env = dict(os.environ, OPENBLAS_NUM_THREADS='1', OMP_NUM_THREADS='1')
+        cls.workspace = tempfile.TemporaryDirectory(prefix='aas-demo-http-test-')
+        cls.addClassCleanup(cls.workspace.cleanup)
+        env = dict(os.environ, OPENBLAS_NUM_THREADS='1', OMP_NUM_THREADS='1', AAS_WORKSPACE_DIR=cls.workspace.name)
         cls.server = subprocess.Popen([sys.executable, '-m', 'uvicorn', 'demo.app:app',
                                       '--host', '127.0.0.1', '--port', str(port), '--no-access-log'],
                                      cwd=ROOT, env=env, stdout=cls.log, stderr=cls.log)
