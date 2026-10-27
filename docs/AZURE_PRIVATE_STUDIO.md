@@ -27,11 +27,12 @@ bereitgestellt; private KBA-, Trends- und Energie-Dateien werden nicht übertrag
    Get-AzSubscription | Select-Object Name, Id, State
    ```
 
-3. Das öffentliche Repository auschecken. Bis zum Merge dieses PRs den
-   Bereitstellungsbranch verwenden:
+3. Das öffentliche Repository auschecken. Vor dem Merge eines noch offenen
+   Bereitstellungs-PRs dessen Branch verwenden; die folgenden Befehle beziehen
+   sich auf den geprüften Stand nach dem Merge:
 
    ```powershell
-   git clone --branch deploy/azure-private-studio https://github.com/sayac007/Agentic-Analytics-Studio.git
+   git clone https://github.com/sayac007/Agentic-Analytics-Studio.git
    Set-Location Agentic-Analytics-Studio
    $subscriptionId = '<ID aus der obigen Liste>'
    $dnsLabel = '<eigener eindeutiger Name, z.B. aas-kulikov-2026>'
@@ -49,6 +50,32 @@ statische öffentliche IPv4, Key Vault. Die konkrete VM-Verfügbarkeit und das
 Kontingent hängen vom Abonnement ab; es wird nicht automatisch auf eine teurere
 VM ausgewichen.
 
+### Einen bereits eingerichteten Key Vault verwenden
+
+Ist `openai-api-key` bereits in einem RBAC-Vault in `rg-agentic-studio`
+gespeichert, diesen Vault ausdrücklich angeben:
+
+```powershell
+$existingVaultName = '<Name deines bestehenden Key Vaults>'
+./deploy/azure/Deploy-Studio.ps1 -SubscriptionId $subscriptionId -DnsLabel $dnsLabel -SourceCommit $sourceCommit -ExistingVaultName $existingVaultName -EnableOpenAI
+```
+
+Auch das ist zunächst nur ein Plan. Der Vault und die Ressourcengruppe müssen
+bereits im gewählten Abonnement existieren. Ihre Tags dürfen leer sein; eine
+Kennzeichnung für eine andere Anwendung wird abgewiesen. Das Skript ändert
+weder diese Tags noch die vorhandenen menschlichen Rollenzuweisungen und fragt
+keine Benutzer-ID über Microsoft Graph ab. Deine vorhandene Berechtigung zum
+Auflisten und Anlegen von Secrets ist erforderlich.
+
+Der vorhandene OpenAI-Key wird anhand der Secret-Metadaten wiedererkannt und
+weder erneut angefordert noch überschrieben. Fehlt er bei `-EnableOpenAI`,
+bricht dieser Modus vor neuen Ressourcen ab. Neue Netzwerk- und VM-Ressourcen
+unterliegen weiterhin sämtlichen Eigentums- und Sicherheitsprüfungen.
+
+Die Region der Ressourcengruppe betrifft ihre Verwaltungsmetadaten. Auch eine
+Gruppe in einer anderen Region kann die hier vorgesehenen VM-Ressourcen in
+West Europe enthalten; ein vorhandener Vault wird nicht verschoben.
+
 ## 2. Bewusst bereitstellen
 
 Für das Studio mit optionaler OpenAI-Unterhaltung:
@@ -57,8 +84,15 @@ Für das Studio mit optionaler OpenAI-Unterhaltung:
 ./deploy/azure/Deploy-Studio.ps1 -SubscriptionId $subscriptionId -DnsLabel $dnsLabel -SourceCommit $sourceCommit -Deploy -EnableOpenAI
 ```
 
-Das Skript fragt verdeckt nach dem **Studio-Anmeldepasswort** und dem
-**OpenAI-API-Schlüssel**. Beides wird als Key-Vault-Secret gespeichert. Die
+Bei einem bereits eingerichteten Vault stattdessen denselben geprüften Plan
+mit `-ExistingVaultName` und zusätzlich `-Deploy` ausführen:
+
+```powershell
+./deploy/azure/Deploy-Studio.ps1 -SubscriptionId $subscriptionId -DnsLabel $dnsLabel -SourceCommit $sourceCommit -ExistingVaultName $existingVaultName -EnableOpenAI -Deploy
+```
+
+Das Skript fragt verdeckt nach dem **Studio-Anmeldepasswort** und bei einem
+neuen Vault nach dem noch fehlenden **OpenAI-API-Schlüssel**. Beides wird als Key-Vault-Secret gespeichert. Die
 Passwörter nicht als Befehlsparameter, in YAML oder im Chat eintragen.
 Für das Studio-Passwort 16–64 ASCII-Zeichen verwenden, vorzugsweise ein neu
 erzeugtes zufälliges Passwort aus dem Passwortmanager.
@@ -95,6 +129,13 @@ Das Skript nennt den **Key-Vault-Namen**. Im Azure-Portal:
 für kryptografische Schlüssel und hier nicht der richtige Menüpunkt.
 Wenn das Skript den Key bereits gespeichert hat, das vorhandene Secret öffnen
 und bei einem Austausch eine **neue Version** erstellen.
+
+Bei einem RBAC-Fehler benötigt dein Portal-Benutzer die Rolle
+**Geheimnisbeauftragter für Schlüsseltresore** (englisch: `Key Vault Secrets Officer`).
+Sie wird am Vault unter **Zugriffssteuerung (IAM) → Hinzufügen → Rollenzuweisung
+hinzufügen** vergeben. Anschließend kann die Übernahme einige Minuten dauern.
+Das Erstellen eines Vaults oder eine Contributor-Rolle allein gewährt noch
+keinen Zugriff auf seine Secret-Werte.
 
 Es handelt sich um einen Schlüssel für die **OpenAI API**, nicht für Azure
 OpenAI. Der vorhandene Client verwendet `api.openai.com`. ChatGPT-Abonnements
@@ -207,6 +248,10 @@ Kryptografie-Testdouble; sie sind kein Beleg eines Key-Vault-Zugriffs.
 Eine zusätzliche lokale PowerShell-Prüfung mit Az-Testdoubles bestand Anlage,
 Wiederholung und negative Fälle für Quellstand, Fremdressourcen, Netzwerk-
 abweichungen und temporäre OS-Festplatten; auch das ist keine Azure-Bereitstellung.
+Der entsprechende Regressionstest ist jetzt mit
+`pwsh -NoProfile -File tests/test_azure_deploy.ps1` reproduzierbar und Bestandteil
+der CI. Er prüft auch die explizite Wiederverwendung eines ungetaggten Vaults,
+ohne den vorhandenen API-Key oder die menschlichen Rollen zu verändern.
 CI-Nachweise gehören zum jeweiligen Commit im PR. Ein Syntaxcheck, lokaler
 Container oder CI-Fake ist kein Nachweis einer erfolgreichen Azure-
 Bereitstellung oder eines bezahlten Live-API-Aufrufs.

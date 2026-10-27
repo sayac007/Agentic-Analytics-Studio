@@ -4,6 +4,7 @@ param(
     [Parameter(Mandatory)][guid]$SubscriptionId,
     [Parameter(Mandatory)][ValidatePattern('^[a-z][a-z0-9-]{1,61}[a-z0-9]$')][string]$DnsLabel,
     [guid]$AdminObjectId = [guid]::Empty,
+    [ValidatePattern('^$|^[a-z][a-z0-9-]{1,22}[a-z0-9]$')][string]$ExistingVaultName = '',
     [ValidatePattern('^$|^[0-9a-f]{40}$')][string]$SourceCommit = '',
     [switch]$Deploy,
     [switch]$EnableOpenAI
@@ -18,10 +19,10 @@ $vmName = 'aas-studio'
 $tag = @{ Application = 'AgenticAnalyticsStudio'; Deployment = 'private-vm-v1' }
 $seed = [Text.Encoding]::UTF8.GetBytes("$SubscriptionId/$DnsLabel")
 $suffix = [Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($seed)).ToLower().Substring(0, 18)
-$vaultName = "aas$suffix"
+$vaultName = if ($ExistingVaultName) { $ExistingVaultName } else { "aas$suffix" }
 $hostname = "$DnsLabel.westeurope.cloudapp.azure.com"
 $githubHeaders = @{ 'User-Agent' = 'AgenticAnalyticsStudio-Deployment'; Accept = 'application/vnd.github+json' }
-$ref = if ($SourceCommit) { $SourceCommit } else { 'deploy/azure-private-studio' }
+$ref = if ($SourceCommit) { $SourceCommit } else { 'main' }
 $resolved = Invoke-RestMethod -Uri "https://api.github.com/repos/sayac007/Agentic-Analytics-Studio/commits/$ref" -Headers $githubHeaders
 if ($resolved.sha -notmatch '^[0-9a-f]{40}$' -or ($SourceCommit -and $resolved.sha -cne $SourceCommit)) {
     throw 'GitHub did not verify the requested source commit.'
@@ -43,6 +44,9 @@ Write-Host "Subscription: $SubscriptionId | Resource group: $group | Location: $
 Write-Host "VM: $vmName, Standard_B2als_v2, Ubuntu 24.04 x86, Standard SSD 32 GiB"
 Write-Host "URL: https://$hostname | Key Vault: $vaultName | Source: $SourceCommit"
 Write-Host "Optional OpenAI enabled: $($EnableOpenAI.IsPresent). BasicAuth user: studio."
+if ($ExistingVaultName) {
+    Write-Host 'Existing-vault mode: reuse the named RBAC vault and group without retagging or changing human permissions.'
+}
 Write-Host 'Indicative recurring infrastructure: approximately USD37.59/month; API, tax and variable operations extra.'
 if (-not $Deploy) {
     Write-Host 'PLAN ONLY: no Azure resources, role assignments or secrets were changed. Add -Deploy to provision.'
@@ -50,14 +54,22 @@ if (-not $Deploy) {
 }
 Get-Command Get-AzContext, New-AzVM, New-AzKeyVault -ErrorAction Stop | Out-Null
 Set-AzContext -Subscription $SubscriptionId.ToString() | Out-Null
-if ($AdminObjectId -eq [guid]::Empty) {
-    $AdminObjectId = [guid](Get-AzADUser -SignedIn).Id
+if (-not $ExistingVaultName) {
+    if ($AdminObjectId -eq [guid]::Empty) {
+        $AdminObjectId = [guid](Get-AzADUser -SignedIn).Id
+    }
+    if ($AdminObjectId -eq [guid]::Empty) { throw 'Pass your human account object ID with -AdminObjectId.' }
 }
-if ($AdminObjectId -eq [guid]::Empty) { throw 'Pass your human account object ID with -AdminObjectId.' }
 
 function Assert-Owned($Resource) {
     if ($null -ne $Resource -and ($null -eq $Resource.Tags -or $Resource.Tags['Application'] -ne $tag.Application)) {
         throw 'An existing resource is not tagged for this deployment; refusing to modify it.'
+    }
+}
+function Assert-ReusableContainer($Resource) {
+    if ($null -eq $Resource) { throw 'Existing-vault mode requires the named vault and resource group to exist.' }
+    if ($Resource.Tags -and $Resource.Tags['Application'] -and $Resource.Tags['Application'] -ne $tag.Application) {
+        throw 'An existing container is tagged for another application; refusing to reuse it.'
     }
 }
 function Ensure-Role([string]$ObjectId, [string]$RoleId, [string]$Scope, [string]$ObjectType) {
@@ -102,16 +114,27 @@ function Ensure-Secret([string]$Name, [string[]]$ExistingNames) {
 
 try {
     $rg = Get-AzResourceGroup -Name $group -ErrorAction SilentlyContinue
-    Assert-Owned $rg
-    if (-not $rg) { New-AzResourceGroup -Name $group -Location $location -Tag $tag | Out-Null }
-    $vault = Get-AzKeyVault -VaultName $vaultName -ResourceGroupName $group -ErrorAction SilentlyContinue
-    Assert-Owned $vault
-    if (-not $vault) {
-        $vault = New-AzKeyVault -VaultName $vaultName -ResourceGroupName $group -Location $location `
-            -Sku Standard -DisableRbacAuthorization:$false -SoftDeleteRetentionInDays 7 -Tag $tag
+    if ($ExistingVaultName) {
+        # Explicit reuse is limited to these containers; VM/network ownership checks stay strict.
+        Assert-ReusableContainer $rg
+        $vault = Get-AzKeyVault -VaultName $vaultName -ResourceGroupName $group -ErrorAction Stop
+        Assert-ReusableContainer $vault
+        $expectedVaultId = "/subscriptions/$SubscriptionId/resourceGroups/$group/providers/Microsoft.KeyVault/vaults/$vaultName"
+        if ($vault.ResourceId -ine $expectedVaultId) { throw 'The existing vault does not match the selected subscription, group and name.' }
+    } else {
+        Assert-Owned $rg
+        if (-not $rg) { New-AzResourceGroup -Name $group -Location $location -Tag $tag | Out-Null }
+        $vault = Get-AzKeyVault -VaultName $vaultName -ResourceGroupName $group -ErrorAction SilentlyContinue
+        Assert-Owned $vault
+        if (-not $vault) {
+            $vault = New-AzKeyVault -VaultName $vaultName -ResourceGroupName $group -Location $location `
+                -Sku Standard -DisableRbacAuthorization:$false -SoftDeleteRetentionInDays 7 -Tag $tag
+        }
     }
     if (-not $vault.EnableRbacAuthorization) { throw 'The existing vault must use Azure RBAC; no access policy was changed.' }
-    Ensure-Role $AdminObjectId.ToString() 'b86a8fe4-44ce-4948-aee5-eccb2c155cd7' $vault.ResourceId 'User'
+    if (-not $ExistingVaultName) {
+        Ensure-Role $AdminObjectId.ToString() 'b86a8fe4-44ce-4948-aee5-eccb2c155cd7' $vault.ResourceId 'User'
+    }
     $secretNames = $null
     for ($attempt = 0; $attempt -lt 12; $attempt++) {
         try { $secretNames = @(Get-AzKeyVaultSecret -VaultName $vaultName | ForEach-Object Name); break }
@@ -119,6 +142,9 @@ try {
             if ($attempt -eq 11) { throw 'Key Vault RBAC is not ready. Retry deployment after role propagation.' }
             Start-Sleep -Seconds 10
         }
+    }
+    if ($ExistingVaultName -and $EnableOpenAI -and 'openai-api-key' -notin $secretNames) {
+        throw 'The named existing vault must already contain openai-api-key; no replacement key was requested or written.'
     }
     Ensure-Secret 'studio-login-password' $secretNames
     if ($EnableOpenAI) { Ensure-Secret 'openai-api-key' $secretNames }
