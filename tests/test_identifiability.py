@@ -1,6 +1,7 @@
 """Synthetic operating-characteristic checks; no outcome-driven specification changes."""
 import json
 import hashlib
+import csv
 import os
 from pathlib import Path
 import shutil
@@ -18,6 +19,97 @@ from studio.transforms import hill
 
 
 class IdentifiabilityTests(unittest.TestCase):
+    @staticmethod
+    def archived_rows(name):
+        with (r.ROOT / 'results/task02' / name).open(newline='') as stream:
+            return list(csv.DictReader(stream))
+
+    def test_preserved_original_manifest_and_complete_1000_seed_grid(self):
+        from research_benchmark.verify import verify
+        root = r.ROOT / 'results/task02'
+        # This is the unmodified original manifest of CI artifact 12721762336.
+        self.assertEqual(hashlib.sha256((root/'manifest.json').read_bytes()).hexdigest(),
+                         '3b14c47febcad8d776f3d6dbb56a3e93ce4c734f013613f26a300952be8a6807')
+        verify(root)
+        manifest = json.loads((root/'manifest.json').read_text())
+        self.assertEqual(manifest['code_commit'], 'f144c72140285533246f8ca0af6e347beeecb48e')
+        self.assertEqual((manifest['seeds_per_cell'], manifest['seed_start'], manifest['smoke_only']), (1000, 0, False))
+        cfg = r.protocol()
+        cells = {f'legacy-always_on-independent-{e:g}' for e in (0, .08)}
+        cells |= {f'grid-{d}-{c}-{e:g}' for d in cfg['spend_designs']
+                  for c in cfg['confounding'] for e in (0, *cfg['effect_fractions'])}
+        truth, fits = self.archived_rows('truth.csv'), self.archived_rows('evaluations.csv')
+        self.assertEqual(len(cells), 18)
+        self.assertEqual(len(truth), 18000)
+        self.assertEqual(len(fits), 36000)
+        self.assertEqual({(v['cell'], int(v['seed'])) for v in truth},
+                         {(c, seed) for c in cells for seed in range(1000)})
+        self.assertEqual({(v['cell'], int(v['seed']), v['model']) for v in fits},
+                         {(c, seed, model) for c in cells for seed in range(1000) for model in cfg['models']})
+        summaries = self.archived_rows('summary.csv')
+        self.assertEqual(len(summaries), 36)
+        self.assertEqual({(s['cell'], s['model']) for s in summaries},
+                         {(c, model) for c in cells for model in cfg['models']})
+        legacy = [v for v in fits if v['cell'] == 'legacy-always_on-independent-0.08' and v['seed'] == '42']
+        self.assertEqual(self.archived_rows('legacy_flags.csv'), legacy)
+        self.assertEqual(len(legacy), 2)
+
+    def test_preserved_summary_rates_and_thresholds_from_original_seed_records(self):
+        # Arithmetic verification of stored records, with no generator or estimator call.
+        from collections import defaultdict
+        groups = defaultdict(list)
+        truth = {(v['cell'], v['seed']): v for v in self.archived_rows('truth.csv')}
+        boolean_fields = ('rejection', 'positive_detection', 'wrong_sign_rejection', 'covers_truth',
+                          'sign_uncertain', 'not_identified', 'extrapolated_counterfactual')
+        for raw in self.archived_rows('evaluations.csv'):
+            row = dict(raw)
+            for key in boolean_fields:
+                self.assertIn(row[key], ('True', 'False'))
+                row[key] = row[key] == 'True'
+            for key in ('effect_fraction', 'beta', 'se', 'lower', 'upper', 'beta_ratio', 'snr'):
+                row[key] = float(row[key]) if row[key] else None
+            if row['status'] == 'estimated':
+                beta, lower, upper = row['beta'], row['lower'], row['upper']
+                planted = float(truth[(row['cell'], row['seed'])]['beta'])
+                self.assertAlmostEqual(lower, beta-r.Z*row['se'])
+                self.assertAlmostEqual(upper, beta+r.Z*row['se'])
+                self.assertEqual(row['rejection'], lower > 0 or upper < 0)
+                self.assertEqual(row['positive_detection'], lower > 0)
+                self.assertEqual(row['wrong_sign_rejection'], upper < 0)
+                self.assertEqual(row['covers_truth'], lower <= planted <= upper)
+                if planted:
+                    self.assertAlmostEqual(row['beta_ratio'], beta/planted)
+                else:
+                    self.assertIsNone(row['beta_ratio'])
+            groups[(row['cell'], row['model'])].append(row)
+        saved = self.archived_rows('summary.csv')
+        for row in saved:
+            calculated = r.summarize(groups[(row['cell'], row['model'])], 1000)
+            self.assertEqual(set(row), set(calculated))
+            for key, value in calculated.items():
+                if value is None:
+                    self.assertEqual(row[key], '')
+                elif isinstance(value, (int, float)):
+                    np.testing.assert_allclose(float(row[key]), value, rtol=1e-12, atol=1e-12)
+                else:
+                    self.assertEqual(row[key], value)
+        thresholds = self.archived_rows('mde.csv')
+        self.assertEqual(len(thresholds), 8)
+        cfg = r.protocol()
+        self.assertEqual({(t['design'], t['confounding'], t['model']) for t in thresholds},
+                         {(d, c, m) for d in cfg['spend_designs'] for c in cfg['confounding'] for m in cfg['models']})
+        for threshold in thresholds:
+            selected = [s for s in saved if s['cell'].startswith('grid-') and
+                        all(s[k] == threshold[k] for k in ('design', 'confounding', 'model'))]
+            null = next(s for s in selected if float(s['effect_fraction']) == 0)
+            self.assertEqual(threshold['null_rejection_rate'], null['rejection_rate'])
+            self.assertEqual(threshold['null_rejection_mcse'], null['rejection_mcse'])
+            self.assertEqual(threshold['label'], 'exploratory_tested_grid_threshold_not_validated_MDE')
+            for key in ('rejection', 'positive_detection'):
+                reached = [float(s['effect_fraction']) for s in selected if float(s['effect_fraction']) > 0
+                           and float(s[key+'_rate']) >= cfg['power_target']]
+                self.assertEqual(threshold[key+'_grid_mde'], str(min(reached)) if reached else '')
+
     def test_frozen_new_stage_and_padded_transform_no_cross_seed_history(self):
         cfg=r.protocol()
         spend,_,_=r.draws(5)

@@ -1,0 +1,9 @@
+design,confounding,model,null_rejection_rate,null_rejection_mcse,label,rejection_grid_mde,positive_detection_grid_mde
+always_on,independent,with-quarter,0.149,0.01126050620531777,exploratory_tested_grid_threshold_not_validated_MDE,,
+always_on,independent,without-quarter,0.118,0.01020176455325254,exploratory_tested_grid_threshold_not_validated_MDE,,
+always_on,calendar_aligned,with-quarter,0.136,0.010839926199010766,exploratory_tested_grid_threshold_not_validated_MDE,,
+always_on,calendar_aligned,without-quarter,0.532,0.01577897335063343,exploratory_tested_grid_threshold_not_validated_MDE,0.08,0.08
+flighting,independent,with-quarter,0.124,0.010422283818818216,exploratory_tested_grid_threshold_not_validated_MDE,0.08,0.08
+flighting,independent,without-quarter,0.095,0.00927227048785787,exploratory_tested_grid_threshold_not_validated_MDE,0.08,0.08
+flighting,calendar_aligned,with-quarter,0.133,0.010738295954200556,exploratory_tested_grid_threshold_not_validated_MDE,0.08,0.08
+flighting,calendar_aligned,without-quarter,0.48,0.0157987341265052,exploratory_tested_grid_threshold_not_validated_MDE,0.03,0.03

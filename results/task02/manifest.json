@@ -1,0 +1,53 @@
+{
+  "code_commit": "f144c72140285533246f8ca0af6e347beeecb48e",
+  "disclaimer": "Exploratory synthetic operating characteristics; no real causal ROI or validated continuous MDE",
+  "files": {
+    "evaluations.csv": "7588262894d3a208a0f3989653746f64062c156b616e3c87ef0559ec99ffe536",
+    "legacy_flags.csv": "31fded55d3f88316f4d006bc552b100301f229b7d32a3f9814b2f1e20b481003",
+    "mde.csv": "4f785370cd891b2d135749f4919816692662d783a8a9fa0215985b41430bfd21",
+    "power.png": "412ba1d59cf353210d1f383929d708e675d81646abd117f0b7a9f89d32df8c94",
+    "protocol.json": "71b84713c9c980db172e7bf5692bc85d9912021f85c5f23701d68df67a4a0723",
+    "reference.csv": "40c874135e121494b4ec3ef83342c4d80741920a23f21ab4adb027548f7dfb09",
+    "report.md": "4bcb5f7c7c46bf402c9575fdbce61f8e73ea05d418458831cee7845a26863e75",
+    "summary.csv": "6cab2b4d40b49e9d020a98c27c92065b5ef5e7dca1c4997350ed2cc0dfd7cb8f",
+    "truth.csv": "87dc2474b8c878bdf7109eb928a61b823b0eb460e228ac0c0371a63b3e147359"
+  },
+  "implementation": {
+    "research_benchmark/estimator.py": "08e1ac2bec3755ece905df073909bd8ad29ede675e08dcdbd7e6aa36ef296f69",
+    "research_benchmark/run.py": "c25f8272d0656ff57eed5e2b143cf98feb233837afbe98165a8c89fffeea4b7d",
+    "studio/generate.py": "2dca919b3330d4da60f52db06f2ea30ed49382569788e2041ac22576a2b4d36f",
+    "studio/isolation.py": "4ccbeb5b5157820819a749af4608cb4b92a4768df0f189e308a8bba752b81817"
+  },
+  "protocol_sha256": "71b84713c9c980db172e7bf5692bc85d9912021f85c5f23701d68df67a4a0723",
+  "protocol_version": "1.0.0",
+  "runtime": {
+    "hypoforge_commit": "c47f636d24a39a820574a13133d6af693134a180",
+    "packages": {
+      "attrs": "26.1.0",
+      "cloudpickle": "3.1.2",
+      "hypoforge": "0.4.0",
+      "joblib": "1.6.0",
+      "jsonschema": "4.26.0",
+      "jsonschema-specifications": "2025.9.1",
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "python-dateutil": "3.0.0",
+      "pytz": "2026.5",
+      "referencing": "0.37.0",
+      "rpds-py": "2026.9.1",
+      "scikit-learn": "1.8.0",
+      "scipy": "1.17.0",
+      "six": "1.17.0",
+      "threadpoolctl": "3.7.0",
+      "typing_extensions": "4.16.0",
+      "tzdata": "2026.5"
+    },
+    "python": "3.12.15"
+  },
+  "scope": "SYNTHETIC_ONLY",
+  "seed_start": 0,
+  "seeds_per_cell": 1000,
+  "smoke_only": false,
+  "stage": "research-task-02",
+  "statsmodels": "0.14.6"
+}
