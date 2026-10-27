@@ -67,6 +67,10 @@ does not search or tune models. No general LLM, MCP server, Bayesian model, geo-
 validated MDE or real causal marketing ROI is claimed. WKR, HypoForge and Kinderwelt remain independent;
 HypoForge is consumed only as a dependency pinned to its audited Git commit.
 
+Research Task 02's [complete original results](results/task02/) are permanently
+versioned in Git; [provenance, verification and scientific limits](docs/IDENTIFIABILITY_RESEARCH.md#permanent-full-results-original-ci-execution-not-a-reconstruction)
+remain available independently of GitHub Actions artifact retention.
+
 See [Source audit](docs/SOURCE_CATALOG.md) and [Contracts](contracts/README.md).
 
 Task 01B adds [verified KBA multi-baseline acquisition](docs/KBA_MULTIBASELINE.md)
