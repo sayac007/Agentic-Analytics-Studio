@@ -29,6 +29,10 @@ these separately billed API calls. [Setup, limits and live-verification status](
 State is local in Git-ignored `.aas-workspace/`; keep this folder to resume.
 [Usage and limits](docs/LOCAL_DEMO.md) · [critical architecture assessment](docs/PERSISTENT_WORKSPACE.md).
 
+For a protected single-owner instance in your own Azure account, see the
+[PowerShell deployment and exact Key Vault secret instructions](docs/AZURE_PRIVATE_STUDIO.md).
+Azure hosting and a live API call still require verification in that account.
+
 ## Run the synthetic pipeline
 
 Python 3.12 and Git are required. From repository root:

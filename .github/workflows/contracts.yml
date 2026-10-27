@@ -30,6 +30,16 @@ jobs:
         run: python3 contracts/validate.py contracts/examples/generator.json --kind generator
       - name: Run contract and numerical tests
         run: python3 -m unittest discover -s tests -v
+      - name: Parse Azure Cloud Shell deployment script
+        shell: pwsh
+        run: |
+          $tokens = $null
+          $errors = $null
+          [System.Management.Automation.Language.Parser]::ParseFile(
+            "$PWD/deploy/azure/Deploy-Studio.ps1", [ref]$tokens, [ref]$errors) | Out-Null
+          if ($errors.Count) { $errors | ForEach-Object { Write-Error $_ }; exit 1 }
+      - name: Check Azure bootstrap shell syntax
+        run: bash -n deploy/azure/bootstrap.sh
       - name: Deterministic Stage A end-to-end smoke test
         run: python3 -m studio run --output artifacts/ci-smoke
       - name: Verify smoke artifacts and predictions

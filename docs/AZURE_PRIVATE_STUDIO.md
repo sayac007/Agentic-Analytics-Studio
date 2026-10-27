@@ -1,0 +1,221 @@
+# Studio im eigenen Azure-Abonnement
+
+Diese Bereitstellung richtet eine einzelne Ubuntu-VM für einen Besitzer ein.
+Das Studio läuft hinter Caddy mit HTTPS und Passwortschutz. Der Arbeitsstand
+liegt auf der lokalen verwalteten VM-Festplatte; SQLite wird nicht auf Azure
+Files/SMB/NFS verschoben. Es gibt keinen öffentlichen Port 8000 und keinen
+freigegebenen SSH-Port. Verwaltung erfolgt über Azure Run Command.
+
+**Status:** Die Bereitstellungsdateien sind vorbereitet. Eine erfolgreiche
+Bereitstellung im persönlichen Azure-Abonnement und ein echter OpenAI-Aufruf
+sind **NOT VERIFIED**. Hier wurden keine Azure-Ressourcen angelegt und keine
+API-Schlüssel gesetzt. Lokale Prüfungen stehen weiter unten.
+
+Die Adresse ist öffentlich erreichbar, der gesamte Studio-Zugriff verlangt eine
+Anmeldung. Ein privates Azure-Abonnement bedeutet keine private Netzwerkadresse.
+Dies ist eine geschützte Einzelnutzer-Demo, kein Mehrbenutzerdienst mit Entra-SSO.
+Es werden ausschließlich die bestehenden synthetischen Studio-Funktionen
+bereitgestellt; private KBA-, Trends- und Energie-Dateien werden nicht übertragen.
+
+## 1. Azure Cloud Shell öffnen und den Plan ansehen
+
+1. Im [Azure-Portal](https://portal.azure.com/) oben auf **Cloud Shell** (`>_`)
+   klicken und **PowerShell** auswählen.
+2. Das gewünschte private Abonnement ermitteln:
+
+   ```powershell
+   Get-AzSubscription | Select-Object Name, Id, State
+   ```
+
+3. Das öffentliche Repository auschecken. Bis zum Merge dieses PRs den
+   Bereitstellungsbranch verwenden:
+
+   ```powershell
+   git clone --branch deploy/azure-private-studio https://github.com/sayac007/Agentic-Analytics-Studio.git
+   Set-Location Agentic-Analytics-Studio
+   $subscriptionId = '<ID aus der obigen Liste>'
+   $dnsLabel = '<eigener eindeutiger Name, z.B. aas-kulikov-2026>'
+   $sourceCommit = (git rev-parse HEAD).Trim()
+   ./deploy/azure/Deploy-Studio.ps1 -SubscriptionId $subscriptionId -DnsLabel $dnsLabel -SourceCommit $sourceCommit
+   ```
+
+Dieser letzte Befehl zeigt den Plan. Erst **`-Deploy`** legt Ressourcen an.
+Abonnement-ID und DNS-Name sind keine Zugangsschlüssel. Ein Azure-Benutzer mit
+Rechten zur Ressourcenanlage und zur Vergabe von Rollen ist erforderlich; reine
+Contributor-Rechte reichen für die Key-Vault-Rollenzuweisungen nicht aus.
+
+Standard: West Europe, Ubuntu, `Standard_B2als_v2` (2 vCPU, 4 GiB), Standard SSD,
+statische öffentliche IPv4, Key Vault. Die konkrete VM-Verfügbarkeit und das
+Kontingent hängen vom Abonnement ab; es wird nicht automatisch auf eine teurere
+VM ausgewichen.
+
+## 2. Bewusst bereitstellen
+
+Für das Studio mit optionaler OpenAI-Unterhaltung:
+
+```powershell
+./deploy/azure/Deploy-Studio.ps1 -SubscriptionId $subscriptionId -DnsLabel $dnsLabel -SourceCommit $sourceCommit -Deploy -EnableOpenAI
+```
+
+Das Skript fragt verdeckt nach dem **Studio-Anmeldepasswort** und dem
+**OpenAI-API-Schlüssel**. Beides wird als Key-Vault-Secret gespeichert. Die
+Passwörter nicht als Befehlsparameter, in YAML oder im Chat eintragen.
+Für das Studio-Passwort 16–64 ASCII-Zeichen verwenden, vorzugsweise ein neu
+erzeugtes zufälliges Passwort aus dem Passwortmanager.
+Der Studio-Benutzername ist **`studio`**; das Anmeldepasswort ist unabhängig vom
+Azure-Passwort und vom OpenAI-Schlüssel.
+
+Ohne `-EnableOpenAI` läuft die synthetische Analyse samt lokalem Assistenten
+ohne OpenAI-Schlüssel. Die VM verursacht trotzdem Azure-Kosten.
+Wurde zunächst ohne OpenAI bereitgestellt, später denselben Bereitstellungsbefehl
+mit `-Deploy -EnableOpenAI` ausführen. Das bloße Anlegen eines Secrets aktiviert
+die externe Unterhaltung nicht. Bereits vorhandene Secrets werden wiederverwendet.
+
+Der Quellstand wird vor der Bereitstellung auf einen vollständigen Git-Commit
+aufgelöst. Genau dieser Stand wird auf der VM gebaut. Die VM nutzt ihre eigene
+Managed Identity, um Secrets aus dem Vault zu lesen; es gibt keinen zusätzlichen
+Azure-Zugangsschlüssel in der Anwendung. Nach dem ersten Start können
+Rollenverteilung, Image-Build und HTTPS-Zertifikat einige Minuten benötigen.
+Die obigen Befehle binden Plan und Ausführung an denselben ausgecheckten Commit;
+der GitHub-Quellbaum muss vor jeder Azure-Änderung die benötigten Dateien enthalten.
+
+## 3. Genau hier liegt der Key in Azure
+
+Das Skript nennt den **Key-Vault-Namen**. Im Azure-Portal:
+
+1. **Ressourcengruppen → `rg-agentic-studio` → den ausgegebenen Key Vault**.
+2. Im Vault links **Objekte / Objects → Geheimnisse / Secrets** öffnen.
+3. **+ Generieren/Importieren / Generate/Import** wählen.
+4. Bei Uploadoption **Manuell / Manual** auswählen.
+5. **Name: `openai-api-key`**.
+6. Unter **Geheimniswert / Secret value** den auf der OpenAI-Plattform
+   erzeugten API-Schlüssel eintragen und **Erstellen / Create** wählen.
+
+**Geheimnisse / Secrets** ist der richtige Bereich. **Schlüssel / Keys** ist
+für kryptografische Schlüssel und hier nicht der richtige Menüpunkt.
+Wenn das Skript den Key bereits gespeichert hat, das vorhandene Secret öffnen
+und bei einem Austausch eine **neue Version** erstellen.
+
+Es handelt sich um einen Schlüssel für die **OpenAI API**, nicht für Azure
+OpenAI. Der vorhandene Client verwendet `api.openai.com`. ChatGPT-Abonnements
+bezahlen diese API-Nutzung nicht. API-Abrechnung und Guthaben werden bei
+[OpenAI](https://platform.openai.com/settings/organization/billing/overview)
+verwaltet; die VM wird über Azure abgerechnet.
+
+Nach dem Setzen oder Austauschen eines Secrets den Dienst neu starten:
+
+```powershell
+Invoke-AzVMRunCommand -ResourceGroupName rg-agentic-studio -VMName aas-studio -CommandId RunShellScript -ScriptString 'systemctl restart agentic-studio.service'
+```
+
+Beim Start werden die aktuellen Secret-Versionen geladen. Der OpenAI-Key landet
+nicht im Browser, Docker-Image oder Git. Er wird dem App-Prozess zur Laufzeit
+bereitgestellt; Azure-Administratoren und root auf der VM haben entsprechend
+weitreichenden Zugriff. Das Projekt verspricht keine Geheimhaltung vor diesen
+Administratoren.
+
+## 4. Die erste tatsächliche Prüfung
+
+1. Die vom Skript ausgegebene **`https://…westeurope.cloudapp.azure.com`**-Adresse
+   öffnen und mit `studio` und dem Studio-Passwort anmelden.
+2. Im synthetischen Projekt einen lokalen Demo-Lauf starten. Den Browser neu
+   laden; Lauf und Verlauf müssen erhalten bleiben.
+3. Falls OpenAI aktiviert ist: eine kurze Frage stellen, den angezeigten
+   synthetischen Kontext prüfen, die ausdrückliche Versandfreigabe setzen und
+   den kostenpflichtigen Aufruf senden. Erst eine echte Antwort samt
+   Nutzungsanzeige belegt den Live-Aufruf.
+4. In einem privaten Browserfenster muss jede Studio-Seite einschließlich
+   `/api/health` eine Anmeldung verlangen.
+
+Die vorhandenen API-Budgetgrenzen und die Freigabe je Gesprächszug bleiben
+bestehen. Das Studio garantiert damit keine Obergrenze der gesamten Azure-
+oder OpenAI-Rechnung. Keine privaten Daten in die Frage kopieren.
+
+## Kosten und Betrieb
+
+Tatsächlich abgerufene öffentliche PAYG-Listenpreise, West Europe, USD,
+2026-10-27, ohne Reservierung/Spot:
+
+| Posten | Preis | Beispiel bei 730 Stunden/Monat |
+|---|---:|---:|
+| Linux `Standard_B2als_v2` | 0,0432 USD/Stunde | 31,54 USD |
+| Standard SSD E4 LRS, 32 GiB | 2,40 USD/Monat | 2,40 USD |
+| Statische Standard-IPv4 | 0,005 USD/Stunde | 3,65 USD |
+| Key-Vault-Standardoperationen | 0,03 USD/10.000 Operationen | nutzungsabhängig |
+
+Grundbetrag etwa **37,59 USD/Monat**. Hinzu kommen unter anderem Steuern,
+Währungsumrechnung, Netzwerkverkehr, Festplattenoperationen und OpenAI-Nutzung.
+Das ist keine verbindliche Rechnung oder Budgetobergrenze. Ein größerer
+Datenträger kostet entsprechend mehr. Die ältere B1/B2-v1-Familie wird wegen
+angekündigter Einschränkungen und Ablösung nicht als Standard verwendet.
+
+Eine einzelne VM ist kein hochverfügbarer Dienst. Der Arbeitsstand liegt unter
+`/srv/aas` auf der OS-Festplatte und überlebt Container- und VM-Neustarts. Das
+Löschen der VM/Festplatte oder Ressourcengruppe kann ihn zerstören. Es wird kein
+verwalteter Backupdienst eingerichtet. Vor solchen Löschungen einen separaten
+Sicherungsauftrag durchführen. Das Skript löscht fehlgeschlagene oder vorhandene
+Bereitstellungen nicht automatisch; nach einem Fehler können Kosten weiterlaufen.
+
+Zum Unterbrechen der VM-Rechenkosten bewusst deallozieren:
+
+```powershell
+Stop-AzVM -ResourceGroupName rg-agentic-studio -Name aas-studio
+```
+
+Datenträger, IPv4 und andere verbleibende Ressourcen können weiterhin kosten.
+`Start-AzVM -ResourceGroupName rg-agentic-studio -Name aas-studio` startet sie
+wieder. Secrets werden bei jedem Dienststart frisch geladen. Die Verbindung von
+Basic Auth, HTTPS, exaktem Origin und nicht veröffentlichtem App-Port ist Teil
+der Bereitstellung; den App-Port nicht nachträglich öffentlich freigeben.
+
+## Verifikation und Quellen
+
+Tatsächlich lokal geprüft: vollständige Suite mit **389 Tests bestanden**
+(91,799 Sekunden), einschließlich sieben Hosting- und sieben Secret-Tests,
+sowie PowerShell- und Bash-Syntax. Der Container wurde gebaut und lief als UID 10001 mit
+schreibgeschütztem Root-Dateisystem, ohne Netzwerk und ohne veröffentlichte
+Ports. Ein echter synthetischer OLS/HAC-Lauf und das Wiederfinden desselben
+Laufs nach Container-Neustart bestanden. Python im Container: 3.12.16.
+
+Ein separater lokaler Caddy-2.11.7-Test mit verifizierter lokaler TLS-CA prüfte
+Anmeldepflicht, falsches Passwort, das Entfernen von Authentifizierungsheadern
+vor der Weiterleitung und die Origin-Prüfung der tatsächlichen Anwendung.
+Er prüft keine öffentliche ACME-Zertifikatsausstellung.
+Auch die tatsächliche Compose-Konfiguration wurde mit einem lokalen TLS-Issuer
+geprüft: App-Healthcheck erfolgreich, Caddy als UID 10002, keine veröffentlichten
+App-Ports, nicht angemeldete Anfrage 401 und angemeldete Anfrage 200.
+
+Für Entwickler, mit installiertem `requirements-demo.lock` und vorhandener
+Caddy-2.11.7-Binärdatei:
+
+```sh
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m unittest discover -s tests -p test_hosting.py -v
+python -m unittest discover -s tests -p test_azure_secrets.py -v
+python scripts/azure_proxy_smoke.py --caddy /pfad/zu/caddy
+bash -n deploy/azure/bootstrap.sh
+docker build -t aas-studio:local .
+```
+
+Der lokale Build benötigte in dieser verwalteten Testumgebung Host-Networking,
+Standard-Proxy-Buildargumente und einen nur beim Build eingehängten CA-Bundle
+(`--secret id=build_ca,src=/etc/ssl/certs/ca-certificates.crt`). Diese Ausnahme
+schaltet keine TLS-Prüfung ab und kopiert keine Proxy-CA ins Runtime-Image;
+für eine VM mit direktem TLS-Zugang ist sie nicht erforderlich.
+
+Die Secret-Unit-Tests verwenden ausdrücklich erfundene Zugangswerte und einen
+Kryptografie-Testdouble; sie sind kein Beleg eines Key-Vault-Zugriffs.
+Eine zusätzliche lokale PowerShell-Prüfung mit Az-Testdoubles bestand Anlage,
+Wiederholung und negative Fälle für Quellstand, Fremdressourcen, Netzwerk-
+abweichungen und temporäre OS-Festplatten; auch das ist keine Azure-Bereitstellung.
+CI-Nachweise gehören zum jeweiligen Commit im PR. Ein Syntaxcheck, lokaler
+Container oder CI-Fake ist kein Nachweis einer erfolgreichen Azure-
+Bereitstellung oder eines bezahlten Live-API-Aufrufs.
+
+- [Azure Retail Prices API](https://prices.azure.com/api/retail/prices)
+- [Basv2-VM-Größen](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/general-purpose/basv2-series)
+- [VM-Ablösung und Kapazitätsbeschränkungen](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/lifecycle/retirements-and-capacity-restrictions)
+- [Key-Vault-Secrets im Portal](https://learn.microsoft.com/en-us/azure/key-vault/secrets/quick-create-portal)
+- [Key-Vault-RBAC](https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide)
+- [Keine Secrets in VM-Custom-Data](https://learn.microsoft.com/en-us/azure/virtual-machines/custom-data)
+- [SQLite und Netzwerkdateisysteme](https://sqlite.org/useovernet.html)
+- [Bisherige Gesprächsgrenzen und API-Datenverarbeitung](CONVERSATIONAL_AGENT.md)

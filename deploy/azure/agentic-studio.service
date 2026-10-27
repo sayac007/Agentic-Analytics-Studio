@@ -1,0 +1,24 @@
+[Unit]
+Description=Private Agentic Analytics Studio
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=600
+StartLimitBurst=3
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/opt/aas
+UMask=0077
+RuntimeDirectory=aas
+RuntimeDirectoryMode=0700
+ExecStartPre=/usr/bin/python3 /opt/aas/refresh-secrets.py --config /etc/aas/deploy.json --output-dir /run/aas
+ExecStart=/usr/bin/docker compose --env-file /opt/aas/image.env -f /opt/aas/compose.yaml up --detach --wait --wait-timeout 180
+ExecStop=/usr/bin/docker compose --env-file /opt/aas/image.env -f /opt/aas/compose.yaml down
+Restart=on-failure
+RestartSec=30
+TimeoutStartSec=360
+
+[Install]
+WantedBy=multi-user.target

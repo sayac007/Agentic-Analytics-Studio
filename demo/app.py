@@ -19,11 +19,13 @@ from . import agent, service
 from .workspace import Workspace, WorkspaceError, MissingRecord
 from . import conversation
 from .openai_provider import Config, ConversationError
+from .hosting import HostingConfig
 
 DEFAULT_PROJECT = 'synthetic-quarter'
 RUN_LOCK = Lock()
 AI_LOCK = Lock()
 STATIC = Path(__file__).with_name('static')
+HOSTING = HostingConfig.from_env()
 
 
 @asynccontextmanager
@@ -38,7 +40,7 @@ async def lifespan(application):
 
 
 app = FastAPI(title='Agentic Analytics Studio — Local Workspace', version='0.2.0', lifespan=lifespan)
-app.add_middleware(TrustedHostMiddleware, allowed_hosts=['127.0.0.1', 'localhost', '[::1]'])
+app.add_middleware(TrustedHostMiddleware, allowed_hosts=HOSTING.trusted_hosts, www_redirect=False)
 app.mount('/static', StaticFiles(directory=STATIC), name='static')
 
 
@@ -73,10 +75,13 @@ async def storage_error(request, exc):
 
 @app.middleware('http')
 async def local_origin(request: Request, call_next):
-    origin = request.headers.get('origin')
-    if ((origin and origin != f'{request.url.scheme}://{request.headers.get("host")}')
-            or request.headers.get('sec-fetch-site') == 'cross-site'):
-        return JSONResponse({'detail': 'Only same-origin local requests are allowed.'}, status_code=403)
+    if len(request.headers.getlist('host')) != 1:
+        return JSONResponse({'detail': 'Exactly one Host header is required.'}, status_code=400)
+    error = HOSTING.request_error(request.method, request.url.scheme, request.headers.get('host'),
+                                  request.headers.get('origin'), request.headers.get('sec-fetch-site'),
+                                  request.headers.get('content-type'))
+    if error:
+        return JSONResponse({'detail': error[1]}, status_code=error[0])
     response = await call_next(request)
     response.headers['X-Content-Type-Options'] = 'nosniff'
     response.headers['Cache-Control'] = 'no-store'
