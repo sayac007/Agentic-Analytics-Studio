@@ -1,0 +1,48 @@
+name: aas-studio
+services:
+  app:
+    image: ${AAS_APP_IMAGE:?Pinned application image is required}
+    user: "10001:10001"
+    env_file:
+      - /run/aas/app.env
+    environment:
+      AAS_BIND_HOST: 0.0.0.0
+      AAS_WORKSPACE_DIR: /var/lib/aas
+    volumes:
+      - /srv/aas/workspace:/var/lib/aas
+    read_only: true
+    tmpfs:
+      - /tmp:size=128m,mode=1777
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 128
+    mem_limit: 1536m
+    # Let systemd refresh secrets before starting after a daemon/VM restart.
+    restart: on-failure:3
+    # Inherit the image's Host-aware healthcheck for configured public hosting.
+    logging:
+      options: {max-size: 10m, max-file: "3"}
+  caddy:
+    # Official 2.11.7-alpine manifest, linux/amd64; verified 2026-10-27.
+    image: caddy:2.11.7-alpine@sha256:04913b1da43339a40ad1ea87827d70a576ac5aa6cf674c6e24fdca675887533a
+    user: "10002:10002"
+    env_file:
+      - /run/aas/caddy.env
+    environment:
+      NO_PROXY: app,localhost,127.0.0.1,::1
+    ports: ["80:80", "443:443"]
+    volumes:
+      - /opt/aas/Caddyfile:/etc/caddy/Caddyfile:ro
+      - /srv/aas/caddy-data:/data
+      - /srv/aas/caddy-config:/config
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    cap_add: [NET_BIND_SERVICE]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 256m
+    restart: on-failure:3
+    depends_on:
+      app: {condition: service_healthy}
+    logging:
+      options: {max-size: 10m, max-file: "3"}
