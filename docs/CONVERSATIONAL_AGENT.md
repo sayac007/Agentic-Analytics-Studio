@@ -106,7 +106,7 @@ Linux/Bash, in a private terminal, with a separately billed OpenAI API account:
 export AAS_OPENAI_ENABLED=1
 read -r -s -p 'OpenAI API key: ' OPENAI_API_KEY
 export OPENAI_API_KEY
-python -m demo
+.venv/bin/python -m demo
 ```
 
 Do not paste keys into chat, browser fields, source files or shell command literals.
