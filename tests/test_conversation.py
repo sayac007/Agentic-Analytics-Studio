@@ -278,7 +278,10 @@ class ProviderTransportTests(unittest.TestCase):
         for usage in (None,dict(input_tokens=True,output_tokens=1,total_tokens=2),
                       dict(input_tokens=1,output_tokens=1,total_tokens=3),
                       dict(input_tokens=999999,output_tokens=1,total_tokens=1000000)):
-            with self.subTest(usage=usage),self.assertRaises(ConversationError):usage_and_cost({'usage':usage})
+            response=reply(); response['usage']=usage
+            with self.subTest(usage=usage),self.assertRaises(ConversationError) as caught:
+                usage_and_cost(response)
+            self.assertIn(caught.exception.code,('missing_usage','invalid_usage','usage_guard'))
         from urllib.error import HTTPError
         secret='sk-test-NOT-A-REAL-CREDENTIAL-123456'
         opener=Mock(); opener.open.side_effect=HTTPError(ENDPOINT,401,'PRIVATE '+secret,{},io.BytesIO(secret.encode()))
