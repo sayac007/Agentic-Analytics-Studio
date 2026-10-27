@@ -38,6 +38,9 @@ jobs:
           [System.Management.Automation.Language.Parser]::ParseFile(
             "$PWD/deploy/azure/Deploy-Studio.ps1", [ref]$tokens, [ref]$errors) | Out-Null
           if ($errors.Count) { $errors | ForEach-Object { Write-Error $_ }; exit 1 }
+      - name: Check Azure deployment logic with local Az test doubles
+        shell: pwsh
+        run: ./tests/test_azure_deploy.ps1
       - name: Check Azure bootstrap shell syntax
         run: bash -n deploy/azure/bootstrap.sh
       - name: Deterministic Stage A end-to-end smoke test
