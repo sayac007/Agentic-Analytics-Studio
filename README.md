@@ -21,7 +21,10 @@ app: the conversation, proposals and original validated results remain available
 **Wo haben wir aufgehört?** retrieves real stored context and rechecks the latest run.
 The two projects share one synthetic monthly asset with different default models;
 their conversations and results are separate. Free text is an unverified note,
-not a general AI conversation. No LLM, Codex execution, keys or cloud account.
+not a general AI conversation. Optional Task 03B adds a real OpenAI Responses
+conversation after server configuration, context preview and explicit consent;
+local mode still needs no key or cloud account. ChatGPT subscriptions do not cover
+these separately billed API calls. [Setup, limits and live-verification status](docs/CONVERSATIONAL_AGENT.md).
 
 State is local in Git-ignored `.aas-workspace/`; keep this folder to resume.
 [Usage and limits](docs/LOCAL_DEMO.md) · [critical architecture assessment](docs/PERSISTENT_WORKSPACE.md).
@@ -63,7 +66,8 @@ saved. The example has poor recovery, which remains visible rather than correcte
 
 The Stage-A pipeline has fixed transformations. The separate research Task 02
 benchmark evaluates a preregistered synthetic scenario grid; the product workspace
-does not search or tune models. No general LLM, MCP server, Bayesian model, geo-test,
+does not search or tune models. The optional conversational model can use only the
+existing analytics tools. No MCP server, Bayesian model, geo-test,
 validated MDE or real causal marketing ROI is claimed. WKR, HypoForge and Kinderwelt remain independent;
 HypoForge is consumed only as a dependency pinned to its audited Git commit.
 

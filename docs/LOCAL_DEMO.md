@@ -1,4 +1,4 @@
-# Task 02A–02C / 03A — local synthetic analytics workspace
+# Task 02A–02C / 03A–03B — local synthetic analytics workspace
 
 ## Small architecture
 
@@ -55,7 +55,10 @@ context and current warnings. No previous Tesla study or conversation is importe
 Stored statements, unexecuted decision/development-work-order proposals, explicit
 human approvals and verified tool outputs have separate labels. A proposal approval
 only records your decision; it executes no tool and changes no data, method or code.
-There is no LLM, so unsupported text is saved as a note with an honest acknowledgement.
+In local mode there is no LLM, so unsupported text is saved as a note with an honest
+acknowledgement. Optional OpenAI mode supports natural conversation and controlled
+tool calling after an inspected synthetic-context preview and explicit permission.
+See [configuration, privacy, cost guards and live-verification status](CONVERSATIONAL_AGENT.md).
 
 The view shows the last 40 messages and 20 runs/executions/decisions; older records
 remain in SQLite. Historical run metadata means **validated at creation**. Opening

@@ -34,7 +34,7 @@ class WorkspaceHTTPTests(unittest.TestCase):
         self.start()
 
     def start(self):
-        env = dict(os.environ, AAS_WORKSPACE_DIR=str(self.path), OPENBLAS_NUM_THREADS='1', OMP_NUM_THREADS='1')
+        env = dict(os.environ, AAS_WORKSPACE_DIR=str(self.path), OPENBLAS_NUM_THREADS='1', OMP_NUM_THREADS='1', AAS_OPENAI_ENABLED='0')
         self.process = subprocess.Popen([sys.executable, '-m', 'uvicorn', 'demo.app:app',
                                          '--host', '127.0.0.1', '--port', str(self.port), '--no-access-log'],
                                         cwd=ROOT, env=env, stdout=self.log, stderr=self.log)
@@ -194,6 +194,20 @@ class WorkspaceHTTPTests(unittest.TestCase):
         self.assertEqual(context['executions'][0]['error_code'], 'process_interrupted')
         self.assertEqual(context['runs'], [])
         self.assertEqual(context['messages'], [])
+
+    def test_external_mode_is_unavailable_without_enabled_provider_and_has_no_silent_fallback(self):
+        status=self.request('/api/ai/status')
+        self.assertFalse(status['available'])
+        self.message('PRIVATE local-only note')
+        body={'message':'Warum ist der Effekt unsicher?', 'conversation_id':self.context()['conversation_id'],
+              'run_id':None,'approved_decision_ids':[]}
+        preview=self.request(P+A+'/agent-context',body)
+        self.assertNotIn('PRIVATE',json.dumps(preview))
+        before=self.context()
+        self.assert_http(503,P+A+'/messages',{**body,'mode':'openai','consent':True,
+                                            'context_sha256':preview['context_sha256']})
+        self.assertEqual(self.context()['messages'],before['messages'])
+        self.assertEqual(self.context()['ai']['budget']['charged_nano_usd'],0)
 
 
 if __name__ == '__main__':
