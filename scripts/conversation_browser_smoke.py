@@ -99,7 +99,7 @@ def main():
                         usage=dict(input_tokens=12, output_tokens=4), cost_estimate_nano_usd=12345))
 
                 page.route('**/api/projects/*/messages', send)
-                page.goto(server.base)
+                page.goto(server.base + '/archive/synthetic')
                 ready(page, FIRST)
                 assert page.locator('#agent-panel').evaluate(
                     '(e)=>Boolean(e.compareDocumentPosition(document.querySelector("#run-form")) & Node.DOCUMENT_POSITION_FOLLOWING)')

@@ -41,7 +41,7 @@ class Config:
                     reason='configured_not_live_verified' if self.enabled and self.api_key else
                            'disabled' if not self.enabled else 'missing_server_key',
                     live_verification='not_verified_by_configuration',
-                    notice='Separate API billing; store:false is not zero retention. Only consented synthetic context.')
+                    notice='Separate API billing; store:false is not zero retention. Only explicitly previewed and consented project context; archive and observed scopes remain separate.')
 
     def require_available(self):
         if not self.enabled or not self.api_key:

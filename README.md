@@ -1,11 +1,65 @@
 # Agentic Analytics Studio
 
-An auditable, incremental marketing-mix modelling research project. **Task 01a now
-runs a fully synthetic Stage-A benchmark**, with an intentionally difficult baseline,
-known media transformations and honest recovery diagnostics. It is not evidence of
-real Tesla advertising effectiveness.
+Ein privater Arbeitsbereich für **beobachtete Absatzentwicklung und ihre Treiber**:
+Kalender und Saisonalität, Neuzulassungen, makroökonomische Größen, Kraftstoffpreise
+und dokumentierte Ereignisse. Ziel sind nachvollziehbare Erklärung, bedingte
+Prognosen und die Recherche unerklärter Spitzen. Es gibt kein vorgegebenes R²
+oder erwünschtes Vorzeichen und keine erfundenen Media-Ausgaben.
 
-## Local persistent workspace — Task 03A
+## Empirischer Live-Pilot
+
+```sh
+python3.12 -m venv .venv
+.venv/bin/python -m pip install -r requirements-empirical.lock
+.venv/bin/python -m demo
+```
+
+`http://127.0.0.1:8000` öffnet die **reale Datenansicht**. „Vorhandene Quellen prüfen
+& Modelle öffnen“ stellt die bereits geprüften 2018–2025-Snapshots direkt aus den
+Originalquellen wieder her; nur exakt passende Hashes werden angenommen. Alternativ
+kann ein vorhandenes privates Quellenarchiv konfiguriert werden. Es gibt keinen
+synthetischen Ersatz bei fehlenden Daten. Beobachtungen und Ergebnisse bleiben
+außerhalb von Git und Docker-Images im privaten Workspace gespeichert.
+
+- KBA-Tesla-Neuzulassungen, nationaler CPI, Konsumentenkreditzinsen, EUR/USD und
+  qualifizierte Diesel-Monatsapproximation; 13 Diesellücken bleiben ungefüllt.
+- Acht festgelegte Kalender-/Dynamik-/Makromodelle; HypoForge erzeugt Differenzen
+  und gemeinsame exogene Verzögerungen von 1/2/3 Monaten, ohne automatische Suche.
+- Pflichtdiagnostik zur Stationarität der Absatzreihe, ihrer Zieltransformation und
+  der Modellresiduen. Widersprüche und kurze zusammenhängende Segmente bleiben sichtbar.
+- Vergleich mit einer Basis auf identischen Monaten; retrospektive Ein-Monats-
+  Vorhersagen für 2025, keine historische Echtzeit- oder feste Zwölf-Monats-Prognose.
+- Auffällige Trainings-Restfehler mit dokumentierten Ereigniskandidaten aus dem
+  Monat und den drei Vormonaten. Kandidaten sind Hypothesen, keine bewiesenen Ursachen.
+- Optionale OpenAI-Interpretation ausschließlich nach eigener Vorschau/Freigabe
+  der beobachteten Ergebnisse; begrenzter Kontext, persistente Nutzung/Kosten,
+  keine automatischen Daten- oder Modelländerungen. Keine Schlüssel im Browser.
+
+[Empirische Bedienung und Grenzen](docs/EMPIRICAL_STUDIO.md) ·
+[Festgelegte Methodik](workorders/03c-empirical-live.md) ·
+[Azure-Einrichtung mit vorhandenem Key Vault](docs/AZURE_PRIVATE_STUDIO.md)
+
+VARX bleibt eine optionale multivariate Erweiterung; der Live-Pilot beginnt mit
+überschaubarer dynamischer Einzelreihen-Regression. Statistische Zusammenhänge und
+Verbesserungen einer bedingten Prognose sind kein Nachweis kausaler Launch-,
+Promotion- oder Preiseffekte. Keine öffentlichen privaten Roh-/Ergebnisdaten.
+
+## Archiv und bisherige Bestandteile
+
+Die synthetischen Entwicklungsbenchmarks ersetzen keine realen Beobachtungen.
+Ihre vorhandenen Ergebnisse und eingefrorenen Protokolle bleiben unverändert
+archiviert: [Task-02-Originale](results/task02/) mit
+[Verifikationsnachweisen](docs/IDENTIFIABILITY_RESEARCH.md). Die frühere
+synthetische Oberfläche ist getrennt unter `/archive/synthetic` erreichbar.
+Die gestoppten README-/Nullkalibrierungsentwürfe wurden nur lokal beiseitegelegt.
+
+<details>
+<summary>Frühere Entwicklungsstufen, synthetische Demo und Datenarbeit</summary>
+
+Die folgenden historischen Statusangaben beschreiben ihre jeweiligen Arbeitsschritte;
+sie sind keine neue Bewertung des heutigen empirischen Datenbestands.
+
+### Local persistent workspace — Task 03A
 
 Python 3.12 + Git, from repository root (Linux):
 
@@ -15,7 +69,7 @@ python3.12 -m venv .venv
 .venv/bin/python -m demo
 ```
 
-Open `http://127.0.0.1:8000`: choose a project, save a note, run **Synthetic MMM Demo**,
+Open `http://127.0.0.1:8000/archive/synthetic`: choose a project, save a note, run **Synthetic MMM Demo**,
 compare the predefined models or export the synthetic report. Stop and restart the
 app: the conversation, proposals and original validated results remain available.
 **Wo haben wir aufgehört?** retrieves real stored context and rechecks the latest run.
@@ -33,7 +87,7 @@ For a protected single-owner instance in your own Azure account, see the
 [PowerShell deployment and exact Key Vault secret instructions](docs/AZURE_PRIVATE_STUDIO.md).
 Azure hosting and a live API call still require verification in that account.
 
-## Run the synthetic pipeline
+### Run the synthetic pipeline
 
 Python 3.12 and Git are required. From repository root:
 
@@ -53,7 +107,7 @@ Read [Run instructions and limitations](docs/RUN_SYNTHETIC_MMM.md),
 [Readiness](docs/TASK_01_READINESS.md), and the generated
 [Example report](examples/task-01a/report.md).
 
-## Validate
+### Validate
 
 ```sh
 .venv/bin/python contracts/validate.py
@@ -66,7 +120,7 @@ process/directory without private reference/truth files; those are available onl
 generation/evaluation. All output hashes and implementation/runtime identities are
 saved. The example has poor recovery, which remains visible rather than corrected.
 
-## Scope
+### Scope
 
 The Stage-A pipeline has fixed transformations. The separate research Task 02
 benchmark evaluates a preregistered synthetic scenario grid; the product workspace
@@ -168,7 +222,7 @@ Only project-generated synthetic data are available; no keys or cloud setup requ
 The demo includes a matched model comparison, synthetic Markdown report export,
 and four rule-based language requests backed by allowlisted tools (no LLM or MCP server).
 
-## Synthetic result export — package 1
+### Synthetic result export — package 1
 
 Successful **Contract validation** runs expose `synthetic-stage-a-<commit>` under
 GitHub Actions → selected run → **Artifacts** (GitHub login may be required).
@@ -188,3 +242,5 @@ Package 3 adds [primary-source macro/energy acquisition and QA](DATA_SOURCES.md)
 consumer-credit AAR/NDER, national CPI, EUR/USD and qualified German diesel.
 Actual raw snapshots/normalized values stay private; Brent remains rights-blocked.
 No new model or historical-protocol change.
+
+</details>

@@ -1,0 +1,5 @@
+-r requirements-demo.lock
+-r requirements-kba.lock
+packaging==26.3
+patsy==1.0.3
+statsmodels==0.14.6

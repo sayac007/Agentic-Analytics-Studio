@@ -120,7 +120,7 @@ class DemoHTTPTests(unittest.TestCase):
             return value.decode() if raw else json.loads(value)
 
     def test_real_http_workflow_and_coefficients(self):
-        page = self.request('/', raw=True)
+        page = self.request('/archive/synthetic', raw=True)
         self.assertIn('SYNTHETIC / NOT EMPIRICAL', page)
         self.assertIn('id="run-form"', page)
         datasets = self.request('/api/datasets')

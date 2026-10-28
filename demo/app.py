@@ -1,4 +1,4 @@
-"""One local owner, two synthetic projects; durable context, no general AI."""
+"""Private observed-data Studio, separate synthetic archive and bounded opt-in AI."""
 from contextlib import asynccontextmanager
 import hashlib
 import json
@@ -39,7 +39,7 @@ async def lifespan(application):
         workspace.close()
 
 
-app = FastAPI(title='Agentic Analytics Studio — Local Workspace', version='0.2.0', lifespan=lifespan)
+app = FastAPI(title='Agentic Analytics Studio — Observed Data', version='0.3.0', lifespan=lifespan)
 app.add_middleware(TrustedHostMiddleware, allowed_hosts=HOSTING.trusted_hosts, www_redirect=False)
 app.mount('/static', StaticFiles(directory=STATIC), name='static')
 
@@ -127,12 +127,18 @@ class DecisionRequest(StrictRequest):
 
 @app.get('/')
 def index():
+    return FileResponse(STATIC / 'empirical.html')
+
+
+@app.get('/archive/synthetic')
+def synthetic_archive():
     return FileResponse(STATIC / 'index.html')
 
 
 @app.get('/api/health')
 def health():
-    return {'status': 'ready', 'classification': 'SYNTHETIC / NOT EMPIRICAL',
+    return {'status': 'ready', 'classification': 'OBSERVED_PRIVATE_WORKSPACE',
+            'archive_classification': 'SYNTHETIC / NOT EMPIRICAL',
             'storage': 'sqlite', 'workspace_schema': 2, 'llm': 'optional_openai_opt_in'}
 
 
@@ -209,6 +215,8 @@ def execute_tool(project_id, conversation_id, name, arguments, model=None):
     """Server-owned scope and permissions; never a path, expression or remote agent."""
     ws = get_workspace()
     project = ws.project(project_id)
+    if project['dataset_id'] != 'synthetic-mmm':
+        raise HTTPException(422, 'Synthetic archive tools cannot run in an empirical project.')
     if name not in agent.TOOLS:
         raise ValueError('Tool is not allowlisted')
     compute = name == 'run_demo_analysis'
@@ -313,7 +321,7 @@ def agent_request(request: AgentRequest):
 
 @app.get('/api/projects')
 def projects():
-    return get_workspace().projects()
+    return [p for p in get_workspace().projects() if p['dataset_id'] == 'synthetic-mmm']
 
 
 @app.get('/api/projects/{project_id}/workspace')
@@ -359,6 +367,8 @@ def project_message(project_id: str, request: MessageRequest):
         finally:
             AI_LOCK.release()
     project = ws.project(project_id)
+    if project['dataset_id'] != 'synthetic-mmm':
+        raise HTTPException(422, 'Use the separate empirical conversation and consent.')
     if request.conversation_id != project['conversation_id']:
         raise MissingRecord('Conversation does not belong to project')
     if request.run_id:
@@ -390,3 +400,89 @@ def propose_decision(project_id: str, request: DecisionRequest):
 @app.post('/api/projects/{project_id}/decisions/{decision_id}/approve')
 def approve_decision(project_id: str, decision_id: str, request: StrictRequest):
     return get_workspace().approve(project_id, decision_id)
+
+
+class EmpiricalQuestion(StrictRequest):
+    message: str = Field(min_length=1, max_length=2000, pattern=r'\S')
+    model: Literal['calendar', 'dynamic', 'macro', 'macro_diesel', 'macro_lag2', 'macro_diesel_lag2', 'macro_lag3', 'macro_diesel_lag3'] = 'macro'
+    consent: bool = False
+    context_sha256: str | None = Field(default=None, pattern=r'^[0-9a-f]{64}$')
+
+
+@app.get('/api/empirical')
+def empirical_result():
+    from empirical import service as observed
+    try:
+        result = observed.read()
+    except FileNotFoundError:
+        return {'status': 'missing_data', 'classification': 'OBSERVED_PRIVATE',
+                'message': 'Die realen Quellsnapshots sind auf diesem Server noch nicht eingerichtet.'}
+    except (ValueError, OSError, KeyError):
+        raise HTTPException(503, 'Empirische Daten- oder Hashprüfung fehlgeschlagen.') from None
+    project = get_workspace().empirical_project()
+    result.update(status='ready', ai=get_ai_config().status(),
+                  history=get_workspace().context(project['id'])['messages'],
+                  ai_budget=get_workspace().ai_state(project['id'])['budget'])
+    return result
+
+
+@app.post('/api/empirical/prepare')
+def empirical_prepare(request: StrictRequest):
+    from empirical import service as observed
+    from empirical.restore import restore
+    if not RUN_LOCK.acquire(blocking=False): raise HTTPException(409, 'Eine Berechnung läuft bereits.')
+    try:
+        if (observed.destination()/'manifest.json').exists(): return empirical_result()
+        source = observed.source_directory()
+        if not (source/'manifest.json').exists():
+            status = restore(source)
+            if status['status'] != 'ready': return status
+        observed.build(source, observed.destination())
+        return empirical_result()
+    except (ValueError, OSError, KeyError):
+        raise HTTPException(503, 'Quellprüfung oder feste Berechnung fehlgeschlagen. Keine synthetischen Ersatzdaten verwendet.') from None
+    finally:
+        RUN_LOCK.release()
+
+
+@app.post('/api/empirical/agent-context')
+def empirical_context(request: EmpiricalQuestion):
+    from .empirical_chat import preview
+    try:
+        return preview(get_workspace(), request.message, request.model, get_ai_config())
+    except (FileNotFoundError, ValueError, OSError, KeyError):
+        raise HTTPException(503, 'Verifiziertes empirisches Ergebnis fehlt.') from None
+
+
+@app.post('/api/empirical/messages')
+def empirical_message(request: EmpiricalQuestion):
+    from .empirical_chat import respond as explain
+    if not AI_LOCK.acquire(blocking=False): raise HTTPException(409, 'Ein externer Dialog läuft bereits.')
+    try:
+        return explain(get_workspace(), request.message, request.model, request.consent,
+                       request.context_sha256, get_ai_config())
+    except (FileNotFoundError, ValueError, OSError, KeyError):
+        raise HTTPException(503, 'Verifiziertes empirisches Ergebnis fehlt.') from None
+    finally:
+        AI_LOCK.release()
+
+
+class OriginalObservationFile(StrictRequest):
+    name: str = Field(min_length=1, max_length=120)
+    content_base64: str = Field(min_length=1, max_length=8_000_000)
+
+
+@app.post('/api/empirical/original-file')
+def empirical_original_file(request: OriginalObservationFile):
+    import base64
+    from empirical.restore import install_original
+    from empirical.service import source_directory
+    if not RUN_LOCK.acquire(blocking=False): raise HTTPException(409, 'Eine Berechnung läuft bereits.')
+    try:
+        source = source_directory()
+        raw = base64.b64decode(request.content_base64, validate=True)
+        return install_original(source, request.name, raw)
+    except (ValueError, OSError):
+        raise HTTPException(422, 'Die Datei entspricht nicht dem geprüften Original-Snapshot; nichts ersetzt.') from None
+    finally:
+        RUN_LOCK.release()

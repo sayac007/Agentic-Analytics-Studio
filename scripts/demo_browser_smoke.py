@@ -13,7 +13,7 @@ def main():
         page = browser.new_page(viewport={'width': 1365, 'height': 1000})
         errors = []
         page.on('pageerror', lambda error: errors.append(str(error)))
-        page.goto('http://127.0.0.1:8000')
+        page.goto('http://127.0.0.1:8000/archive/synthetic')
         expect(page.locator("#dataset-description")).not_to_contain_text("geladen")
         page.get_by_role('button', name='Run analysis', exact=True).click()
         expect(page.locator("#status")).to_contain_text("abgeschlossen", timeout=90000)

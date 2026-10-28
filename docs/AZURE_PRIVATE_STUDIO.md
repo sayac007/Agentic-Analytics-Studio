@@ -14,8 +14,13 @@ API-Schlüssel gesetzt. Lokale Prüfungen stehen weiter unten.
 Die Adresse ist öffentlich erreichbar, der gesamte Studio-Zugriff verlangt eine
 Anmeldung. Ein privates Azure-Abonnement bedeutet keine private Netzwerkadresse.
 Dies ist eine geschützte Einzelnutzer-Demo, kein Mehrbenutzerdienst mit Entra-SSO.
-Es werden ausschließlich die bestehenden synthetischen Studio-Funktionen
-bereitgestellt; private KBA-, Trends- und Energie-Dateien werden nicht übertragen.
+Die Hauptansicht ist der [empirische Studio-Pilot](EMPIRICAL_STUDIO.md): reale
+Registrierungen und geprüfte Makro-/Energie-Beobachtungen, feste Modellvergleiche,
+Stationaritätsdiagnostik und Restfehler-Recherche. Private Snapshots/Ergebnisse
+werden erst auf der geschützten VM eingerichtet; sie sind nicht im öffentlichen
+Git-Repository oder Docker-Image enthalten. Die lizenzierte, bereits öffentliche
+KBA-Tabelle und Quellenmetadaten gehören zum Codepaket. Das synthetische
+Entwicklungsarchiv bleibt unter `/archive/synthetic` getrennt erreichbar.
 
 ## 1. Azure Cloud Shell öffnen und den Plan ansehen
 
@@ -99,7 +104,7 @@ erzeugtes zufälliges Passwort aus dem Passwortmanager.
 Der Studio-Benutzername ist **`studio`**; das Anmeldepasswort ist unabhängig vom
 Azure-Passwort und vom OpenAI-Schlüssel.
 
-Ohne `-EnableOpenAI` läuft die synthetische Analyse samt lokalem Assistenten
+Ohne `-EnableOpenAI` funktionieren reale Datenansicht und feste Berechnungen
 ohne OpenAI-Schlüssel. Die VM verursacht trotzdem Azure-Kosten.
 Wurde zunächst ohne OpenAI bereitgestellt, später denselben Bereitstellungsbefehl
 mit `-Deploy -EnableOpenAI` ausführen. Das bloße Anlegen eines Secrets aktiviert
@@ -159,18 +164,23 @@ Administratoren.
 
 1. Die vom Skript ausgegebene **`https://…westeurope.cloudapp.azure.com`**-Adresse
    öffnen und mit `studio` und dem Studio-Passwort anmelden.
-2. Im synthetischen Projekt einen lokalen Demo-Lauf starten. Den Browser neu
-   laden; Lauf und Verlauf müssen erhalten bleiben.
-3. Falls OpenAI aktiviert ist: eine kurze Frage stellen, den angezeigten
-   synthetischen Kontext prüfen, die ausdrückliche Versandfreigabe setzen und
-   den kostenpflichtigen Aufruf senden. Erst eine echte Antwort samt
-   Nutzungsanzeige belegt den Live-Aufruf.
-4. In einem privaten Browserfenster muss jede Studio-Seite einschließlich
+2. **Vorhandene Quellen prüfen & Modelle öffnen** wählen. Die sechs Original-
+   Quelldateien müssen ihren vorhandenen SHA-256-Prüfsummen entsprechen.
+   Die Seite zeigt reale Reihen, acht feste Modelle, verpflichtende Stationaritäts-
+   diagnostik sowie ungeklärte Trainingsmonate. Keine synthetischen Ersatzwerte.
+3. Modellvariante und gegebenenfalls Lag 2/3 auswählen; die fehlenden Dieselmonate,
+   gepaarten Basisvergleiche und Diagnosewarnungen prüfen. Seite neu laden:
+   Derselbe verifizierte Snapshot muss erhalten bleiben.
+4. Falls OpenAI aktiviert ist: eine kurze Frage stellen, die Vorschau der
+   **beobachteten privaten Ergebnisse** prüfen und ausdrücklich freigeben.
+   Erst eine echte Antwort samt Nutzungsanzeige belegt den kostenpflichtigen
+   Live-Aufruf. Die alte synthetische Archivfreigabe wird dafür nicht verwendet.
+5. In einem privaten Browserfenster muss jede Studio-Seite einschließlich
    `/api/health` eine Anmeldung verlangen.
 
 Die vorhandenen API-Budgetgrenzen und die Freigabe je Gesprächszug bleiben
 bestehen. Das Studio garantiert damit keine Obergrenze der gesamten Azure-
-oder OpenAI-Rechnung. Keine privaten Daten in die Frage kopieren.
+oder OpenAI-Rechnung. Keine Zugangsdaten oder vertraulichen Daten Dritter in die Frage kopieren.
 
 ## Kosten und Betrieb
 

@@ -35,6 +35,10 @@ if ($tree.truncated -ne $false) { throw 'Source tree validation is incomplete; n
 $requiredFiles = @('Dockerfile', '.dockerignore', 'demo/hosting.py', 'requirements.lock', 'requirements-demo.lock',
     'deploy/azure/Deploy-Studio.ps1', 'deploy/azure/bootstrap.sh', 'deploy/azure/refresh-secrets.py',
     'deploy/azure/compose.yaml', 'deploy/azure/Caddyfile', 'deploy/azure/agentic-studio.service')
+$requiredFiles += @('requirements-empirical.lock', 'empirical/data.py', 'empirical/model.py',
+    'empirical/features.py', 'empirical/diagnostics.py', 'empirical/service.py', 'empirical/restore.py',
+    'demo/static/empirical.html', 'demo/static/empirical.js', 'demo/empirical_chat.py',
+    'data/verified_sources/manifest.json', 'workorders/03c-empirical-live.md')
 foreach ($path in $requiredFiles) {
     if (-not @($tree.tree | Where-Object { $_.path -ceq $path -and $_.type -eq 'blob' -and $_.mode -in @('100644', '100755') }).Count) {
         throw "The pinned source lacks required regular file $path; no Azure changes were made."

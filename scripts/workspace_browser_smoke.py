@@ -105,7 +105,7 @@ def main():
                 page = browser.new_page(viewport={'width': 1365, 'height': 1000})
                 errors = []
                 page.on('pageerror', lambda error: errors.append(str(error)))
-                page.goto(server.base)
+                page.goto(server.base + '/archive/synthetic')
                 ready(page, FIRST)
                 assert page.locator('#project option').count() == 2
 
