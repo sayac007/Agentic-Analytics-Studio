@@ -79,7 +79,10 @@ async def local_origin(request: Request, call_next):
         return JSONResponse({'detail': 'Exactly one Host header is required.'}, status_code=400)
     error = HOSTING.request_error(request.method, request.url.scheme, request.headers.get('host'),
                                   request.headers.get('origin'), request.headers.get('sec-fetch-site'),
-                                  request.headers.get('content-type'))
+                                  request.headers.get('content-type'),
+                                  fetch_mode=request.headers.get('sec-fetch-mode'),
+                                  fetch_dest=request.headers.get('sec-fetch-dest'),
+                                  path=request.url.path)
     if error:
         return JSONResponse({'detail': error[1]}, status_code=error[0])
     response = await call_next(request)

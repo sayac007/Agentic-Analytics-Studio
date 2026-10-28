@@ -5,6 +5,7 @@ import os
 import re
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, HTTPRedirectHandler, build_opener
+from .provider_diagnostics import safe_http_failure, safe_transport_failure
 
 MODEL = 'gpt-5.4-mini-2026-03-17'
 ENDPOINT = 'https://api.openai.com/v1/responses'
@@ -87,7 +88,16 @@ class Client:
             return value
         except ConversationError:
             raise
-        except (HTTPError, URLError, TimeoutError, OSError, ValueError):
+        except HTTPError as error:
+            detail = safe_http_failure(error)
+            labels = ''.join(' ' + value for value in (detail['provider_code'], detail['parameter']) if value)
+            raise ConversationError(detail['category'], detail['hint'] + labels +
+                                    ' Keine automatische Wiederholung; Kostenstatus gegebenenfalls ungeklärt.') from None
+        except (URLError, TimeoutError, OSError) as error:
+            detail = safe_transport_failure(error)
+            raise ConversationError(detail['category'], detail['hint'] +
+                                    ' Keine automatische Wiederholung; Kostenstatus ungeklärt.') from None
+        except ValueError:
             raise ConversationError('provider_unavailable',
                                     'OpenAI-Aufruf fehlgeschlagen; keine automatische Wiederholung. Kosten können trotz fehlender Antwort entstanden sein.') from None
 
