@@ -14,7 +14,10 @@ function Invoke-RestMethod { param($Uri, $Headers)
     Assert-That ($Uri -eq ('https://api.github.com/repos/sayac007/Agentic-Analytics-Studio/git/trees/'+('b'*40)+'?recursive=1')) 'Unexpected network URI'
     $paths=@('Dockerfile','.dockerignore','demo/hosting.py','requirements.lock','requirements-demo.lock',
         'deploy/azure/Deploy-Studio.ps1','deploy/azure/bootstrap.sh','deploy/azure/refresh-secrets.py',
-        'deploy/azure/compose.yaml','deploy/azure/Caddyfile','deploy/azure/agentic-studio.service')
+        'deploy/azure/compose.yaml','deploy/azure/Caddyfile','deploy/azure/agentic-studio.service',
+        'requirements-empirical.lock','empirical/data.py','empirical/model.py','empirical/features.py',
+        'empirical/diagnostics.py','empirical/service.py','empirical/restore.py','demo/static/empirical.html',
+        'demo/static/empirical.js','demo/empirical_chat.py','data/verified_sources/manifest.json','workorders/03c-empirical-live.md')
     $tree=@($paths|ForEach-Object { if (-not($MockState.SourceMode -eq 'missing' -and $_ -eq 'Dockerfile')) {
         @{path=$_;type='blob';mode=if ($MockState.SourceMode -eq 'symlink' -and $_ -eq 'Dockerfile') {'120000'} else {'100644'}}
     }})

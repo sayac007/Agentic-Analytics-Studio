@@ -11,7 +11,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     AAS_OPENAI_ENABLED=0
 
 WORKDIR /app
-COPY requirements.lock requirements-demo.lock ./
+COPY requirements.lock requirements-demo.lock requirements-kba.lock requirements-empirical.lock ./
 # Optional build-only CA bundle supports managed TLS proxies; never copied to layers.
 RUN --mount=type=secret,id=build_ca,mode=0444 \
     aas_ca_file=/etc/ssl/certs/ca-certificates.crt \
@@ -20,7 +20,7 @@ RUN --mount=type=secret,id=build_ca,mode=0444 \
     && sed -i 's|http://deb.debian.org|https://deb.debian.org|g' /etc/apt/sources.list.d/debian.sources \
     && apt-get -o Acquire::https::CaInfo="$aas_ca_file" update -o APT::Update::Error-Mode=any \
     && apt-get -o Acquire::https::CaInfo="$aas_ca_file" install -y --no-install-recommends git ca-certificates \
-    && python -m pip install --no-cache-dir -r requirements-demo.lock \
+    && python -m pip install --no-cache-dir -r requirements-empirical.lock \
     && apt-get purge -y --auto-remove git \
     && rm -rf /var/lib/apt/lists/* \
     && groupadd --gid 10001 studio \
@@ -29,11 +29,20 @@ RUN --mount=type=secret,id=build_ca,mode=0444 \
     && chown 10001:10001 /data/workspace \
     && chmod 700 /data/workspace
 
-# Runtime allowlist only: no raw datasets, research archive, Git or host workspace.
+# Public code/catalogs only. Private source snapshots and results are installed at runtime.
 COPY demo/ ./demo/
 COPY studio/ ./studio/
 COPY contracts/ ./contracts/
 COPY config/ ./config/
+COPY empirical/ ./empirical/
+COPY source_acquisition/ ./source_acquisition/
+COPY fuel_oil/ ./fuel_oil/
+COPY kba/ ./kba/
+COPY data/kba/ ./data/kba/
+COPY data/fuel_oil/ ./data/fuel_oil/
+COPY data/verified_sources/ ./data/verified_sources/
+COPY data/tesla_product_events/ ./data/tesla_product_events/
+COPY workorders/03c-empirical-live.md ./workorders/03c-empirical-live.md
 RUN find /app -type d -exec chmod 0755 {} + \
     && find /app -type f -exec chmod 0644 {} +
 

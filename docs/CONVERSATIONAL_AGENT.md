@@ -1,3 +1,8 @@
+> Dieser Task-03B-Text beschreibt die separate synthetische Archivkonversation.
+> Die neue empirische Hauptansicht verwendet einen eigenen Vorschau-/Freigabepfad
+> für beobachtete private Ergebnisse: [Empirischer Studio-Pilot](EMPIRICAL_STUDIO.md).
+> Die synthetischen Scope-Prüfungen dieses Archivpfads bleiben unverändert.
+
 # Task 03B: bounded conversational analytics
 
 ## Independent assessment before implementation

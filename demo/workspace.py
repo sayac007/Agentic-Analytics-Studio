@@ -298,6 +298,18 @@ class Workspace:
         with self._connection() as db:
             return self._project(db, project_id)
 
+    def empirical_project(self):
+        """Create the separate observed-data conversation without relabeling old runs."""
+        identity = 'tesla-observed'
+        with self._connection() as db:
+            db.execute('INSERT OR IGNORE INTO projects VALUES (?,?,?,?,?,?,?,?)',
+                       (identity, 'Tesla Deutschland · beobachtete Entwicklung', 'observed-registrations',
+                        'month', 'monthly_change_log1p_registrations', 'macro',
+                        _json({'class': 'observed', 'scope': 'private_retrospective_exploratory',
+                               'synthetic_inputs': False}), _now()))
+            db.execute('INSERT OR IGNORE INTO conversations VALUES (?,?,?)', (uuid4().hex, identity, _now()))
+            return self._project(db, identity)
+
     @staticmethod
     def _execution_value(row):
         value = dict(row)
