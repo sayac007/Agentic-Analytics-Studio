@@ -154,6 +154,44 @@ Rollenverteilung, Image-Build und HTTPS-Zertifikat einige Minuten benötigen.
 Die obigen Befehle binden Plan und Ausführung an denselben ausgecheckten Commit;
 der GitHub-Quellbaum muss vor jeder Azure-Änderung die benötigten Dateien enthalten.
 
+### Falls der VM-Aufbau beim OS-Passwort abbricht
+
+Die frühere Meldung `An OS password must not be serialized` konnte bereits vor
+`New-AzVM` durch unseren lokalen Konfigurationsaufbau ausgelöst werden: Das
+Zuweisen von `$null` an die typisierte SDK-Stringeigenschaft `AdminPassword`
+ergibt in PowerShell eine leere Zeichenkette. Das bisherige untypisierte
+Testdouble hat diesen Unterschied nicht abgebildet.
+
+Der korrigierte Aufbau in `vm-config.ps1` lässt den optionalen
+`-Credential`-Parameter von `Set-AzVMOperatingSystem` vollständig weg und setzt
+nur den OS-Benutzernamen. `AdminPassword` bleibt unangetastet wirklich `null`.
+Die strenge Prüfung bleibt erhalten: kein Passwortwert einschließlich leerer
+Zeichenkette, Passwortanmeldung deaktiviert, genau der erzeugte öffentliche
+SSH-Schlüssel. Port 22 bleibt gesperrt. Das Studio-Anmeldepasswort im Key Vault
+ist davon getrennt und bleibt erforderlich.
+
+Zur Wiederholung den vollständigen korrigierten Quellstand einschließlich
+`vm-config.ps1` auschecken und denselben Bereitstellungsbefehl mit dessen
+`-SourceCommit` und derselben Region ausführen. Vorhandene passende Netzwerk-
+ressourcen und Secrets werden geprüft und weiterverwendet. Die VM wurde bei
+diesem lokalen Abbruch noch nicht erstellt; eine bereits angelegte öffentliche
+IP kann dennoch Kosten verursachen. Es gibt keine automatische Löschung.
+
+Der tatsächliche lokale Aufbau und SDK-JSON-Transport wurden mit
+**Az.Compute 11.10.0 / Az.Accounts 5.5.3** geprüft: `adminPassword` fehlt im
+serialisierten OS-Profil, Passwortanmeldung ist deaktiviert und der öffentliche
+Schlüssel stimmt überein. Derselbe Test reproduziert den früheren Fehler am
+echten typisierten SDK-Modell. Er führt keine Azure-Anmeldung und keinen
+Ressourcenaufruf aus:
+
+```powershell
+./tests/test_azure_vm_config.ps1
+```
+
+Die CI installiert diese beiden Modulversionen ausdrücklich und führt den Test
+zusätzlich zu den bisherigen Az-Testdoubles aus. Ein erfolgreicher lokaler oder
+CI-SDK-Test belegt weiterhin keine erfolgreiche Azure-Bereitstellung.
+
 ## 3. Genau hier liegt der Key in Azure
 
 Das Skript nennt den **Key-Vault-Namen**. Im Azure-Portal:

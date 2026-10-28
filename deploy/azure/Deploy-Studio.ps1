@@ -33,7 +33,7 @@ if ($treeSha -notmatch '^[0-9a-f]{40}$') { throw 'GitHub did not return the comm
 $tree = Invoke-RestMethod -Uri "https://api.github.com/repos/sayac007/Agentic-Analytics-Studio/git/trees/${treeSha}?recursive=1" -Headers $githubHeaders
 if ($tree.truncated -ne $false) { throw 'Source tree validation is incomplete; no Azure changes were made.' }
 $requiredFiles = @('Dockerfile', '.dockerignore', 'demo/hosting.py', 'requirements.lock', 'requirements-demo.lock',
-    'deploy/azure/Deploy-Studio.ps1', 'deploy/azure/bootstrap.sh', 'deploy/azure/refresh-secrets.py',
+    'deploy/azure/Deploy-Studio.ps1', 'deploy/azure/vm-config.ps1', 'deploy/azure/bootstrap.sh', 'deploy/azure/refresh-secrets.py',
     'deploy/azure/compose.yaml', 'deploy/azure/Caddyfile', 'deploy/azure/agentic-studio.service')
 $requiredFiles += @('requirements-empirical.lock', 'empirical/data.py', 'empirical/model.py',
     'empirical/features.py', 'empirical/diagnostics.py', 'empirical/service.py', 'empirical/restore.py',
@@ -60,6 +60,7 @@ if (-not $Deploy) {
     Write-Host 'PLAN ONLY: no Azure resources, role assignments or secrets were changed. Add -Deploy to provision.'
     return
 }
+. (Join-Path $PSScriptRoot 'vm-config.ps1')
 Get-Command Get-AzContext, New-AzVM, New-AzKeyVault -ErrorAction Stop | Out-Null
 Set-AzContext -Subscription $SubscriptionId.ToString() | Out-Null
 if (-not $ExistingVaultName) {
@@ -229,15 +230,8 @@ try {
         try {
             & ssh-keygen -q -t ed25519 -N '' -f $sshFile
             if ($LASTEXITCODE -ne 0) { throw 'Temporary SSH public-key generation failed.' }
-            $credential = [PSCredential]::new('aasadmin', [Security.SecureString]::new())
-            $vm = New-AzVMConfig -VMName $vmName -VMSize Standard_B2als_v2 -IdentityType SystemAssigned -Tags $tag
-            $vm = Set-AzVMOperatingSystem -VM $vm -Linux -ComputerName $vmName -Credential $credential -DisablePasswordAuthentication
-            $vm.OSProfile.AdminPassword = $null
-            $vm = Add-AzVMSshPublicKey -VM $vm -KeyData (Get-Content "$sshFile.pub" -Raw).Trim() -Path '/home/aasadmin/.ssh/authorized_keys'
-            $vm = Set-AzVMSourceImage -VM $vm -PublisherName Canonical -Offer ubuntu-24_04-lts -Skus server -Version latest
-            $vm = Set-AzVMOSDisk -VM $vm -CreateOption FromImage -StorageAccountType StandardSSD_LRS -DiskSizeInGB 32
-            $vm = Add-AzVMNetworkInterface -VM $vm -Id $nic.Id
-            if ($null -ne $vm.OSProfile.AdminPassword) { throw 'An OS password must not be serialized.' }
+            $vm = New-StudioVMConfig -Name $vmName -NetworkInterfaceId $nic.Id `
+                -PublicKey (Get-Content "$sshFile.pub" -Raw).Trim() -Tags $tag
             New-AzVM -ResourceGroupName $group -Location $location -VM $vm -DisableBginfoExtension | Out-Null
         } finally {
             if ($sshFile) { Remove-Item -LiteralPath $sshFile, "$sshFile.pub" -ErrorAction SilentlyContinue }
