@@ -3,6 +3,7 @@
 param(
     [Parameter(Mandatory)][guid]$SubscriptionId,
     [Parameter(Mandatory)][ValidatePattern('^[a-z][a-z0-9-]{1,61}[a-z0-9]$')][string]$DnsLabel,
+    [ValidatePattern('(?-i)\A[a-z][a-z0-9]{1,31}\z')][string]$Location = 'westeurope',
     [guid]$AdminObjectId = [guid]::Empty,
     [ValidatePattern('^$|^[a-z][a-z0-9-]{1,22}[a-z0-9]$')][string]$ExistingVaultName = '',
     [ValidatePattern('^$|^[0-9a-f]{40}$')][string]$SourceCommit = '',
@@ -13,14 +14,13 @@ $ErrorActionPreference = 'Stop'
 $VerbosePreference = 'SilentlyContinue'
 $DebugPreference = 'SilentlyContinue'
 $ProgressPreference = 'SilentlyContinue'
-$location = 'westeurope'
 $group = 'rg-agentic-studio'
 $vmName = 'aas-studio'
 $tag = @{ Application = 'AgenticAnalyticsStudio'; Deployment = 'private-vm-v1' }
 $seed = [Text.Encoding]::UTF8.GetBytes("$SubscriptionId/$DnsLabel")
 $suffix = [Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($seed)).ToLower().Substring(0, 18)
 $vaultName = if ($ExistingVaultName) { $ExistingVaultName } else { "aas$suffix" }
-$hostname = "$DnsLabel.westeurope.cloudapp.azure.com"
+$hostname = "$DnsLabel.$Location.cloudapp.azure.com"
 $githubHeaders = @{ 'User-Agent' = 'AgenticAnalyticsStudio-Deployment'; Accept = 'application/vnd.github+json' }
 $ref = if ($SourceCommit) { $SourceCommit } else { 'main' }
 $resolved = Invoke-RestMethod -Uri "https://api.github.com/repos/sayac007/Agentic-Analytics-Studio/commits/$ref" -Headers $githubHeaders
@@ -51,7 +51,11 @@ Write-Host "Optional OpenAI enabled: $($EnableOpenAI.IsPresent). BasicAuth user:
 if ($ExistingVaultName) {
     Write-Host 'Existing-vault mode: reuse the named RBAC vault and group without retagging or changing human permissions.'
 }
-Write-Host 'Indicative recurring infrastructure: approximately USD37.59/month; API, tax and variable operations extra.'
+if ($Location -eq 'westeurope') {
+    Write-Host 'Indicative West Europe infrastructure: approximately USD37.59/month; API, tax and variable operations extra.'
+} else {
+    Write-Host 'Regional infrastructure prices have not been verified here. VM size stays Standard_B2als_v2; API, tax and variable operations extra.'
+}
 if (-not $Deploy) {
     Write-Host 'PLAN ONLY: no Azure resources, role assignments or secrets were changed. Add -Deploy to provision.'
     return
@@ -136,6 +140,20 @@ try {
         }
     }
     if (-not $vault.EnableRbacAuthorization) { throw 'The existing vault must use Azure RBAC; no access policy was changed.' }
+    # Check regional components before secret/role/network writes. A change must
+    # never silently reuse or relocate a partially created network or VM.
+    foreach ($existing in @(
+        (Get-AzNetworkSecurityGroup -ResourceGroupName $group -Name 'aas-web' -ErrorAction SilentlyContinue)
+        (Get-AzVirtualNetwork -ResourceGroupName $group -Name 'aas-network' -ErrorAction SilentlyContinue)
+        (Get-AzPublicIpAddress -ResourceGroupName $group -Name 'aas-public-ip' -ErrorAction SilentlyContinue)
+        (Get-AzNetworkInterface -ResourceGroupName $group -Name 'aas-nic' -ErrorAction SilentlyContinue)
+        (Get-AzVM -ResourceGroupName $group -Name $vmName -ErrorAction SilentlyContinue)
+    )) {
+        Assert-Owned $existing
+        if ($null -ne $existing -and $existing.Location -ine $Location) {
+            throw "An existing VM/network resource is outside selected location $Location; inspect the group before retrying. No automatic move or deletion."
+        }
+    }
     if (-not $ExistingVaultName) {
         Ensure-Role $AdminObjectId.ToString() 'b86a8fe4-44ce-4948-aee5-eccb2c155cd7' $vault.ResourceId 'User'
     }
@@ -231,7 +249,7 @@ try {
         $vm.NetworkProfile.NetworkInterfaces[0].Id -ne $nic.Id) { throw 'Existing VM size or network differs from this deployment.' }
     if (-not $vm.Identity.PrincipalId) { throw 'The VM needs its system-assigned managed identity.' }
     Ensure-Role $vm.Identity.PrincipalId '4633458b-17de-408a-b874-0445c86b69e6' $vault.ResourceId 'ServicePrincipal'
-    $publicConfig = @{ source_commit = $SourceCommit; vault_name = $vaultName; hostname = $hostname;
+    $publicConfig = @{ source_commit = $SourceCommit; vault_name = $vaultName; hostname = $hostname; location = $Location;
                        enable_openai = $EnableOpenAI.IsPresent } | ConvertTo-Json -Compress
     # Run Command receives public configuration only. It retrieves no secret in this script.
     $command = @"
