@@ -5,9 +5,10 @@ function New-StudioVMConfig {
         [Parameter(Mandatory)][string]$Name,
         [Parameter(Mandatory)][string]$NetworkInterfaceId,
         [Parameter(Mandatory)][string]$PublicKey,
-        [Parameter(Mandatory)][hashtable]$Tags
+        [Parameter(Mandatory)][hashtable]$Tags,
+        [ValidateSet('Standard_B2als_v2', 'Standard_B2s')][string]$VMSize = 'Standard_B2als_v2'
     )
-    $vm = New-AzVMConfig -VMName $Name -VMSize Standard_B2als_v2 -IdentityType SystemAssigned -Tags $Tags
+    $vm = New-AzVMConfig -VMName $Name -VMSize $VMSize -IdentityType SystemAssigned -Tags $Tags
     # Credential is optional. Omit it so the SDK leaves AdminPassword truly null.
     # Assigning $null to that typed string property in PowerShell produces ''.
     $vm = Set-AzVMOperatingSystem -VM $vm -Linux -ComputerName $Name -DisablePasswordAuthentication
@@ -24,4 +25,21 @@ function New-StudioVMConfig {
         throw 'VM configuration must omit the OS password and retain SSH-only authentication.'
     }
     return $vm
+}
+
+function Assert-StudioVMQuota {
+    param(
+        [Parameter(Mandatory)][ValidateSet('Standard_B2als_v2', 'Standard_B2s')][string]$VMSize,
+        [Parameter(Mandatory)][AllowEmptyCollection()][object[]]$Usage
+    )
+    $family = if ($VMSize -eq 'Standard_B2s') { 'standardBSFamily' } else { 'standardBasv2Family' }
+    # Both allowlisted models require two vCPUs. SKU availability is a separate check.
+    foreach ($name in @('cores', $family)) {
+        $quota = @($Usage | Where-Object { $_.Name.Value -eq $name })
+        if ($quota.Count -ne 1) { throw "Cannot verify $name vCPU quota in the selected region; no VM allocation attempted." }
+        $available = [long]$quota[0].Limit - [long]$quota[0].CurrentValue
+        if ($available -lt 2) {
+            throw "Insufficient vCPU quota for $VMSize ($name): limit $($quota[0].Limit), usage $($quota[0].CurrentValue), additional required 2. No automatic fallback."
+        }
+    }
 }

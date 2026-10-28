@@ -56,6 +56,11 @@ statische öffentliche IPv4, Key Vault. Die konkrete VM-Verfügbarkeit und das
 Kontingent hängen vom Abonnement ab; es wird nicht automatisch auf eine teurere
 VM ausgewichen.
 
+Als ausdrückliche Alternative akzeptiert `-VMSize Standard_B2s` die ältere
+BS-Familie mit ebenfalls 2 vCPU und 4 GiB RAM. Der Standard bleibt
+`Standard_B2als_v2`. Andere Größen sind nicht zugelassen; es gibt keine
+automatische Auswahl, Vergrößerung oder Änderung einer vorhandenen VM.
+
 ### Einen bereits eingerichteten Key Vault verwenden
 
 Ist `openai-api-key` bereits in einem RBAC-Vault in `rg-agentic-studio`
@@ -153,6 +158,40 @@ Azure-Zugangsschlüssel in der Anwendung. Nach dem ersten Start können
 Rollenverteilung, Image-Build und HTTPS-Zertifikat einige Minuten benötigen.
 Die obigen Befehle binden Plan und Ausführung an denselben ausgecheckten Commit;
 der GitHub-Quellbaum muss vor jeder Azure-Änderung die benötigten Dateien enthalten.
+
+### Wenn das VM-Familienkontingent null ist
+
+Ein verfügbarer SKU-Eintrag ohne `Restrictions` bestätigt kein freies
+vCPU-Kontingent. Azure prüft sowohl das regionale Gesamtkontingent (`cores`)
+als auch die VM-Familie: `standardBasv2Family` für B2als v2,
+`standardBSFamily` für B2s. Beide hier zugelassenen Größen benötigen 2 vCPUs.
+
+Der Deployer prüft diese beiden Kontingente für eine neue VM lesend vor
+Secret-/Rollen-/Netzwerkänderungen; fehlende Angaben oder weniger als zwei freie
+vCPUs führen zum Abbruch. Eine vorhandene VM wird nicht als neue Allokation
+gezählt. Kontingentwerte sind Momentaufnahmen und keine Kapazitätsreservierung.
+Die Auswahl einer anderen Größe als der vorhandenen VM wird abgewiesen.
+
+Hat Basv2 Limit 0, kann der Besitzer mindestens 2 vCPUs dafür beantragen oder
+eine bereits freigegebene Alternative ausdrücklich wählen. Vor B2s sind dessen
+eigener regionaler SKU-Status, die beiden Kontingente und der Preis zu prüfen:
+
+```powershell
+Get-AzVMUsage -Location polandcentral |
+    Where-Object { $_.Name.Value -in @('cores', 'standardBSFamily', 'standardBasv2Family') } |
+    Select-Object Name, CurrentValue, Limit
+Get-AzComputeResourceSku -Location polandcentral |
+    Where-Object { $_.ResourceType -eq 'virtualMachines' -and $_.Name -eq 'Standard_B2s' } |
+    Select-Object Name, Family, Locations, Restrictions
+./deploy/azure/Deploy-Studio.ps1 -SubscriptionId $subscriptionId -DnsLabel $dnsLabel -SourceCommit $sourceCommit -ExistingVaultName $existingVaultName -Location polandcentral -VMSize Standard_B2s -EnableOpenAI -Deploy
+```
+
+Die gewählte Größe steht im Plan und in der öffentlichen VM-Startkonfiguration.
+Der tatsächliche SDK-Test deckt beide Größen einschließlich SSH-only-Profil,
+JSON-Transport und unveränderter Standard-SSD ab. Der Quoten-Regressionstest
+prüft Null, fehlende Angaben, bereits belegte vCPUs und die Wiederholung mit
+einer vorhandenen VM ohne neuen Quotenbedarf. Kein automatischer Quotenantrag,
+Wechsel auf Spot/ARM oder Löschen fehlgeschlagener Ressourcen.
 
 ### Falls der VM-Aufbau beim OS-Passwort abbricht
 
@@ -304,6 +343,14 @@ Währungsumrechnung, Netzwerkverkehr, Festplattenoperationen und OpenAI-Nutzung.
 Das ist keine verbindliche Rechnung oder Budgetobergrenze. Ein größerer
 Datenträger kostet entsprechend mehr. Die ältere B1/B2-v1-Familie wird wegen
 angekündigter Einschränkungen und Ablösung nicht als Standard verwendet.
+
+Zusätzlich am **2026-10-28** aus der offiziellen Retail Prices API abgefragt:
+Linux `Standard_B2s`, Produkt `Virtual Machines BS Series`, Poland Central,
+PAYG ohne Windows/Spot/Reservierung: **0,048 USD/Stunde**, also **35,04 USD für
+730 VM-Stunden**. Der regionale B2als-v2-Vergleichspreis beträgt 0,0432 USD/Stunde;
+die B2s-Alternative kostet damit rund 3,50 USD mehr je 730 Stunden. Diese Zahlen
+betreffen nur die VM; Disk, öffentliche IP, Operationen, Traffic, Steuern und
+OpenAI kommen hinzu. Keine Rechnungsgarantie oder bestätigte SKU-Verfügbarkeit.
 
 Eine einzelne VM ist kein hochverfügbarer Dienst. Der Arbeitsstand liegt unter
 `/srv/aas` auf der OS-Festplatte und überlebt Container- und VM-Neustarts. Das

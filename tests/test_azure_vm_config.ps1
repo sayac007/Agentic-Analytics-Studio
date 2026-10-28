@@ -40,9 +40,10 @@ try {
     & ssh-keygen -q -t ed25519 -N '' -f $keyFile
     if ($LASTEXITCODE -ne 0) { throw 'Test public-key generation failed.' }
     $publicKey = (Get-Content "$keyFile.pub" -Raw).Trim()
+    foreach ($size in @('Standard_B2als_v2', 'Standard_B2s')) {
     $vm = New-StudioVMConfig -Name 'aas-offline-test' -Tags @{Application='OFFLINE_SOFTWARE_TEST'} `
         -NetworkInterfaceId '/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg-offline-test/providers/Microsoft.Network/networkInterfaces/offline-nic' `
-        -PublicKey $publicKey
+        -PublicKey $publicKey -VMSize $size
     Assert-That ($null -eq $vm.OSProfile.AdminPassword) 'Actual SDK password is not null'
     Assert-That ((Get-StudioResourceTags $vm).Application -eq 'OFFLINE_SOFTWARE_TEST') 'Actual Compute plural Tags were lost'
     Assert-That ($vm.OSProfile.AdminUsername -eq 'aasadmin') 'Wrong OS user'
@@ -65,14 +66,16 @@ try {
     Assert-That ($profile.linuxConfiguration.disablePasswordAuthentication -eq $true) 'Serialized password-auth flag changed'
     Assert-That ($profile.linuxConfiguration.ssh.publicKeys.Count -eq 1 -and
         $profile.linuxConfiguration.ssh.publicKeys[0].keyData -ceq $publicKey) 'Serialized public key changed'
-    Assert-That ($body.properties.hardwareProfile.vmSize -eq 'Standard_B2als_v2') 'VM size changed'
+    Assert-That ($body.properties.hardwareProfile.vmSize -eq $size) 'Explicit VM size changed'
     Assert-That ($body.properties.storageProfile.osDisk.managedDisk.storageAccountType -eq 'StandardSSD_LRS') 'Disk changed'
     # Reproduce the reported failure using the actual CLR-typed SDK property.
     $vm.OSProfile.AdminPassword = $null
     Assert-That ($null -ne $vm.OSProfile.AdminPassword -and $vm.OSProfile.AdminPassword.Length -eq 0) 'Typed-null regression not reproduced'
     $badBody = ConvertFrom-Json ([Microsoft.Rest.Serialization.SafeJsonConvert]::SerializeObject($parameters, $client.SerializationSettings)) -AsHashtable
     Assert-That ($badBody.properties.osProfile.ContainsKey('adminPassword')) 'Expected empty-password serialization not reproduced'
-    Write-Host 'PASS: actual Az.Compute 11.10.0 builders and SDK serializer omit adminPassword and retain SSH-only config; original typed-null bug reproduced. Offline only; no Azure deployment.'
+    Write-Host "PASS: actual Az.Compute 11.10.0 $size builders/serializer retain explicit size, disk and SSH-only config; typed-null bug reproduced. Offline only."
+    $client.Dispose(); $client=$null
+    }
 } finally {
     if ($client) { $client.Dispose() }
     Remove-Item -LiteralPath $keyFile, "$keyFile.pub" -ErrorAction SilentlyContinue

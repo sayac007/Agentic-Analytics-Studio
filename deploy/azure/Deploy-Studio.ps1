@@ -4,6 +4,7 @@ param(
     [Parameter(Mandatory)][guid]$SubscriptionId,
     [Parameter(Mandatory)][ValidatePattern('^[a-z][a-z0-9-]{1,61}[a-z0-9]$')][string]$DnsLabel,
     [ValidatePattern('(?-i)\A[a-z][a-z0-9]{1,31}\z')][string]$Location = 'westeurope',
+    [ValidateSet('Standard_B2als_v2', 'Standard_B2s')][string]$VMSize = 'Standard_B2als_v2',
     [guid]$AdminObjectId = [guid]::Empty,
     [ValidatePattern('^$|^[a-z][a-z0-9-]{1,22}[a-z0-9]$')][string]$ExistingVaultName = '',
     [ValidatePattern('^$|^[0-9a-f]{40}$')][string]$SourceCommit = '',
@@ -45,16 +46,18 @@ foreach ($path in $requiredFiles) {
     }
 }
 Write-Host "Subscription: $SubscriptionId | Resource group: $group | Location: $location"
-Write-Host "VM: $vmName, Standard_B2als_v2, Ubuntu 24.04 x86, Standard SSD 32 GiB"
+Write-Host "VM: $vmName, $VMSize (2 vCPU, 4 GiB), Ubuntu 24.04 x86, Standard SSD 32 GiB"
 Write-Host "URL: https://$hostname | Key Vault: $vaultName | Source: $SourceCommit"
 Write-Host "Optional OpenAI enabled: $($EnableOpenAI.IsPresent). BasicAuth user: studio."
 if ($ExistingVaultName) {
     Write-Host 'Existing-vault mode: reuse the named RBAC vault and group without retagging or changing human permissions.'
 }
-if ($Location -eq 'westeurope') {
+if ($Location -eq 'westeurope' -and $VMSize -eq 'Standard_B2als_v2') {
     Write-Host 'Indicative West Europe infrastructure: approximately USD37.59/month; API, tax and variable operations extra.'
+} elseif ($Location -eq 'polandcentral' -and $VMSize -eq 'Standard_B2s') {
+    Write-Host 'Observed Linux B2s PAYG price, Poland Central, 2026-10-28: USD0.048/hour (USD35.04/730h), VM only. Disk, IP, API, tax and variable operations extra.'
 } else {
-    Write-Host 'Regional infrastructure prices have not been verified here. VM size stays Standard_B2als_v2; API, tax and variable operations extra.'
+    Write-Host 'Check the regional price of the explicitly selected VM size; API, tax and variable operations extra.'
 }
 if (-not $Deploy) {
     Write-Host 'PLAN ONLY: no Azure resources, role assignments or secrets were changed. Add -Deploy to provision.'
@@ -147,17 +150,24 @@ try {
     if (-not $vault.EnableRbacAuthorization) { throw 'The existing vault must use Azure RBAC; no access policy was changed.' }
     # Check regional components before secret/role/network writes. A change must
     # never silently reuse or relocate a partially created network or VM.
+    $existingVm = Get-AzVM -ResourceGroupName $group -Name $vmName -ErrorAction SilentlyContinue
     foreach ($existing in @(
         (Get-AzNetworkSecurityGroup -ResourceGroupName $group -Name 'aas-web' -ErrorAction SilentlyContinue)
         (Get-AzVirtualNetwork -ResourceGroupName $group -Name 'aas-network' -ErrorAction SilentlyContinue)
         (Get-AzPublicIpAddress -ResourceGroupName $group -Name 'aas-public-ip' -ErrorAction SilentlyContinue)
         (Get-AzNetworkInterface -ResourceGroupName $group -Name 'aas-nic' -ErrorAction SilentlyContinue)
-        (Get-AzVM -ResourceGroupName $group -Name $vmName -ErrorAction SilentlyContinue)
+        $existingVm
     )) {
         Assert-Owned $existing
         if ($null -ne $existing -and $existing.Location -ine $Location) {
             throw "An existing VM/network resource is outside selected location $Location; inspect the group before retrying. No automatic move or deletion."
         }
+    }
+    if ($existingVm) {
+        if ($existingVm.HardwareProfile.VmSize -ne $VMSize) { throw 'Existing VM size differs from the explicit selection; no automatic resize or deletion.' }
+    } else {
+        # Read-only, before secret/role/network writes. Existing VMs need no new allocation.
+        Assert-StudioVMQuota -VMSize $VMSize -Usage @(Get-AzVMUsage -Location $Location -ErrorAction Stop)
     }
     if (-not $ExistingVaultName) {
         Ensure-Role $AdminObjectId.ToString() 'b86a8fe4-44ce-4948-aee5-eccb2c155cd7' $vault.ResourceId 'User'
@@ -235,7 +245,7 @@ try {
             & ssh-keygen -q -t ed25519 -N '' -f $sshFile
             if ($LASTEXITCODE -ne 0) { throw 'Temporary SSH public-key generation failed.' }
             $vm = New-StudioVMConfig -Name $vmName -NetworkInterfaceId $nic.Id `
-                -PublicKey (Get-Content "$sshFile.pub" -Raw).Trim() -Tags $tag
+                -PublicKey (Get-Content "$sshFile.pub" -Raw).Trim() -Tags $tag -VMSize $VMSize
             New-AzVM -ResourceGroupName $group -Location $location -VM $vm -DisableBginfoExtension | Out-Null
         } finally {
             if ($sshFile) { Remove-Item -LiteralPath $sshFile, "$sshFile.pub" -ErrorAction SilentlyContinue }
@@ -243,11 +253,11 @@ try {
         $vm = Get-AzVM -ResourceGroupName $group -Name $vmName
     }
     if ($vm.Location -ne $location -or $vm.StorageProfile.OsDisk.DiffDiskSettings.Option -eq 'Local' -or
-        $vm.HardwareProfile.VmSize -ne 'Standard_B2als_v2' -or $vm.NetworkProfile.NetworkInterfaces.Count -ne 1 -or
+        $vm.HardwareProfile.VmSize -ne $VMSize -or $vm.NetworkProfile.NetworkInterfaces.Count -ne 1 -or
         $vm.NetworkProfile.NetworkInterfaces[0].Id -ne $nic.Id) { throw 'Existing VM size or network differs from this deployment.' }
     if (-not $vm.Identity.PrincipalId) { throw 'The VM needs its system-assigned managed identity.' }
     Ensure-Role $vm.Identity.PrincipalId '4633458b-17de-408a-b874-0445c86b69e6' $vault.ResourceId 'ServicePrincipal'
-    $publicConfig = @{ source_commit = $SourceCommit; vault_name = $vaultName; hostname = $hostname; location = $Location;
+    $publicConfig = @{ source_commit = $SourceCommit; vault_name = $vaultName; hostname = $hostname; location = $Location; vm_size = $VMSize;
                        enable_openai = $EnableOpenAI.IsPresent } | ConvertTo-Json -Compress
     # Run Command receives public configuration only. It retrieves no secret in this script.
     $command = @"
