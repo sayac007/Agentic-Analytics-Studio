@@ -54,17 +54,20 @@ function Get-AzNetworkSecurityGroup { param($ResourceGroupName,$Name,$ErrorActio
 function New-AzNetworkSecurityRuleConfig { param($Name,$Protocol,$Direction,$Priority,$SourceAddressPrefix,$SourcePortRange,$DestinationAddressPrefix,$DestinationPortRange,$Access)
     return [pscustomobject]@{Name=$Name;Protocol=$Protocol;Direction=$Direction;Priority=$Priority;SourceAddressPrefix=$SourceAddressPrefix;SourcePortRange=$SourcePortRange;DestinationAddressPrefix=$DestinationAddressPrefix;DestinationPortRange=$DestinationPortRange;Access=$Access}
 }
-function New-AzNetworkSecurityGroup { param($ResourceGroupName,$Location,$Name,$SecurityRules,$Tag) $MockState.Changes++; $MockState.Nsg=@{Id='/mock/nsg';SecurityRules=$SecurityRules;Tags=$Tag}; return $MockState.Nsg }
+function New-AzNetworkSecurityGroup { param($ResourceGroupName,$Location,$Name,$SecurityRules,$Tag)
+    if ($MockState.BlockedLocation -eq $Location) { throw '403 RequestDisallowedByAzure: locationineligible' }
+    $MockState.Changes++; $MockState.Nsg=@{Id='/mock/nsg';Location=$Location;SecurityRules=$SecurityRules;Tags=$Tag}; return $MockState.Nsg
+}
 function Get-AzVirtualNetwork { param($ResourceGroupName,$Name,$ErrorAction) return $MockState.Vnet }
 function New-AzVirtualNetworkSubnetConfig { param($Name,$AddressPrefix) return @{Id='/mock/subnet';Name=$Name;AddressPrefix=$AddressPrefix} }
-function New-AzVirtualNetwork { param($ResourceGroupName,$Location,$Name,$AddressPrefix,$Subnet,$Tag) $MockState.Changes++; $MockState.Vnet=@{Tags=$Tag;Subnets=@($Subnet)}; return $MockState.Vnet }
+function New-AzVirtualNetwork { param($ResourceGroupName,$Location,$Name,$AddressPrefix,$Subnet,$Tag) $MockState.Changes++; $MockState.Vnet=@{Location=$Location;Tags=$Tag;Subnets=@($Subnet)}; return $MockState.Vnet }
 function Get-AzPublicIpAddress { param($ResourceGroupName,$Name,$ErrorAction) return $MockState.Ip }
 function New-AzPublicIpAddress { param($ResourceGroupName,$Location,$Name,$AllocationMethod,$Sku,$DomainNameLabel,$Tag)
-    $MockState.Changes++; $MockState.Ip=@{Id='/mock/ip';Tags=$Tag;DnsSettings=@{Fqdn="$DomainNameLabel.westeurope.cloudapp.azure.com"}}; return $MockState.Ip
+    $MockState.Changes++; $MockState.Ip=@{Id='/mock/ip';Location=$Location;Tags=$Tag;DnsSettings=@{Fqdn="$DomainNameLabel.$Location.cloudapp.azure.com"}}; return $MockState.Ip
 }
 function Get-AzNetworkInterface { param($ResourceGroupName,$Name,$ErrorAction) return $MockState.Nic }
 function New-AzNetworkInterface { param($ResourceGroupName,$Location,$Name,$SubnetId,$NetworkSecurityGroupId,$PublicIpAddressId,$Tag)
-    $MockState.Changes++; $MockState.Nic=@{Id='/mock/nic';Tags=$Tag;NetworkSecurityGroup=@{Id=$NetworkSecurityGroupId};IpConfigurations=@(@{PublicIpAddress=@{Id=$PublicIpAddressId};Subnet=@{Id=$SubnetId}})}; return $MockState.Nic
+    $MockState.Changes++; $MockState.Nic=@{Id='/mock/nic';Location=$Location;Tags=$Tag;NetworkSecurityGroup=@{Id=$NetworkSecurityGroupId};IpConfigurations=@(@{PublicIpAddress=@{Id=$PublicIpAddressId};Subnet=@{Id=$SubnetId}})}; return $MockState.Nic
 }
 function Get-AzVM { param($ResourceGroupName,$Name,$ErrorAction) return $MockState.Vm }
 function New-AzVMConfig { param($VMName,$VMSize,$IdentityType,$Tags)
@@ -213,4 +216,47 @@ Assert-ReuseRefused 'must already contain'
 $MockState.Secrets=@{'openai-api-key'=$true;'studio-login-password'=$true}
 $MockState.Vm.Tags=@{Application='UnrelatedApplication'}
 Assert-ReuseRefused 'not tagged'
-Write-Host 'PASS: new deployment and explicit existing-vault reuse; secret/role/tag preservation; Graph-independent reuse; ownership/network/source/RBAC/identity/missing-secret failure gates. Local mocks only; no Azure deployment.'
+$MockState.Vm.Tags=@{Application='AgenticAnalyticsStudio';Deployment='private-vm-v1'}
+
+# Reject cross-region partial resources before any secret/role/network writes.
+foreach ($component in @('Nsg','Vnet','Ip','Nic','Vm')) {
+    $MockState[$component].Location='polandcentral'
+    Assert-ReuseRefused 'outside selected location'
+    $MockState[$component].Location='westeurope'
+}
+$reuseArguments.Location='polandcentral'
+Assert-ReuseRefused 'outside selected location'
+foreach ($component in @('Nsg','Vnet','Ip','Nic','Vm')) { $MockState[$component]=$null }
+
+# Azure rejection must not switch regions or allocate a VM/IP automatically.
+$MockState.BlockedLocation='polandcentral'
+$before=$MockState.Changes; $commandsBefore=$MockState.Commands.Count
+$refused=$false
+try { & $DeployScript @reuseArguments } catch { $refused=$_.Exception.Message -match 'locationineligible' }
+Assert-That $refused 'Azure region rejection was swallowed'
+Assert-That ($MockState.Changes -eq $before -and $MockState.Commands.Count -eq $commandsBefore -and
+    $null -eq $MockState.Ip -and $null -eq $MockState.Vm) 'Rejected region caused writes or automatic fallback'
+$MockState.BlockedLocation=$null
+
+# A deliberately selected region propagates to every component and public config.
+& $DeployScript @reuseArguments
+foreach ($component in @('Nsg','Vnet','Ip','Nic','Vm')) {
+    Assert-That ($MockState[$component].Location -eq 'polandcentral') "$component ignored chosen region"
+}
+Assert-That ($MockState.Ip.DnsSettings.Fqdn -eq 'aas-mock-check.polandcentral.cloudapp.azure.com') 'DNS region mismatch'
+Assert-That ($MockState.Commands[-1].Contains('"location":"polandcentral"') -and
+    $MockState.Commands[-1].Contains('"hostname":"aas-mock-check.polandcentral.cloudapp.azure.com"')) 'Runtime region config mismatch'
+Assert-That ($MockState.Vault.ResourceId -eq $vaultId -and $MockState.Group.Location -eq 'polandcentral') 'Existing vault/group changed'
+$before=$MockState.Changes; $promptsBefore=$MockState.PasswordPrompts
+& $DeployScript @reuseArguments
+Assert-That ($MockState.Changes -eq $before -and $MockState.PasswordPrompts -eq $promptsBefore) 'Regional rerun rewrote state'
+
+foreach ($bad in @('polandcentral.evil','PolandCentral','https://polandcentral',"polandcentral`n")) {
+    $badArguments=$reuseArguments.Clone();$badArguments.Location=$bad
+    $before=$MockState.Changes;$azbefore=$MockState.AzureContextCalls
+    $refused=$false
+    try { & $DeployScript @badArguments } catch { $refused=$_.Exception.Message -match 'validat' }
+    Assert-That $refused 'Invalid region identifier accepted'
+    Assert-That ($MockState.Changes -eq $before -and $MockState.AzureContextCalls -eq $azbefore) 'Invalid region reached Azure'
+}
+Write-Host 'PASS: selectable region, bound DNS/runtime config, cross-region and Azure-rejection gates; existing secret/role/tag/network/source/RBAC checks. Local mocks only; no Azure deployment.'

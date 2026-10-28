@@ -54,9 +54,11 @@ def refresh(config, output_dir):
     import bcrypt  # Ubuntu python3-bcrypt, independent of application dependencies.
     vault = config.get('vault_name')
     host = config.get('hostname')
+    location = config.get('location', 'westeurope')  # Existing deployments remain valid.
     enabled = config.get('enable_openai')
     if (not isinstance(vault, str) or not re.fullmatch(r'[a-z][a-z0-9-]{1,22}[a-z0-9]', vault)
-            or not isinstance(host, str) or not re.fullmatch(r'[a-z][a-z0-9-]{1,61}[a-z0-9]\.westeurope\.cloudapp\.azure\.com', host)
+            or not isinstance(location, str) or not re.fullmatch(r'[a-z][a-z0-9]{1,31}', location)
+            or not isinstance(host, str) or not re.fullmatch(r'[a-z][a-z0-9-]{1,61}[a-z0-9]\.' + re.escape(location) + r'\.cloudapp\.azure\.com', host)
             or type(enabled) is not bool):
         raise ValueError('Invalid public deployment configuration')
     output_dir = Path(output_dir)

@@ -37,7 +37,7 @@ außerhalb von Git und Docker-Images im privaten Workspace gespeichert.
 
 [Empirische Bedienung und Grenzen](docs/EMPIRICAL_STUDIO.md) ·
 [Festgelegte Methodik](workorders/03c-empirical-live.md) ·
-[Azure-Einrichtung mit vorhandenem Key Vault](docs/AZURE_PRIVATE_STUDIO.md)
+[Azure-Einrichtung mit vorhandenem Key Vault und wählbarer Region](docs/AZURE_PRIVATE_STUDIO.md)
 
 VARX bleibt eine optionale multivariate Erweiterung; der Live-Pilot beginnt mit
 überschaubarer dynamischer Einzelreihen-Regression. Statistische Zusammenhänge und

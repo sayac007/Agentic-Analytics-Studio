@@ -50,7 +50,8 @@ Abonnement-ID und DNS-Name sind keine Zugangsschlüssel. Ein Azure-Benutzer mit
 Rechten zur Ressourcenanlage und zur Vergabe von Rollen ist erforderlich; reine
 Contributor-Rechte reichen für die Key-Vault-Rollenzuweisungen nicht aus.
 
-Standard: West Europe, Ubuntu, `Standard_B2als_v2` (2 vCPU, 4 GiB), Standard SSD,
+Standard: West Europe; mit `-Location` ist die Region ausdrücklich wählbar,
+beispielsweise `-Location polandcentral`. Ubuntu, `Standard_B2als_v2` (2 vCPU, 4 GiB), Standard SSD,
 statische öffentliche IPv4, Key Vault. Die konkrete VM-Verfügbarkeit und das
 Kontingent hängen vom Abonnement ab; es wird nicht automatisch auf eine teurere
 VM ausgewichen.
@@ -79,7 +80,42 @@ unterliegen weiterhin sämtlichen Eigentums- und Sicherheitsprüfungen.
 
 Die Region der Ressourcengruppe betrifft ihre Verwaltungsmetadaten. Auch eine
 Gruppe in einer anderen Region kann die hier vorgesehenen VM-Ressourcen in
-West Europe enthalten; ein vorhandener Vault wird nicht verschoben.
+der ausgewählten Region enthalten; ein vorhandener Vault wird nicht verschoben.
+
+### Wenn Azure die Region ablehnt (`locationineligible` / 403)
+
+Die Meldung „selected region is currently not accepting new customers“ betrifft
+die regionale Zulassung des Abonnements. Ein erneutes Setzen des API-Keys oder
+eine Änderung seiner RBAC-Rolle löst diesen Fehler nicht. Zuerst nur lesen:
+
+```powershell
+Get-AzResource -ResourceGroupName rg-agentic-studio |
+    Select-Object Name, ResourceType, Location
+
+Get-AzComputeResourceSku -Location polandcentral |
+    Where-Object { $_.ResourceType -eq 'virtualMachines' -and $_.Name -eq 'Standard_B2als_v2' } |
+    Select-Object Name, Locations, @{Name='Restrictions';Expression={ $_.Restrictions | ConvertTo-Json -Depth 6 -Compress }}
+```
+
+Ein vorhandener Key Vault oder ein Eintrag im allgemeinen Regionskatalog ist
+kein Nachweis, dass VM-/Netzwerkressourcen dort zulässig sind. Auch die SKU-Liste
+ist keine Reservierung oder Garantie für die spätere Bereitstellung. Die
+Kontofreigabe und Kapazität müssen zur tatsächlichen Bereitstellung passen.
+
+Ist bislang nur der bestehende Key Vault vorhanden, kann die ausgewählte andere
+Region mit dem aktualisierten, gepinnten Quellstand ausdrücklich versucht werden:
+
+```powershell
+./deploy/azure/Deploy-Studio.ps1 -SubscriptionId $subscriptionId -DnsLabel $dnsLabel -SourceCommit $sourceCommit -ExistingVaultName $existingVaultName -Location polandcentral -EnableOpenAI -Deploy
+```
+
+Die Adresse lautet dann `https://<dnsLabel>.polandcentral.cloudapp.azure.com`.
+Die Region wird konsistent für Netzwerk, VM, DNS und private Startkonfiguration
+verwendet. Vorhandene Secrets bleiben erhalten. Es gibt keinen automatischen
+Regionswechsel, keinen Wechsel auf eine größere VM und keine automatische Löschung.
+Bereits vorhandene gleichnamige VM-/Netzwerkressourcen in einer anderen Region
+führen vor weiteren Secret-/Rollen-/Netzwerkänderungen zum Abbruch; ihre Daten
+und etwaigen laufenden Kosten müssen dann ausdrücklich geprüft werden.
 
 ## 2. Bewusst bereitstellen
 
@@ -162,7 +198,7 @@ Administratoren.
 
 ## 4. Die erste tatsächliche Prüfung
 
-1. Die vom Skript ausgegebene **`https://…westeurope.cloudapp.azure.com`**-Adresse
+1. Die vom Skript ausgegebene **`https://<dnsLabel>.<region>.cloudapp.azure.com`**-Adresse
    öffnen und mit `studio` und dem Studio-Passwort anmelden.
 2. **Vorhandene Quellen prüfen & Modelle öffnen** wählen. Die sechs Original-
    Quelldateien müssen ihren vorhandenen SHA-256-Prüfsummen entsprechen.
@@ -194,7 +230,8 @@ Tatsächlich abgerufene öffentliche PAYG-Listenpreise, West Europe, USD,
 | Statische Standard-IPv4 | 0,005 USD/Stunde | 3,65 USD |
 | Key-Vault-Standardoperationen | 0,03 USD/10.000 Operationen | nutzungsabhängig |
 
-Grundbetrag etwa **37,59 USD/Monat**. Hinzu kommen unter anderem Steuern,
+Grundbetrag in West Europe etwa **37,59 USD/Monat**. Diese Preisprüfung gilt nicht
+automatisch für eine andere Region. Hinzu kommen unter anderem Steuern,
 Währungsumrechnung, Netzwerkverkehr, Festplattenoperationen und OpenAI-Nutzung.
 Das ist keine verbindliche Rechnung oder Budgetobergrenze. Ein größerer
 Datenträger kostet entsprechend mehr. Die ältere B1/B2-v1-Familie wird wegen
@@ -262,6 +299,12 @@ Der entsprechende Regressionstest ist jetzt mit
 `pwsh -NoProfile -File tests/test_azure_deploy.ps1` reproduzierbar und Bestandteil
 der CI. Er prüft auch die explizite Wiederverwendung eines ungetaggten Vaults,
 ohne den vorhandenen API-Key oder die menschlichen Rollen zu verändern.
+Die Regionskorrektur wurde am 2026-10-28 zusätzlich lokal mit PowerShell 7.6.9
+und diesen Az-Testdoubles geprüft: Standardregion und explizite andere Region,
+DNS-/Startkonfigurationsbindung, Wiederholung, Abbruch bei fremder Region sowie
+weitergereichte Azure-403-Ablehnung ohne automatischen Ausweichversuch.
+Alle 8 Secret-Tests und 7 HTTP-/Hosting-Tests bestanden ebenfalls. Diese Tests
+verwendeten keine realen Azure-Zugangsdaten und bestätigen keine Kontokapazität.
 CI-Nachweise gehören zum jeweiligen Commit im PR. Ein Syntaxcheck, lokaler
 Container oder CI-Fake ist kein Nachweis einer erfolgreichen Azure-
 Bereitstellung oder eines bezahlten Live-API-Aufrufs.

@@ -75,6 +75,14 @@ class AzureSecretTests(unittest.TestCase):
         self.assertNotIn('OPENAI_API_KEY', app)
         self.assertFalse(any('/secrets/openai-api-key?' in url for url, _ in self.calls))
 
+    def test_explicit_region_binds_app_origin_and_caddy_host(self):
+        self.invoke({**CONFIG, 'location': 'polandcentral',
+                     'hostname': 'aas-test.polandcentral.cloudapp.azure.com'})
+        self.assertIn("AAS_PUBLIC_ORIGIN='https://aas-test.polandcentral.cloudapp.azure.com'",
+                      (self.out / 'app.env').read_text())
+        self.assertIn("STUDIO_HOST='aas-test.polandcentral.cloudapp.azure.com'",
+                      (self.out / 'caddy.env').read_text())
+
     def test_missing_secret_fails_without_successful_runtime_files(self):
         with self.assertRaisesRegex(RuntimeError, 'remains stopped'):
             self.invoke(fetch=lambda url, headers: (_ for _ in ()).throw(RuntimeError(KEY)))
@@ -94,6 +102,11 @@ class AzureSecretTests(unittest.TestCase):
     def test_public_config_cannot_redirect_identity_to_another_host(self):
         for bad in ({**CONFIG, 'vault_name': 'bad.example/path'},
                     {**CONFIG, 'hostname': 'aas-test.westeurope.cloudapp.azure.com.evil'},
+                    {**CONFIG, 'location': 'polandcentral'},
+                    {**CONFIG, 'location': 'polandcentral.evil'},
+                    {**CONFIG, 'location': None},
+                    {**CONFIG, 'location': 'PolandCentral'},
+                    {**CONFIG, 'hostname': 'aas-test.polandcentral.cloudapp.azure.com'},
                     {**CONFIG, 'enable_openai': 'true'}):
             with self.subTest(config=bad), self.assertRaises(ValueError):
                 self.invoke(bad)
