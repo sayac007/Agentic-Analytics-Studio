@@ -61,3 +61,37 @@ Use the existing Azure VM/HTTPS/Key Vault setup. Do not request API keys in chat
 The environment has no authenticated Azure connector; any required Cloud Shell
 step is supplied as a concrete command for the account owner. Report the actual
 live URL/check separately from local tests and CI. No automatic merge.
+
+## Amendment 1.1 — user-requested stationarity checks and HypoForge lags
+
+2026-10-28, specified after inspecting the first four-model pilot, before computing
+this amended comparison. Original v1 pilot files remain separate and unchanged.
+
+- Stationarity checks are mandatory for registrations in original counts,
+  `log1p` levels and the modeled changes, both training-only and descriptively for
+  the full retrospective window. ADF uses augmentation 3, no autolag, `ct` for
+  levels and `c` for changes. KPSS uses fixed 3 lags with matching deterministic
+  terms. Report null hypotheses, actual p-value bounds/warnings and segment length.
+- For every estimable specification, check full-fit and training-fit residuals
+  separately using ADF/KPSS with `c` and fixed 3 lags. Scatter residuals back onto
+  the original monthly calendar before taking the longest contiguous segment
+  (earliest tie, minimum 27 months). No concatenation across diesel gaps.
+- Residual-test p-values after fitted regression are exploratory diagnostics,
+  not a calibrated residual-based cointegration test or model-acceptance proof.
+  Supported / adverse / conflicting / inconclusive / not-estimable outcomes remain
+  visible. No automatic differencing, lag change or suppression after a test.
+  Stationarity alone does not establish white noise or causal identification.
+- Actually use pinned HypoForge-Python commit
+  `c47f636d24a39a820574a13133d6af693134a180` through
+  `evaluate(FeatureSpec(..., op='diff'/'lag', params=(('periods', k),)), frame)`.
+  The frame retains all calendar slots and NaNs. Validate exact lag/difference
+  arithmetic and the absence of future-value leakage; no discovery/scoring search.
+- Extend the two macro specifications with shared exogenous lags **2 and 3**,
+  alongside lag 1; target autoregression remains lag 1. Thus eight fixed models:
+  calendar, dynamic, macro/diesel at each shared lag 1/2/3. Every variant retains
+  its same-row comparator; no holdout-based winner or mix of individually searched
+  driver lags. Residual research remains fixed on the lag-1 macro training fit.
+- VARX is an optional multivariate method, never an automatic response to a failed
+  stationarity test. The default remains dynamic single-outcome regression. Its
+  actual inclusion in today's live pilot is being clarified with the user; no
+  working VARX implementation or new VARX result is claimed by this amendment.
