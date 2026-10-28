@@ -32,6 +32,8 @@
 !data/tesla_product_events/**
 !workorders/
 !workorders/03c-empirical-live.md
+!docs/
+!docs/COPILOT_RESULT_PRESENTATION.md
 **/__pycache__/
 **/*.py[cod]
 **/.aas-workspace/

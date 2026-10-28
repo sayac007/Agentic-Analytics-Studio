@@ -65,7 +65,7 @@ with tempfile.TemporaryDirectory(prefix='aas-observed-browser-') as tmp:
             page.locator('#question').fill('Welche Unsicherheit bleibt bei den Residuen?')
             page.locator('#preview').click()
             page.locator('#observed-consent-panel').wait_for(state='visible')
-            context=json.loads(page.locator('#context-preview').inner_text())
+            context=json.loads(page.locator('#context-preview').text_content())
             assert context['classification']=='OBSERVED_PRIVATE'
             assert context['selected_model']=='macro_diesel_lag3'
             assert 'series' not in context and 'history' not in context

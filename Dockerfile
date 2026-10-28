@@ -43,6 +43,7 @@ COPY data/fuel_oil/ ./data/fuel_oil/
 COPY data/verified_sources/ ./data/verified_sources/
 COPY data/tesla_product_events/ ./data/tesla_product_events/
 COPY workorders/03c-empirical-live.md ./workorders/03c-empirical-live.md
+COPY docs/COPILOT_RESULT_PRESENTATION.md ./docs/COPILOT_RESULT_PRESENTATION.md
 RUN find /app -type d -exec chmod 0755 {} + \
     && find /app -type f -exec chmod 0644 {} +
 

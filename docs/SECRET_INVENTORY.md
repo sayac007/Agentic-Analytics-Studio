@@ -39,9 +39,13 @@ ursprünglich beim Anbieter erzeugt wurde.
 
 Am 28.10.2026 meldete der Nutzer eine erfolgreiche Browseranzeige mit
 „OpenAI ist serverseitig konfiguriert“, anschließend einen fehlgeschlagenen
-Inference-Aufruf. Das bestätigt noch keine Anbieter-Gültigkeit. HTTP-Fehlercode
-und Ursache werden erst nach der sicheren Diagnose eingetragen; kein Ablaufdatum
-oder falscher Schlüssel wird ohne Beleg als Ursache behauptet.
+Inference-Aufruf. Im anschließend vom Nutzer ausgeführten reinen Modellmetadaten-
+Check meldete OpenAI **HTTP 401, `invalid_api_key`** für den aktuell verwendeten
+Runtime-Schlüssel. Die Konfiguration war aktiviert und ein Schlüssel vorhanden.
+Das belegt dessen Ablehnung, nicht den Grund (etwa Ablauf, Widerruf oder falsch
+gespeicherter Wert). Kein Inference-Aufruf wurde bei dieser Diagnose ausgeführt.
+Ein Schlüsselwechsel oder eine erfolgreiche Wiederholungsprüfung ist noch nicht
+gemeldet; auf Nutzerwunsch am Folgetag gemeinsam fortsetzen. Exakte Uhrzeit unbekannt.
 
 ## Automatisch verwaltete Zugangsmittel
 

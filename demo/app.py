@@ -412,6 +412,57 @@ class EmpiricalQuestion(StrictRequest):
     context_sha256: str | None = Field(default=None, pattern=r'^[0-9a-f]{64}$')
 
 
+class ResearchBrief(StrictRequest):
+    question: str = Field(min_length=1, max_length=1200, pattern=r'\S')
+    audience: str = Field(min_length=1, max_length=300, pattern=r'\S')
+    decision: str = Field(min_length=1, max_length=1200, pattern=r'\S')
+    interface_notes: str = Field(max_length=2000)
+    required_drivers: list[str] = Field(min_length=2, max_length=11)
+
+
+@app.get('/api/empirical/workflow')
+def empirical_workflow():
+    from empirical import service as observed
+    from .research_workflow import overview
+    try:
+        bundle = observed.read()
+    except FileNotFoundError:
+        bundle = None
+    except (ValueError, OSError, KeyError):
+        raise HTTPException(503, 'Empirische Daten- oder Hashprüfung fehlgeschlagen.') from None
+    record = get_workspace().research_brief()
+    return {**record, 'review': overview(record['brief'], bundle)}
+
+
+@app.post('/api/empirical/workflow')
+def save_empirical_workflow(request: ResearchBrief):
+    value = request.model_dump()
+    get_ai_config().reject_secrets(value)
+    try:
+        return get_workspace().research_brief(value)
+    except ValueError:
+        raise HTTPException(422, 'Muss-Treiber ungültig; Kalender und Dynamik sind die feste Mindestbasis.') from None
+
+
+@app.get('/api/empirical/presentation', response_class=PlainTextResponse)
+def empirical_presentation(model: Literal['calendar', 'dynamic', 'macro', 'macro_diesel', 'macro_lag2', 'macro_diesel_lag2', 'macro_lag3', 'macro_diesel_lag3'] = 'macro'):
+    from empirical import service as observed
+    from .research_workflow import handoff
+    try:
+        bundle = observed.read()
+        brief = get_workspace().research_brief()['brief']
+        get_ai_config().reject_secrets(brief)
+        return handoff(brief, bundle, model)
+    except (FileNotFoundError, ValueError, OSError, KeyError):
+        raise HTTPException(503, 'Verifiziertes Ergebnis oder Präsentationsanleitung fehlt; keine Übergabe erzeugt.') from None
+
+
+@app.get('/api/empirical/copilot-instructions', response_class=PlainTextResponse)
+def empirical_copilot_instructions():
+    from .research_workflow import copilot_instructions
+    return copilot_instructions()
+
+
 @app.get('/api/empirical')
 def empirical_result():
     from empirical import service as observed
