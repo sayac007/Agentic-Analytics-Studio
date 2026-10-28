@@ -77,11 +77,14 @@ freigegebenen Projektablage:
 1. **Bestand sichern und Lieferung getrennt importieren.** In Excel über
    „Daten → Aus Text/CSV“ laden, Trennzeichen und Datentypen bewusst wählen.
    Monatsschlüssel als Text erhalten; Dezimalpunkt/-komma nach Quelle behandeln.
-   Automatische Typänderungen vor dem Laden prüfen. Originale nicht überschreiben.
+   Automatische Typänderungen vor dem Laden prüfen. Originale nicht überschreiben;
+   den ursprünglichen Wert zusätzlich als Textspalte erhalten.
 2. **Definition und Struktur vergleichen.** Gleiche Quelle, Region, Einheit,
    zeitliche Auflösung und Kennzahl? Pflichtfelder vollständig? Werte wirklich
    Zahlen statt Text oder Fehler? KBA-Anzahlen müssen ganzzahlig und nicht negativ
-   sein. Für andere Reihen gelten deren eigene Regeln; ein Zins darf grundsätzlich
+   sein. Ganzzahligkeit **vor** der Umwandlung in eine Ganzzahl prüfen, damit eine
+   Typumwandlung keine Nachkommastellen wegrundet. Monatsschlüssel müssen einen
+   gültigen Monat 01–12 enthalten. Für andere Reihen gelten deren eigene Regeln; ein Zins darf grundsätzlich
    negativ sein. Fehlende Werte und Quellsymbole nicht in Null umwandeln.
 3. **Eindeutigkeit innerhalb jeder Lieferung prüfen.** Schlüssel ist hier
    `period + series + powertrain`. Für andere Datensätze müssen alle fachlichen

@@ -37,7 +37,10 @@ eine Arbeitsanleitung; sie wurde hier nicht in Excel ausgeführt.
 1. In einer neuen Arbeitsmappe beide CSV-Dateien getrennt über **Daten → Aus
    Text/CSV → Daten transformieren** laden. UTF-8 und Komma als Trennzeichen
    verwenden. Abfragen `Historie` und `Lieferung` nennen. `period` ausdrücklich als
-   Text, `value` als ganze Zahl und die übrigen Spalten als Text einstellen.
+   Text und die übrigen Herkunftsspalten als Text einstellen. `value` zunächst
+   zusätzlich als unveränderten Text erhalten, dann numerisch auf Fehler,
+   Nachkommastellen und negative Werte prüfen. Erst danach als ganze Zahl führen;
+   eine Ganzzahlkonvertierung allein ist keine Prüfung auf Ganzzahligkeit.
 2. In beiden Abfragen Pflichtfelder und Konvertierungsfehler prüfen. Jeweils eine
    **Referenz** der Abfrage für die Dublettenprüfung anlegen. Über **Gruppieren nach
    → Erweitert** nach `period`, `series`, `powertrain` gruppieren, Zeilen zählen
