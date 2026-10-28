@@ -41,12 +41,13 @@ jobs:
       - name: Check Azure deployment logic with local Az test doubles
         shell: pwsh
         run: ./tests/test_azure_deploy.ps1
-      - name: Check SSH-only configuration with actual pinned Az.Compute SDK
+      - name: Check actual Azure VM serialization and network tag models
         shell: pwsh
         run: |
           Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
           Install-Module Az.Accounts -RequiredVersion 5.5.3 -Scope CurrentUser -Repository PSGallery -Force -ErrorAction Stop
           Install-Module Az.Compute -RequiredVersion 11.10.0 -Scope CurrentUser -Repository PSGallery -Force -ErrorAction Stop
+          Install-Module Az.Network -RequiredVersion 8.3.0 -Scope CurrentUser -Repository PSGallery -Force -ErrorAction Stop
           ./tests/test_azure_vm_config.ps1
       - name: Check Azure bootstrap shell syntax
         run: bash -n deploy/azure/bootstrap.sh

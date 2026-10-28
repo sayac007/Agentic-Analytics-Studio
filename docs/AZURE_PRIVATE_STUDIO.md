@@ -188,9 +188,39 @@ Ressourcenaufruf aus:
 ./tests/test_azure_vm_config.ps1
 ```
 
-Die CI installiert diese beiden Modulversionen ausdrücklich und führt den Test
+Die CI installiert diese Modulversionen ausdrücklich und führt den Test
 zusätzlich zu den bisherigen Az-Testdoubles aus. Ein erfolgreicher lokaler oder
 CI-SDK-Test belegt weiterhin keine erfolgreiche Azure-Bereitstellung.
+
+### Falls vorhandene Ressourcen trotz passender Tags abgewiesen werden
+
+Az.Network-Objekte für NSG, VNet, öffentliche IP und NIC stellen ihre
+Kennzeichnungen in **`Tag`** bereit. VM- und generische Ressourcenobjekte nutzen
+**`Tags`**. Der frühere ausschließlich plurale Zugriff konnte deshalb bereits
+korrekt gekennzeichnete Netzwerkressourcen beim erneuten Start abweisen.
+
+`resource-tags.ps1` liest beide Modellfelder, ohne Ressourcen oder Tags zu
+verändern. Die Eigentumsbedingung bleibt `Application=AgenticAnalyticsStudio`;
+fehlende oder fremde Kennzeichnungen an VM-/Netzwerkressourcen werden weiterhin
+vor Änderungen abgewiesen. Widersprüchliche oder ungültige Metadaten werden
+nicht geraten. Der ausdrücklich wiederverwendete ungetaggte Key Vault bleibt
+die bestehende, auf seine genaue Ressourcen-ID begrenzte Ausnahme.
+
+Die lokalen SDK-Tests mit **Az.Network 8.3.0** prüfen alle vier tatsächlichen
+Netzwerkmodelltypen, das unveränderte Lesen, fehlende/fremde Marker und
+widersprüchliche Metadaten. Der Compute-Test prüft zusätzlich dessen plurales
+Modellfeld. Die CI pinnt auch Az.Network auf diese Version. Ein generischer
+`Get-AzResource`-Metadatenabruf zeigt die Kennzeichnungen weiterhin als `Tags`:
+
+```powershell
+Get-AzResource -ResourceGroupName rg-agentic-studio |
+    Select-Object Name, ResourceType, Location,
+        @{Name='Application';Expression={$_.Tags['Application']}},
+        @{Name='Deployment';Expression={$_.Tags['Deployment']}}
+```
+
+Sind diese Kennzeichnungen bereits korrekt, ist für diese Korrektur kein
+Retagging und keine Löschung erforderlich; den aktualisierten Quellstand verwenden.
 
 ## 3. Genau hier liegt der Key in Azure
 

@@ -22,13 +22,14 @@ function Invoke-RestMethod { param($Uri, $Headers)
     if ($Uri -like 'https://api.github.com/repos/sayac007/Agentic-Analytics-Studio/commits/*') { $MockState.SourceRefs+=$Uri; return @{sha=$ExpectedCommit;commit=@{tree=@{sha=('b'*40)}}} }
     Assert-That ($Uri -eq ('https://api.github.com/repos/sayac007/Agentic-Analytics-Studio/git/trees/'+('b'*40)+'?recursive=1')) 'Unexpected network URI'
     $paths=@('Dockerfile','.dockerignore','demo/hosting.py','requirements.lock','requirements-demo.lock',
-        'deploy/azure/Deploy-Studio.ps1','deploy/azure/vm-config.ps1','deploy/azure/bootstrap.sh','deploy/azure/refresh-secrets.py',
+        'deploy/azure/Deploy-Studio.ps1','deploy/azure/vm-config.ps1','deploy/azure/resource-tags.ps1','deploy/azure/bootstrap.sh','deploy/azure/refresh-secrets.py',
         'deploy/azure/compose.yaml','deploy/azure/Caddyfile','deploy/azure/agentic-studio.service',
         'requirements-empirical.lock','empirical/data.py','empirical/model.py','empirical/features.py',
         'empirical/diagnostics.py','empirical/service.py','empirical/restore.py','demo/static/empirical.html',
         'demo/static/empirical.js','demo/empirical_chat.py','data/verified_sources/manifest.json','workorders/03c-empirical-live.md')
     $tree=@($paths|ForEach-Object { if (-not(($MockState.SourceMode -eq 'missing' -and $_ -eq 'Dockerfile') -or
-        ($MockState.SourceMode -eq 'missing_vm_config' -and $_ -eq 'deploy/azure/vm-config.ps1'))) {
+        ($MockState.SourceMode -eq 'missing_vm_config' -and $_ -eq 'deploy/azure/vm-config.ps1') -or
+        ($MockState.SourceMode -eq 'missing_tag_reader' -and $_ -eq 'deploy/azure/resource-tags.ps1'))) {
         @{path=$_;type='blob';mode=if ($MockState.SourceMode -eq 'symlink' -and $_ -eq 'Dockerfile') {'120000'} else {'100644'}}
     }})
     return @{truncated=($MockState.SourceMode -eq 'truncated');tree=$tree}
@@ -66,18 +67,18 @@ function New-AzNetworkSecurityRuleConfig { param($Name,$Protocol,$Direction,$Pri
 }
 function New-AzNetworkSecurityGroup { param($ResourceGroupName,$Location,$Name,$SecurityRules,$Tag)
     if ($MockState.BlockedLocation -eq $Location) { throw '403 RequestDisallowedByAzure: locationineligible' }
-    $MockState.Changes++; $MockState.Nsg=@{Id='/mock/nsg';Location=$Location;SecurityRules=$SecurityRules;Tags=$Tag}; return $MockState.Nsg
+    $MockState.Changes++; $MockState.Nsg=@{Id='/mock/nsg';Name=$Name;Location=$Location;SecurityRules=$SecurityRules;Tag=$Tag}; return $MockState.Nsg
 }
 function Get-AzVirtualNetwork { param($ResourceGroupName,$Name,$ErrorAction) return $MockState.Vnet }
 function New-AzVirtualNetworkSubnetConfig { param($Name,$AddressPrefix) return @{Id='/mock/subnet';Name=$Name;AddressPrefix=$AddressPrefix} }
-function New-AzVirtualNetwork { param($ResourceGroupName,$Location,$Name,$AddressPrefix,$Subnet,$Tag) $MockState.Changes++; $MockState.Vnet=@{Location=$Location;Tags=$Tag;Subnets=@($Subnet)}; return $MockState.Vnet }
+function New-AzVirtualNetwork { param($ResourceGroupName,$Location,$Name,$AddressPrefix,$Subnet,$Tag) $MockState.Changes++; $MockState.Vnet=@{Name=$Name;Location=$Location;Tag=$Tag;Subnets=@($Subnet)}; return $MockState.Vnet }
 function Get-AzPublicIpAddress { param($ResourceGroupName,$Name,$ErrorAction) return $MockState.Ip }
 function New-AzPublicIpAddress { param($ResourceGroupName,$Location,$Name,$AllocationMethod,$Sku,$DomainNameLabel,$Tag)
-    $MockState.Changes++; $MockState.Ip=@{Id='/mock/ip';Location=$Location;Tags=$Tag;DnsSettings=@{Fqdn="$DomainNameLabel.$Location.cloudapp.azure.com"}}; return $MockState.Ip
+    $MockState.Changes++; $MockState.Ip=@{Id='/mock/ip';Name=$Name;Location=$Location;Tag=$Tag;DnsSettings=@{Fqdn="$DomainNameLabel.$Location.cloudapp.azure.com"}}; return $MockState.Ip
 }
 function Get-AzNetworkInterface { param($ResourceGroupName,$Name,$ErrorAction) return $MockState.Nic }
 function New-AzNetworkInterface { param($ResourceGroupName,$Location,$Name,$SubnetId,$NetworkSecurityGroupId,$PublicIpAddressId,$Tag)
-    $MockState.Changes++; $MockState.Nic=@{Id='/mock/nic';Location=$Location;Tags=$Tag;NetworkSecurityGroup=@{Id=$NetworkSecurityGroupId};IpConfigurations=@(@{PublicIpAddress=@{Id=$PublicIpAddressId};Subnet=@{Id=$SubnetId}})}; return $MockState.Nic
+    $MockState.Changes++; $MockState.Nic=@{Id='/mock/nic';Name=$Name;Location=$Location;Tag=$Tag;NetworkSecurityGroup=@{Id=$NetworkSecurityGroupId};IpConfigurations=@(@{PublicIpAddress=@{Id=$PublicIpAddressId};Subnet=@{Id=$SubnetId}})}; return $MockState.Nic
 }
 function Get-AzVM { param($ResourceGroupName,$Name,$ErrorAction) return $MockState.Vm }
 function New-AzVMConfig { param($VMName,$VMSize,$IdentityType,$Tags)
@@ -168,7 +169,7 @@ $refused=$false
 try { & $DeployScript @arguments } catch {$refused=$_.Exception.Message -match 'Existing VM'}
 Assert-That $refused 'Ephemeral OS disk not rejected'
 $MockState.Vm.StorageProfile.OsDisk.DiffDiskSettings.Option=$null
-foreach ($mode in @('missing','missing_vm_config','truncated','symlink')) {
+foreach ($mode in @('missing','missing_vm_config','missing_tag_reader','truncated','symlink')) {
     $MockState.SourceMode=$mode
     $azbefore=$MockState.AzureContextCalls; $before=$MockState.Changes
     $refused=$false
@@ -241,6 +242,16 @@ $MockState.Secrets=@{'openai-api-key'=$true;'studio-login-password'=$true}
 $MockState.Vm.Tags=@{Application='UnrelatedApplication'}
 Assert-ReuseRefused 'not tagged'
 $MockState.Vm.Tags=@{Application='AgenticAnalyticsStudio';Deployment='private-vm-v1'}
+
+# Network providers expose singular Tag. Missing/foreign ownership still fails.
+foreach ($component in @('Nsg','Vnet','Ip','Nic')) {
+    $savedTags=$MockState[$component].Tag
+    foreach ($badTags in @(@{}, @{Application='UnrelatedApplication'})) {
+        $MockState[$component].Tag=$badTags
+        Assert-ReuseRefused 'not tagged'
+    }
+    $MockState[$component].Tag=$savedTags
+}
 
 # Reject cross-region partial resources before any secret/role/network writes.
 foreach ($component in @('Nsg','Vnet','Ip','Nic','Vm')) {

@@ -33,7 +33,7 @@ if ($treeSha -notmatch '^[0-9a-f]{40}$') { throw 'GitHub did not return the comm
 $tree = Invoke-RestMethod -Uri "https://api.github.com/repos/sayac007/Agentic-Analytics-Studio/git/trees/${treeSha}?recursive=1" -Headers $githubHeaders
 if ($tree.truncated -ne $false) { throw 'Source tree validation is incomplete; no Azure changes were made.' }
 $requiredFiles = @('Dockerfile', '.dockerignore', 'demo/hosting.py', 'requirements.lock', 'requirements-demo.lock',
-    'deploy/azure/Deploy-Studio.ps1', 'deploy/azure/vm-config.ps1', 'deploy/azure/bootstrap.sh', 'deploy/azure/refresh-secrets.py',
+    'deploy/azure/Deploy-Studio.ps1', 'deploy/azure/vm-config.ps1', 'deploy/azure/resource-tags.ps1', 'deploy/azure/bootstrap.sh', 'deploy/azure/refresh-secrets.py',
     'deploy/azure/compose.yaml', 'deploy/azure/Caddyfile', 'deploy/azure/agentic-studio.service')
 $requiredFiles += @('requirements-empirical.lock', 'empirical/data.py', 'empirical/model.py',
     'empirical/features.py', 'empirical/diagnostics.py', 'empirical/service.py', 'empirical/restore.py',
@@ -61,6 +61,7 @@ if (-not $Deploy) {
     return
 }
 . (Join-Path $PSScriptRoot 'vm-config.ps1')
+. (Join-Path $PSScriptRoot 'resource-tags.ps1')
 Get-Command Get-AzContext, New-AzVM, New-AzKeyVault -ErrorAction Stop | Out-Null
 Set-AzContext -Subscription $SubscriptionId.ToString() | Out-Null
 if (-not $ExistingVaultName) {
@@ -71,13 +72,16 @@ if (-not $ExistingVaultName) {
 }
 
 function Assert-Owned($Resource) {
-    if ($null -ne $Resource -and ($null -eq $Resource.Tags -or $Resource.Tags['Application'] -ne $tag.Application)) {
-        throw 'An existing resource is not tagged for this deployment; refusing to modify it.'
+    $resourceTags = Get-StudioResourceTags $Resource
+    if ($null -ne $Resource -and $resourceTags['Application'] -ne $tag.Application) {
+        $label = if ($Resource.Name) { $Resource.Name } else { $Resource.GetType().Name }
+        throw "Existing resource '$label' is not tagged for this deployment; refusing to modify it."
     }
 }
 function Assert-ReusableContainer($Resource) {
     if ($null -eq $Resource) { throw 'Existing-vault mode requires the named vault and resource group to exist.' }
-    if ($Resource.Tags -and $Resource.Tags['Application'] -and $Resource.Tags['Application'] -ne $tag.Application) {
+    $resourceTags = Get-StudioResourceTags $Resource
+    if ($resourceTags['Application'] -and $resourceTags['Application'] -ne $tag.Application) {
         throw 'An existing container is tagged for another application; refusing to reuse it.'
     }
 }
