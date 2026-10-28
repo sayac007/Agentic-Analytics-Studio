@@ -37,6 +37,12 @@ Der Login-Name **`studio`** ist im Caddyfile festgelegt; er ist kein Secret.
 Ein Datum der Key-Vault-Speicherung beweist nicht, wann ein externer API-Key
 ursprünglich beim Anbieter erzeugt wurde.
 
+Am 28.10.2026 meldete der Nutzer eine erfolgreiche Browseranzeige mit
+„OpenAI ist serverseitig konfiguriert“, anschließend einen fehlgeschlagenen
+Inference-Aufruf. Das bestätigt noch keine Anbieter-Gültigkeit. HTTP-Fehlercode
+und Ursache werden erst nach der sicheren Diagnose eingetragen; kein Ablaufdatum
+oder falscher Schlüssel wird ohne Beleg als Ursache behauptet.
+
 ## Automatisch verwaltete Zugangsmittel
 
 | Zugangsmittel | Erzeugung / Speicherung | Lebenszyklus / Nachweis |

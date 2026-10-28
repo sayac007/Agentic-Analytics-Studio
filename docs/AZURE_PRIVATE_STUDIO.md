@@ -43,6 +43,30 @@ Anfragen erhalten ihre bisherigen Grenzen; keine Freigabe beliebiger Origins
 oder ungeprüfter Forwarded-Header. Nach einer Codeaktualisierung muss die VM mit
 dem neuen gepinnten `-SourceCommit` erneut bereitgestellt werden.
 
+### Wenn der OpenAI-Aufruf fehlschlägt
+
+„Serverseitig konfiguriert“ bestätigt nur die Konfiguration, nicht die
+Anbieter-Gültigkeit des Schlüssels, Abrechnung oder Modellzugriff. Die lange
+JSON-Anzeige bei „Kontext prüfen“ ist die lokale Freigabevorschau und noch keine
+OpenAI-Antwort. Keine automatischen Wiederholungen nach einem Fehler.
+
+Der korrigierte Client unterscheidet sicher HTTP 401 (Authentifizierung),
+403 (Berechtigung), 404 (Modellzugriff), 429 mit `insufficient_quota` oder
+Rate-Limit sowie abgelehnte Anfrageparameter. Rohantworten und deren
+Fehlermeldungstexte können sensible Inhalte enthalten und werden nie ausgegeben.
+Nur fest erlaubte Fehlercodes/Parameternamen werden übernommen. Netz-/TLS- und
+Timeoutfehler bleiben getrennt. Fehlgeschlagene Calls behalten die bisherige
+vorsichtige Kostenreservierung; kein automatisches Retry.
+
+`demo/provider_diagnostics.py` kann im laufenden App-Container eine einzelne
+GET-Anfrage auf die Modellmetadaten ausführen. Es nutzt den bestehenden
+Runtime-Schlüssel, übermittelt keine Projektergebnisse und erzeugt keine
+kostenpflichtige Textgenerierung. Die Ausgabe enthält nur sichere Statusfelder.
+Auch HTTP 200 bestätigt damit **weder** einen Responses-Aufruf **noch** verfügbare
+Abrechnung oder gültige Anfrageparameter. Bei einem bereits laufenden älteren
+Image kann das geprüfte Skript separat über Azure Run Command im App-Container
+ausgeführt werden; Quellcommit und Datei-SHA-256 vor Ausführung binden.
+
 1. Im [Azure-Portal](https://portal.azure.com/) oben auf **Cloud Shell** (`>_`)
    klicken und **PowerShell** auswählen.
 2. Das gewünschte private Abonnement ermitteln:
