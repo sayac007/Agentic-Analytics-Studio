@@ -16,7 +16,7 @@ public class AasTestOsProfile {
 '@
 $MockState = @{ Changes = 0; Roles = @(); Secrets = @{}; PasswordPrompts = 0; Commands = @();
     Group = $null; Vault = $null; Nsg = $null; Vnet = $null; Ip = $null; Nic = $null; Vm = $null;
-    Marker = $true; VmProfiles = @(); SourceMode='valid'; AzureContextCalls=0; GraphCalls=0; GraphForbidden=$false; NewVaults=0; SecretWrites=@(); ExpectedVaultName=$null; SourceRefs=@() }
+    Marker = $true; VmProfiles = @(); SourceMode='valid'; AzureContextCalls=0; GraphCalls=0; GraphForbidden=$false; NewVaults=0; SecretWrites=@(); ExpectedVaultName=$null; SourceRefs=@(); QuotaReads=0; QuotaCurrent=@{}; QuotaLimits=@{cores=10;standardBasv2Family=10;standardBSFamily=10} }
 function Assert-That([bool]$Condition, [string]$Message) { if (-not $Condition) { throw $Message } }
 function Invoke-RestMethod { param($Uri, $Headers)
     if ($Uri -like 'https://api.github.com/repos/sayac007/Agentic-Analytics-Studio/commits/*') { $MockState.SourceRefs+=$Uri; return @{sha=$ExpectedCommit;commit=@{tree=@{sha=('b'*40)}}} }
@@ -81,6 +81,10 @@ function New-AzNetworkInterface { param($ResourceGroupName,$Location,$Name,$Subn
     $MockState.Changes++; $MockState.Nic=@{Id='/mock/nic';Name=$Name;Location=$Location;Tag=$Tag;NetworkSecurityGroup=@{Id=$NetworkSecurityGroupId};IpConfigurations=@(@{PublicIpAddress=@{Id=$PublicIpAddressId};Subnet=@{Id=$SubnetId}})}; return $MockState.Nic
 }
 function Get-AzVM { param($ResourceGroupName,$Name,$ErrorAction) return $MockState.Vm }
+function Get-AzVMUsage { param($Location,$ErrorAction)
+    $MockState.QuotaReads++
+    return @($MockState.QuotaLimits.GetEnumerator()|ForEach-Object { [pscustomobject]@{Name=@{Value=$_.Key};CurrentValue=if ($MockState.QuotaCurrent.ContainsKey($_.Key)) { $MockState.QuotaCurrent[$_.Key] } else { 0 };Limit=$_.Value} })
+}
 function New-AzVMConfig { param($VMName,$VMSize,$IdentityType,$Tags)
     Assert-That ($IdentityType -eq 'SystemAssigned') 'No system MI'
     return [pscustomobject]@{Tags=$Tags;Location=$null;StorageProfile=@{OsDisk=@{DiffDiskSettings=@{Option=$null}}};OSProfile=$null;HardwareProfile=@{VmSize=$VMSize};NetworkProfile=@{NetworkInterfaces=@()};Identity=@{PrincipalId='33333333-3333-3333-3333-333333333333'}}
@@ -306,4 +310,44 @@ foreach ($fault in @('empty_password','nonempty_password','password_login','miss
         $null -eq $MockState.Vm) 'Invalid OS profile reached VM creation/bootstrap'
 }
 $MockState.ProfileFault=$null;$MockState.Vm=$savedVm
-Write-Host 'PASS: typed SSH-only OS profile, selectable region, DNS/runtime binding, cross-region and Azure-rejection gates; existing secret/role/tag/network/source/RBAC checks. Local mocks only; no Azure deployment.'
+
+# A fixed SKU listing does not establish family/total quota. Fail before writes.
+$MockState.Vm=$null
+$before=$MockState.Changes;$commandsBefore=$MockState.Commands.Count;$promptsBefore=$MockState.PasswordPrompts
+foreach ($name in @('cores','standardBasv2Family')) {
+    $MockState.QuotaLimits[$name]=0
+    $refused=$false
+    try { & $DeployScript @reuseArguments } catch { $refused=$_.Exception.Message -match 'Insufficient vCPU quota' }
+    Assert-That $refused "Quota $name was ignored"
+    Assert-That ($MockState.Changes -eq $before -and $MockState.Commands.Count -eq $commandsBefore -and
+        $MockState.PasswordPrompts -eq $promptsBefore) 'Quota failure wrote state or reached bootstrap'
+    $MockState.QuotaLimits[$name]=10
+}
+$MockState.QuotaLimits.Remove('standardBasv2Family')
+$refused=$false
+try { & $DeployScript @reuseArguments } catch { $refused=$_.Exception.Message -match 'Cannot verify' }
+Assert-That $refused 'Missing quota silently passed'
+$MockState.QuotaLimits.standardBasv2Family=10
+$MockState.QuotaCurrent.standardBasv2Family=9
+$refused=$false
+try { & $DeployScript @reuseArguments } catch { $refused=$_.Exception.Message -match 'Insufficient vCPU quota' }
+Assert-That $refused 'One remaining family vCPU was accepted for a two-vCPU VM'
+$MockState.QuotaCurrent.Clear()
+$MockState.QuotaLimits.standardBasv2Family=0
+$alternative=$reuseArguments.Clone();$alternative.VMSize='Standard_B2s'
+& $DeployScript @alternative
+Assert-That ($MockState.Vm.HardwareProfile.VmSize -eq 'Standard_B2s') 'Explicit B2s selection was ignored'
+Assert-That ($MockState.Commands[-1].Contains('"vm_size":"Standard_B2s"')) 'Selected VM size missing from public deployment config'
+$readsBefore=$MockState.QuotaReads;$before=$MockState.Changes
+$MockState.QuotaLimits.cores=0;$MockState.QuotaLimits.standardBSFamily=0
+& $DeployScript @alternative
+Assert-That ($MockState.QuotaReads -eq $readsBefore -and $MockState.Changes -eq $before) 'Existing VM requested new quota or rewrote state'
+$refused=$false
+try { & $DeployScript @reuseArguments } catch { $refused=$_.Exception.Message -match 'Existing VM size' }
+Assert-That $refused 'Existing VM was silently resized to the default'
+$badSize=$reuseArguments.Clone();$badSize.VMSize='Standard_D16s_v5'
+$before=$MockState.Changes;$azbefore=$MockState.AzureContextCalls
+$refused=$false
+try { & $DeployScript @badSize } catch { $refused=$_.Exception.Message -match 'validat' }
+Assert-That ($refused -and $MockState.Changes -eq $before -and $MockState.AzureContextCalls -eq $azbefore) 'Unapproved VM size reached Azure'
+Write-Host 'PASS: explicit two-size selection and early family/regional quota gates; typed SSH-only profile and existing secret/role/tag/network/source checks. Local mocks only; no Azure deployment.'
