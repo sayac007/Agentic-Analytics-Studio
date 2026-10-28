@@ -19,6 +19,14 @@ bleiben mit ihren [Originalergebnissen](results/task02/) dauerhaft nachvollziehb
 
 ## Empirischer Live-Pilot
 
+Der Arbeitsplatz führt durch **Datenauftrag → Muss-Baseline-Treiber → Daten
+zusammenstellen → Analyse → Qualität & KI-Kommentare → Ergebnispräsentation**.
+Geschäftsfrage und Anforderungen werden privat gespeichert; der Soll-Ist-Abgleich
+zeigt fehlende Treiber. Die lesbare Ergebnisübergabe enthält alle Modellvergleiche
+und eine ausführliche Microsoft-Copilot-Anleitung, ohne automatischen Versand.
+[Aufgabenblöcke und tatsächlicher Umfang](docs/RESEARCH_WORKFLOW.md) ·
+[Copilot-Präsentationsanleitung](docs/COPILOT_RESULT_PRESENTATION.md).
+
 ```sh
 python3.12 -m venv .venv
 .venv/bin/python -m pip install -r requirements-empirical.lock

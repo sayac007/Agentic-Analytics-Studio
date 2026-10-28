@@ -310,6 +310,20 @@ class Workspace:
             db.execute('INSERT OR IGNORE INTO conversations VALUES (?,?,?)', (uuid4().hex, identity, _now()))
             return self._project(db, identity)
 
+    def research_brief(self, value=None):
+        """Persist descriptive task metadata; never rewrite empirical artifacts or model config."""
+        from .research_workflow import DEFAULT_BRIEF, check_brief
+        project = self.empirical_project()
+        with self._connection() as db:
+            provenance = json.loads(db.execute('SELECT provenance_json FROM projects WHERE id=?', (project['id'],)).fetchone()[0])
+            if value is not None:
+                check_brief(value)
+                provenance['research_brief'] = {'brief': value, 'updated_at': _now()}
+                db.execute('UPDATE projects SET provenance_json=? WHERE id=?', (_json(provenance), project['id']))
+            record = provenance.get('research_brief', {'brief': DEFAULT_BRIEF, 'updated_at': None})
+            check_brief(record['brief'])
+            return record
+
     @staticmethod
     def _execution_value(row):
         value = dict(row)

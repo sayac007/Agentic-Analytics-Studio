@@ -6,6 +6,12 @@ Die vom Nutzer am 2026-10-28 gewünschte Methodik steht vor Ausführung der neue
 Fits in [03c](../workorders/03c-empirical-live.md), einschließlich Amendment 1.1.
 Task 01G/01I.3 und ihre historischen Originalergebnisse werden nicht verändert.
 
+Die Oberfläche folgt jetzt [sechs fachlichen Aufgabenblöcken](RESEARCH_WORKFLOW.md):
+Datenauftrag und Schnittstellen, Muss-Treiber, Zusammenstellung, Analyse, Qualität
+mit optionaler KI-Kommentierung und eine geprüfte Textübergabe an Microsoft Copilot.
+Der Auftrag verändert keine vorhandenen Fits. Tesla ist der aktuelle reale Pilot;
+andere Zielreihen sind dadurch noch nicht frei konfigurierbar.
+
 ## Daten und Rechenweg
 
 2018-01–2025-12: KBA Tesla alle Antriebe als Registrierungsziel, Destatis nationaler

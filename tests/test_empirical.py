@@ -258,3 +258,30 @@ class EmpiricalHTTPTests(unittest.TestCase):
     def test_http_origin_and_invalid_configuration_are_rejected(self):
         self.expect_status(403,'/api/empirical/prepare',{}, {'Origin':'https://evil.test'})
         self.expect_status(422,'/api/empirical/agent-context',{'message':'test','model':'search_best'})
+
+    def test_workflow_is_saved_and_presentation_is_read_only_and_private(self):
+        from demo.research_workflow import DEFAULT_BRIEF
+        value = copy.deepcopy(DEFAULT_BRIEF)
+        value['required_drivers'].append('delivery')
+        before = {p.name: p.read_bytes() for p in self.folder.iterdir()}
+        self.request('/api/empirical/workflow', value)
+        state = self.request('/api/empirical/workflow')
+        self.assertEqual(state['brief'], value)
+        self.assertIn('delivery', state['review']['models']['macro']['unmet_drivers'])
+        text = self.request('/api/empirical/presentation?model=macro', raw=True)
+        self.assertIn('Lieferfähigkeit', text)
+        self.assertIn(state['review']['snapshot_sha256'], text)
+        self.assertIn('Microsoft Copilot', text)
+        self.assertIn('Schritt 3', self.request('/api/empirical/copilot-instructions', raw=True))
+        self.assertEqual(before, {p.name: p.read_bytes() for p in self.folder.iterdir()})
+        self.assertEqual(self.request('/api/empirical')['ai_budget']['charged_nano_usd'], 0)
+
+    def test_workflow_rejects_secrets_model_injection_unknown_drivers_and_cross_origin(self):
+        from demo.research_workflow import DEFAULT_BRIEF
+        value = copy.deepcopy(DEFAULT_BRIEF)
+        self.expect_status(422, '/api/empirical/workflow', {**value, 'model': 'search'})
+        self.expect_status(422, '/api/empirical/workflow', {**value, 'question': 'sk-NEVER_STORE_THIS_TEST_KEY_123456789'})
+        self.expect_status(422, '/api/empirical/workflow', {**value, 'required_drivers': ['calendar', 'dynamics', '../private']})
+        self.expect_status(422, '/api/empirical/workflow', {**value, 'required_drivers': ['calendar', 'cpi']})
+        self.expect_status(403, '/api/empirical/workflow', value, {'Origin': 'https://evil.test'})
+        self.expect_status(422, '/api/empirical/presentation?model=search_best')
