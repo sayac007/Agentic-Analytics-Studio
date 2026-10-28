@@ -50,6 +50,11 @@ außerhalb von Git und Docker-Images im privaten Workspace gespeichert.
 [Festgelegte Methodik](workorders/03c-empirical-live.md) ·
 [Azure-Einrichtung, vorhandener Key Vault und Fehlerbehebung](docs/AZURE_PRIVATE_STUDIO.md)
 
+**Datenpflege ohne Studio:** Die [praktische Übergabe](docs/DATA_UPDATE_HANDOVER.md)
+zeigt Quellen, Ablage, Monatsupdates und Qualitätsprüfungen mit Excel/Power Query
+und optional freigegebenem Microsoft 365 Copilot. Eine Übung mit echten historischen
+KBA-Werten ermöglicht den gemeinsamen Einstieg ohne R-Kenntnisse.
+
 VARX bleibt eine optionale multivariate Erweiterung; der Live-Pilot beginnt mit
 überschaubarer dynamischer Einzelreihen-Regression. Statistische Zusammenhänge und
 Verbesserungen einer bedingten Prognose sind kein Nachweis kausaler Launch-,
