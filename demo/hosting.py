@@ -59,12 +59,20 @@ class HostingConfig:
     def health_host(self):
         return self.hostname or '127.0.0.1'
 
-    def request_error(self, method, scheme, host, origin, fetch_site, content_type):
+    def request_error(self, method, scheme, host, origin, fetch_site, content_type,
+                      *, fetch_mode=None, fetch_dest=None, path=None):
         """Return (status, safe message), or None. Forwarded headers are irrelevant."""
         if self.public_origin and host not in (self.hostname, self.hostname + ':443'):
             return 400, 'Unexpected Host for the configured public origin.'
         expected = self.public_origin or f'{scheme}://{host}'
-        if (origin is not None and origin != expected) or fetch_site == 'cross-site':
+        # Following an external link is a top-level document navigation, not a
+        # cross-origin API request. Only public-facing HTML entry pages qualify.
+        page_navigation = (self.public_origin is not None and method == 'GET'
+                           and origin is None and fetch_mode == 'navigate'
+                           and fetch_dest == 'document'
+                           and path in ('/', '/archive/synthetic'))
+        if ((origin is not None and origin != expected)
+                or (fetch_site == 'cross-site' and not page_navigation)):
             return 403, 'Only requests from the configured same origin are allowed.'
         if self.public_origin and method not in ('GET', 'HEAD', 'OPTIONS'):
             if origin != self.public_origin:

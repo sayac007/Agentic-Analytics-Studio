@@ -146,6 +146,33 @@ class HostedHTTPTests(unittest.TestCase):
                                    'Content-Type': 'application/json; charset=utf-8'})
         self.assertEqual(accepted['status'], 'proposed')
 
+    def test_external_link_can_navigate_to_hosted_page(self):
+        headers = {'Host': HOST, 'Sec-Fetch-Site': 'cross-site',
+                   'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-Dest': 'document'}
+        for path in ('/', '/archive/synthetic'):
+            with self.subTest(path=path):
+                with urlopen(Request(self.base + path, headers=headers), timeout=20) as response:
+                    self.assertEqual(response.status, 200)
+                    self.assertIn('text/html', response.headers['Content-Type'])
+                    self.assertIn("frame-ancestors 'none'", response.headers['Content-Security-Policy'])
+                    self.assertIn(b'Agentic Analytics Studio', response.read())
+
+    def test_navigation_exception_does_not_allow_cross_site_reads_or_writes(self):
+        navigation = {'Sec-Fetch-Site': 'cross-site', 'Sec-Fetch-Mode': 'navigate',
+                      'Sec-Fetch-Dest': 'document'}
+        for path in ('/api/health', '/api/empirical', '/api/projects'):
+            with self.subTest(path=path):
+                self.assert_http(403, path, headers=navigation)
+        for override in ({'Sec-Fetch-Mode': 'cors'}, {'Sec-Fetch-Dest': 'iframe'},
+                         {'Sec-Fetch-Dest': 'empty'}, {'Sec-Fetch-Mode': ''},
+                         {'Sec-Fetch-Dest': ''}, {'Origin': 'https://evil.example'}):
+            with self.subTest(headers=override):
+                self.assert_http(403, '/', headers={**navigation, **override})
+        self.assert_http(403, '/api/projects/synthetic-quarter/decisions',
+                         {'text': 'Rejected navigation-shaped write'}, navigation)
+        self.assert_http(403, '/api/projects/synthetic-quarter/decisions',
+                         {'text': 'Rejected cross-site origin'}, {**navigation, 'Origin': PUBLIC})
+
     def test_duplicate_host_headers_are_rejected(self):
         connection = http.client.HTTPConnection('127.0.0.1', self.port, timeout=10)
         try:

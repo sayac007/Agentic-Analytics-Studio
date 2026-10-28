@@ -1,5 +1,9 @@
 # Studio im eigenen Azure-Abonnement
 
+Konkrete Secret-Namen, Speicherorte, bekannte Zeitpunkte und offene Angaben:
+[Secret-Verzeichnis](SECRET_INVENTORY.md). Für jede künftige Anlage oder Änderung
+diese Metadaten ergänzen; niemals den Wert dokumentieren.
+
 Diese Bereitstellung richtet eine einzelne Ubuntu-VM für einen Besitzer ein.
 Das Studio läuft hinter Caddy mit HTTPS und Passwortschutz. Der Arbeitsstand
 liegt auf der lokalen verwalteten VM-Festplatte; SQLite wird nicht auf Azure
@@ -23,6 +27,21 @@ KBA-Tabelle und Quellenmetadaten gehören zum Codepaket. Das synthetische
 Entwicklungsarchiv bleibt unter `/archive/synthetic` getrennt erreichbar.
 
 ## 1. Azure Cloud Shell öffnen und den Plan ansehen
+
+### Einstieg über einen externen Link
+
+Der Browser kennzeichnet das Öffnen eines Links aus einem Chat als
+`Sec-Fetch-Site: cross-site`. Die ursprüngliche Origin-Prüfung wies auch diesen
+normalen Seitenaufruf mit `Only requests from the configured same origin are
+allowed` ab. Als Soforthilfe die HTTPS-Adresse in einem neuen Tab direkt in die
+Adresszeile eingeben.
+
+Die korrigierte Prüfung erlaubt ausschließlich originlose GET-Navigationen zu
+`/` und `/archive/synthetic`, mit `Sec-Fetch-Mode: navigate` und
+`Sec-Fetch-Dest: document`. Host-Prüfung, API-Zugriffe, Frames und verändernde
+Anfragen erhalten ihre bisherigen Grenzen; keine Freigabe beliebiger Origins
+oder ungeprüfter Forwarded-Header. Nach einer Codeaktualisierung muss die VM mit
+dem neuen gepinnten `-SourceCommit` erneut bereitgestellt werden.
 
 1. Im [Azure-Portal](https://portal.azure.com/) oben auf **Cloud Shell** (`>_`)
    klicken und **PowerShell** auswählen.
