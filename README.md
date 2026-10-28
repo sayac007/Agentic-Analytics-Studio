@@ -24,6 +24,11 @@ zusammenstellen → Analyse → Qualität & KI-Kommentare → Ergebnispräsentat
 Geschäftsfrage und Anforderungen werden privat gespeichert; der Soll-Ist-Abgleich
 zeigt fehlende Treiber. Die lesbare Ergebnisübergabe enthält alle Modellvergleiche
 und eine ausführliche Microsoft-Copilot-Anleitung, ohne automatischen Versand.
+In Schritt 3 können zusätzliche monatliche CSV-Reihen hochgeladen, mit dem
+historischen Bestand abgeglichen und nach Vorschau als neue private Datensatzversion
+zusammengeführt werden. Originale bleiben erhalten; neue Daten sind dadurch noch
+nicht automatisch neu geschätzt. Der vorhandene KBA-Marktvergleich erscheint auch
+im Analysekontext und in der Ergebnisübergabe.
 [Aufgabenblöcke und tatsächlicher Umfang](docs/RESEARCH_WORKFLOW.md) ·
 [Copilot-Präsentationsanleitung](docs/COPILOT_RESULT_PRESENTATION.md).
 

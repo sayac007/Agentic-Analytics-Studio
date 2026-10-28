@@ -36,6 +36,8 @@ def preview(ws, message, model, config):
     brief = ws.research_brief()['brief']
     from .research_workflow import overview
     review = overview(brief, bundle)
+    from empirical.tesla_review import evidence_context
+    from empirical.intake import context_summary
     context = {'policy': 'explicit_private_observed_preview_v1', 'classification': 'OBSERVED_PRIVATE',
                'project_id': project['id'], 'snapshot_sha256': bundle['snapshot_sha256'],
                'question': message, 'selected_model': model, 'target': bundle['results']['target'],
@@ -56,6 +58,8 @@ def preview(ws, message, model, config):
                'business_work_order': {k: brief[k] for k in ('question', 'audience', 'decision', 'required_drivers')},
                'business_work_order_sha256': hashlib.sha256(canonical(brief)).hexdigest(),
                'quality_review': review['models'][model],
+               'cross_model_and_market_evidence': evidence_context(bundle),
+               'latest_dataset_review': context_summary(bundle),
                'excluded': ['raw source files', 'full observation arrays', 'notes', 'other projects', 'credentials', 'source permits']}
     config.reject_secrets(context)
     if len(canonical(context)) > 11000:

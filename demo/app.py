@@ -420,6 +420,114 @@ class ResearchBrief(StrictRequest):
     required_drivers: list[str] = Field(min_length=2, max_length=11)
 
 
+class IntakeMetadata(StrictRequest):
+    series_id: str = Field(min_length=2, max_length=41)
+    label: str = Field(min_length=1, max_length=600)
+    unit: str = Field(min_length=1, max_length=600)
+    definition: str = Field(min_length=1, max_length=600)
+    source_reference: str = Field(min_length=1, max_length=600)
+    source_vintage: str = Field(min_length=1, max_length=600)
+    classification: Literal['observed', 'proxy', 'derived_observed']
+    period_column: str = Field(min_length=1, max_length=100)
+    value_column: str = Field(min_length=1, max_length=100)
+    decimal: Literal['dot', 'comma']
+    private_use_confirmed: bool
+
+
+class IntakeFile(StrictRequest):
+    content_base64: str = Field(min_length=1, max_length=2_666_672)
+
+
+class IntakeReview(IntakeFile):
+    metadata: IntakeMetadata
+    preview_sha256: str | None = Field(default=None, pattern=r'^[a-f0-9]{64}$')
+    confirm: bool = False
+
+
+def intake_operation(operation):
+    """Serialize pointer updates and expose controlled errors, never file paths or raw rows."""
+    from empirical import service as observed
+    from empirical.intake import Store, IntakeError
+    if not RUN_LOCK.acquire(blocking=False): raise HTTPException(409, 'Eine Datenoperation läuft bereits.')
+    try:
+        return operation(Store(observed.storage_root()/'observed-intake'), observed.read())
+    except IntakeError as exc:
+        raise HTTPException(422, str(exc)) from None
+    except (OSError, ValueError, KeyError, TypeError):
+        raise HTTPException(503, 'Verifizierter historischer Datenstand fehlt oder wurde verändert. Keine Aufnahme durchgeführt.') from None
+    finally: RUN_LOCK.release()
+
+
+def intake_bytes(request):
+    import base64
+    try:
+        raw = base64.b64decode(request.content_base64, validate=True)
+        get_ai_config().reject_secrets(raw.decode('utf-8-sig'))
+        return raw
+    except (ValueError, UnicodeError):
+        raise HTTPException(422, 'UTF-8-CSV auswählen; Dateiinhalt ist nicht lesbar.') from None
+
+
+@app.get('/api/empirical/intake')
+def intake_status():
+    from empirical.intake import describe
+    def status(store, base):
+        current = store.current(base)
+        return {**describe(current['data'], current['id']), 'stored': current['folder'] is not None}
+    return intake_operation(status)
+
+
+@app.get('/api/empirical/evidence-review')
+def empirical_evidence_review():
+    from empirical.tesla_review import evidence_context
+    return intake_operation(lambda store, base: evidence_context(base))
+
+
+@app.post('/api/empirical/intake/inspect')
+def intake_inspect(request: IntakeFile):
+    from empirical.intake import inspect, IntakeError
+    try: return inspect(intake_bytes(request))
+    except IntakeError as exc: raise HTTPException(422, str(exc)) from None
+
+
+@app.post('/api/empirical/intake/preview')
+def intake_preview(request: IntakeReview):
+    raw = intake_bytes(request); meta = request.metadata.model_dump(); get_ai_config().reject_secrets(meta)
+    return intake_operation(lambda store, base: store.preview(base, raw, meta))
+
+
+@app.post('/api/empirical/intake/accept')
+def intake_accept(request: IntakeReview):
+    from empirical.intake import describe
+    if not request.confirm or not request.preview_sha256:
+        raise HTTPException(422, 'Zuerst Änderungen und Grenzen prüfen und diese Vorschau ausdrücklich bestätigen.')
+    raw = intake_bytes(request); meta = request.metadata.model_dump(); get_ai_config().reject_secrets(meta)
+    def accept(store, base):
+        current = store.assemble(base, raw, meta, request.preview_sha256)
+        return describe(current['data'], current['id'])
+    return intake_operation(accept)
+
+
+@app.post('/api/empirical/intake/assemble')
+def intake_assemble(request: StrictRequest):
+    from empirical.intake import describe
+    def assemble(store, base):
+        current = store.assemble(base)
+        return describe(current['data'], current['id'])
+    return intake_operation(assemble)
+
+
+@app.get('/api/empirical/intake/panel', response_class=PlainTextResponse)
+def intake_panel():
+    from empirical.intake import IntakeError
+    def panel(store, base):
+        current = store.current(base)
+        if current['folder'] is None: raise IntakeError('Zuerst vorhandene Daten zusammenführen oder eine geprüfte Datei aufnehmen.')
+        return PlainTextResponse((current['folder']/'panel.csv').read_text(), media_type='text/csv',
+                                 headers={'Content-Disposition': 'attachment; filename="analysis-dataset.csv"'})
+    return intake_operation(panel)
+
+
 @app.get('/api/empirical/workflow')
 def empirical_workflow():
     from empirical import service as observed

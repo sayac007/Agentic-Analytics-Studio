@@ -5,6 +5,14 @@ Supply Chain oder Operations sein. Der vorhandene ausführbare Anwendungsfall bl
 Tesla Deutschland, monatlich 2018–2025. Ein frei konfigurierbarer Daten-/Modellbaukasten
 für andere Projekte ist mit dieser Oberfläche nicht implementiert.
 
+Die Oberfläche zeigt jeweils **einen Schritt** mit einer kurzen Handlungsanweisung,
+Zurück/Weiter und direktem Schrittwechsel. Die Auswahl steht im URL-Fragment und
+bleibt beim Neuladen erhalten; sie verändert keine Berechnung. Entwürfe bleiben
+beim Wechsel erhalten und werden bei später eintreffenden Speicherantworten nicht
+überschrieben. Ein zusätzlicher Speicherknopf steht direkt bei den Muss-Treibern.
+Für noch nicht verfügbare Analyse-/Qualitätsansichten gibt es einen Hinweis auf
+Schritt 3. Die Copilot-Anleitung bleibt separat nutzbar.
+
 ## 1. Daten und Datenschnittstellen definieren
 
 Frage, Empfänger, Entscheidungsbezug und gewünschte Datenlieferungen beschreiben.
@@ -48,11 +56,71 @@ keine vollständige Expositionsreihe und keine automatisch aufgenommenen Regress
 
 ## 3–4. Zusammenstellen und analysieren
 
-„Vorhandene Quellen prüfen & Modelle öffnen“ nutzt den bisherigen Rechenweg.
+„Quellen prüfen und Analyse vorbereiten“ nutzt den bisherigen Rechenweg.
 Speichern eines Auftrags oder Erzeugen der Ergebnisübergabe startet keine Fits,
 beschafft keine Daten und verändert keine historischen Ergebnisse. Die feste
 Methodik, HypoForge-Lags und Pflichtprüfungen bleiben in
 [03c](../workorders/03c-empirical-live.md) unverändert.
+
+### Tatsächlich verfügbare CSV-Aufnahme
+
+„Vorhandene Daten zusammenführen“ ergänzt den überprüften Bestand um VW, Toyota,
+BEV-Gesamtmarkt und vier deterministische Kalenderfelder. Die KBA-Ergänzung setzt
+die gleiche auditierte Beobachtungsdatei und identische Tesla-Werte voraus. In den
+vorhandenen echten Quellen fehlen BEV-Monate vor 2021; sie bleiben leer. Das ergibt
+für den aktuellen Stand 96 Monate und 12 Reihen, mit 13 Diesellücken und 36 BEV-Lücken.
+Datierte Ereignisse bleiben gesonderte Annotationen statt erfundener Nullreihen.
+Google Trends wird ohne passende empirische Zulassung nicht angeschlossen.
+
+Zusätzliche Dateien: UTF-8-CSV, Komma oder Semikolon als Trennzeichen, monatlich
+YYYY-MM, national Deutschland, höchstens 2 MB/2400 Eingabezeilen. Je Aufnahme eine
+Reihe; Monats- und Wertespalten werden ausdrücklich zugeordnet. Zahlenformat Punkt
+oder Komma ausdrücklich wählen; keine Tausendertrennzeichen, Excel-Formeln, NaN
+oder Infinity. Native Geographie- und Einheitenspalten dürfen der Beschreibung
+nicht widersprechen. Doppelte Monate, unbekannte Einheitenwechsel, Wechsel von
+Messung zu Proxy und ungültige Zählwerte werden abgewiesen. Ungenutzte Spalten
+werden angezeigt, nicht als versteckte Filter interpretiert.
+
+Die Vorschau nennt Überlappung, unveränderte Werte, jede Revision einschließlich
+Leerwerten, neue Monate und historische Spannweitenüberschreitungen. Letztere sind
+Prüfanlässe, keine automatisch falschen Werte. Fehlende Zeilen löschen keine alten
+Werte; explizite Leerwerte ersetzen sie nur in der bestätigten neuen Version.
+Spaltenzuordnung, Inhalt, Metadaten und aktueller historischer Stand sind an den
+Vorschauhash gebunden. Bei Änderung oder zwischenzeitlicher anderer Aufnahme ist
+eine neue Vorschau nötig.
+
+Nach Bestätigung entsteht eine unveränderliche private Version mit `source.csv`
+(Originalbytes), `panel.csv`, `data.json`, `review.json`, `provenance.json` und
+Hashmanifest, außerhalb von Git. Maximal 600 gemeinsame Monatszeilen/40 Reihen.
+Neue Reihen erzeugen für frühere unbeobachtete Monate Leerwerte. Zusammenführung
+erzeugt keine Fits und keine automatischen Definition-/Rechtefreigaben. Ursprüngliche
+quellenspezifische Einschränkungen bleiben erhalten. Die Normierung nutzt endliche
+Float64-Werte; Original-CSV-Bytes bleiben für unabhängige Prüfung unverändert.
+
+Der aktuelle Datensatz kann über die authentifizierte Studio-Route als Monats-CSV
+heruntergeladen werden. Keine Rohquellen, Permits oder Zugangsdaten werden dabei
+mitgeliefert; kein Upload an öffentliche CI-Artefakte. Neue Kandidaten ersetzen
+keinen ursprünglichen Modell-Snapshot. Ihr Einsatz in einer neuen Schätzung braucht
+einen ausdrücklich festgelegten Analyseauftrag.
+
+### Fachliche Auswertung vorhandener Tesla-Ergebnisse
+
+[03e](../workorders/03e-tesla-evidence-review.md) definiert die rein deskriptive
+Nachauswertung vor ihrer Ausführung: Jahreswerte nur mit zwölf Beobachtungen,
+Monats-/Quartalsmuster und alle acht bereits geschätzten Modellvarianten. Keine
+zusätzlichen Fits. Markt-/Markenabgrenzungen bleiben sichtbar. Der KI-Kontext erhält
+die letzten drei Jahresvergleiche und alle festen Modellvergleiche innerhalb der
+bisherigen Vorschau-/Budgetgrenzen; keine Rohbeobachtungsarrays.
+
+```sh
+python -m empirical.tesla_review --existing-results /PRIVATE/existing-studio-run \
+  --output /PRIVATE/new-tesla-review.json
+```
+
+Die Ausgabe bleibt privat, verweigert Überschreibung und bindet Snapshot-/Protokoll-
+und KBA-Hashes. Kein Download, Provider-Aufruf, Quellen-Permit-Export oder Eingriff
+in alte Forschungsergebnisse. Ein rein deskriptiver Marktvergleich beweist keine
+kausale Rangfolge von Subventionen, Preisen, Produktwechseln oder Markenwirkung.
 
 ## 5. Qualität und KI-Kommentierung
 
@@ -65,6 +133,11 @@ Die Liste ist keine neue Rohdatenvalidierung und prüft die Vergleichsstichprobe
 anhand gespeicherter n-Werte, nicht durch unabhängige Neuschätzung. Die tatsächlichen
 Monatsmengen und Berechnungen bleiben im vorhandenen Ergebnisnachweis nachprüfbar.
 Ein technischer Prüfstatus ist keine wissenschaftliche Freigabe.
+Offene Punkte erscheinen zuerst; die vollständige Liste bleibt aufklappbar.
+Die Analyse enthält eine kurze Erklärung von R², RMSE, Differenz zur Basis und n.
+Der ausgewählte Modellname bleibt bei der Qualitätssicherung sichtbar. Bei einem
+abgewiesenen API-Schlüssel nennt die Oberfläche die notwendige Prüfung durch den
+Studio-Betreiber und erklärt, dass die berechneten Ergebnisse weiterhin nutzbar sind.
 
 „Daten erklären“, „Qualität kritisch prüfen“ und „Ergebnisse kommentieren“ bereiten
 konkrete Fragen vor. Sie senden nichts. Erst Vorschau, Checkbox und Senden erlauben
@@ -114,7 +187,21 @@ Präsentationsübergabe, gescheiterten Fit, Kontextbindung und Prozessneustart b
 unveränderten Snapshotbytes. Er behauptet weder echte empirische Ergebnisse noch
 eine erfolgreiche Live-Antwort von OpenAI.
 
-Am 28.10.2026 lokal ausgeführt: **426 Tests bestanden** (99,643 s), dazu der
+Am 28.10.2026 lokal zuletzt ausgeführt: **439 Tests bestanden** (100,346 s), dazu der
 Browser-Smoke mit konstruierten Fixtures einschließlich Prozessneustart und
 unveränderten Ergebnisbytes. Keine neuen realen Modellfits, keine echten
 Provider-Aufrufe und kein Azure-Deployment für diese Änderung.
+
+UX-Nachprüfung am selben Tag: erneut **18 empirische Tests bestanden** (2,867 s).
+Der erweiterte Browser-Smoke prüft zusätzlich den geführten Schrittwechsel,
+Tastatur/Fokus, Speichern am Treiberschritt, Entwurfsschutz bei verzögerten
+Antworten, fehlenden Datenstand und eine nur im Browser simulierte 401-Antwort.
+Zusätzlich durchlaufen: CSV-Auswahl, Spaltenzuordnung, Vergleich, explizite Aufnahme,
+gemeinsame private Monats-CSV und unveränderte ursprüngliche Ergebnisbytes.
+
+Mit dem tatsächlich vorhandenen geprüften privaten Studio-Snapshot wurden außerdem
+die zwölf Reihen zusammengeführt und die Markt-/Modellbefunde zusammen mit dem
+Kandidatenstatus in der KI-Vorschau geprüft (10.566 Kontextbytes). Kein Provider-
+Aufruf. Neue Datensatzversionen invalidieren eine ältere KI-Kontextfreigabe und
+werden ausdrücklich nicht als neue Modellergebnisse ausgegeben. Der ältere
+Energie-Studienbericht ist nicht der aktuelle achtteilige Studio-Modellvergleich.
