@@ -5,6 +5,15 @@ $DeployScript = Join-Path $PSScriptRoot '../deploy/azure/Deploy-Studio.ps1'
 $ExpectedCommit = 'a' * 40
 $DummyPassword = 'PrivateMockPassword-01'
 $DummyApiKey = 'sk-test-mock-never-a-real-key-123456789'
+Add-Type @'
+public class AasTestOsProfile {
+    public string ComputerName { get; set; }
+    public string AdminUsername { get; set; }
+    public string AdminPassword { get; set; }
+    public object LinuxConfiguration { get; set; }
+    public object WindowsConfiguration { get; set; }
+}
+'@
 $MockState = @{ Changes = 0; Roles = @(); Secrets = @{}; PasswordPrompts = 0; Commands = @();
     Group = $null; Vault = $null; Nsg = $null; Vnet = $null; Ip = $null; Nic = $null; Vm = $null;
     Marker = $true; VmProfiles = @(); SourceMode='valid'; AzureContextCalls=0; GraphCalls=0; GraphForbidden=$false; NewVaults=0; SecretWrites=@(); ExpectedVaultName=$null; SourceRefs=@() }
@@ -13,12 +22,13 @@ function Invoke-RestMethod { param($Uri, $Headers)
     if ($Uri -like 'https://api.github.com/repos/sayac007/Agentic-Analytics-Studio/commits/*') { $MockState.SourceRefs+=$Uri; return @{sha=$ExpectedCommit;commit=@{tree=@{sha=('b'*40)}}} }
     Assert-That ($Uri -eq ('https://api.github.com/repos/sayac007/Agentic-Analytics-Studio/git/trees/'+('b'*40)+'?recursive=1')) 'Unexpected network URI'
     $paths=@('Dockerfile','.dockerignore','demo/hosting.py','requirements.lock','requirements-demo.lock',
-        'deploy/azure/Deploy-Studio.ps1','deploy/azure/bootstrap.sh','deploy/azure/refresh-secrets.py',
+        'deploy/azure/Deploy-Studio.ps1','deploy/azure/vm-config.ps1','deploy/azure/bootstrap.sh','deploy/azure/refresh-secrets.py',
         'deploy/azure/compose.yaml','deploy/azure/Caddyfile','deploy/azure/agentic-studio.service',
         'requirements-empirical.lock','empirical/data.py','empirical/model.py','empirical/features.py',
         'empirical/diagnostics.py','empirical/service.py','empirical/restore.py','demo/static/empirical.html',
         'demo/static/empirical.js','demo/empirical_chat.py','data/verified_sources/manifest.json','workorders/03c-empirical-live.md')
-    $tree=@($paths|ForEach-Object { if (-not($MockState.SourceMode -eq 'missing' -and $_ -eq 'Dockerfile')) {
+    $tree=@($paths|ForEach-Object { if (-not(($MockState.SourceMode -eq 'missing' -and $_ -eq 'Dockerfile') -or
+        ($MockState.SourceMode -eq 'missing_vm_config' -and $_ -eq 'deploy/azure/vm-config.ps1'))) {
         @{path=$_;type='blob';mode=if ($MockState.SourceMode -eq 'symlink' -and $_ -eq 'Dockerfile') {'120000'} else {'100644'}}
     }})
     return @{truncated=($MockState.SourceMode -eq 'truncated');tree=$tree}
@@ -72,15 +82,29 @@ function New-AzNetworkInterface { param($ResourceGroupName,$Location,$Name,$Subn
 function Get-AzVM { param($ResourceGroupName,$Name,$ErrorAction) return $MockState.Vm }
 function New-AzVMConfig { param($VMName,$VMSize,$IdentityType,$Tags)
     Assert-That ($IdentityType -eq 'SystemAssigned') 'No system MI'
-    return [pscustomobject]@{Tags=$Tags;Location=$null;StorageProfile=@{OsDisk=@{DiffDiskSettings=@{Option=$null}}};OSProfile=[pscustomobject]@{AdminPassword='INITIAL_ONLY';AdminUsername=$null;LinuxConfiguration=$null};HardwareProfile=@{VmSize=$VMSize};NetworkProfile=@{NetworkInterfaces=@()};Identity=@{PrincipalId='33333333-3333-3333-3333-333333333333'}}
+    return [pscustomobject]@{Tags=$Tags;Location=$null;StorageProfile=@{OsDisk=@{DiffDiskSettings=@{Option=$null}}};OSProfile=$null;HardwareProfile=@{VmSize=$VMSize};NetworkProfile=@{NetworkInterfaces=@()};Identity=@{PrincipalId='33333333-3333-3333-3333-333333333333'}}
 }
 function Set-AzVMOperatingSystem { param($VM,[switch]$Linux,$ComputerName,[pscredential]$Credential,[switch]$DisablePasswordAuthentication)
     Assert-That ($Linux -and $DisablePasswordAuthentication) 'Linux password authentication not disabled'
-    Assert-That ($Credential.Password.Length -eq 0) 'VM credential password not empty'
-    $VM.OSProfile.AdminUsername=$Credential.UserName; $VM.OSProfile.LinuxConfiguration=@{DisablePasswordAuthentication=$true}; return $VM
+    $profile=[AasTestOsProfile]::new();$profile.ComputerName=$ComputerName
+    if ($Credential) { $profile.AdminUsername=$Credential.UserName; $profile.AdminPassword=$Credential.GetNetworkCredential().Password }
+    $profile.LinuxConfiguration=@{DisablePasswordAuthentication=$true;Ssh=@{PublicKeys=@()}}
+    $VM.OSProfile=$profile; return $VM
 }
-function Add-AzVMSshPublicKey { param($VM,$KeyData,$Path) Assert-That ($KeyData -like 'ssh-ed25519 *') 'Not actual SSH public-key material'; return $VM }
-function Set-AzVMSourceImage { param($VM,$PublisherName,$Offer,$Skus,$Version) Assert-That ($PublisherName -eq 'Canonical') 'Wrong image publisher'; return $VM }
+function Add-AzVMSshPublicKey { param($VM,$KeyData,$Path)
+    Assert-That ($KeyData -like 'ssh-ed25519 *') 'Not actual SSH public-key material'
+    $VM.OSProfile.LinuxConfiguration.Ssh.PublicKeys=@(@{Path=$Path;KeyData=$KeyData}); return $VM
+}
+function Set-AzVMSourceImage { param($VM,$PublisherName,$Offer,$Skus,$Version)
+    Assert-That ($PublisherName -eq 'Canonical') 'Wrong image publisher'
+    switch ($MockState.ProfileFault) {
+        'empty_password' { $VM.OSProfile.AdminPassword=$null }
+        'nonempty_password' { $VM.OSProfile.AdminPassword='SOFTWARE_TEST_ONLY' }
+        'password_login' { $VM.OSProfile.LinuxConfiguration.DisablePasswordAuthentication=$false }
+        'missing_key' { $VM.OSProfile.LinuxConfiguration.Ssh.PublicKeys=@() }
+    }
+    return $VM
+}
 function Set-AzVMOSDisk { param($VM,$CreateOption,$StorageAccountType,$DiskSizeInGB) Assert-That ($StorageAccountType -eq 'StandardSSD_LRS') 'Wrong disk'; return $VM }
 function Add-AzVMNetworkInterface { param($VM,$Id) $VM.NetworkProfile.NetworkInterfaces=@(@{Id=$Id}); return $VM }
 function New-AzVM { param($ResourceGroupName,$Location,$VM,[switch]$DisableBginfoExtension)
@@ -144,7 +168,7 @@ $refused=$false
 try { & $DeployScript @arguments } catch {$refused=$_.Exception.Message -match 'Existing VM'}
 Assert-That $refused 'Ephemeral OS disk not rejected'
 $MockState.Vm.StorageProfile.OsDisk.DiffDiskSettings.Option=$null
-foreach ($mode in @('missing','truncated','symlink')) {
+foreach ($mode in @('missing','missing_vm_config','truncated','symlink')) {
     $MockState.SourceMode=$mode
     $azbefore=$MockState.AzureContextCalls; $before=$MockState.Changes
     $refused=$false
@@ -259,4 +283,16 @@ foreach ($bad in @('polandcentral.evil','PolandCentral','https://polandcentral',
     Assert-That $refused 'Invalid region identifier accepted'
     Assert-That ($MockState.Changes -eq $before -and $MockState.AzureContextCalls -eq $azbefore) 'Invalid region reached Azure'
 }
-Write-Host 'PASS: selectable region, bound DNS/runtime config, cross-region and Azure-rejection gates; existing secret/role/tag/network/source/RBAC checks. Local mocks only; no Azure deployment.'
+# Typed SDK string semantics must reject empty/nonempty passwords and SSH drift.
+$savedVm=$MockState.Vm
+foreach ($fault in @('empty_password','nonempty_password','password_login','missing_key')) {
+    $MockState.Vm=$null;$MockState.ProfileFault=$fault
+    $before=$MockState.Changes;$commandsBefore=$MockState.Commands.Count
+    $refused=$false
+    try { & $DeployScript @reuseArguments } catch { $refused=$_.Exception.Message -match 'SSH-only' }
+    Assert-That $refused "Invalid typed OS profile accepted: $fault"
+    Assert-That ($MockState.Changes -eq $before -and $MockState.Commands.Count -eq $commandsBefore -and
+        $null -eq $MockState.Vm) 'Invalid OS profile reached VM creation/bootstrap'
+}
+$MockState.ProfileFault=$null;$MockState.Vm=$savedVm
+Write-Host 'PASS: typed SSH-only OS profile, selectable region, DNS/runtime binding, cross-region and Azure-rejection gates; existing secret/role/tag/network/source/RBAC checks. Local mocks only; no Azure deployment.'
