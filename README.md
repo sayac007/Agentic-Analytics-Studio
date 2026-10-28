@@ -6,6 +6,17 @@ und dokumentierte Ereignisse. Ziel sind nachvollziehbare Erklärung, bedingte
 Prognosen und die Recherche unerklärter Spitzen. Es gibt kein vorgegebenes R²
 oder erwünschtes Vorzeichen und keine erfundenen Media-Ausgaben.
 
+**Methodischer Vorversuch:** In Task 02 haben wir die Wiedergewinnung bekannter
+Media-Effekte mit synthetischen Daten über 1.000 Seeds je Szenario geprüft.
+Im getesteten Design wurden Always-on-Effekte schlecht wiedergefunden, während
+fehlende Quartalsende-Kontrollen bei kalendersynchroner Media scheinbar sichere
+Effekte erzeugten; auch Nullfehlerquoten und Intervallabdeckung waren unzureichend
+kalibriert.
+Für die fachliche Absatzanalyse haben wir synthetische Ersatzdaten verworfen und
+arbeiten mit den gesammelten realen Beobachtungen; die
+[Benchmarkbefunde und Grenzen](docs/IDENTIFIABILITY_RESEARCH.md#findings-that-must-remain-visible)
+bleiben mit ihren [Originalergebnissen](results/task02/) dauerhaft nachvollziehbar.
+
 ## Empirischer Live-Pilot
 
 ```sh
