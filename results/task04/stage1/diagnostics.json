@@ -1,0 +1,2010 @@
+{
+  "M0": {
+    "covariance_mcmc": {
+      "rhat_max": 1.0012258515917294,
+      "ess_bulk_min": 9948.962780990792,
+      "ess_tail_min": 5583.543584437895,
+      "nonfinite_diagnostic": false,
+      "passed": true,
+      "divergences": 0,
+      "mean_num_steps": 6.7995,
+      "max_tree_depth_hits": 0
+    },
+    "fixed_design": [
+      {
+        "group": 0,
+        "rank": 6,
+        "columns": 6,
+        "unit_norm_condition_number": 4.210422349289739,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      },
+      {
+        "group": 1,
+        "rank": 5,
+        "columns": 5,
+        "unit_norm_condition_number": 2.021853294606051,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      },
+      {
+        "group": 2,
+        "rank": 5,
+        "columns": 5,
+        "unit_norm_condition_number": 2.021853294606051,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      }
+    ],
+    "observation_covariance_posterior_mean": [
+      [
+        0.08712244194521938,
+        0.013030225898897373,
+        -0.004650979545971224
+      ],
+      [
+        0.013030225898897373,
+        0.7214989655256535,
+        -0.005405283239095987
+      ],
+      [
+        -0.004650979545971224,
+        -0.005405283239095987,
+        0.14112833680594136
+      ]
+    ],
+    "numerical_attempts": [
+      {
+        "rhat_max": 1.0012258515917294,
+        "ess_bulk_min": 9948.962780990792,
+        "ess_tail_min": 5583.543584437895,
+        "nonfinite_diagnostic": false,
+        "passed": true,
+        "divergences": 0,
+        "mean_num_steps": 6.7995,
+        "max_tree_depth_hits": 0
+      }
+    ],
+    "joint_derived_mcmc": {
+      "rhat_max": 1.0004869442733784,
+      "ess_bulk_min": 7200.663832891066,
+      "ess_tail_min": 7462.25583661789,
+      "nonfinite_diagnostic": false,
+      "passed": true
+    },
+    "levels": {
+      "0": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -2.565292953380327,
+          "p": 0.2961223924124737,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.15156350731384857,
+          "p": 0.04536374390512619,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      },
+      "1": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -3.4448458676248173,
+          "p": 0.04567824743141856,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.19511361664112684,
+          "p": 0.017832393759577434,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      },
+      "2": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -2.524103383201329,
+          "p": 0.3160180980433876,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.14403670839080793,
+          "p": 0.053635725202207524,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      }
+    },
+    "innovations": {
+      "0": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -2.149290526168667,
+          "p": 0.22516175870149507,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.3778466431697869,
+          "p": 0.08670403311647117,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 11.897502586605805,
+            "p": 0.007742649081800717,
+            "p_holm": 0.023227947245402152
+          },
+          {
+            "lag": 6,
+            "statistic": 16.26789333024205,
+            "p": 0.012386066367999382,
+            "p_holm": 0.024772132735998764
+          },
+          {
+            "lag": 12,
+            "statistic": 21.033323712582586,
+            "p": 0.049894601476416583,
+            "p_holm": 0.049894601476416583
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      },
+      "1": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -2.2107015507842753,
+          "p": 0.20238436389943487,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.6956692536028188,
+          "p": 0.013939158763380104,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 16.474450099429397,
+            "p": 0.0009062772005137711,
+            "p_holm": 0.0009062772005137711
+          },
+          {
+            "lag": 6,
+            "statistic": 30.66999336548179,
+            "p": 2.9304088583343805e-05,
+            "p_holm": 8.791226575003142e-05
+          },
+          {
+            "lag": 12,
+            "statistic": 37.67096958728855,
+            "p": 0.00017377963894648878,
+            "p_holm": 0.00034755927789297756
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      },
+      "2": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -3.178273267226233,
+          "p": 0.021277258596996,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.3538118620145556,
+          "p": 0.09706385257993293,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 59.12837603067049,
+            "p": 9.024879274106695e-13,
+            "p_holm": 1.804975854821339e-12
+          },
+          {
+            "lag": 6,
+            "statistic": 70.30397626080509,
+            "p": 3.542028634726266e-13,
+            "p_holm": 1.0626085904178799e-12
+          },
+          {
+            "lag": 12,
+            "statistic": 77.99575793133697,
+            "p": 9.937765576161687e-12,
+            "p_holm": 9.937765576161687e-12
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      }
+    },
+    "filter_note": "One-step innovations at full-training posterior mean R; no smoothed residuals, not a historical live filter."
+  },
+  "M1": {
+    "covariance_mcmc": {
+      "rhat_max": 1.0009050693657264,
+      "ess_bulk_min": 9772.63781984811,
+      "ess_tail_min": 5461.312663187261,
+      "nonfinite_diagnostic": false,
+      "passed": true,
+      "divergences": 0,
+      "mean_num_steps": 6.80325,
+      "max_tree_depth_hits": 0
+    },
+    "fixed_design": [
+      {
+        "group": 0,
+        "rank": 6,
+        "columns": 6,
+        "unit_norm_condition_number": 4.210422349289739,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      },
+      {
+        "group": 1,
+        "rank": 5,
+        "columns": 5,
+        "unit_norm_condition_number": 2.021853294606051,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      },
+      {
+        "group": 2,
+        "rank": 5,
+        "columns": 5,
+        "unit_norm_condition_number": 2.021853294606051,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      }
+    ],
+    "observation_covariance_posterior_mean": [
+      [
+        0.06271936075560366,
+        -0.00667765554573508,
+        0.02010136985169509
+      ],
+      [
+        -0.00667765554573508,
+        0.6314387562942073,
+        -0.004776936049511911
+      ],
+      [
+        0.02010136985169509,
+        -0.004776936049511911,
+        0.10108425592659404
+      ]
+    ],
+    "numerical_attempts": [
+      {
+        "rhat_max": 1.0009050693657264,
+        "ess_bulk_min": 9772.63781984811,
+        "ess_tail_min": 5461.312663187261,
+        "nonfinite_diagnostic": false,
+        "passed": true,
+        "divergences": 0,
+        "mean_num_steps": 6.80325,
+        "max_tree_depth_hits": 0
+      }
+    ],
+    "joint_derived_mcmc": {
+      "rhat_max": 1.0011023820937188,
+      "ess_bulk_min": 7289.468988917648,
+      "ess_tail_min": 6183.693307573914,
+      "nonfinite_diagnostic": false,
+      "passed": true
+    },
+    "levels": {
+      "0": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -2.565292953380327,
+          "p": 0.2961223924124737,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.15156350731384857,
+          "p": 0.04536374390512619,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      },
+      "1": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -3.4448458676248173,
+          "p": 0.04567824743141856,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.19511361664112684,
+          "p": 0.017832393759577434,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      },
+      "2": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -2.524103383201329,
+          "p": 0.3160180980433876,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.14403670839080793,
+          "p": 0.053635725202207524,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      }
+    },
+    "innovations": {
+      "0": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -3.2771181671458343,
+          "p": 0.015932794033388865,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.330603994701465,
+          "p": 0.1,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [
+          "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+        ],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 2.089329794408099,
+            "p": 0.5540744330310394,
+            "p_holm": 1.0
+          },
+          {
+            "lag": 6,
+            "statistic": 2.1763678483148277,
+            "p": 0.9027843285139658,
+            "p_holm": 1.0
+          },
+          {
+            "lag": 12,
+            "statistic": 9.122026356911531,
+            "p": 0.6924739301387478,
+            "p_holm": 1.0
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      },
+      "1": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -2.4441359344332274,
+          "p": 0.12966474483864976,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.5583064959946986,
+          "p": 0.028534572974166974,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 11.47318007720579,
+            "p": 0.009423991313473951,
+            "p_holm": 0.018847982626947903
+          },
+          {
+            "lag": 6,
+            "statistic": 20.89666432519405,
+            "p": 0.0019147076187613112,
+            "p_holm": 0.0057441228562839335
+          },
+          {
+            "lag": 12,
+            "statistic": 24.199303308765966,
+            "p": 0.019107670244559755,
+            "p_holm": 0.019107670244559755
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      },
+      "2": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -3.4240799810727,
+          "p": 0.010164870135243682,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.2651332544222776,
+          "p": 0.1,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [
+          "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+        ],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 50.77277595352143,
+            "p": 5.468919298044286e-11,
+            "p_holm": 1.6406757894132858e-10
+          },
+          {
+            "lag": 6,
+            "statistic": 57.25142421625072,
+            "p": 1.6248502043284068e-10,
+            "p_holm": 3.2497004086568136e-10
+          },
+          {
+            "lag": 12,
+            "statistic": 67.27222541284577,
+            "p": 1.0335049857693383e-09,
+            "p_holm": 1.0335049857693383e-09
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      }
+    },
+    "filter_note": "One-step innovations at full-training posterior mean R; no smoothed residuals, not a historical live filter."
+  },
+  "M2": {
+    "covariance_mcmc": {
+      "rhat_max": 1.0010557438316328,
+      "ess_bulk_min": 10510.86726072951,
+      "ess_tail_min": 5085.690805417201,
+      "nonfinite_diagnostic": false,
+      "passed": true,
+      "divergences": 0,
+      "mean_num_steps": 6.73475,
+      "max_tree_depth_hits": 0
+    },
+    "fixed_design": [
+      {
+        "group": 0,
+        "rank": 12,
+        "columns": 12,
+        "unit_norm_condition_number": 20.21060813435606,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      },
+      {
+        "group": 1,
+        "rank": 5,
+        "columns": 5,
+        "unit_norm_condition_number": 2.021853294606051,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      },
+      {
+        "group": 2,
+        "rank": 5,
+        "columns": 5,
+        "unit_norm_condition_number": 2.021853294606051,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      }
+    ],
+    "observation_covariance_posterior_mean": [
+      [
+        0.0354048471699651,
+        0.014928637990941481,
+        0.014536504855483167
+      ],
+      [
+        0.014928637990941481,
+        0.6292651858805032,
+        -0.00618106357531201
+      ],
+      [
+        0.014536504855483167,
+        -0.00618106357531201,
+        0.10148238691487792
+      ]
+    ],
+    "numerical_attempts": [
+      {
+        "rhat_max": 1.0010557438316328,
+        "ess_bulk_min": 10510.86726072951,
+        "ess_tail_min": 5085.690805417201,
+        "nonfinite_diagnostic": false,
+        "passed": true,
+        "divergences": 0,
+        "mean_num_steps": 6.73475,
+        "max_tree_depth_hits": 0
+      }
+    ],
+    "joint_derived_mcmc": {
+      "rhat_max": 1.0010188823702673,
+      "ess_bulk_min": 7147.146823816307,
+      "ess_tail_min": 6705.076947885411,
+      "nonfinite_diagnostic": false,
+      "passed": true
+    },
+    "levels": {
+      "0": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -2.565292953380327,
+          "p": 0.2961223924124737,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.15156350731384857,
+          "p": 0.04536374390512619,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      },
+      "1": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -3.4448458676248173,
+          "p": 0.04567824743141856,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.19511361664112684,
+          "p": 0.017832393759577434,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      },
+      "2": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -2.524103383201329,
+          "p": 0.3160180980433876,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.14403670839080793,
+          "p": 0.053635725202207524,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      }
+    },
+    "innovations": {
+      "0": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -2.911181150128757,
+          "p": 0.044063145889920614,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.09903616300491007,
+          "p": 0.1,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [
+          "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+        ],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 8.88013872448053,
+            "p": 0.030927694192412574,
+            "p_holm": 0.09278308257723772
+          },
+          {
+            "lag": 6,
+            "statistic": 11.161562352523555,
+            "p": 0.0835096670321046,
+            "p_holm": 0.09278308257723772
+          },
+          {
+            "lag": 12,
+            "statistic": 21.67999820312083,
+            "p": 0.041266742896402996,
+            "p_holm": 0.09278308257723772
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      },
+      "1": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -2.4445185209274007,
+          "p": 0.12956345256258361,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.5578410103504967,
+          "p": 0.028639412083221457,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 11.471856057319014,
+            "p": 0.00942976440324301,
+            "p_holm": 0.01885952880648602
+          },
+          {
+            "lag": 6,
+            "statistic": 20.901363466258225,
+            "p": 0.0019109923781393796,
+            "p_holm": 0.005732977134418139
+          },
+          {
+            "lag": 12,
+            "statistic": 24.193146025447312,
+            "p": 0.019144706117423783,
+            "p_holm": 0.019144706117423783
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      },
+      "2": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -3.426505057129773,
+          "p": 0.010087825757384119,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.26455888893278995,
+          "p": 0.1,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [
+          "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+        ],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 50.68282628148026,
+            "p": 5.7156173734137e-11,
+            "p_holm": 1.71468521202411e-10
+          },
+          {
+            "lag": 6,
+            "statistic": 57.14624388766933,
+            "p": 1.7065202995685847e-10,
+            "p_holm": 3.4130405991371694e-10
+          },
+          {
+            "lag": 12,
+            "statistic": 66.98804064400382,
+            "p": 1.1671543517099657e-09,
+            "p_holm": 1.1671543517099657e-09
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      }
+    },
+    "filter_note": "One-step innovations at full-training posterior mean R; no smoothed residuals, not a historical live filter."
+  },
+  "M2_sd0.05": {
+    "covariance_mcmc": {
+      "rhat_max": 1.0013707278045398,
+      "ess_bulk_min": 10051.957238755083,
+      "ess_tail_min": 5476.83992158736,
+      "nonfinite_diagnostic": false,
+      "passed": true,
+      "divergences": 0,
+      "mean_num_steps": 6.8155,
+      "max_tree_depth_hits": 0
+    },
+    "fixed_design": [
+      {
+        "group": 0,
+        "rank": 12,
+        "columns": 12,
+        "unit_norm_condition_number": 20.21060813435606,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      },
+      {
+        "group": 1,
+        "rank": 5,
+        "columns": 5,
+        "unit_norm_condition_number": 2.021853294606051,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      },
+      {
+        "group": 2,
+        "rank": 5,
+        "columns": 5,
+        "unit_norm_condition_number": 2.021853294606051,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      }
+    ],
+    "observation_covariance_posterior_mean": [
+      [
+        0.02993321164467349,
+        0.01483224508983945,
+        0.012165292057174574
+      ],
+      [
+        0.01483224508983945,
+        0.5785630821984523,
+        0.0023781054678382774
+      ],
+      [
+        0.012165292057174574,
+        0.0023781054678382774,
+        0.06817130784757651
+      ]
+    ],
+    "numerical_attempts": [
+      {
+        "rhat_max": 1.0013707278045398,
+        "ess_bulk_min": 10051.957238755083,
+        "ess_tail_min": 5476.83992158736,
+        "nonfinite_diagnostic": false,
+        "passed": true,
+        "divergences": 0,
+        "mean_num_steps": 6.8155,
+        "max_tree_depth_hits": 0
+      }
+    ],
+    "joint_derived_mcmc": {
+      "rhat_max": 1.001331724231318,
+      "ess_bulk_min": 7094.771373721324,
+      "ess_tail_min": 6646.829026252646,
+      "nonfinite_diagnostic": false,
+      "passed": true
+    },
+    "levels": {
+      "0": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -2.565292953380327,
+          "p": 0.2961223924124737,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.15156350731384857,
+          "p": 0.04536374390512619,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      },
+      "1": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -3.4448458676248173,
+          "p": 0.04567824743141856,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.19511361664112684,
+          "p": 0.017832393759577434,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      },
+      "2": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -2.524103383201329,
+          "p": 0.3160180980433876,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.14403670839080793,
+          "p": 0.053635725202207524,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      }
+    },
+    "innovations": {
+      "0": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -2.9630723824687064,
+          "p": 0.038489859506422024,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.09798266177272698,
+          "p": 0.1,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [
+          "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+        ],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 7.299851671178167,
+            "p": 0.06293039208148207,
+            "p_holm": 0.18879117624444622
+          },
+          {
+            "lag": 6,
+            "statistic": 9.815386846213872,
+            "p": 0.1326448708327927,
+            "p_holm": 0.18879117624444622
+          },
+          {
+            "lag": 12,
+            "statistic": 18.795182691012677,
+            "p": 0.09359263044352503,
+            "p_holm": 0.18879117624444622
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      },
+      "1": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -2.6914049138565677,
+          "p": 0.07553744034368451,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.413634756634125,
+          "p": 0.07127812214046336,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 7.456886944390315,
+            "p": 0.058676620130589656,
+            "p_holm": 0.11984547949576257
+          },
+          {
+            "lag": 6,
+            "statistic": 13.201290910782054,
+            "p": 0.039948493165254194,
+            "p_holm": 0.11984547949576257
+          },
+          {
+            "lag": 12,
+            "statistic": 15.085126131255477,
+            "p": 0.23681412466248206,
+            "p_holm": 0.23681412466248206
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      },
+      "2": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -3.595181172713634,
+          "p": 0.005853824478732695,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.16750801969930126,
+          "p": 0.1,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [
+          "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+        ],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 34.24351229934628,
+            "p": 1.760003654870318e-07,
+            "p_holm": 5.280010964610954e-07
+          },
+          {
+            "lag": 6,
+            "statistic": 35.988758544560305,
+            "p": 2.770528812451305e-06,
+            "p_holm": 3.6165104750796363e-06
+          },
+          {
+            "lag": 12,
+            "statistic": 49.361331943685336,
+            "p": 1.8082552375398182e-06,
+            "p_holm": 3.6165104750796363e-06
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      }
+    },
+    "filter_note": "One-step innovations at full-training posterior mean R; no smoothed residuals, not a historical live filter."
+  },
+  "M2_sd0.10": {
+    "covariance_mcmc": {
+      "rhat_max": 1.0010170997335082,
+      "ess_bulk_min": 11005.087440648584,
+      "ess_tail_min": 5255.535273299786,
+      "nonfinite_diagnostic": false,
+      "passed": true,
+      "divergences": 0,
+      "mean_num_steps": 6.757,
+      "max_tree_depth_hits": 0
+    },
+    "fixed_design": [
+      {
+        "group": 0,
+        "rank": 12,
+        "columns": 12,
+        "unit_norm_condition_number": 20.21060813435606,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      },
+      {
+        "group": 1,
+        "rank": 5,
+        "columns": 5,
+        "unit_norm_condition_number": 2.021853294606051,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      },
+      {
+        "group": 2,
+        "rank": 5,
+        "columns": 5,
+        "unit_norm_condition_number": 2.021853294606051,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      }
+    ],
+    "observation_covariance_posterior_mean": [
+      [
+        0.018298691144980162,
+        0.012733142509600571,
+        0.008173126635112127
+      ],
+      [
+        0.012733142509600571,
+        0.5203413105413346,
+        -0.0029153259234303594
+      ],
+      [
+        0.008173126635112127,
+        -0.0029153259234303594,
+        0.03545594486805589
+      ]
+    ],
+    "numerical_attempts": [
+      {
+        "rhat_max": 1.0010170997335082,
+        "ess_bulk_min": 11005.087440648584,
+        "ess_tail_min": 5255.535273299786,
+        "nonfinite_diagnostic": false,
+        "passed": true,
+        "divergences": 0,
+        "mean_num_steps": 6.757,
+        "max_tree_depth_hits": 0
+      }
+    ],
+    "joint_derived_mcmc": {
+      "rhat_max": 1.0012007032252848,
+      "ess_bulk_min": 7085.233370950606,
+      "ess_tail_min": 7001.537698725165,
+      "nonfinite_diagnostic": false,
+      "passed": true
+    },
+    "levels": {
+      "0": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -2.565292953380327,
+          "p": 0.2961223924124737,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.15156350731384857,
+          "p": 0.04536374390512619,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      },
+      "1": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -3.4448458676248173,
+          "p": 0.04567824743141856,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.19511361664112684,
+          "p": 0.017832393759577434,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      },
+      "2": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -2.524103383201329,
+          "p": 0.3160180980433876,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.14403670839080793,
+          "p": 0.053635725202207524,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      }
+    },
+    "innovations": {
+      "0": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -3.1898704722993525,
+          "p": 0.020578554273546365,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.11433427154402846,
+          "p": 0.1,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [
+          "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+        ],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 4.37724857631675,
+            "p": 0.22350426709452043,
+            "p_holm": 0.6705128012835613
+          },
+          {
+            "lag": 6,
+            "statistic": 8.149554142653349,
+            "p": 0.22735011517785383,
+            "p_holm": 0.6705128012835613
+          },
+          {
+            "lag": 12,
+            "statistic": 14.407104894492942,
+            "p": 0.27547003470444653,
+            "p_holm": 0.6705128012835613
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      },
+      "1": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -3.183643233456425,
+          "p": 0.02095121091640574,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.20776515108033128,
+          "p": 0.1,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [
+          "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+        ],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 3.3686200827038157,
+            "p": 0.33820562908455365,
+            "p_holm": 1.0
+          },
+          {
+            "lag": 6,
+            "statistic": 5.789999961451261,
+            "p": 0.44712096310741467,
+            "p_holm": 1.0
+          },
+          {
+            "lag": 12,
+            "statistic": 8.828101422788768,
+            "p": 0.7175385231425371,
+            "p_holm": 1.0
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      },
+      "2": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -4.002476347008987,
+          "p": 0.00139759973863462,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.09923877312824664,
+          "p": 0.1,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [
+          "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+        ],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 8.744334839890064,
+            "p": 0.032890493310496496,
+            "p_holm": 0.09867147993148949
+          },
+          {
+            "lag": 6,
+            "statistic": 8.764558702632602,
+            "p": 0.18725848953059665,
+            "p_holm": 0.34380605822414356
+          },
+          {
+            "lag": 12,
+            "statistic": 16.440021527620946,
+            "p": 0.17190302911207178,
+            "p_holm": 0.34380605822414356
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      }
+    },
+    "filter_note": "One-step innovations at full-training posterior mean R; no smoothed residuals, not a historical live filter."
+  },
+  "M2_sd0.20": {
+    "covariance_mcmc": {
+      "rhat_max": 1.0025973357466234,
+      "ess_bulk_min": 3785.6497905183014,
+      "ess_tail_min": 1771.4217192590927,
+      "nonfinite_diagnostic": false,
+      "passed": true,
+      "divergences": 0,
+      "mean_num_steps": 12.6915,
+      "max_tree_depth_hits": 0
+    },
+    "fixed_design": [
+      {
+        "group": 0,
+        "rank": 12,
+        "columns": 12,
+        "unit_norm_condition_number": 20.21060813435606,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      },
+      {
+        "group": 1,
+        "rank": 5,
+        "columns": 5,
+        "unit_norm_condition_number": 2.021853294606051,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      },
+      {
+        "group": 2,
+        "rank": 5,
+        "columns": 5,
+        "unit_norm_condition_number": 2.021853294606051,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      }
+    ],
+    "observation_covariance_posterior_mean": [
+      [
+        0.00508850677903532,
+        0.007573442073972748,
+        0.002793600959170984
+      ],
+      [
+        0.007573442073972748,
+        0.4734124632372661,
+        -0.0030822308508522064
+      ],
+      [
+        0.002793600959170984,
+        -0.0030822308508522064,
+        0.01389253863156682
+      ]
+    ],
+    "numerical_attempts": [
+      {
+        "rhat_max": 1.0025973357466234,
+        "ess_bulk_min": 3785.6497905183014,
+        "ess_tail_min": 1771.4217192590927,
+        "nonfinite_diagnostic": false,
+        "passed": true,
+        "divergences": 0,
+        "mean_num_steps": 12.6915,
+        "max_tree_depth_hits": 0
+      }
+    ],
+    "joint_derived_mcmc": {
+      "rhat_max": 1.0011251102605345,
+      "ess_bulk_min": 6686.619200263311,
+      "ess_tail_min": 6399.441461958754,
+      "nonfinite_diagnostic": false,
+      "passed": true
+    },
+    "levels": {
+      "0": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -2.565292953380327,
+          "p": 0.2961223924124737,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.15156350731384857,
+          "p": 0.04536374390512619,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      },
+      "1": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -3.4448458676248173,
+          "p": 0.04567824743141856,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.19511361664112684,
+          "p": 0.017832393759577434,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      },
+      "2": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -2.524103383201329,
+          "p": 0.3160180980433876,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.14403670839080793,
+          "p": 0.053635725202207524,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      }
+    },
+    "innovations": {
+      "0": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -3.8892313854077534,
+          "p": 0.002115543132004238,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.12443205895106008,
+          "p": 0.1,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [
+          "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+        ],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 10.357305382187176,
+            "p": 0.015760787088166042,
+            "p_holm": 0.034039530955412255
+          },
+          {
+            "lag": 6,
+            "statistic": 16.49126100241081,
+            "p": 0.011346510318470752,
+            "p_holm": 0.034039530955412255
+          },
+          {
+            "lag": 12,
+            "statistic": 24.45927721949869,
+            "p": 0.0176035823532132,
+            "p_holm": 0.034039530955412255
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      },
+      "1": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -3.886274539527779,
+          "p": 0.0021382133723671253,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.10033696916704345,
+          "p": 0.1,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [
+          "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+        ],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 2.8208211399525673,
+            "p": 0.42008384619916284,
+            "p_holm": 1.0
+          },
+          {
+            "lag": 6,
+            "statistic": 4.881285674180912,
+            "p": 0.5591269705488668,
+            "p_holm": 1.0
+          },
+          {
+            "lag": 12,
+            "statistic": 9.16880085203314,
+            "p": 0.6884489750998866,
+            "p_holm": 1.0
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      },
+      "2": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -4.830594724535396,
+          "p": 4.751178966009504e-05,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.0715687544397631,
+          "p": 0.1,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [
+          "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+        ],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 2.2413395302249195,
+            "p": 0.5238517377213634,
+            "p_holm": 1.0
+          },
+          {
+            "lag": 6,
+            "statistic": 2.413013464261873,
+            "p": 0.8780729989103702,
+            "p_holm": 1.0
+          },
+          {
+            "lag": 12,
+            "statistic": 8.47101647341298,
+            "p": 0.7473245207781878,
+            "p_holm": 1.0
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      }
+    },
+    "filter_note": "One-step innovations at full-training posterior mean R; no smoothed residuals, not a historical live filter."
+  },
+  "M2_portal": {
+    "covariance_mcmc": {
+      "rhat_max": 1.0010663004748057,
+      "ess_bulk_min": 10292.108314695904,
+      "ess_tail_min": 4959.974313893663,
+      "nonfinite_diagnostic": false,
+      "passed": true,
+      "divergences": 0,
+      "mean_num_steps": 6.768,
+      "max_tree_depth_hits": 0
+    },
+    "fixed_design": [
+      {
+        "group": 0,
+        "rank": 12,
+        "columns": 12,
+        "unit_norm_condition_number": 16.774895109315022,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      },
+      {
+        "group": 1,
+        "rank": 5,
+        "columns": 5,
+        "unit_norm_condition_number": 2.021853294606051,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      },
+      {
+        "group": 2,
+        "rank": 5,
+        "columns": 5,
+        "unit_norm_condition_number": 2.021853294606051,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      }
+    ],
+    "observation_covariance_posterior_mean": [
+      [
+        0.03582960906252276,
+        0.01244486338556265,
+        0.014984207517148115
+      ],
+      [
+        0.01244486338556265,
+        0.6297511203719656,
+        -0.0063841021376238065
+      ],
+      [
+        0.014984207517148115,
+        -0.0063841021376238065,
+        0.10148423406255684
+      ]
+    ],
+    "numerical_attempts": [
+      {
+        "rhat_max": 1.0010663004748057,
+        "ess_bulk_min": 10292.108314695904,
+        "ess_tail_min": 4959.974313893663,
+        "nonfinite_diagnostic": false,
+        "passed": true,
+        "divergences": 0,
+        "mean_num_steps": 6.768,
+        "max_tree_depth_hits": 0
+      }
+    ],
+    "joint_derived_mcmc": {
+      "rhat_max": 1.0008710866429993,
+      "ess_bulk_min": 7289.959452936882,
+      "ess_tail_min": 6981.200685002935,
+      "nonfinite_diagnostic": false,
+      "passed": true
+    },
+    "levels": {
+      "0": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -2.565292953380327,
+          "p": 0.2961223924124737,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.15156350731384857,
+          "p": 0.04536374390512619,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      },
+      "1": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -3.4448458676248173,
+          "p": 0.04567824743141856,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.19511361664112684,
+          "p": 0.017832393759577434,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      },
+      "2": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -2.524103383201329,
+          "p": 0.3160180980433876,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.14403670839080793,
+          "p": 0.053635725202207524,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      }
+    },
+    "innovations": {
+      "0": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -2.968275609961041,
+          "p": 0.037965156086283286,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.09635466459222049,
+          "p": 0.1,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [
+          "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+        ],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 7.676399308198358,
+            "p": 0.05319509329645684,
+            "p_holm": 0.13237128956328792
+          },
+          {
+            "lag": 6,
+            "statistic": 10.420445559425561,
+            "p": 0.1080265893127586,
+            "p_holm": 0.13237128956328792
+          },
+          {
+            "lag": 12,
+            "statistic": 21.453302744181556,
+            "p": 0.04412376318776264,
+            "p_holm": 0.13237128956328792
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      },
+      "1": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -2.4442406901632077,
+          "p": 0.12963700438756443,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.5579852763834375,
+          "p": 0.02860691973346001,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 11.475549508658897,
+            "p": 0.009413668646755148,
+            "p_holm": 0.018827337293510295
+          },
+          {
+            "lag": 6,
+            "statistic": 20.907320686755753,
+            "p": 0.0019062926082360572,
+            "p_holm": 0.005718877824708171
+          },
+          {
+            "lag": 12,
+            "statistic": 24.20166770806548,
+            "p": 0.01909346622223412,
+            "p_holm": 0.01909346622223412
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      },
+      "2": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -3.425236572149673,
+          "p": 0.0101280600658551,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.2644289393235242,
+          "p": 0.1,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [
+          "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+        ],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 50.698932788547225,
+            "p": 5.670640129339846e-11,
+            "p_holm": 1.7011920388019538e-10
+          },
+          {
+            "lag": 6,
+            "statistic": 57.16680827283459,
+            "p": 1.690236824033791e-10,
+            "p_holm": 3.380473648067582e-10
+          },
+          {
+            "lag": 12,
+            "statistic": 67.00066766884896,
+            "p": 1.1608666461967184e-09,
+            "p_holm": 1.1608666461967184e-09
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      }
+    },
+    "filter_note": "One-step innovations at full-training posterior mean R; no smoothed residuals, not a historical live filter."
+  },
+  "M2_logit": {
+    "covariance_mcmc": {
+      "rhat_max": 1.0008971092550014,
+      "ess_bulk_min": 10961.862329201274,
+      "ess_tail_min": 5657.625836987624,
+      "nonfinite_diagnostic": false,
+      "passed": true,
+      "divergences": 0,
+      "mean_num_steps": 6.7785,
+      "max_tree_depth_hits": 0
+    },
+    "fixed_design": [
+      {
+        "group": 0,
+        "rank": 12,
+        "columns": 12,
+        "unit_norm_condition_number": 20.21060813435606,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      },
+      {
+        "group": 1,
+        "rank": 5,
+        "columns": 5,
+        "unit_norm_condition_number": 2.021853294606051,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      },
+      {
+        "group": 2,
+        "rank": 5,
+        "columns": 5,
+        "unit_norm_condition_number": 2.021853294606051,
+        "note": "fixed calendar/policy design check, not proof of latent-state identification"
+      }
+    ],
+    "observation_covariance_posterior_mean": [
+      [
+        0.025880379341355352,
+        0.01610799686195469,
+        0.007789926306188775
+      ],
+      [
+        0.01610799686195469,
+        0.6295884736763777,
+        -0.006625273350632551
+      ],
+      [
+        0.007789926306188775,
+        -0.006625273350632551,
+        0.1022531402218995
+      ]
+    ],
+    "numerical_attempts": [
+      {
+        "rhat_max": 1.0008971092550014,
+        "ess_bulk_min": 10961.862329201274,
+        "ess_tail_min": 5657.625836987624,
+        "nonfinite_diagnostic": false,
+        "passed": true,
+        "divergences": 0,
+        "mean_num_steps": 6.7785,
+        "max_tree_depth_hits": 0
+      }
+    ],
+    "joint_derived_mcmc": {
+      "rhat_max": 1.0009559418105565,
+      "ess_bulk_min": 7066.5813665837195,
+      "ess_tail_min": 6734.3018324432305,
+      "nonfinite_diagnostic": false,
+      "passed": true
+    },
+    "levels": {
+      "0": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -2.095549150055909,
+          "p": 0.5485882580013143,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.17472607404654364,
+          "p": 0.026061604961213628,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      },
+      "1": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -3.4448458676248173,
+          "p": 0.04567824743141856,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.19511361664112684,
+          "p": 0.017832393759577434,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      },
+      "2": {
+        "status": "computed",
+        "n": 69,
+        "adf": {
+          "statistic": -2.524103383201329,
+          "p": 0.3160180980433876,
+          "lags": 3,
+          "effective_n": 65,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.14403670839080793,
+          "p": 0.053635725202207524,
+          "lags": 3,
+          "null": "trend stationarity"
+        },
+        "warnings": []
+      }
+    },
+    "innovations": {
+      "0": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -2.6131498575655407,
+          "p": 0.0903098018291642,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.09009201767056042,
+          "p": 0.1,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [
+          "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+        ],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 8.643596387272083,
+            "p": 0.0344246806510808,
+            "p_holm": 0.1032740419532424
+          },
+          {
+            "lag": 6,
+            "statistic": 8.837083931619814,
+            "p": 0.18294979119445437,
+            "p_holm": 0.18294979119445437
+          },
+          {
+            "lag": 12,
+            "statistic": 20.589621840455276,
+            "p": 0.05672253684156285,
+            "p_holm": 0.1134450736831257
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      },
+      "1": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -2.4436277057450386,
+          "p": 0.12979939017404957,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.557861260683424,
+          "p": 0.02863485119742702,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 11.480564007967493,
+            "p": 0.009391859254576253,
+            "p_holm": 0.018783718509152506
+          },
+          {
+            "lag": 6,
+            "statistic": 20.909362790896765,
+            "p": 0.0019046841552415223,
+            "p_holm": 0.005714052465724567
+          },
+          {
+            "lag": 12,
+            "statistic": 24.203586148517296,
+            "p": 0.01908194851648147,
+            "p_holm": 0.01908194851648147
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      },
+      "2": {
+        "status": "computed",
+        "n": 57,
+        "adf": {
+          "statistic": -3.414456606652906,
+          "p": 0.010475809064017981,
+          "lags": 3,
+          "effective_n": 53,
+          "null": "unit root"
+        },
+        "kpss": {
+          "statistic": 0.265086434071084,
+          "p": 0.1,
+          "lags": 3,
+          "null": "level stationarity"
+        },
+        "warnings": [
+          "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+        ],
+        "ljung_box": [
+          {
+            "lag": 3,
+            "statistic": 50.73487329894365,
+            "p": 5.571547645505381e-11,
+            "p_holm": 1.6714642936516143e-10
+          },
+          {
+            "lag": 6,
+            "statistic": 57.26293691679368,
+            "p": 1.6161510131339073e-10,
+            "p_holm": 3.2323020262678146e-10
+          },
+          {
+            "lag": 12,
+            "statistic": 67.07875980732882,
+            "p": 1.1227216278563356e-09,
+            "p_holm": 1.1227216278563356e-09
+          }
+        ],
+        "limitation": "Conditional filtered innovations, fixed hyperparameter posterior mean; fitted-parameter/short-sample tests are diagnostic, not calibrated specification tests."
+      }
+    },
+    "filter_note": "One-step innovations at full-training posterior mean R; no smoothed residuals, not a historical live filter."
+  }
+}

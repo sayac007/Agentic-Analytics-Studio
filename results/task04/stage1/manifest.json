@@ -1,0 +1,160 @@
+{
+  "status": "estimated",
+  "protocol": {
+    "version": "task-04-regimes/1.0.0",
+    "commit": "42b1f155fc70117e7c28190809c732c5586afaa1",
+    "frozen_at": "2026-10-29T14:47:39+01:00",
+    "protocol_sha256": "16d36baa198cb7f1e6c8db1ce608a79ccfbf9ae17e48dc18bb642ddfbb3aea06",
+    "config_sha256": "2eee9f470d2654d5a1eb10fadec6baf891c9a30d90aa260e6ca8c5810378982f",
+    "scope": "User-authorized Stage1 only; calibration complete, no real Task04 fit before this commit."
+  },
+  "execution_commit": "75a7d266bbf9632ae0292a004a1eb87975dfcb09",
+  "implementation_sha256": {
+    "regimes/__init__.py": "b362755ec12093fd98efb2e3218c9450649b7c33301cecc1524edeec3531f18f",
+    "regimes/artifacts.py": "4a3ce4b7d0c89c75c46f5ab0764b02d510e86c1cbc84954664c19606dbabb923",
+    "regimes/assessments.py": "ac4ef351ffe2ef776287d121c579f4812a048bb94320c5043f31ff679f770d53",
+    "regimes/data.py": "2a62fa352f846c0c2a916b3c4c5f49357a8a327a5274d21d9b0f7f851f91a07b",
+    "regimes/diagnostics.py": "63d748a0bbc17870523dba9bcf8c6e5b9aab80ba1d059742ee4f8be6e1b03b4b",
+    "regimes/evaluation.py": "ec35baa33f0717b7d34422b2624c6704cac969c82179402066c5d7dc5a81ce32",
+    "regimes/inference.py": "34d1655357b0694851ba7213406b8212ffaddb391e9b7504451d4e53adc31945",
+    "regimes/kalman.py": "9078d1aee0a4e6da5402693ec09848715793cdc93b1f5d25964ea4abb62e8ede",
+    "regimes/recovery.py": "6424abd3fd40b87dec963d00ba80861182a47f6f78075398e065e286f8bae62f",
+    "regimes/reference.py": "aefe0148c028fda01f3d699eee1cc07d0705f397af364016200e80f44dd6b2ae",
+    "regimes/reporting.py": "57e5c994803c0b2baa00d46f1ff747bd37066682dc78f74e084f81f028b35d05",
+    "regimes/study.py": "d1203c5c914cedcc2063a43388a55cd422c957b1fc06aa3ee87bc41a76f8e296",
+    "regimes/verify.py": "5c5215abe7131abacdfd00f869fef47e40f30bd1ea44242b1ba9fcc76b2674a6"
+  },
+  "config_sha256": "2eee9f470d2654d5a1eb10fadec6baf891c9a30d90aa260e6ca8c5810378982f",
+  "input_hashes": {
+    "data/competition/brand_monthly_2021_2026.csv": "8bec19a1dc2bf5b3f939915279e3364983dfcf4fe08739cd05f4e670b859063a",
+    "data/competition/kba_checks.json": "f90e8a9448d66177d0343c00e580bfac4d845a5fc47b3458660c64795df1efce",
+    "data/competition/kba_sources.json": "5fe348aae13cfdb5cf11ebccbae3a11844f9efec76489790d8115d967780505c",
+    "data/task04_regimes/data_audit.json": "a4c06707fe1fc6588fe2b461179e050fa265b05a6a45fabeec624e51e76ac9a8",
+    "data/task04_regimes/primary_sources.json": "fea5f29fd6643dea05fa05d3d1c802ea93c194bb6904e36134e6b5613ab62bc5",
+    "data/task04_regimes/policy_chronology.json": "fb3ec021c7bd1703bb8287c64d0615dc87f6ae7b526ec46c848a25afb367e51a",
+    "data/task04_regimes/recovery_plan.json": "12992fb1c8f455f7c358af57319db5c423a3e0953215bfa55e836537f00f67d5",
+    "results/task04/recovery/summary.json": "3734bf85407b4fdf401056a6089fd8b5a82f1d7a9bf958b4f2fe17b668f80c56",
+    "results/task04/recovery/fits.json": "ab239c8ecc78ee160d374349b70b2d3fd8a309851eb7b4c895901273d11e56d9",
+    "results/task04/recovery/sha256.json": "78855bab5bdd63e01e7f8de1cadea52ab0fa74602c94c72fa42a2cbe8d03c140",
+    "requirements-regimes.lock": "967f81c2b34160b6faab793a4048871c1b2f1729d549f311d4ba9bf27a366427"
+  },
+  "runtime": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "pandas": "2.2.3",
+    "statsmodels": "0.14.6",
+    "pymc": "5.28.5",
+    "pytensor": "2.38.3",
+    "jax": "0.7.2",
+    "jaxlib": "0.7.2",
+    "numpyro": "0.20.1",
+    "arviz": "0.22.0",
+    "hypoforge": "0.4.0"
+  },
+  "models": [
+    {
+      "id": "M0",
+      "model": "M0",
+      "sd": 0.03,
+      "portal": false,
+      "logit": false
+    },
+    {
+      "id": "M1",
+      "model": "M1",
+      "sd": 0.03,
+      "portal": false,
+      "logit": false
+    },
+    {
+      "id": "M2",
+      "model": "M2",
+      "sd": 0.03,
+      "portal": false,
+      "logit": false
+    },
+    {
+      "id": "M2_sd0.05",
+      "model": "M2",
+      "sd": 0.05,
+      "portal": false,
+      "logit": false
+    },
+    {
+      "id": "M2_sd0.10",
+      "model": "M2",
+      "sd": 0.1,
+      "portal": false,
+      "logit": false
+    },
+    {
+      "id": "M2_sd0.20",
+      "model": "M2",
+      "sd": 0.2,
+      "portal": false,
+      "logit": false
+    },
+    {
+      "id": "M2_portal",
+      "model": "M2",
+      "sd": 0.03,
+      "portal": true,
+      "logit": false
+    },
+    {
+      "id": "M2_logit",
+      "model": "M2",
+      "sd": 0.03,
+      "portal": false,
+      "logit": true
+    }
+  ],
+  "source": "Kraftfahrt-Bundesamt FZ10, own calculations, dl-de/by-2-0",
+  "source_vintage": "2026-10-29, retrospective current-vintage reference-month backtest",
+  "periods": 69,
+  "training_minimum": 48,
+  "forecast_targets_per_model": {
+    "h1": 21,
+    "h3": 19
+  },
+  "method": "Joint Gaussian state-space; PyMC priors, exact Kalman marginalisation, NumPyro NUTS; guarded unsmoothed importance updates for rolling prefixes.",
+  "fingerprint": "ba57bc2b9935f7c56aea4edd9146ad513e1bba03d06e37ac3825a2ab01621e88",
+  "files": {
+    "brand_levels.png": "52886ddce4874caf50bfdd3d942ee4c83db4eebd7370187874b0f90c03e9a97d",
+    "brand_levels.svg": "8d3ccce3138f511d3d7eb0721fd9b7f0de60456dca24f43bbd71781b3a893771",
+    "coefficients.csv": "803deae169519ca9e1ee5e9c7729536613060bee72ea584e13b4d09dcab2508a",
+    "contrasts.csv": "77f8d775ee3fe368f23b139b858ea6e8d82ebf2a9cd6b2e5515095d1ffe6c350",
+    "decomposition.csv": "fa197b0bc73895542828dbe661f1f3cf94ecad1f13a05186f2b4fb1ad5cda09c",
+    "diagnostics.json": "c7660b5f4c32b1822614fc99fb385008137fee1a461b2084022a6a0d51036773",
+    "frequentist_reference.json": "ba99a6ea61724abb536de549b6a7c07a306f9a407d54e033e4bf1a95d54fe5c5",
+    "hypotheses.csv": "aafb3240852ae464e3b12629d9a49c79c2ca4838fcd4112b123ce8076f6fc89c",
+    "latent_market.png": "4a69c0f2fb93395e0f8da8fca528617501522e0dffb3156dda5c5d6220860576",
+    "latent_market.svg": "b07ef9981003248d28a10b3167ee26d9c25b88a785662f4026925d7b9b196a2c",
+    "market_share_decomposition.png": "4dbf6a0b4e510017f102b8fbe5b74692cd3914c9f7107524c233c7aabc9e01ae",
+    "market_share_decomposition.svg": "faf90fe5d4e4b271c34985a392caddb681fc327675d9133752825782cea9cd13",
+    "metrics.csv": "ea41ee7eea4507f20a4a80f8eb4714a61b220778ae602dd25131449d0cf2772f",
+    "model_decomposition.csv": "8d6288eeb17d093cfe4a99812a30df3ff87db474ae3edff89569ca06cf5c2b95",
+    "predictions.csv": "4903f84f546b5d2065ada2a0f45b2d726c3d3382050e838f4cf1f56693f41ce7",
+    "report.md": "9954369941e7a040bd322a566110b5d378b1f1098f0a8dad74c0883fbaa6c161",
+    "rolling_inference.json": "3ee7aed057255fdd2f60ee6d69be784833472f24e6a2b74c8a5b3c7dcd240ce6",
+    "states.csv": "9d6b544f2f06f82967f5abc7e22f27268adb4e219dc5bd9877260c08b3b40eca"
+  },
+  "presentation_correction": {
+    "reason": "Monthly numpy datetime unit made numeric bar width span months. Accounting bars now explicitly have 22-day width. No numeric estimate, observation, prediction, interval or method changed.",
+    "at_utc": "2026-10-29T16:27:31.274601+00:00",
+    "reporting_source_sha256": "7566fb8cc7b3a2f9d01426dabc64caf2272930c5afe2078b0dc4a5f11f17c5da",
+    "original_execution_manifest_sha256": "49c26c2ace9a15604a8d6f1b79d40d42230a9014f2e8efbe61b3ee031aff64ec",
+    "changed_files": {
+      "market_share_decomposition.png": {
+        "original_sha256": "6159cbb25885b2b41a0499d3944062330a0d21b9572eba0fe78389396fc8883d",
+        "corrected_sha256": "4dbf6a0b4e510017f102b8fbe5b74692cd3914c9f7107524c233c7aabc9e01ae"
+      },
+      "market_share_decomposition.svg": {
+        "original_sha256": "fd8fd9a5932796ca19550f2d7b11889ff0b1531f800bc4f217c6c32a4907bff7",
+        "corrected_sha256": "faf90fe5d4e4b271c34985a392caddb681fc327675d9133752825782cea9cd13"
+      }
+    },
+    "other_payloads_byte_identical": 16,
+    "model_reestimated": false
+  }
+}

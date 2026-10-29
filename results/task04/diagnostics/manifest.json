@@ -1,0 +1,31 @@
+{
+  "method": "Read-only conditional innovation diagnostics, no estimation or data changes",
+  "protocol": {
+    "version": "task-04-regimes/1.0.0",
+    "commit": "42b1f155fc70117e7c28190809c732c5586afaa1",
+    "frozen_at": "2026-10-29T14:47:39+01:00",
+    "protocol_sha256": "16d36baa198cb7f1e6c8db1ce608a79ccfbf9ae17e48dc18bb642ddfbb3aea06",
+    "config_sha256": "2eee9f470d2654d5a1eb10fadec6baf891c9a30d90aa260e6ca8c5810378982f",
+    "scope": "User-authorized Stage1 only; calibration complete, no real Task04 fit before this commit."
+  },
+  "stage1_manifest_sha256": "5d72521ee877e0cdb55bb451afb662c93978aef0144d5775a28c4b8f1120f3e5",
+  "script_sha256": "13c8b3f585ad59f4be13b500be756bdc28bfab73896742585b93f1347eda5b31",
+  "periods": 69,
+  "diagnostic_burn_in": 12,
+  "acf_lags": 12,
+  "source": "KBA FZ10, own calculations, dl-de/by-2-0",
+  "files": {
+    "acf.csv": "0cbd59c35ba0d93d27f66f608431a5729da09a78f8cfaad423528d9003a6be8a",
+    "annual_innovation_variation.csv": "95c510143699fdd93b1fafe2184fc5db481e4b646c5e2fe284f4ab5b5f1d0b97",
+    "forecast_covariates.csv": "8d3de82609e4cf689cb5573e1ca7a47e90162f6e2a6c4b607dd18d56472a147b",
+    "innovation_acf.png": "973b5be6bdcd755fd10b162d1ca6965569676aa7152235079be3e8f245807347",
+    "innovation_acf.svg": "e7fae56741b1c4e775ced67cbcf97a9c15ce4b9c97501a4f2c322ea9a6fea348",
+    "innovations.csv": "d2dce6bdf52eb7de1a2b570243675feec1b17e4d1fd98ef220f4b2881012a168",
+    "largest_innovations.csv": "96352f27a4dbad4262c68281544b3dd9870f22206f541361c999981f26baa027"
+  },
+  "source_manifest_presentation_only_update": {
+    "previous_sha256": "49c26c2ace9a15604a8d6f1b79d40d42230a9014f2e8efbe61b3ee031aff64ec",
+    "numeric_input_files_byte_identical": true,
+    "diagnostic_payloads_not_regenerated": true
+  }
+}

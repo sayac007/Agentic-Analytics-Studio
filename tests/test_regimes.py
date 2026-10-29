@@ -289,3 +289,67 @@ class SupplementaryDiagnostics(unittest.TestCase):
         z=np.random.default_rng(0).normal(size=(69,3))
         for bad in (z[:-1],z*np.nan,np.zeros((69,3))):
             with self.assertRaises(ValueError):summarize(bad)
+
+
+class PreservedStageOneValidation(unittest.TestCase):
+    def copy_result(self,where):
+        import shutil
+        source=data.ROOT/"results/task04/stage1"
+        self.assertTrue((source/"manifest.json").exists(),"Preserved real Stage1 outputs are required")
+        target=Path(where)/"results";shutil.copytree(source,target)
+        return target
+
+    def test_forged_missing_payload_is_not_a_complete_result(self):
+        from regimes.verify import verify
+        with tempfile.TemporaryDirectory()as d:
+            target=self.copy_result(d);p=target/"manifest.json"
+            m=json.loads(p.read_text());(target/"report.md").unlink();m["files"].pop("report.md")
+            p.write_text(json.dumps(m))
+            with self.assertRaisesRegex(ValueError,"required"):verify(target)
+
+    def test_result_cannot_rebind_protocol_configuration(self):
+        from regimes.verify import verify
+        with tempfile.TemporaryDirectory()as d:
+            target=self.copy_result(d);p=target/"manifest.json"
+            m=json.loads(p.read_text());m["config_sha256"]="0"*64;p.write_text(json.dumps(m))
+            with self.assertRaisesRegex(ValueError,"frozen definition"):verify(target)
+
+    def test_arbitrary_input_identity_rejected_before_file_read(self):
+        from regimes.verify import verify
+        with tempfile.TemporaryDirectory()as d:
+            target=self.copy_result(d);p=target/"manifest.json"
+            m=json.loads(p.read_text());m["input_hashes"]["/tmp/NEVER_READ_PRIVATE_FILE"]="0"*64
+            p.write_text(json.dumps(m))
+            with self.assertRaisesRegex(ValueError,"input identities"):verify(target)
+
+    def test_rehashed_incoherent_predictions_rejected(self):
+        import csv
+        from regimes.verify import verify
+        with tempfile.TemporaryDirectory()as d:
+            target=self.copy_result(d);p=target/"predictions.csv"
+            with p.open(newline="")as f:rows=list(csv.DictReader(f))
+            row=next(r for r in rows if r["outcome"]=="Tesla")
+            row["prediction_mean"]=str(float(row["prediction_mean"])+100)
+            row["error"]=str(float(row["error"])+100)
+            with p.open("w",newline="")as f:
+                w=csv.DictWriter(f,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
+            m=json.loads((target/"manifest.json").read_text());m["files"]["predictions.csv"]=data.sha(p)
+            (target/"manifest.json").write_text(json.dumps(m))
+            with self.assertRaisesRegex(ValueError,"coherent"):verify(target)
+
+    def test_config_and_record_cannot_jointly_rewrite_frozen_commit(self):
+        from regimes import artifacts
+        original_cfg,record=artifacts.freeze_gate()
+        protocol=(data.ROOT/"docs/REGIME_STATE_SPACE_PROTOCOL.md").read_bytes()
+        cfgbytes=(data.ROOT/"config/task-04-regimes.json").read_bytes()
+        with tempfile.TemporaryDirectory()as d:
+            root=Path(d)
+            for name in ("docs","config","data/task04_regimes"):(root/name).mkdir(parents=True)
+            fake=copy.deepcopy(original_cfg);fake["primary_level_sd"]=.04;fake["inputs_sha256"]={}
+            raw=json.dumps(fake).encode()
+            record=copy.deepcopy(record);record["config_sha256"]=hashlib.sha256(raw).hexdigest()
+            (root/"docs/REGIME_STATE_SPACE_PROTOCOL.md").write_bytes(protocol)
+            (root/"config/task-04-regimes.json").write_bytes(raw)
+            (root/"data/task04_regimes/freeze.json").write_text(json.dumps(record))
+            with patch.object(artifacts,"ROOT",root),patch.object(artifacts.subprocess,"run"),patch.object(artifacts.subprocess,"check_output",side_effect=[protocol,cfgbytes]):
+                with self.assertRaisesRegex(ValueError,"Config not committed at freeze"):artifacts.freeze_gate()

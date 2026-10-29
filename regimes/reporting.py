@@ -10,7 +10,7 @@ from .data import PERIODS, ROOT
 from .artifacts import write_csv
 
 COLORS={"Tesla":"#0072B2","VW":"#E69F00","China":"#009E73","Rest":"#777777"}
-DATES=np.array(PERIODS,dtype="datetime64[M]")
+DATES=np.array(PERIODS,dtype="datetime64[D]")
 plt.rcParams["svg.hashsalt"]="task-04-regimes-1.0.0"
 
 
@@ -32,8 +32,7 @@ def save(fig,out,name):
     plt.close(fig)
 
 
-def render(out,values,decomposition,metrics,contrasts,full):
-    primary=full["M2"];paths=primary["paths"]
+def plot_accounting(out,values):
     fig,axes=plt.subplots(2,1,figsize=(12,7),sharex=True)
     axes[0].plot(DATES,values[:,1],color=COLORS["Tesla"],label="Tesla registrations")
     axes[0].axvspan(np.datetime64("2025-01"),np.datetime64("2025-04"),color="#56B4E9",alpha=.10,
@@ -43,11 +42,17 @@ def render(out,values,decomposition,metrics,contrasts,full):
     a=(s0+s1)/2*(M1-M0);b=(M0+M1)/2*(s1-s0)
     for d,v,c,label in [(DATES[12:],a,COLORS["VW"],"BEV-market component"),(DATES[12:],b,COLORS["Tesla"],"Tesla-share component")]:
         bottom=np.where(np.sign(v)==np.sign(a),a,0)if label.startswith("Tesla-share")else 0
-        axes[1].bar(d,v,bottom=bottom,width=22,color=c,label=label)
+        axes[1].bar(d,v,bottom=bottom,width=np.timedelta64(22,"D"),color=c,label=label)
     axes[1].plot(DATES[12:],values[12:,1]-values[:-12,1],color="black",lw=1,label="Observed year-on-year change")
     axes[1].set_ylabel("Change vs same month previous year");axes[1].legend();annotate(axes[1])
     fig.suptitle("Tesla Germany: growing market and changing brand share")
     save(fig,out,"market_share_decomposition")
+
+
+
+def render(out,values,decomposition,metrics,contrasts,full):
+    primary=full["M2"];paths=primary["paths"]
+    plot_accounting(out,values)
 
     fig,ax=plt.subplots(figsize=(11,4.5))
     low,med,high=np.quantile(np.exp(paths[:,:,0]),[.025,.5,.975],axis=0)
