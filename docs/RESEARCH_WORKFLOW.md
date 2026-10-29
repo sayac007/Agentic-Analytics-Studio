@@ -105,7 +105,7 @@ einen ausdrücklich festgelegten Analyseauftrag.
 
 ### Fachliche Auswertung vorhandener Tesla-Ergebnisse
 
-[03e](../workorders/03e-tesla-evidence-review.md) definiert die rein deskriptive
+[03e](archive/workorders/03e-tesla-evidence-review.md) definiert die rein deskriptive
 Nachauswertung vor ihrer Ausführung: Jahreswerte nur mit zwölf Beobachtungen,
 Monats-/Quartalsmuster und alle acht bereits geschätzten Modellvarianten. Keine
 zusätzlichen Fits. Markt-/Markenabgrenzungen bleiben sichtbar. Der KI-Kontext erhält

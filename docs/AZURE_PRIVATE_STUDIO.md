@@ -474,4 +474,4 @@ Bereitstellung oder eines bezahlten Live-API-Aufrufs.
 - [Key-Vault-RBAC](https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide)
 - [Keine Secrets in VM-Custom-Data](https://learn.microsoft.com/en-us/azure/virtual-machines/custom-data)
 - [SQLite und Netzwerkdateisysteme](https://sqlite.org/useovernet.html)
-- [Bisherige Gesprächsgrenzen und API-Datenverarbeitung](CONVERSATIONAL_AGENT.md)
+- [Bisherige Gesprächsgrenzen und API-Datenverarbeitung](EMPIRICAL_STUDIO.md)

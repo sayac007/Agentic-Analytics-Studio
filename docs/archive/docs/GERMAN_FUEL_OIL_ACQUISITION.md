@@ -19,8 +19,8 @@ Macro coverage and frozen Task 01G remain unchanged.
 These are **retrieved-and-verified** coverage counts, not proof of absent publisher
 history. As of October 24 the latest completed month is September 2026. October is
 partial and excluded; no nonexistent future observations are created. The frozen
-2018–2025 comparison remains separate. Machine artifacts: [`sources.json`](../data/fuel_oil/sources.json),
-[`coverage.json`](../data/fuel_oil/coverage.json), [`access_log.json`](../data/fuel_oil/access_log.json).
+2018–2025 comparison remains separate. Machine artifacts: [`sources.json`](../../../data/fuel_oil/sources.json),
+[`coverage.json`](../../../data/fuel_oil/coverage.json), [`access_log.json`](../../../data/fuel_oil/access_log.json).
 Coverage binds exact catalog bytes. No empty pseudo-observation CSV is produced.
 
 ## Access evidence and authoritative verification still needed
@@ -49,7 +49,7 @@ to reviewed dataset rights.
 
 ## Small fetcher: changes to the handoff
 
-[`fuel_oil/fetch_fuel_oil.py`](../fuel_oil/fetch_fuel_oil.py) is a reviewed replacement
+[`fuel_oil/fetch_fuel_oil.py`](../../../fuel_oil/fetch_fuel_oil.py) is a reviewed replacement
 of the attached `fetch_fuel_oil.py`; its original hash is recorded in the catalog.
 No general ingestion framework or new dependency is added. Use Python 3.12 and the
 existing `requirements-attention.lock` (includes pinned openpyxl).
@@ -170,7 +170,7 @@ exercised only with explicitly **synthetic** test observations.
   No verified ADAC historical API/terms were obtained. E10 remains excluded.
 
 No Tesla oil-shock effect, exogeneity, causal coefficient, lag search or 2026 outcome
-analysis is introduced. The earlier [frozen protocol](TESLA_ATTENTION_ECONOMETRIC_PROTOCOL.md)
+analysis is introduced. The earlier [frozen protocol](../../TESLA_ATTENTION_ECONOMETRIC_PROTOCOL.md)
 and [Macro source report](GERMAN_MACRO_CONTROLS.md) remain unchanged.
 
 ## Rights and copy-ready attribution candidates

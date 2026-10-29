@@ -3,7 +3,7 @@
 ## Objective
 
 Implement the Stage A semi-synthetic recovery pipeline defined by the approved
-[Task 00.5 statistical contracts](../docs/STATISTICAL_CONTRACTS.md), version 0.2.0.
+[Task 00.5 statistical contracts](../../STATISTICAL_CONTRACTS.md), version 0.2.0.
 This work order is a plan; its update does not start or authorize implementation.
 Observed/reference baseline reconstruction must be imperfect: never use the reference
 or its planted components as estimator regressors. No real Tesla media ROI claim.

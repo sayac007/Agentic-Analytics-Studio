@@ -21,4 +21,4 @@ series is established by this search. No missing values were filled.
 
 Rebuild/check offline: `python3 -m campaigns.transform [--check]`.
 Definitions, source links, search limitations and later research designs:
-[Research report](../../docs/TESLA_GERMANY_CAMPAIGN_RESEARCH.md).
+[Research report](../../docs/archive/docs/TESLA_GERMANY_CAMPAIGN_RESEARCH.md).

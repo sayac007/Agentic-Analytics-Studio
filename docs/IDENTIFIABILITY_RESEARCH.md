@@ -39,7 +39,7 @@ No observed data, UI, causal claim, transform search or automatic merge.
 
 ## Permanent full results: original CI execution, not a reconstruction
 
-The complete original is versioned in [results/task02](../results/task02/), without
+The complete original is versioned in [results/task02](../results/task02), without
 Git LFS or any dependency on Actions artifact retention. Read the
 [summary](../results/task02/summary.csv), [grid thresholds](../results/task02/mde.csv),
 [original report](../results/task02/report.md) and [figure](../results/task02/power.png)

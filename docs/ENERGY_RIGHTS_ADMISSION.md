@@ -11,7 +11,7 @@ withholding unconditional EIA admission. PR #18 remains Draft; Task 01J is not a
 1. Three private original files and normalized snapshots remain available. Exact
    raw SHA-256 bindings match the existing real-source catalog and private inventory.
    Native identities/units/layouts are those verified in
-   [Task 01I.1](REAL_ENERGY_DATA_IMPORT.md). No import rerun or successful live download
+   [Task 01I.1](archive/docs/REAL_ENERGY_DATA_IMPORT.md). No import rerun or successful live download
    is claimed: this task rechecked existing raw/normalized hashes and QA metadata.
 2. The actual EC workbook reproduction notice was reread at `Prices with taxes!B1115`
    and `B1117`. A metadata-only [evidence artifact](../data/fuel_oil/rights_evidence/ec_embedded_notice.json)

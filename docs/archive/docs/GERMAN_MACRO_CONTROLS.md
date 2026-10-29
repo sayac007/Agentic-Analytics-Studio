@@ -9,7 +9,7 @@ protocol are unchanged. No outcome correlations, coefficients or lag selection r
 ## Source, definition and coverage matrix
 
 Identifiers below are **lookup candidates**, not verified executable series keys.
-[`sources.json`](../data/german_macro/sources.json) intentionally has `series_id=null`,
+[`sources.json`](../../../data/german_macro/sources.json) intentionally has `series_id=null`,
 `metadata_status=not_verified`, and unverified actual frequency/unit/adjustment for
 all nine candidates. Intended definitions are separate from admitted metadata.
 Table IDs do not resolve a unique measure, base, adjustment or vintage.
@@ -29,13 +29,13 @@ Table IDs do not resolve a unique measure, base, adjustment or vintage.
 For **every candidate**, checked real monthly coverage is **0/96** (2018–2025) and
 **0/60** (2021–2025). These are acquisition/verification counts, **not proof that
 publishers lack observations**. Native-frequency availability remains unresolved.
-[`coverage.json`](../data/german_macro/coverage.json) is deterministically bound to
+[`coverage.json`](../../../data/german_macro/coverage.json) is deterministically bound to
 the catalog; no monthly zero-value series is fabricated. Optional confidence and
 HICP are deferred to avoid expanding an unverified control set.
 
 ## What was actually reachable
 
-[`search_log.json`](../data/german_macro/search_log.json) records exact requests,
+[`search_log.json`](../../../data/german_macro/search_log.json) records exact requests,
 UTC instants, errors, and SHA-256 of successful research responses. All 22 direct
 official requests (including metadata, series pages, rights and GENESIS metadata)
 failed with **proxy tunnel CONNECT 403**. This is an environment access restriction,
@@ -82,7 +82,7 @@ Retrieval time and hash bind today's snapshot, **not historical availability**.
 Publication lags/revisions require per-vintage evidence for an actual as-of backtest;
 all outputs explicitly say `historical_as_of=not_established`. Preserve unknown
 publication dates rather than invent a first-of-month date. KBA's existing
-[admission distinctions](PUBLICATION_PRECISION.md) remain untouched.
+[admission distinctions](../../PUBLICATION_PRECISION.md) remain untouched.
 
 ## Offline implementation and reproducibility
 
@@ -148,10 +148,10 @@ Two explicit optional derivations, exercised offline:
 ## Candidate economic protocol — no estimates
 
 This proposal is fixed before inspecting any outcome relationship. It **does not
-amend** the [frozen Task 01G protocol](TESLA_ATTENTION_ECONOMETRIC_PROTOCOL.md) or
+amend** the [frozen Task 01G protocol](../../TESLA_ATTENTION_ECONOMETRIC_PROTOCOL.md) or
 license running an expanded regression. A new reviewed protocol must first specify
 sample, outcomes, information set, controls, transformations and multiplicity.
-Machine-readable companion: [`candidate_protocol.json`](../data/german_macro/candidate_protocol.json).
+Machine-readable companion: [`candidate_protocol.json`](../../../data/german_macro/candidate_protocol.json).
 
 - Primary sparse extension: **one** consumer-credit rate measure in level, lag **3
   months** as the prospective order-to-registration-delay hypothesis. Sensitivities

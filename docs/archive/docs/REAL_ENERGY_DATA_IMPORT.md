@@ -14,8 +14,8 @@ No outcome joins, regressions, correlations or causal/ROI estimates were perform
 | `RBRTEm.xls` | 55,296 / `5881bc058aa7d641dc41ef254f6991e101c952e112284f0eb5a994514b401cb7` | Native OLE/BIFF XLS; `Contents` 15×6, `Data 1` 476×2 | 473 monthly rows, 1987-05–2026-09 |
 | `Weekly_Oil_Bulletin_Prices_History_maticni_4web.xlsx` | 4,491,517 / `7e019a27fe2df6f324ec7a7c551b98142713fbee32aa7a030906101ffc22b2fd` | Genuine XLSX, seven sheets; selected `Prices with taxes` 1117×226 | 1,089 weekly rows, 2005-01-03–2026-10-19 |
 
-Machine catalog: [`real_sources.json`](../data/fuel_oil/real_sources.json).
-The public [QA/coverage summary](../data/fuel_oil/real_coverage.json) records all
+Machine catalog: [`real_sources.json`](../../../data/fuel_oil/real_sources.json).
+The public [QA/coverage summary](../../../data/fuel_oil/real_coverage.json) records all
 sheet names/dimensions, source-identifying headers, source locations, hashes,
 unknown download times and rights decisions. Filenames are not source identity.
 Inputs are bound to filename, bytes and expected SHA-256 before parsing; changed

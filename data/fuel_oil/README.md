@@ -7,8 +7,8 @@ binds the catalog and reports zero retrieved verified observations for all four
 candidates in 96/105-month windows; it does not prove absent publisher history.
 
 Run `python -m fuel_oil.fetch_fuel_oil --check` offline. See
-[acquisition and manual handoff](../../docs/GERMAN_FUEL_OIL_ACQUISITION.md) and
-[conditional attribution](../../docs/DATA_SOURCES_FUEL_OIL.md). Keep later raw/derived
+[acquisition and manual handoff](../../docs/archive/docs/GERMAN_FUEL_OIL_ACQUISITION.md) and
+[conditional attribution](../../docs/archive/docs/DATA_SOURCES_FUEL_OIL.md). Keep later raw/derived
 snapshots outside Git until separately reviewed rights and admission are resolved.
 
 ## Later uploaded-original assessment (Task 01I.1)
