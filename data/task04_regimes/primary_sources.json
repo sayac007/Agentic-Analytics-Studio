@@ -1,0 +1,158 @@
+{
+  "scope": "Primary evidence consulted for protocol draft, not data or model admission",
+  "sources": [
+    {
+      "url": "https://www.bundesumweltministerium.de/pressemitteilung/neues-e-auto-foerderprogramm-mit-sozialer-staffelung-zuschuesse-fuer-neuzulassungen-ab-1-januar-2026",
+      "accessed_at_utc": "2026-10-29T09:35:28.045560+00:00",
+      "file": "grant2026_announcement",
+      "status": 200,
+      "final_url": "https://www.bundesumweltministerium.de/pressemitteilung/neues-e-auto-foerderprogramm-mit-sozialer-staffelung-zuschuesse-fuer-neuzulassungen-ab-1-januar-2026",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 168131,
+      "sha256": "dd84891cf4fb6a59e3d99640e122095b32faafcd2d5466c28299a713b3586cf4",
+      "publication_date_verified": "2026-01-19",
+      "evidence_scope_and_limits": "Announcement: eligible registrations from 2026-01-01; retrospective eligibility is not an earlier announcement date."
+    },
+    {
+      "url": "https://www.bundesumweltministerium.de/pressemitteilung/e-auto-foerderung-kann-ab-jetzt-beantragt-werden",
+      "accessed_at_utc": "2026-10-29T09:35:28.046537+00:00",
+      "file": "grant2026_portal",
+      "status": 200,
+      "final_url": "https://www.bundesumweltministerium.de/pressemitteilung/e-auto-foerderung-kann-ab-jetzt-beantragt-werden",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 165126,
+      "sha256": "d3af4ad7b31ea8f6aa49da3d9a090cc32548a5849471f86bc24b78cd4bca1fa1",
+      "publication_date_verified": "2026-05-19",
+      "evidence_scope_and_limits": "Applications open; distinct from announcement and eligibility start."
+    },
+    {
+      "url": "https://www.bundesumweltministerium.de/foerderung/ueberblick-foerderung/fragen-und-antworten-zur-e-auto-foerderung",
+      "accessed_at_utc": "2026-10-29T09:35:28.047176+00:00",
+      "file": "grant2026_faq",
+      "status": 200,
+      "final_url": "https://www.bundesumweltministerium.de/das-foerderprogramm-fuer-elektroautos",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 227178,
+      "sha256": "9074f44ed61d484e583c0d821824bda750337cf0639f59c890fb5a3d8442c2d6",
+      "publication_date_verified": null,
+      "evidence_scope_and_limits": "Current programme rules and household/vehicle conditions; not a historical point-in-time snapshot."
+    },
+    {
+      "url": "https://www.bundesumweltministerium.de/fileadmin/Daten_BMU/Download_PDF/Foerderprogramme/foerderrichtlinie_e-auto_foerderung_bf.pdf",
+      "accessed_at_utc": "2026-10-29T09:35:29.424411+00:00",
+      "file": "grant2026_guideline",
+      "status": 200,
+      "final_url": "https://www.bundesumweltministerium.de/fileadmin/Daten_BMU/Download_PDF/Foerderprogramme/foerderrichtlinie_e-auto_foerderung_bf.pdf",
+      "content_type": "application/pdf",
+      "bytes": 222518,
+      "sha256": "573bacecbdd20da7c756cb19c9cdf3b3cd4f0672310838040703177a95b579fe",
+      "publication_date_verified": "2026-05-19",
+      "evidence_scope_and_limits": "Guideline read: private-household BEV EUR 3000 base, up to EUR 6000; PHEV differs."
+    },
+    {
+      "url": "https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en",
+      "accessed_at_utc": "2026-10-29T09:35:29.846700+00:00",
+      "file": "weekly_oil",
+      "status": 200,
+      "final_url": "https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 106397,
+      "sha256": "8a78c39977503f2b3d73f44c41402b89071508befcb3a07e4a3a90622febac34",
+      "publication_date_verified": null,
+      "evidence_scope_and_limits": "Official route to historical workbook and country methodology; no new monthly observations admitted."
+    },
+    {
+      "url": "https://www.bundesregierung.de/breg-de/aktuelles/e-autos-steuerfrei-2389328",
+      "accessed_at_utc": "2026-10-29T09:35:29.473176+00:00",
+      "file": "bev_tax",
+      "status": 200,
+      "final_url": "https://www.bundesregierung.de/breg-de/aktuelles/e-autos-steuerfrei-2389328",
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 127247,
+      "sha256": "0bd94a0ebf71f1b19df9825a184369fc0185502be87bc9e8bb7e509fbb551446",
+      "publication_date_verified": null,
+      "evidence_scope_and_limits": "Government explanation; current legislation checked separately, not an inferred historical enactment date."
+    },
+    {
+      "url": "https://digitalassets.tesla.com/tesla-contents/image/upload/IR/TSLA-Q1-2025-Update.pdf",
+      "accessed_at_utc": "2026-10-29T09:35:30.387774+00:00",
+      "file": "modely_q12025",
+      "status": 200,
+      "final_url": "https://digitalassets.tesla.com/tesla-contents/image/upload/IR/TSLA-Q1-2025-Update.pdf",
+      "content_type": "application/pdf",
+      "bytes": 10786473,
+      "sha256": "3cb454f71181afc075c52d9d5f0c1254bfa931c0f992bc84a1c24e86b26df605",
+      "publication_date_verified": "2025-04-22",
+      "evidence_scope_and_limits": "Tesla Q1 update: all four Model Y factories changed over, several weeks of production lost globally; no German monthly outage counts."
+    },
+    {
+      "url": "https://www.gesetze-im-internet.de/kraftstg/__3d.html",
+      "accessed_at_utc": "2026-10-29T09:37:46.531820+00:00",
+      "file": "kraftstg_3d",
+      "status": 200,
+      "final_url": "https://www.gesetze-im-internet.de/kraftstg/__3d.html",
+      "content_type": "text/html",
+      "bytes": 5526,
+      "sha256": "09947c15b17e583e6f98a43478b5b42038dbf356b418f6a090a58d1a546cbc0f",
+      "publication_date_verified": null,
+      "evidence_scope_and_limits": "Current statutory text: eligibility through 2030, exemption no later than 2035; historical amendments/publication dates unresolved."
+    },
+    {
+      "url": "https://ec.europa.eu/eurostat/databrowser/view/nrg_pc_204/default/table?lang=en",
+      "accessed_at_utc": "2026-10-29T09:37:48.547585+00:00",
+      "file": "household_electricity",
+      "status": 200,
+      "final_url": "https://ec.europa.eu/eurostat/databrowser/view/nrg_pc_204/default/table?lang=en",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": 8666,
+      "sha256": "926cce0404296e2837e3b9720df1860ca30e3291a9b34460d5ddd5190d8c8312",
+      "publication_date_verified": null,
+      "evidence_scope_and_limits": "HTTP 200 JavaScript application shell only. Table observations and filter metadata NOT accessed."
+    },
+    {
+      "url": "https://www.bafa.de/DE/Energie/Energieeffizienz/Elektromobilitaet/elektromobilitaet_node.html",
+      "accessed_at_utc": "2026-10-29T09:37:48.411426+00:00",
+      "file": "bafa_programme",
+      "status": 200,
+      "final_url": "https://www.bafa.de/DE/Energie/Energieeffizienz/Elektromobilitaet/elektromobilitaet_node.html",
+      "content_type": "text/html;charset=utf-8",
+      "bytes": 51534,
+      "sha256": "2416986b67077ef28e0d1b0a4d323ac1bee005f0bee31df10cbbabdd67b62b33",
+      "publication_date_verified": null,
+      "evidence_scope_and_limits": "Current BAFA notice confirms programme ended on 2023-12-18; does not resolve every 2023 rule change."
+    },
+    {
+      "url": "https://energy.ec.europa.eu/document/download/6b94220a-8483-44cd-bd23-e699050e6047_en?filename=2018_germany_notes.pdf",
+      "accessed_at_utc": "2026-10-29T09:37:46.527481+00:00",
+      "file": "germany_fuel_notes",
+      "status": 200,
+      "final_url": "https://webgate.ec.europa.eu/circabc-ewpp/d/d/workspace/SpacesStore/315e9661-b517-42eb-9292-68494febf30e/download",
+      "content_type": "application/pdf; charset=UTF-8",
+      "bytes": 114286,
+      "sha256": "5cf70e255b8636ade0081413fad62e571dbb04a32ff2b7da25af51fdda25405e",
+      "publication_date_verified": null,
+      "evidence_scope_and_limits": "Currently linked 2018 country notes: petrol up to 5% ethanol (E5), Monday arithmetic consumer-price mean, >70% product coverage. No verified unchanged definition for every year."
+    },
+    {
+      "url": "https://www.bafa.de/DE/Energie/Energieeffizienz/Elektromobilitaet/Neuen_Antrag_stellen/neuen_antrag_stellen.html",
+      "accessed_at_utc": "2026-10-29T09:51:01.264076+00:00",
+      "file": "bafa_information",
+      "status": 200,
+      "final_url": "https://www.bafa.de/DE/Energie/Energieeffizienz/Elektromobilitaet/Neuen_Antrag_stellen/neuen_antrag_stellen.html",
+      "content_type": "text/html;charset=utf-8",
+      "bytes": 65288,
+      "sha256": "14df38d8213096fdc019f4d195cea457d8f2d545daa7b98b8ae410c06086c3d6",
+      "publication_date_verified": null,
+      "evidence_scope_and_limits": "BAFA current explanation: no new applications since 2023-12-18 00:00; KTF decision on 2023-12-13, not a verified public announcement timestamp."
+    }
+  ],
+  "failed_requests": [
+    {
+      "url": "https://www.bafa.de/SharedDocs/Pressemitteilungen/DE/Energie/2023_12_16_foerderprogramm_umweltbonus.html",
+      "accessed_at_utc": "2026-10-29T09:37:46.532750+00:00",
+      "file": "bafa_end2023",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "reuse_scope": "Source metadata and concise factual synthesis only; source originals are private, no raw redistribution or analytical admission implied."
+}
