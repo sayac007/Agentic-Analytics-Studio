@@ -165,6 +165,17 @@ ansprechendsten Koeffizientenpfads. Ein verzögerter EWMA-Erwartungspreis ist
 nicht gleichzeitig eine zusätzliche Primärvariante; dafür wäre eine vor dem
 Fit festgeschriebene Erweiterung mit Initialisierung/Zeitskala nötig.
 
+Benannte Makro-Gegenprüfung: M2 und jede M3-Variante zusätzlich mit dem um einen
+Monat verzögerten, im Training zentrierten Konsumentenkreditzins. Einheit:
+Prozentpunkte des jährlichen AAR/NDER-Zinses der bestehenden ECB-Reihe, nicht
+Anteil 0–1; gemeinsamer vollständiger Vergleichszeitraum. Fester Koeffizient mit
+`Normal(μ=0; σ=0.10)` je Prozentpunkt, ohne Vorzeichenrestriktion. Damit wird
+geprüft, ob der Kraftstoffbefund nach Finanzierungskosten bestehen bleibt;
+kein gleichzeitig zeitvariables Zinsmodell. Fehlende 2026-Beobachtungen sperren
+diese Gegenprüfung. Der Logit-Zweig prüft zusätzlich die Pkw-Gesamtmarktrelation;
+VPI wird für die reale Preisspezifikation benötigt. EUR/USD wird ohne konkreten
+Importpreis-/Weitergabe-Nachweis nicht allein wegen seiner Verfügbarkeit ergänzt.
+
 ### Diffusion und Betriebskosten: getrennte, datenabhängige Prüfblöcke
 
 Bevorzugter Verbreitungsproxy: veröffentlichter **Pkw-BEV-Bestandsanteil**,
