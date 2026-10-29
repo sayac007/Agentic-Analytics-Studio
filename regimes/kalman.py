@@ -17,7 +17,7 @@ def filter_numpy(y, H, F, Q, mean, P, R):
         mean = mean + K @ err
         P = P - K @ H[t] @ P; P=(P+P.T)/2
         logp += -.5*(len(err)*np.log(2*np.pi)+2*np.log(np.diag(cf[0])).sum()+z@z)
-        ms.append(mean.copy()); ps.append(P.copy()); errors.append(err); standardized.append(z)
+        ms.append(mean.copy()); ps.append(P.copy()); errors.append(err); standardized.append(err/np.sqrt(np.diag(S)))
     return logp, np.array(ms), np.array(ps), np.array(errors), np.array(standardized)
 
 

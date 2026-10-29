@@ -87,6 +87,8 @@ def policy(periods=PERIODS, origin=None, portal=False):
         year, month = map(int, origin.split("-"))
         cutoff = date(year, month, calendar.monthrange(year, month)[1]).isoformat()
         for j, known in enumerate(KNOWN_BY):
+            if portal and j == 3:
+                known = "2026-05-19"
             for i, p in enumerate(periods):
                 if p > origin and known > cutoff:
                     x[i, j] = 0.0

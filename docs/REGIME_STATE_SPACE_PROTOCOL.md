@@ -1,9 +1,10 @@
 # Task 04 – Regime- und Zustandsraumprotokoll
 
-**Version `task-04-regimes/0.3.0-draft`, Stand 29.10.2026, Europe/Berlin.**
-Entwurf zur fachlichen Prüfung, **noch nicht eingefroren oder zur Schätzung
-freigegeben**. Dieser Schritt enthält Datenprüfungen und Modellspezifikation,
-keinen Schätzcode. Task 01G, 01I.3 und andere eingefrorene Protokolle bleiben
+**Version `task-04-regimes/1.0.0`, Stand 29.10.2026, Europe/Berlin.**
+**Eingefroren vor dem ersten realen Task-04-Fit auf direkten Nutzerauftrag.**
+Normativ ist ausschließlich Stufe 1; die erhaltenen Stufe-2-Entwürfe sind nicht
+zur Ausführung freigegeben und brauchen später eine eigene Protokollversion.
+Kleine synthetische Kalibrierung vor diesem Freeze ist ausdrücklich dokumentiert. Task 01G, 01I.3 und andere eingefrorene Protokolle bleiben
 unverändert. Neue Ergebnisse erhalten später einen eigenen Task-04-Namensraum.
 
 Die Entwicklungsdaten einschließlich der Muster 2025/2026 sind bereits bekannt.
@@ -111,7 +112,7 @@ zunächst deskriptive Sensitivitäten, keine heimlich vervollständigte Zeitreih
 |---|---|---|
 | H-F | Kraftstoffpreise wirken 2026 persistenter auf den Markt als 2022 | Gleiche Stichprobe/Informationslage: Niveau und zeitvariable Wirkung gegen Preisänderung; Vorteil muss auch mit Förderung/Kalender bestehen. Neun Monate belegen keine dauerhafte Wirkung über Jahre. |
 | H-D | Sichtbare BEV-Verbreitung trägt zum Marktwachstum bei | Vorperioden-Bestandsproxy gegen Trendmodell; nationale Zeittrends und Bestand können ununterscheidbar bleiben. Kein sozialer Normeffekt aus bloßer positiver Korrelation. |
-| H-P | Förderung erklärt einen Teil des Regimewechsels | Datiertes Fördermodell gegen identische Basis ohne Förderung; keine Behauptung einer individuellen Förderelastizität aus Gesamtzulassungen. |
+| H-P | Datierte Förderung verbessert bedingte Marktprognosen | M2 gegen M0 und M1, beide Horizonte in beiden Jahren; samt Einzelmonatseinfluss. Keine individuelle/kausale Förderelastizität aus Gesamtzulassungen. |
 | H-T | Der Einbruch 2025 enthält eine Tesla-spezifische Komponente | Markt- versus Tesla-Anteilsentwicklung, freies relatives Niveau gegen dokumentierte Intervention. Juniper, Politik und andere Tesla-Einflüsse können untrennbar bleiben. |
 | H-C | Preis-/Angebotswettbewerb verändert Teslas relative Position | Nach Datenfreigabe relative Preise/Verfügbarkeit auf gemeinsamer Stichprobe gegen Modell ohne diese Größen. Fehlende Preisgeschichte lässt H-C unentscheidbar. |
 
@@ -281,29 +282,29 @@ Referenz muss dieselben Gleichungen tatsächlich abbilden, ggf. als `MLEModel`.
 ## 5. Priors, Referenz und Abbruch
 
 Entwurfswerte zur Prüfung **vor** dem Freeze, nicht datengetunte Wahrheiten.
-In Stufe 1 sind die Random-Walk-SDs feste Konstanten: Markt-Niveau 0.10,
-Markt-Steigung 0.01 und jedes Anteilsniveau 0.10 pro Monat; die Varianzen sind
-0.01, 0.0001 und 0.01. Sie werden nicht aus der jeweils günstigsten Anpassung
-oder dem Testfehler geschätzt. Eine Niveau-SD von 0.10 entspricht einem
-einmonatigen Log-Schritt von ungefähr 10 % und ohne Steigungsbeitrag einer
-Zwölfmonats-SD von rund 0.35; das erlaubt Anpassung, ohne jede Spitze frei zu
+In Stufe 1 sind die Random-Walk-SDs feste Konstanten: Markt-Niveau 0.03,
+Markt-Steigung 0.01 und jedes Anteilsniveau 0.03 pro Monat; die Varianzen sind
+0.0009, 0.0001 und 0.0009. Sie werden nicht aus der jeweils günstigsten Anpassung
+oder dem Testfehler geschätzt. Eine Niveau-SD von 0.03 entspricht einem
+einmonatigen Log-Schritt von ungefähr 3 % und ohne Steigungsbeitrag einer
+Zwölfmonats-SD von rund 0.104; das erlaubt Anpassung, ohne jede Spitze frei zu
 verfolgen. Es ist eine Skalierungs-/Regularisierungsannahme, kein empirischer
-Parameterbeleg. Nur gemeinsame Halbierung bzw. Verdoppelung der Zustands-SDs
-als fest benannte Sensitivitäten; kein Vollraster oder Auswahl des besten Pfads.
+Parameterbeleg. Fest benannte Niveau-SDs 0.03/0.05/0.10/0.20 bei stets gleicher Steigungs-SD
+0.01; kein Vollraster oder Auswahl des besten echten Ergebnis-/Prognosepfads.
 Ein Prognoseverlust gegenüber der festen Baseline bleibt ein negatives Ergebnis.
 
 | Größe | Prior/Regularisierung und Einheit |
 |---|---|
 | Markt-Anfangsniveau | Normal(μ=log(50000); σ=1.5), log monatliche Zulassungen; breite Größenordnung, kein beobachteter Startwert |
 | Anfangssteigung / feste M0-Steigung | Normal(μ=0; σ=0.05), Logänderung/Monat |
-| SD Niveau / Steigung | Fest 0.10 / 0.01, monatliche Zustandsinnovationen |
+| SD Niveau / Steigung | Fest 0.03 / 0.01, monatliche Zustandsinnovationen |
 | Markt-Beobachtungs-SD | HalfNormal(σ=0.25), Logzählwert |
 | Fourier / Förderstufen | Normal(μ=0; σ=0.5), Ziel-Logeinheiten |
 | Quartalsende / einzelne Pulse | Normal(μ=0; σ=1), Ziel-Logeinheiten; keine Vorzeichenrestriktion |
 | Wochentagskoeffizient | Normal(μ=0; σ=0.05), je zusätzlichem definiertem Tag |
 | Fester bzw. Anfangs-Kraftstoffkoeffizient | Normal(μ=0; σ=1), ursprüngliche Log–Log-Einheiten |
 | Anteil-Anfangsniveau | Normal(μ=0; σ=2), ALR-Koordinate |
-| Anteil-Zustands-SD / Beobachtungs-SD | Zustand fest 0.10; Beobachtung HalfNormal(σ=0.5), ALR-Einheiten |
+| Anteil-Zustands-SD / Beobachtungs-SD | Zustand fest 0.03; Beobachtung HalfNormal(σ=0.5), ALR-Einheiten |
 | Gemeinsame Beobachtungskorrelation | LKJ(η=4), Regularisierung zur schwächeren Korrelation |
 
 Dezimalpunkte in den Verteilungsparametern vermeiden Mehrdeutigkeit; σ bezeichnet
@@ -311,8 +312,9 @@ die SD, nicht die Varianz. Die Priors sind teils bewusst informativ regularisier
 Identifikationsleistung darf nicht als zusätzliche empirische Information gelten.
 Prior-Predictive-Plausibilität zuerst; danach keine Priorkorrektur für gewünschte
 Ergebnisse. Änderungen benötigen neue Protokollversion vor einem neuen Fit.
-Sensitivitäten: Zustands-SDs halbiert/verdoppelt, festgelegte Kraftstoff-SDs,
-C17/C18/C21, nominal/real, Diesel/Benzin, mit/ohne 2026; kein Vollraster und
+Stufe-1-Sensitivitäten: feste Niveau-SDs, Portalstart statt rückwirkender
+Förderberechtigung und Logit-BEV-Anteil. Kraftstoff-SDs, C17/C18/C21, nominal/real,
+Diesel/Benzin und mit/ohne 2026 sind ausschließlich mögliche spätere Stufe-2-Entwürfe; kein Vollraster und
 keine Auswahl der besten Sensitivität als neues Hauptergebnis.
 
 Bayesianische Referenz: PyMC, künftig exakt gepinnte Version, vier Ketten,
@@ -433,34 +435,112 @@ Ergebnis. H-T bezeichnet die relative Tesla-Entwicklung, nicht deren politische
 oder produktbezogene Ursache. Keine Phase automatisch „Early Adopter“ nennen. Ergebnisartefakte später mit
 Protokollhash, Quellvintage, Software, Seeds und tatsächlich ausgeführten Checks.
 
-## 8. Vor dem Freeze offene Datenentscheidungen
+## 8. Datenstand beim Freeze
 
-Die konkrete Liste steht in [TASK_04_DATA_READINESS.md](TASK_04_DATA_READINESS.md).
-Stufe 1 benötigt geprüfte Markt-/Tesla-/VW-Werte, eine vollständige datierte
-Förderchronik und die fachliche Festlegung des Entwurfs. Korbzuordnung,
-Benzin-Monatsreihe mit Einheit/Deckung/Anwendungsumfang und vergleichbare
-monatliche Wettbewerbspreise sperren ihre jeweiligen Stufe-2-Blöcke; ebenso
-Strom-/Bestandsdaten. Ihr Fehlen verlängert nicht automatisch Stufe 1.
-Historische Wissensstände begrenzen
-echte Echtzeitbehauptungen. Dieser Entwurf ersetzt diese Nachweise nicht.
+Die [Datenbereitschaft](TASK_04_DATA_READINESS.md) trennt den freigegebenen
+Stufe-1-Kern von gesperrten Zusatzmodulen. Markt-/Tesla-/VW-Werte sind vollständig,
+die vier vorgesehenen Förderregime sind mit Primärquellen belegt
+([Chronik](../data/task04_regimes/policy_chronology.json)).
+Exakte alte Bekanntgabetage bleiben unbekannt; Jahresrückblicke sind kein
+historischer Publikationszeitnachweis. Korb-/Benzin-/Preis-/Strom-/Bestandslücken
+sperren nur ihre jeweiligen Stufe-2-Blöcke. Kein echtes Echtzeit-/As-of-Versprechen.
 
-## 9. Nutzerergänzung vor Freeze: enge Sensitivität und Wiederfindung
+## 9. Abgeschlossene kleine Wiederfindungsprüfung und SD-Entscheidung
 
-Die Zustands-Niveau-SDs 0.10, 0.05 und **0.03** werden bei unveränderter
-Steigungs-SD 0.01 in einer kleinen, ausdrücklich genehmigten synthetischen
-Wiederfindungsprüfung verglichen. Sie ersetzt keine beobachteten KBA-Daten.
-Der vor der Prüfung festgelegte [Plan](../data/task04_regimes/recovery_plan.json)
-enthält vier Fälle (zwei Seeds, zwei wahre Niveau-SDs), dieselbe gemeinsame
-M2/G1-Modellstruktur und einen bekannten Förderstufeneffekt von −0.30 Logeinheiten.
-Berichtet werden alle zwölf Fits samt Intervallen/Fehlern/Konvergenz, keine
-Abdeckungs-/Powerbehauptung aus vier Fällen. Die primäre SD wird danach nach dem
-festgelegten mittleren absoluten Medianfehler begründet gewählt; reale KBA-Zielwerte
-werden dafür nicht verwendet. Eine weitere Niveau-SD 0.20 bleibt vorab benannte
-Sensitivität, kein Kandidat zur ergebnisabhängigen Primärauswahl. Die frühere
-gekoppelte Halbierung/Verdoppelung auch der Steigungs-SD wird durch diese isolierte
-Niveauprüfung ersetzt, damit der Einfluss der Niveauglättung prüfbar bleibt.
+Vor dem ersten realen Fit wurde der
+[Plan](../data/task04_regimes/recovery_plan.json) committed: vier künstliche Fälle
+(zwei Seeds × wahre Niveau-SD 0.03/0.10), bekanntes Markt-Förderdelta −0.30
+Logeinheiten, dieselbe M2/G1-Struktur und unbekanntes volles R.
+Steigungs-SD stets 0.01. Vier Ketten, je 1.000 Warm-up/1.000 Ziehungen.
+Die drei Niveaukandidaten 0.10/0.05/0.03 wurden in jedem Fall geprüft;
+keine beobachtete KBA-Zielgröße floss in diese Auswahl ein.
 
-Vor der realen Schätzung werden Ergebnisse hier ergänzt, Version 1.0.0 mit
-konkreten Inferenz-/Rolling-Regeln committed und gehasht. Kein realer Task-04-Fit
-vor diesem Freeze. Der Software-Smoke benutzt ein anderes künstliches Beispiel
-und ist keine Wiederfindungs- oder wissenschaftliche Ergebnisaussage.
+| Niveau-SD | Mittlerer absoluter Medianfehler | Wahrheit im 95-%-Intervall | Intervall ohne null | Konvergent |
+|---|---:|---:|---:|---:|
+| 0.10 | 0.165277 | 4/4 | 0/4 | 4/4 |
+| 0.05 | 0.162991 | 4/4 | 0/4 | 4/4 |
+| 0.03 | 0.161265 | 4/4 | 0/4 | 4/4 |
+
+**Alle zwölf Intervalle enthalten null.** Der bekannte von null verschiedene
+Effekt wird damit nicht überzeugend präzise wiedergefunden. Wahrheit im Intervall
+ist bei diesen breiten Bändern kein Beweis guter Identifikation oder validierter
+95-%-Abdeckung. Der Fehlerunterschied der SDs ist sehr klein; er etabliert keinen
+statistisch belegten Überlegenheitsnachweis.
+
+Nach dem vorab festgelegten kleinsten mittleren absoluten Medianfehler wird
+**0.03 als primäre Niveau-SD** verwendet, nicht als validierte tatsächliche
+Tesla-/Marktvarianz. Steigung bleibt 0.01. Dies begrenzt die Glättungsfreiheit;
+alle drei weiteren SDs bleiben sichtbar. Kein nachträglicher Wechsel der
+Primärvariante anhand echter Testfehler oder erwünschter Förderkoeffizienten.
+
+Alle [zwölf Einzelfits](../results/task04/recovery/fits.json),
+[Zusammenfassung](../results/task04/recovery/summary.csv) und
+[Ausführungsnotizen](../results/task04/recovery/execution_notes.json) bleiben
+erhalten. Drei erste serielle Fits wurden aus Laufzeitgründen durch die vollständige
+Parallel-Ausführung ersetzt und getrennt dokumentiert, nicht zur Auswahl gemischt.
+Eine Tracer-Initialisierungsstörung erzeugte keine numerische Ergebniszeile und
+wurde vor dem vollständigen Lauf behoben. Modell, Priors, Fälle und wissenschaftliche
+Entscheidungsregel blieben gleich. Vier künstliche Fälle sind keine Power-/MDE-
+oder empirische Coverage-Studie und ersetzen keine realen Beobachtungen.
+
+## 10. Verbindliche Implementierungs- und Prüfdetails der Stufe 1
+
+- Gemeinsamer G3-Beobachtungsvektor log(BEV), log(Tesla/Rest), log(VW/Rest);
+  Rest = offizieller BEV-Markt minus Tesla minus VW. VW ist eine einzelne Marke,
+  nicht der Konzern. G4/China bleibt gesperrt. Förderung wird nur auf den Markt
+  geladen; unterschiedliche Förderberechtigung nach Marke kann im Anteilsniveau
+  verbleiben. Ein relativer Tesla-Effekt beweist deshalb keinen Imageeffekt.
+- M0/G0, M1/G1, M2/G1 als Kern; zusätzlich M2 mit Niveau-SDs 0.05/0.10/0.20,
+  M2 mit Mai- statt Januar-2026-Schritt und M2 mit Logit-Marktziel. Genau acht
+  Spezifikationen; keine nicht registrierte Treibersuche. Portalöffnung gilt in
+  Prognosen erst ab Bekanntheit 19.05.2026, Januar-Regel erst ab 19.01.2026.
+- Kalenderkoeffizienten in allen drei Koordinaten: Normal-SDs 0.5/0.5/1/0.05
+  für sin/cos/Quartalsende/nationale Wochentage. Wochentage nur mit Trainingsmittel
+  zentrieren. Markt-Förderstufen Normal-SD 0.5, Pulse 1.0. Keine zusätzlichen
+  festen Trends neben dem lokalen Trend; keine zwölf Monatsdummies neben QE.
+- Volles R mit PyMC-LKJ(eta=4) und HalfNormal-SDs 0.25/0.5/0.5, diagonales
+  festes Q. Initialzustand/Regressionskoeffizienten haben die angegebenen proper
+  Normal-Priors und werden analytisch im Kalman-Filter integriert. NumPyro-NUTS
+  zieht nur sechs R-Koordinaten aus derselben PyMC-Priordichte; die Hilfs-Normaldichte
+  wird exakt aufgehoben. Gemeinsame bedingte Gaußziehungen stellen beta und
+  vollständige Zustände/Unsicherheit wieder her. Keine Plug-in-OLS-Unsicherheit.
+- Vier parallele CPU-Ketten, adaptierte dichte 6×6-Massenmatrix, Float64,
+  je 2.000 Warm-up/2.000 Ziehungen, target_accept=0.95, max_tree_depth=10 und
+  Seeds 20261029/30/31/32. Eine rein numerische Budgetverdoppelung auf 4.000/4.000
+  bei misslungenen MC-Diagnosen ist höchstens einmal erlaubt, mit beiden
+  Diagnosen; kein Wechsel der Priors/SDs/Daten nach Vorzeichen oder Testfehlern.
+- Vollstichproben-NUTS bleibt von Rolling Origin getrennt. Dort darf ein
+  Wichtigkeitsupdate ausschließlich R-Partikel aus demselben (andere Variante)
+  oder unmittelbar vorherigen Trainingspräfix verwenden. Neue Gewichte sind
+  ungeglättete exakte marginale Likelihoodquotienten × alte Gewichte.
+  Zulässig nur bei Gewichts-ESS mindestens N/2 (normal 4.000 von 8.000) und
+  Pareto-k ≤0.5; sonst neues NUTS mit Trainingsdaten. Keine R-hat-Angabe für
+  gewichtete aktuelle Partikel erfinden: ursprüngliche NUTS-Diagnosen, ESS,
+  Pareto-k und Proposaltyp pro Fenster getrennt berichten.
+- JIT-Code darf wiederverwendet werden, Vollstichproben-Warm-up/-Posterior nie
+  für frühere Prognosen. Die Schätzschnittstelle nimmt ausschließlich das
+  Trainingspräfix entgegen; strukturelle Null-Padding-Slots sind keine
+  Beobachtungsimputation und werden aus der Likelihood ausgeschlossen.
+- Alle acht Varianten: 21 h=1- und 19 h=3-Prognosen, vier kohärente Zählgrößen
+  BEV/Tesla/VW/Rest, insgesamt 1.280 Zeilen. Vorhersagepunkt = Mittel gemeinsamer
+  posterior-prädiktiver Zählwertziehungen; Intervalle schließen Zukunftsrauschen
+  ein. MASE-Nenner nur saisonal-naive Trainingsfehler, kein Testdatennachschlagen.
+- H-P prädiktiv gestützt nur bei kleinerem Markt-RMSE gegen M0 und M1 in allen
+  vier Jahr-/Horizontkombinationen und unverändertem Vorteil beim Weglassen
+  jedes einzelnen Zielfehlers aus der Kennzahl (keine Neuschätzung/Beobachtungslöschung).
+  In allen vier Gruppen schlechter gegen beide Basen: geschwächt; sonst offen.
+  Selbst gestützt bedeutet weder kausale Policy-Wirkung noch identifizierte
+  einzelne Förderkoeffizienten. Vollständige Fensterfehler/Einflussgrenzen berichten.
+- Innovationsdiagnostik verwendet fehler_i/sqrt(S_ii), keine umsortierte
+  Cholesky-Komponente. R ist hier der Voll-Trainingsposterior-Mittelwert;
+  die Filterdiagnose ist bedingt, kein damaliger Echtzeitfilter. ADF/KPSS mit
+  Konstante und drei Lags auf Innovationen nach zwölf Monaten Burn-in;
+  auf beobachteten Zielkoordinaten Konstante/Trend und drei Lags.
+  Ljung–Box 3/6/12, Holm je Serie. Warnungen und Rand-p-Werte erhalten.
+- Die statsmodels-Referenz maximiert marginale Likelihood für R bei identischer
+  proper-Gauß-Initialisierung/Regression. Sie ist keine unregularisierte klassische
+  OLS und kein Kausaltest. Alle Ergebnisse/Fehler werden berichtet, keine
+  Übereinstimmung mit Bayes erzwingen.
+- Hashgebundene private Sampling-Checkpoints dienen nur identischer Fortsetzung;
+  numerische Tabellen/Grafiken/Manifest werden eigenständig versioniert.
+  Keine API-Schlüssel, fremden Rohdaten oder Source-Permits in Ergebnisartefakten.

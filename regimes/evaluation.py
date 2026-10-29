@@ -48,11 +48,22 @@ def paired_metrics(rows):
         err=np.array([r["prediction_mean"]-r["actual"]for r in rs])
         baseline=[r for r in rows if r["model"]=="M0"and r["outcome"]==outcome and
                   r["horizon"]==horizon and r["year"]==year]
-        assert len(rs)==len(baseline)
+        assert [(r["origin"],r["target"])for r in rs]==[(r["origin"],r["target"])for r in baseline]
         berr=np.array([r["prediction_mean"]-r["actual"]for r in baseline])
         rmse=float(np.sqrt(np.mean(err**2)));base=float(np.sqrt(np.mean(berr**2)))
+        m1=[r for r in rows if r["model"]=="M1"and r["outcome"]==outcome and
+            r["horizon"]==horizon and r["year"]==year]
+        assert [(r["origin"],r["target"])for r in rs]==[(r["origin"],r["target"])for r in m1]
+        e1=np.array([r["prediction_mean"]-r["actual"]for r in m1])
+        def leave_one(other):
+            return np.sqrt(np.maximum(0,(sum(err**2)-err**2)/(len(err)-1)))-np.sqrt(np.maximum(0,(sum(other**2)-other**2)/(len(err)-1)))
+        diff0=leave_one(berr);diff1=leave_one(e1)
         out.append(dict(model=model,outcome=outcome,horizon=horizon,year=year,n=len(rs),
                         rmse=rmse,baseline_rmse=base,rmse_difference=rmse-base,
+                        rmse_difference_vs_M1=rmse-float(np.sqrt(np.mean(e1**2))),
+                        leave_one_max_difference_vs_M0=float(diff0.max()),
+                        leave_one_min_difference_vs_M0=float(diff0.min()),
+                        leave_one_max_difference_vs_M1=float(diff1.max()),
                         mae=float(np.mean(abs(err))),mase=float(np.mean([r["scaled_absolute_error"]for r in rs])),
                         coverage95=float(np.mean([r["lower95"]<=r["actual"]<=r["upper95"]for r in rs])),
                         mean_interval_width=float(np.mean([r["upper95"]-r["lower95"]for r in rs]))))

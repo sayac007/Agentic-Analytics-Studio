@@ -2,17 +2,22 @@
 from pathlib import Path
 import csv
 import numpy as np
+import json
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from .data import PERIODS
+from .data import PERIODS, ROOT
 from .artifacts import write_csv
 
 COLORS={"Tesla":"#0072B2","VW":"#E69F00","China":"#009E73","Rest":"#777777"}
 DATES=np.array(PERIODS,dtype="datetime64[M]")
+plt.rcParams["svg.hashsalt"]="task-04-regimes-1.0.0"
 
 
 def annotate(ax):
+    for start,end,color in [("2023-01","2023-09","#E69F00"),("2023-09","2024-01","#999999"),
+                             ("2024-01","2026-01","#777777"),("2026-01","2026-10","#009E73")]:
+        ax.axvspan(np.datetime64(start),np.datetime64(end),color=color,alpha=.06,lw=0)
     for date,label,color in [("2023-01","2023 grant cut","#999999"),("2023-09","Private applicants","#777777"),
                              ("2024-01","After programme end","#333333"),("2026-01","2026 grant","#009E73")]:
         ax.axvline(np.datetime64(date),color=color,lw=.8,alpha=.7)
@@ -31,6 +36,8 @@ def render(out,values,decomposition,metrics,contrasts,full):
     primary=full["M2"];paths=primary["paths"]
     fig,axes=plt.subplots(2,1,figsize=(12,7),sharex=True)
     axes[0].plot(DATES,values[:,1],color=COLORS["Tesla"],label="Tesla registrations")
+    axes[0].axvspan(np.datetime64("2025-01"),np.datetime64("2025-04"),color="#56B4E9",alpha=.10,
+                   label="Model Y changeover Q1 (global report, not exact DE dates)")
     axes[0].set_ylabel("Registrations / month");axes[0].legend();annotate(axes[0])
     M0=values[:-12,0];M1=values[12:,0];s0=values[:-12,1]/M0;s1=values[12:,1]/M1
     a=(s0+s1)/2*(M1-M0);b=(M0+M1)/2*(s1-s0)
@@ -63,13 +70,17 @@ def render(out,values,decomposition,metrics,contrasts,full):
         return (r[key+"_after"]/r[key+"_before"]-1)*100
     tc=next(r for r in contrasts if r["model"]=="M2"and r["group"]=="Tesla")
     relevant=[r for r in metrics if r["model"]in ["M0","M1","M2"]and r["outcome"]=="BEV_market"]
-    wins=[]
+    wins=[];losses=[]
     for r in [x for x in relevant if x["model"]=="M2"]:
         other=next(x for x in relevant if x["model"]=="M1"and x["year"]==r["year"]and x["horizon"]==r["horizon"])
-        wins.append(r["rmse"]<min(r["baseline_rmse"],other["rmse"]))
-    hp="gestützt"if all(wins)else"offen"
+        wins.append(r["rmse"]<min(r["baseline_rmse"],other["rmse"])and
+                    r["leave_one_max_difference_vs_M0"]<0 and r["leave_one_max_difference_vs_M1"]<0)
+        losses.append(r["rmse"]>max(r["baseline_rmse"],other["rmse"]))
+    if len(wins)!=4:
+        raise ValueError("Need every year/horizon comparison before hypothesis label")
+    hp="gestützt"if all(wins)else"geschwächt"if all(losses)else"offen"
     hwhy=("Verbessert in allen vier Jahr-/Horizontvergleichen die bedingte Marktprognose gegen M0 und M1; kein Kausalnachweis."
-          if all(wins)else"Kein durchgängig besserer Markt-Prognosefehler gegen M0 und M1; Koeffizienten bleiben bedingte Zusammenhänge.")
+          if all(wins)else"Kein über Jahr/Horizont und Einzelmonatseinfluss stabiler Prognosevorteil gegen M0 und M1; Koeffizienten bleiben bedingte Zusammenhänge.")
     hypotheses=[
      dict(Hypothese="2025 ist Tesla-spezifisch relativ zum BEV-Markt",Test="Exakte Markt-/Anteilszerlegung 2025 gegen 2024",
           Ergebnis="gestützt",Begründung=f"Tesla {delta(year25,'Tesla'):+.1f} %, BEV-Markt {delta(year25,'market'):+.1f} %; das erklärt keine einzelne Ursache."),
@@ -110,7 +121,16 @@ def render(out,values,decomposition,metrics,contrasts,full):
            "rolling_inference.json unterscheidet NUTS-Neuschätzungen von geprüften Wichtigkeitsupdates (ESS/Pareto-k), ohne aktuelle R-hat-Werte dafür zu erfinden.\n",
            "Latente Bänder sind modellabhängige Posteriorintervalle; Filterspalte konditioniert auf Vollstichproben-R, kein historischer Echtzeitfilter.\n",
            "Die Logit-Robustheit verwendet für unbekannte zukünftige Pkw-Gesamtwerte die saisonal-naive Vorjahreszahl.\n",
+           "VW bezeichnet die einzelne KBA-Marke, nicht den Volkswagenkonzern. Förderung wird primär nur auf den Markt geladen; unterschiedliche Markenberechtigung kann im Anteilsniveau verbleiben.\n",
            "Förderstufen sind aggregierte Regimeproxies, keine individuelle Behandlungsdosis; kurze Reihe, Trend-/Interventionskonkurrenz, Lieferwellen und fehlende Preise begrenzen die Identifikation.\n",
            "Keine Aussage über kausalen Tesla-ROI, soziale Normen, validierte MDE oder empirisch bestätigte Intervallabdeckung.\n\n",
            "Source: Kraftfahrt-Bundesamt, Flensburg, FZ10; own calculation; Datenlizenz Deutschland – Namensnennung – Version 2.0.\n"]
+    recovery=json.loads((ROOT/"results/task04/recovery/summary.json").read_text())
+    text+=["\n## Kleine synthetische Wiederfindungsprüfung vor dem Freeze\n\n",
+           "Vier künstliche Fälle, kein empirischer Wirkungsnachweis und keine validierte Coverage/Power.\n",
+           "| Niveau-SD | Mittlerer absoluter Medianfehler | Wahrheit im 95-%-Intervall | Intervall schließt null aus | Konvergiert |\n|---|---:|---:|---:|---:|\n"]
+    for r in recovery["aggregates"]:
+        text.append(f"| {r['sd']:.2f} | {r['mean_absolute_error']:.4f} | {r['truth_in_interval']}/{r['n']} | {r['excludes_zero']}/{r['n']} | {r['converged']}/{r['n']} |\n")
+    text.append(f"\nPrimäre Niveau-SD: {recovery['selected_primary_sd']:.2f}, ausschließlich nach dem festgelegten künstlichen Prüfplan gewählt; keine Validierung der echten Zustandsvarianz.\n")
+    text.append("Die Fehlerunterschiede sind klein und alle zwölf Intervalle enthalten auch null: keine überzeugende Wiederfindung eines von null getrennten Fördereffekts. Die Wahl legitimiert keine kausale Policy-Aussage.\n")
     (out/"report.md").write_text("".join(text))

@@ -1,0 +1,4 @@
+sd,mean_absolute_error,truth_in_interval,excludes_zero,converged,n
+0.1,0.1652768591607361,4,0,4,4
+0.05,0.1629912473787673,4,0,4,4
+0.03,0.16126473686616238,4,0,4,4

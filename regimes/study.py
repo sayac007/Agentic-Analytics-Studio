@@ -35,8 +35,9 @@ def padded(y,n):
     return data
 
 
-def fitted(v,n,y,S,checkpoint,tag,previous=None,draws=2000,tune=2000):
+def fitted(v,n,y,S,checkpoint,tag,previous=None,shared=None,draws=2000,tune=2000):
     name=f'{v["id"]}_{n}'
+    tag=hashlib.sha256((tag+json.dumps(v,sort_keys=True)+str(n)).encode()).hexdigest()
     path=checkpoint/(name+".npz")
     if path.exists():
         result=load_checkpoint(path,tag)
@@ -46,13 +47,23 @@ def fitted(v,n,y,S,checkpoint,tag,previous=None,draws=2000,tune=2000):
     if previous is not None:
         result,overlap=importance_update(previous,training,S,n)
         if result is None:print("NUTS_REFRESH_REQUIRED",name,overlap,flush=True)
+    if result is None and shared is not None:
+        result,overlap=importance_update(shared,training,S,n,same_prefix=True)
+        if result is None:print("SHARED_PROPOSAL_REJECTED",name,overlap,flush=True)
     if result is None:
         start=time.monotonic()
         result=fit(training,S,n,draws=draws,tune=tune)
         print("NUTS",name,round(time.monotonic()-start,2),result["diagnostics"],flush=True)
+        attempts=[result["diagnostics"]]
         if not result["diagnostics"]["passed"]:
             write_json(checkpoint/(name+".failed.json"),result["diagnostics"])
-            raise RuntimeError("No successful fit: covariance diagnostics failed: "+name)
+            print("NUMERICAL_BUDGET_DOUBLING",name,flush=True)
+            result=fit(training,S,n,draws=draws*2,tune=tune*2)
+            attempts.append(result["diagnostics"])
+        if not result["diagnostics"]["passed"]:
+            write_json(checkpoint/(name+".retry_failed.json"),result["diagnostics"])
+            raise RuntimeError("No successful fit after fixed numerical retry: "+name)
+        result["numerical_attempts"]=attempts
         result=initialise_particles(result,training,S)
     save_checkpoint(path,result,tag)
     return result
@@ -60,6 +71,8 @@ def fitted(v,n,y,S,checkpoint,tag,previous=None,draws=2000,tune=2000):
 
 def run(output,checkpoint):
     cfg,record=freeze_gate()
+    execution_commit=__import__("subprocess").check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip()
+    implementation={str(p.relative_to(ROOT)):sha(p)for p in sorted((ROOT/"regimes").glob("*.py"))}
     out=Path(output);out.mkdir(parents=True,exist_ok=False)
     checkpoint=Path(checkpoint)
     if checkpoint.resolve().is_relative_to(ROOT.resolve()):
@@ -76,8 +89,8 @@ def run(output,checkpoint):
         final,R,paths=posterior_draws(f,y,S,history=True,seed=20261101+i)
         if not all(np.isfinite(x).all()for x in (final,R,paths)):
             raise ValueError("Nonfinite posterior")
-        post_diag=convergence({"coefficients":final[:,4:].reshape(4,2000,-1),
-                              "levels":paths.reshape(4,2000,69,4)})
+        post_diag=convergence({"coefficients":final[:,4:].reshape(f["chains"],f["draws"],-1),
+                              "levels":paths.reshape(f["chains"],f["draws"],69,4)})
         if not post_diag["passed"]:
             write_json(checkpoint/(v["id"]+".derived_failed.json"),post_diag)
             raise RuntimeError("No successful posterior: "+v["id"])
@@ -89,6 +102,8 @@ def run(output,checkpoint):
             coefficients.append(dict(model=v["id"],term=name,mean=float(d.mean()),median=float(med),
                                      posterior_sd=float(d.std(ddof=1)),lower95=float(lo),upper95=float(hi),
                                      observed_nonzero_months=observed_nonzero,
+                                     prior_sd=float(np.sqrt(S[4][4+j,4+j])),
+                                     posterior_prior_sd_ratio=float(d.std(ddof=1)/np.sqrt(S[4][4+j,4+j])),
                                      identification="prior_only"if not observed_nonzero else
                                      "interval_includes_zero"if lo<=0<=hi else"conditional_interval_excludes_zero",
                                      interpretation="conditional log/logit/ALR coefficient, not causal"))
@@ -100,17 +115,32 @@ def run(output,checkpoint):
                                        smoothed_mean=float(paths[:,t,j].mean()),smoothed_median=float(med[t]),
                                        lower95=float(lo[t]),upper95=float(hi[t]),conditional_filtered_mean=float(ms[t,j]),
                                        units="logit"if v["logit"]and j==0 else"log"if j==0 else"ALR"if j>1 else"log change/month"))
-        diagnostics[v["id"]]={"covariance_mcmc":f["diagnostics"],"joint_derived_mcmc":post_diag,
+        designs=[]
+        for j in range(3):
+            active=S[0][:,:,4:][:,j,:]
+            active=active[:,np.any(abs(active)>1e-12,axis=0)]
+            x=np.column_stack([np.ones(69),np.arange(69)])if j==0 else np.ones((69,1))
+            x=np.column_stack([x,active])
+            designs.append({"group":j,"rank":int(np.linalg.matrix_rank(x)),
+                            "columns":x.shape[1],
+                            "unit_norm_condition_number":float(np.linalg.cond(x/np.linalg.norm(x,axis=0))),
+                            "note":"fixed calendar/policy design check, not proof of latent-state identification"})
+        diagnostics[v["id"]]={"covariance_mcmc":f["diagnostics"],
+                               "fixed_design":designs,
+                               "observation_covariance_posterior_mean":R.mean(axis=0).tolist(),
+                               "numerical_attempts":f.get("numerical_attempts",[]),"joint_derived_mcmc":post_diag,
                                "levels":{str(j):stationarity(y[:,j],True)for j in range(3)},
                                "innovations":{str(j):innovations(z[:,j])for j in range(3)},
                                "filter_note":"One-step innovations at full-training posterior mean R; no smoothed residuals, not a historical live filter."}
         print("FULL_COMPLETE",v["id"],flush=True)
-    predictions=[];rolling_records=[]
-    for i,v in enumerate(vs):
+    predictions=[];rolling_records=[];shared_primary={}
+    ordered=sorted(enumerate(vs),key=lambda pair:pair[1]["id"]!="M2")
+    for i,v in ordered:
         y=observed_coordinates(values,v["logit"]);previous=None
         for n in range(48,69):
             S=get_system(v,n)
-            f=fitted(v,n,y,S,checkpoint,tag,previous)
+            f=fitted(v,n,y,S,checkpoint,tag,previous,shared_primary.get(n))
+            if v["id"]=="M2":shared_primary[n]=f
             previous=f
             sample_fit=resampled_posterior(f,20262000+n+i*100)
             final,R=posterior_draws(sample_fit,padded(y,n),S,seed=20263000+n+i*100)
@@ -118,6 +148,7 @@ def run(output,checkpoint):
             samples=forecast(final,R,S,n,values,hs,20264000+n+i*100,v["logit"])
             rolling_records.append(dict(model=v["id"],training_end=PERIODS[n-1],ntrain=n,method=f["method"],
                                         proposal_covariance_diagnostics=f["diagnostics"],
+                                        proposal_type=f.get("proposal_type","direct_nuts"),
                                         importance_diagnostics=f["importance_diagnostics"],
                                         source="strict_training_prefix; independent of complete-window posterior"))
             raw=np.column_stack([values[:,0],values[:,1],values[:,2],values[:,0]-values[:,1]-values[:,2]])
@@ -157,7 +188,11 @@ def run(output,checkpoint):
     write_json(out/"frequentist_reference.json",references)
     from .reporting import render
     render(out,values,decomposition,metrics,contrasts,full)
-    manifest=dict(status="estimated",protocol=record,config_sha256=sha(ROOT/"config/task-04-regimes.json"),
+    if any(sha(ROOT/name)!=h for name,h in implementation.items()):
+        raise ValueError("Implementation changed during execution; no successful manifest")
+    manifest=dict(status="estimated",protocol=record,execution_commit=execution_commit,
+                  implementation_sha256=implementation,
+                  config_sha256=sha(ROOT/"config/task-04-regimes.json"),
                   input_hashes=cfg["inputs_sha256"],runtime=runtime(),models=vs,
                   source="Kraftfahrt-Bundesamt FZ10, own calculations, dl-de/by-2-0",
                   source_vintage="2026-10-29, retrospective current-vintage reference-month backtest",

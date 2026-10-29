@@ -2,7 +2,7 @@
 
 Stand 29.10.2026, **vor der ersten Schätzung**. Bezogen auf
 [`REGIME_STATE_SPACE_PROTOCOL.md`](REGIME_STATE_SPACE_PROTOCOL.md),
-Version `task-04-regimes/0.2.0-draft`. Keine automatische analytische Zulassung,
+Version `task-04-regimes/1.0.0`. Keine automatische analytische Zulassung,
 keine Änderung früherer Source-Permits. Bestehende Originale zuerst prüfen,
 statt Nutzer erneut um bereits vorhandene Dateien zu bitten.
 
@@ -88,3 +88,16 @@ KBA-Prüfungen: [`data_audit.json`](../data/task04_regimes/data_audit.json).
 Dieser Schritt fordert noch keine neuen Dateien vom Nutzer an. Vorhandene
 Originale und frei zugängliche Primärquellen haben Vorrang; falls danach eine
 konkrete Datei fehlt, wird genau diese mit Quelle, Format und Zeitraum benannt.
+
+## Abschluss Stufe-1-Datengate (29.10.2026)
+
+Alle vier vorgesehenen Förderregime sind in policy_chronology.json mit Primärquellen
+belegt; frühere Hinweise auf eine unvollständige Chronik dokumentieren den
+Entwurfsstand, nicht eine weiterhin fehlende Stufe-1-Quelle. Bekanntgabetage alter
+Regeln bleiben teilweise unbekannt; kein historischer Echtzeitanspruch.
+Die kleine getrennte Wiederfindung ist abgeschlossen und in Abschnitt 9 des
+Protokolls vollständig dokumentiert. SD 0.03 ist eine schwach begründete, vorab
+regelgebundene Arbeitswahl; alle Varianten bleiben unsicher gegenüber bekanntem
+Policy-Delta. Das Stufe-1-Datengate ist für die beauftragte retrospektive Analyse
+geschlossen, Zusatzmodule bleiben gesperrt. Das Einfrieren autorisiert keine
+neuen Quellen und keine Änderung früherer privater Zulassungsentscheidungen.

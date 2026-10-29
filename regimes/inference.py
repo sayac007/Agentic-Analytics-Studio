@@ -67,7 +67,12 @@ def fit(y, system, ntrain, *, draws=2000, tune=2000, chains=4, seeds=SEEDS):
     initial = np.array([np.log(.25), 0., np.log(.5), 0., 0., np.log(.5)])
     init = np.stack([initial+np.random.default_rng(s).normal(0, .1, 6) for s in seeds[:chains]])
     keys = j.stack([jax.random.PRNGKey(s) for s in seeds[:chains]])
+    # PyTensor->JAX graph constants must be created outside pmap/JIT tracing.
+    # Otherwise cached dispatch constants can leak a tracer into posterior draws.
+    prior_graph()(j.asarray(initial))[0].block_until_ready()
     mcmc = sampler(draws, tune, chains)
+    # Reuse executable code, never a complete-window adaptation/posterior.
+    mcmc.post_warmup_state = None
     mcmc.run(keys if chains > 1 else keys[0], *args,
              init_params={"packed": j.asarray(init if chains > 1 else init[0])},
              extra_fields=("diverging", "num_steps"))
@@ -91,8 +96,10 @@ def convergence(samples):
     bulk = az.ess(data, method="bulk").to_array().values
     tail = az.ess(data, method="tail").to_array().values
     finite = np.isfinite(rhat).all() and np.isfinite(bulk).all() and np.isfinite(tail).all()
-    return {"rhat_max": float(np.max(rhat)), "ess_bulk_min": float(np.min(bulk)),
-            "ess_tail_min": float(np.min(tail)),
+    return {"rhat_max": float(np.max(rhat)) if np.isfinite(rhat).all() else None,
+            "ess_bulk_min": float(np.min(bulk)) if np.isfinite(bulk).all() else None,
+            "ess_tail_min": float(np.min(tail)) if np.isfinite(tail).all() else None,
+            "nonfinite_diagnostic": not bool(finite),
             "passed": bool(finite and np.max(rhat) <= 1.01 and min(np.min(bulk), np.min(tail)) >= 400)}
 
 
@@ -173,6 +180,8 @@ def likelihood_particles():
 def loglikelihoods(packed,y,system,ntrain):
     import jax.numpy as j
     H,F,Q,mean,P,_=system
+    if np.asarray(y).shape != (len(H), 3) or not np.isfinite(y).all() or np.any(y[ntrain:] != 0):
+        raise ValueError("Invalid training-only particle input")
     args=tuple(map(j.asarray,(y,H,np.arange(len(y))<ntrain,F,Q,mean,P)))
     values=[];flat=packed.reshape(-1,6)
     fn=likelihood_particles()
@@ -181,10 +190,13 @@ def loglikelihoods(packed,y,system,ntrain):
     return np.concatenate(values)
 
 
-def importance_update(previous,y,system,ntrain):
+def importance_update(previous,y,system,ntrain,*,same_prefix=False):
     """Exact unsmoothed likelihood-ratio weights; refresh NUTS on poor overlap."""
     from scipy.special import logsumexp
     import arviz as az
+    expected=ntrain if same_prefix else ntrain-1
+    if previous["ntrain"] != expected:
+        raise ValueError("Importance proposal must use the same or immediately preceding training prefix")
     ll=loglikelihoods(previous["packed"],y,system,ntrain)
     old=previous["loglikelihood"]
     logw=previous["logweights"]+ll-old
@@ -195,7 +207,8 @@ def importance_update(previous,y,system,ntrain):
     if not accepted:return None,dict(weight_ess=ess,pareto_k=k,accepted=False)
     result=dict(previous)
     result.update(ntrain=ntrain,loglikelihood=ll,logweights=logw,
-                  method="importance_update",names=system[-1])
+                  method="importance_update",names=system[-1],
+                  proposal_type="same_prefix_variant"if same_prefix else"preceding_prefix")
     result["importance_diagnostics"]=dict(weight_ess=ess,pareto_k=k,accepted=True)
     return result,result["importance_diagnostics"]
 
