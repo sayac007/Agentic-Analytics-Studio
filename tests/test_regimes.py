@@ -268,3 +268,24 @@ class JointUncertainty(unittest.TestCase):
         from regimes.assessments import rolling_diagnostics
         with self.assertRaises(ValueError):
             rolling_diagnostics(np.zeros((48,3)),system("M2",.03,48),{"ntrain":69})
+
+
+class SupplementaryDiagnostics(unittest.TestCase):
+    def test_fixed_burn_in_and_all_annual_windows(self):
+        from scripts.task04_diagnostics import summarize
+        z=np.random.default_rng(20261029).normal(size=(69,3))
+        z[0,0]=9999;z[12,0]=100
+        a,o,v=summarize(z)
+        self.assertEqual(len(a),36);self.assertEqual(len(o),15);self.assertEqual(len(v),15)
+        self.assertEqual(o[0]['period'],'2022-01')
+        self.assertEqual(o[0]['standardized_innovation'],100)
+        self.assertTrue(all(r['n']==57 for r in a))
+        self.assertEqual([r['n'] for r in v[:5]],[12,12,12,12,9])
+        self.assertAlmostEqual(v[0]['sd'],z[12:24,0].std(ddof=1))
+        self.assertTrue(all(abs(r['acf'])<=1 for r in a))
+
+    def test_truncated_nonfinite_or_constant_diagnostics_refused(self):
+        from scripts.task04_diagnostics import summarize
+        z=np.random.default_rng(0).normal(size=(69,3))
+        for bad in (z[:-1],z*np.nan,np.zeros((69,3))):
+            with self.assertRaises(ValueError):summarize(bad)
