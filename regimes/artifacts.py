@@ -32,6 +32,9 @@ def freeze_gate():
     raw=subprocess.check_output(["git","show",commit+":docs/REGIME_STATE_SPACE_PROTOCOL.md"],cwd=ROOT)
     if hashlib.sha256(raw).hexdigest()!=record["protocol_sha256"]:
         raise ValueError("Protocol not committed before real estimation")
+    raw_config=subprocess.check_output(["git","show",commit+":config/task-04-regimes.json"],cwd=ROOT)
+    if hashlib.sha256(raw_config).hexdigest()!=record["config_sha256"]:
+        raise ValueError("Config not committed at freeze")
     for name,h in config["inputs_sha256"].items():
         if sha(ROOT/name)!=h:raise ValueError("Frozen input changed: "+name)
     return config,record

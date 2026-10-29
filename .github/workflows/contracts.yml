@@ -30,6 +30,21 @@ jobs:
         run: python3 contracts/validate.py contracts/examples/generator.json --kind generator
       - name: Run contract and numerical tests
         run: python3 -m unittest discover -s tests -v
+      - name: Verify preserved Task04 results without fitting
+        run: |
+          python3 -m regimes.verify results/task04/stage1
+          python3 - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root = Path('results/task04/diagnostics')
+          manifest = json.loads((root / 'manifest.json').read_text())
+          digest = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
+          assert manifest['stage1_manifest_sha256'] == digest(Path('results/task04/stage1/manifest.json'))
+          assert manifest['script_sha256'] == digest(Path('scripts/task04_diagnostics.py'))
+          for name, expected in manifest['files'].items():
+              assert Path(name).name == name and digest(root / name) == expected
+          print('Verified every supplementary diagnostic payload; no fitting.')
+          PY
       - name: Parse Azure Cloud Shell deployment script
         shell: pwsh
         run: |

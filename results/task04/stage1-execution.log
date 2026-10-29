@@ -1,0 +1,254 @@
+Original orchestration (2c23a51), stopped for output completion; four valid full fits retained.
+NUTS M0_69 160.94 {'rhat_max': 1.0012258515917294, 'ess_bulk_min': 9948.962780990792, 'ess_tail_min': 5583.543584437895, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.7995, 'max_tree_depth_hits': 0}
+FULL_COMPLETE M0
+NUTS M1_69 154.93 {'rhat_max': 1.0009050693657264, 'ess_bulk_min': 9772.63781984811, 'ess_tail_min': 5461.312663187261, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.80325, 'max_tree_depth_hits': 0}
+FULL_COMPLETE M1
+NUTS M2_69 235.18 {'rhat_max': 1.0010557438316328, 'ess_bulk_min': 10510.86726072951, 'ess_tail_min': 5085.690805417201, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.73475, 'max_tree_depth_hits': 0}
+FULL_COMPLETE M2
+NUTS M2_sd0.05_69 220.19 {'rhat_max': 1.0013707278045398, 'ess_bulk_min': 10051.957238755083, 'ess_tail_min': 5476.83992158736, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.8155, 'max_tree_depth_hits': 0}
+FULL_COMPLETE M2_sd0.05
+
+Continuation (75a7d26), source-compatible checkpoints; complete prespecified study.
+CHECKPOINT M0_69
+FULL_COMPLETE M0
+CHECKPOINT M1_69
+FULL_COMPLETE M1
+CHECKPOINT M2_69
+FULL_COMPLETE M2
+CHECKPOINT M2_sd0.05_69
+FULL_COMPLETE M2_sd0.05
+NUTS M2_sd0.10_69 238.06 {'rhat_max': 1.0010170997335082, 'ess_bulk_min': 11005.087440648584, 'ess_tail_min': 5255.535273299786, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.757, 'max_tree_depth_hits': 0}
+FULL_COMPLETE M2_sd0.10
+NUTS M2_sd0.20_69 449.71 {'rhat_max': 1.0025973357466234, 'ess_bulk_min': 3785.6497905183014, 'ess_tail_min': 1771.4217192590927, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 12.6915, 'max_tree_depth_hits': 0}
+FULL_COMPLETE M2_sd0.20
+NUTS M2_portal_69 227.51 {'rhat_max': 1.0010663004748057, 'ess_bulk_min': 10292.108314695904, 'ess_tail_min': 4959.974313893663, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.768, 'max_tree_depth_hits': 0}
+FULL_COMPLETE M2_portal
+NUTS M2_logit_69 305.45 {'rhat_max': 1.0008971092550014, 'ess_bulk_min': 10961.862329201274, 'ess_tail_min': 5657.625836987624, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.7785, 'max_tree_depth_hits': 0}
+FULL_COMPLETE M2_logit
+NUTS M2_48 158.37 {'rhat_max': 1.0012265288303914, 'ess_bulk_min': 9945.738125295147, 'ess_tail_min': 5424.527188431194, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.74725, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M2 2024-12 nuts_refresh
+ROLL_COMPLETE M2 2025-01 importance_update
+ROLL_COMPLETE M2 2025-02 importance_update
+ROLL_COMPLETE M2 2025-03 importance_update
+ROLL_COMPLETE M2 2025-04 importance_update
+ROLL_COMPLETE M2 2025-05 importance_update
+ROLL_COMPLETE M2 2025-06 importance_update
+ROLL_COMPLETE M2 2025-07 importance_update
+NUTS_REFRESH_REQUIRED M2_56 {'weight_ess': 3602.50664434965, 'pareto_k': 0.16602290197771521, 'accepted': False}
+NUTS M2_56 153.79 {'rhat_max': 1.0011349480818101, 'ess_bulk_min': 10439.654108607327, 'ess_tail_min': 5422.966096545533, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.7845, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M2 2025-08 nuts_refresh
+ROLL_COMPLETE M2 2025-09 importance_update
+ROLL_COMPLETE M2 2025-10 importance_update
+ROLL_COMPLETE M2 2025-11 importance_update
+ROLL_COMPLETE M2 2025-12 importance_update
+ROLL_COMPLETE M2 2026-01 importance_update
+ROLL_COMPLETE M2 2026-02 importance_update
+ROLL_COMPLETE M2 2026-03 importance_update
+ROLL_COMPLETE M2 2026-04 importance_update
+ROLL_COMPLETE M2 2026-05 importance_update
+ROLL_COMPLETE M2 2026-06 importance_update
+NUTS_REFRESH_REQUIRED M2_67 {'weight_ess': 2922.802159888541, 'pareto_k': 0.14535987227876931, 'accepted': False}
+NUTS M2_67 175.74 {'rhat_max': 1.001175185341905, 'ess_bulk_min': 10220.159226155363, 'ess_tail_min': 5440.974267128879, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.82975, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M2 2026-07 nuts_refresh
+ROLL_COMPLETE M2 2026-08 importance_update
+SHARED_PROPOSAL_REJECTED M0_48 {'weight_ess': 13.64353111192936, 'pareto_k': 1.1695115024396237, 'accepted': False}
+NUTS M0_48 130.05 {'rhat_max': 1.000958687160159, 'ess_bulk_min': 9650.683561005451, 'ess_tail_min': 5103.376300374202, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.79375, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M0 2024-12 nuts_refresh
+ROLL_COMPLETE M0 2025-01 importance_update
+ROLL_COMPLETE M0 2025-02 importance_update
+ROLL_COMPLETE M0 2025-03 importance_update
+ROLL_COMPLETE M0 2025-04 importance_update
+ROLL_COMPLETE M0 2025-05 importance_update
+NUTS_REFRESH_REQUIRED M0_54 {'weight_ess': 3936.0108965902614, 'pareto_k': 0.034188825011889426, 'accepted': False}
+SHARED_PROPOSAL_REJECTED M0_54 {'weight_ess': 50.05702473853309, 'pareto_k': 0.7651490573627484, 'accepted': False}
+NUTS M0_54 166.08 {'rhat_max': 1.0009924240111854, 'ess_bulk_min': 9700.152501397677, 'ess_tail_min': 5011.171401631164, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.788, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M0 2025-06 nuts_refresh
+ROLL_COMPLETE M0 2025-07 importance_update
+ROLL_COMPLETE M0 2025-08 importance_update
+ROLL_COMPLETE M0 2025-09 importance_update
+ROLL_COMPLETE M0 2025-10 importance_update
+ROLL_COMPLETE M0 2025-11 importance_update
+NUTS_REFRESH_REQUIRED M0_60 {'weight_ess': 3383.331344625853, 'pareto_k': 0.08287067250768297, 'accepted': False}
+SHARED_PROPOSAL_REJECTED M0_60 {'weight_ess': 15.188506380790596, 'pareto_k': 1.5185396887833138, 'accepted': False}
+NUTS M0_60 151.06 {'rhat_max': 1.001556184243733, 'ess_bulk_min': 9916.21901013686, 'ess_tail_min': 4960.436459851793, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.77075, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M0 2025-12 nuts_refresh
+ROLL_COMPLETE M0 2026-01 importance_update
+ROLL_COMPLETE M0 2026-02 importance_update
+ROLL_COMPLETE M0 2026-03 importance_update
+ROLL_COMPLETE M0 2026-04 importance_update
+ROLL_COMPLETE M0 2026-05 importance_update
+ROLL_COMPLETE M0 2026-06 importance_update
+ROLL_COMPLETE M0 2026-07 importance_update
+ROLL_COMPLETE M0 2026-08 importance_update
+SHARED_PROPOSAL_REJECTED M1_48 {'weight_ess': 757.3984233308184, 'pareto_k': 0.246327294682851, 'accepted': False}
+NUTS M1_48 106.87 {'rhat_max': 1.0011376940544225, 'ess_bulk_min': 9767.6653176496, 'ess_tail_min': 5358.603491943849, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.771, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M1 2024-12 nuts_refresh
+ROLL_COMPLETE M1 2025-01 importance_update
+ROLL_COMPLETE M1 2025-02 importance_update
+ROLL_COMPLETE M1 2025-03 importance_update
+ROLL_COMPLETE M1 2025-04 importance_update
+ROLL_COMPLETE M1 2025-05 importance_update
+ROLL_COMPLETE M1 2025-06 importance_update
+ROLL_COMPLETE M1 2025-07 importance_update
+ROLL_COMPLETE M1 2025-08 importance_update
+ROLL_COMPLETE M1 2025-09 importance_update
+NUTS_REFRESH_REQUIRED M1_58 {'weight_ess': 3348.91153296353, 'pareto_k': 0.1856479219570919, 'accepted': False}
+SHARED_PROPOSAL_REJECTED M1_58 {'weight_ess': 132.25161809375564, 'pareto_k': 0.6836850520563946, 'accepted': False}
+NUTS M1_58 124.93 {'rhat_max': 1.0008279931415358, 'ess_bulk_min': 9389.149545790217, 'ess_tail_min': 5176.036355420375, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.80675, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M1 2025-10 nuts_refresh
+ROLL_COMPLETE M1 2025-11 importance_update
+ROLL_COMPLETE M1 2025-12 importance_update
+ROLL_COMPLETE M1 2026-01 importance_update
+ROLL_COMPLETE M1 2026-02 importance_update
+ROLL_COMPLETE M1 2026-03 importance_update
+ROLL_COMPLETE M1 2026-04 importance_update
+ROLL_COMPLETE M1 2026-05 importance_update
+ROLL_COMPLETE M1 2026-06 importance_update
+NUTS_REFRESH_REQUIRED M1_67 {'weight_ess': 3503.9758982172652, 'pareto_k': 0.13624425448741456, 'accepted': False}
+SHARED_PROPOSAL_REJECTED M1_67 {'weight_ess': 104.61729723509566, 'pareto_k': 0.7031418862485844, 'accepted': False}
+NUTS M1_67 142.95 {'rhat_max': 1.001178261946696, 'ess_bulk_min': 9731.578127050105, 'ess_tail_min': 5139.196912359142, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.80575, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M1 2026-07 nuts_refresh
+ROLL_COMPLETE M1 2026-08 importance_update
+SHARED_PROPOSAL_REJECTED M2_sd0.05_48 {'weight_ess': 803.8211135103802, 'pareto_k': 0.6934326253730081, 'accepted': False}
+NUTS M2_sd0.05_48 145.72 {'rhat_max': 1.0006829802694017, 'ess_bulk_min': 9918.473439204354, 'ess_tail_min': 5387.842314269926, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.78825, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M2_sd0.05 2024-12 nuts_refresh
+ROLL_COMPLETE M2_sd0.05 2025-01 importance_update
+ROLL_COMPLETE M2_sd0.05 2025-02 importance_update
+ROLL_COMPLETE M2_sd0.05 2025-03 importance_update
+ROLL_COMPLETE M2_sd0.05 2025-04 importance_update
+ROLL_COMPLETE M2_sd0.05 2025-05 importance_update
+ROLL_COMPLETE M2_sd0.05 2025-06 importance_update
+ROLL_COMPLETE M2_sd0.05 2025-07 importance_update
+NUTS_REFRESH_REQUIRED M2_sd0.05_56 {'weight_ess': 3516.1303153927724, 'pareto_k': 0.1529281351698643, 'accepted': False}
+SHARED_PROPOSAL_REJECTED M2_sd0.05_56 {'weight_ess': 326.00737930436986, 'pareto_k': 0.6877904904421008, 'accepted': False}
+NUTS M2_sd0.05_56 150.86 {'rhat_max': 1.0008324104365751, 'ess_bulk_min': 10164.932049123048, 'ess_tail_min': 5483.0210720449, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.78575, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M2_sd0.05 2025-08 nuts_refresh
+ROLL_COMPLETE M2_sd0.05 2025-09 importance_update
+ROLL_COMPLETE M2_sd0.05 2025-10 importance_update
+ROLL_COMPLETE M2_sd0.05 2025-11 importance_update
+ROLL_COMPLETE M2_sd0.05 2025-12 importance_update
+ROLL_COMPLETE M2_sd0.05 2026-01 importance_update
+ROLL_COMPLETE M2_sd0.05 2026-02 importance_update
+ROLL_COMPLETE M2_sd0.05 2026-03 importance_update
+ROLL_COMPLETE M2_sd0.05 2026-04 importance_update
+NUTS_REFRESH_REQUIRED M2_sd0.05_65 {'weight_ess': 3700.1181068806904, 'pareto_k': 0.11776497881853805, 'accepted': False}
+SHARED_PROPOSAL_REJECTED M2_sd0.05_65 {'weight_ess': 56.72245832069019, 'pareto_k': 0.8753567327606799, 'accepted': False}
+NUTS M2_sd0.05_65 211.81 {'rhat_max': 1.0009764067914295, 'ess_bulk_min': 9723.1231819834, 'ess_tail_min': 5690.3405436112735, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.81375, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M2_sd0.05 2026-05 nuts_refresh
+ROLL_COMPLETE M2_sd0.05 2026-06 importance_update
+ROLL_COMPLETE M2_sd0.05 2026-07 importance_update
+ROLL_COMPLETE M2_sd0.05 2026-08 importance_update
+SHARED_PROPOSAL_REJECTED M2_sd0.10_48 {'weight_ess': 5.983963908059806, 'pareto_k': 1.38257270372279, 'accepted': False}
+NUTS M2_sd0.10_48 190.43 {'rhat_max': 1.0004923145304303, 'ess_bulk_min': 9635.595062796127, 'ess_tail_min': 5578.045043195233, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.82275, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M2_sd0.10 2024-12 nuts_refresh
+ROLL_COMPLETE M2_sd0.10 2025-01 importance_update
+ROLL_COMPLETE M2_sd0.10 2025-02 importance_update
+ROLL_COMPLETE M2_sd0.10 2025-03 importance_update
+ROLL_COMPLETE M2_sd0.10 2025-04 importance_update
+ROLL_COMPLETE M2_sd0.10 2025-05 importance_update
+ROLL_COMPLETE M2_sd0.10 2025-06 importance_update
+NUTS_REFRESH_REQUIRED M2_sd0.10_55 {'weight_ess': 3777.976801185889, 'pareto_k': 0.15376763613585379, 'accepted': False}
+SHARED_PROPOSAL_REJECTED M2_sd0.10_55 {'weight_ess': 2.222831386114413, 'pareto_k': 1.5376936670139036, 'accepted': False}
+NUTS M2_sd0.10_55 150.44 {'rhat_max': 1.000859993481826, 'ess_bulk_min': 10425.292528938839, 'ess_tail_min': 5494.749905349063, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.79325, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M2_sd0.10 2025-07 nuts_refresh
+ROLL_COMPLETE M2_sd0.10 2025-08 importance_update
+ROLL_COMPLETE M2_sd0.10 2025-09 importance_update
+ROLL_COMPLETE M2_sd0.10 2025-10 importance_update
+ROLL_COMPLETE M2_sd0.10 2025-11 importance_update
+ROLL_COMPLETE M2_sd0.10 2025-12 importance_update
+ROLL_COMPLETE M2_sd0.10 2026-01 importance_update
+ROLL_COMPLETE M2_sd0.10 2026-02 importance_update
+ROLL_COMPLETE M2_sd0.10 2026-03 importance_update
+NUTS_REFRESH_REQUIRED M2_sd0.10_64 {'weight_ess': 3911.797601331569, 'pareto_k': 0.09473078182236502, 'accepted': False}
+SHARED_PROPOSAL_REJECTED M2_sd0.10_64 {'weight_ess': 3.231543895372512, 'pareto_k': 1.739030096613125, 'accepted': False}
+NUTS M2_sd0.10_64 188.14 {'rhat_max': 1.0006463727846886, 'ess_bulk_min': 10153.126233817531, 'ess_tail_min': 5236.136845065596, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.7435, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M2_sd0.10 2026-04 nuts_refresh
+ROLL_COMPLETE M2_sd0.10 2026-05 importance_update
+ROLL_COMPLETE M2_sd0.10 2026-06 importance_update
+ROLL_COMPLETE M2_sd0.10 2026-07 importance_update
+NUTS_REFRESH_REQUIRED M2_sd0.10_68 {'weight_ess': 3874.948869974861, 'pareto_k': 0.11948808808824017, 'accepted': False}
+SHARED_PROPOSAL_REJECTED M2_sd0.10_68 {'weight_ess': 3.2429842099190833, 'pareto_k': 1.5017315207585813, 'accepted': False}
+NUTS M2_sd0.10_68 231.97 {'rhat_max': 1.0012697255614662, 'ess_bulk_min': 10182.015745965069, 'ess_tail_min': 5820.077746279586, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.841, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M2_sd0.10 2026-08 nuts_refresh
+SHARED_PROPOSAL_REJECTED M2_sd0.20_48 {'weight_ess': 2.1239670045234162, 'pareto_k': 1.641087469106837, 'accepted': False}
+NUTS M2_sd0.20_48 224.71 {'rhat_max': 1.0015096385759779, 'ess_bulk_min': 3763.5700462487484, 'ess_tail_min': 1484.1511990414256, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 8.6785, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M2_sd0.20 2024-12 nuts_refresh
+ROLL_COMPLETE M2_sd0.20 2025-01 importance_update
+ROLL_COMPLETE M2_sd0.20 2025-02 importance_update
+ROLL_COMPLETE M2_sd0.20 2025-03 importance_update
+ROLL_COMPLETE M2_sd0.20 2025-04 importance_update
+ROLL_COMPLETE M2_sd0.20 2025-05 importance_update
+ROLL_COMPLETE M2_sd0.20 2025-06 importance_update
+ROLL_COMPLETE M2_sd0.20 2025-07 importance_update
+NUTS_REFRESH_REQUIRED M2_sd0.20_56 {'weight_ess': 3832.252249221049, 'pareto_k': 0.12536798326484977, 'accepted': False}
+SHARED_PROPOSAL_REJECTED M2_sd0.20_56 {'weight_ess': 2.3283813337334234, 'pareto_k': 1.7628323253703484, 'accepted': False}
+NUTS M2_sd0.20_56 312.78 {'rhat_max': 1.0011950839791601, 'ess_bulk_min': 4067.7884034480603, 'ess_tail_min': 1851.332087307987, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 10.03325, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M2_sd0.20 2025-08 nuts_refresh
+ROLL_COMPLETE M2_sd0.20 2025-09 importance_update
+ROLL_COMPLETE M2_sd0.20 2025-10 importance_update
+ROLL_COMPLETE M2_sd0.20 2025-11 importance_update
+ROLL_COMPLETE M2_sd0.20 2025-12 importance_update
+ROLL_COMPLETE M2_sd0.20 2026-01 importance_update
+ROLL_COMPLETE M2_sd0.20 2026-02 importance_update
+ROLL_COMPLETE M2_sd0.20 2026-03 importance_update
+ROLL_COMPLETE M2_sd0.20 2026-04 importance_update
+ROLL_COMPLETE M2_sd0.20 2026-05 importance_update
+ROLL_COMPLETE M2_sd0.20 2026-06 importance_update
+NUTS_REFRESH_REQUIRED M2_sd0.20_67 {'weight_ess': 3265.4284458591405, 'pareto_k': 0.043354036348595526, 'accepted': False}
+SHARED_PROPOSAL_REJECTED M2_sd0.20_67 {'weight_ess': 2.1774395066431946, 'pareto_k': 1.7488328047521908, 'accepted': False}
+NUTS M2_sd0.20_67 324.58 {'rhat_max': 1.0010298125314068, 'ess_bulk_min': 4208.27001332897, 'ess_tail_min': 2085.8795327583125, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 13.15975, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M2_sd0.20 2026-07 nuts_refresh
+ROLL_COMPLETE M2_sd0.20 2026-08 importance_update
+ROLL_COMPLETE M2_portal 2024-12 importance_update
+ROLL_COMPLETE M2_portal 2025-01 importance_update
+ROLL_COMPLETE M2_portal 2025-02 importance_update
+ROLL_COMPLETE M2_portal 2025-03 importance_update
+ROLL_COMPLETE M2_portal 2025-04 importance_update
+ROLL_COMPLETE M2_portal 2025-05 importance_update
+ROLL_COMPLETE M2_portal 2025-06 importance_update
+ROLL_COMPLETE M2_portal 2025-07 importance_update
+NUTS_REFRESH_REQUIRED M2_portal_56 {'weight_ess': 3602.50664434965, 'pareto_k': 0.16602290197771521, 'accepted': False}
+ROLL_COMPLETE M2_portal 2025-08 importance_update
+ROLL_COMPLETE M2_portal 2025-09 importance_update
+ROLL_COMPLETE M2_portal 2025-10 importance_update
+ROLL_COMPLETE M2_portal 2025-11 importance_update
+ROLL_COMPLETE M2_portal 2025-12 importance_update
+ROLL_COMPLETE M2_portal 2026-01 importance_update
+ROLL_COMPLETE M2_portal 2026-02 importance_update
+ROLL_COMPLETE M2_portal 2026-03 importance_update
+ROLL_COMPLETE M2_portal 2026-04 importance_update
+ROLL_COMPLETE M2_portal 2026-05 importance_update
+ROLL_COMPLETE M2_portal 2026-06 importance_update
+NUTS_REFRESH_REQUIRED M2_portal_67 {'weight_ess': 3119.9812768930597, 'pareto_k': 0.10427505863712486, 'accepted': False}
+ROLL_COMPLETE M2_portal 2026-07 importance_update
+ROLL_COMPLETE M2_portal 2026-08 importance_update
+SHARED_PROPOSAL_REJECTED M2_logit_48 {'weight_ess': 884.3071889425111, 'pareto_k': 0.4840576454600346, 'accepted': False}
+NUTS M2_logit_48 212.88 {'rhat_max': 1.0012364236870293, 'ess_bulk_min': 9241.141838067846, 'ess_tail_min': 5055.8412957780965, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.8195, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M2_logit 2024-12 nuts_refresh
+ROLL_COMPLETE M2_logit 2025-01 importance_update
+ROLL_COMPLETE M2_logit 2025-02 importance_update
+ROLL_COMPLETE M2_logit 2025-03 importance_update
+ROLL_COMPLETE M2_logit 2025-04 importance_update
+ROLL_COMPLETE M2_logit 2025-05 importance_update
+ROLL_COMPLETE M2_logit 2025-06 importance_update
+ROLL_COMPLETE M2_logit 2025-07 importance_update
+ROLL_COMPLETE M2_logit 2025-08 importance_update
+NUTS_REFRESH_REQUIRED M2_logit_57 {'weight_ess': 3747.8989758441226, 'pareto_k': 0.1535418216570915, 'accepted': False}
+SHARED_PROPOSAL_REJECTED M2_logit_57 {'weight_ess': 1882.323503098024, 'pareto_k': 0.42988573247934975, 'accepted': False}
+NUTS M2_logit_57 203.44 {'rhat_max': 1.0012067138587544, 'ess_bulk_min': 10152.964569058058, 'ess_tail_min': 5515.251827309147, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.826, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M2_logit 2025-09 nuts_refresh
+ROLL_COMPLETE M2_logit 2025-10 importance_update
+ROLL_COMPLETE M2_logit 2025-11 importance_update
+ROLL_COMPLETE M2_logit 2025-12 importance_update
+ROLL_COMPLETE M2_logit 2026-01 importance_update
+ROLL_COMPLETE M2_logit 2026-02 importance_update
+ROLL_COMPLETE M2_logit 2026-03 importance_update
+ROLL_COMPLETE M2_logit 2026-04 importance_update
+NUTS_REFRESH_REQUIRED M2_logit_65 {'weight_ess': 3824.6066507928076, 'pareto_k': 0.07800737912767726, 'accepted': False}
+SHARED_PROPOSAL_REJECTED M2_logit_65 {'weight_ess': 414.5777988183247, 'pareto_k': 0.49743492521241317, 'accepted': False}
+NUTS M2_logit_65 177.95 {'rhat_max': 1.000769559062547, 'ess_bulk_min': 10243.054792787083, 'ess_tail_min': 5641.956880128126, 'nonfinite_diagnostic': False, 'passed': True, 'divergences': 0, 'mean_num_steps': 6.80925, 'max_tree_depth_hits': 0}
+ROLL_COMPLETE M2_logit 2026-05 nuts_refresh
+ROLL_COMPLETE M2_logit 2026-06 importance_update
+ROLL_COMPLETE M2_logit 2026-07 importance_update
+ROLL_COMPLETE M2_logit 2026-08 importance_update
+STAGE1_COMPLETE results/task04/stage1

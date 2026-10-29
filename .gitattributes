@@ -3,3 +3,4 @@ results/task02/* -text
 results/task02/*.csv whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # Preserve original scientific Task04 CSV/figure bytes, including csv.writer CRLF.
 results/task04/** -text whitespace=cr-at-eol
+results/task04/**/*.svg -whitespace

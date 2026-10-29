@@ -1,0 +1,78 @@
+{
+  "verified_at_utc": "2026-10-29T16:34:48.130814+00:00",
+  "scope": "Actual public KBA Stage1 outputs; no inference in this verification",
+  "protocol": {
+    "version": "task-04-regimes/1.0.0",
+    "commit": "42b1f155fc70117e7c28190809c732c5586afaa1",
+    "frozen_at": "2026-10-29T14:47:39+01:00",
+    "protocol_sha256": "16d36baa198cb7f1e6c8db1ce608a79ccfbf9ae17e48dc18bb642ddfbb3aea06",
+    "config_sha256": "2eee9f470d2654d5a1eb10fadec6baf891c9a30d90aa260e6ca8c5810378982f",
+    "scope": "User-authorized Stage1 only; calibration complete, no real Task04 fit before this commit."
+  },
+  "execution_commit": "75a7d266bbf9632ae0292a004a1eb87975dfcb09",
+  "python": "3.12.14",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "software": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "pandas": "2.2.3",
+    "statsmodels": "0.14.6",
+    "pymc": "5.28.5",
+    "pytensor": "2.38.3",
+    "jax": "0.7.2",
+    "jaxlib": "0.7.2",
+    "numpyro": "0.20.1",
+    "arviz": "0.22.0",
+    "hypoforge": "0.4.0"
+  },
+  "local_tests": {
+    "full_unittest": {
+      "passed": 483,
+      "seconds": 309.328,
+      "note": "Before the two-image presentation correction; inference/forecast mathematics unchanged"
+    },
+    "post_correction_negative_validation": {
+      "passed": 5,
+      "seconds": 0.36
+    }
+  },
+  "successful_commands": [
+    "python -m regimes.verify results/task04/stage1",
+    "python -m scripts.task04_diagnostics results/task04/stage1 --output results/task04/diagnostics (before image correction; numeric payloads unchanged)",
+    "python contracts/validate.py (6 rows)",
+    "python -m kba audit",
+    "python -m research_benchmark.verify results/task02 (18000 truth, 36000 evaluations,36 summaries)"
+  ],
+  "hash_comparison_base": "2bd964ea373aeac9519349bb1228ad14a4fa6501",
+  "unchanged_original_files": {
+    "results/task02/evaluations.csv": "7588262894d3a208a0f3989653746f64062c156b616e3c87ef0559ec99ffe536",
+    "results/task02/legacy_flags.csv": "31fded55d3f88316f4d006bc552b100301f229b7d32a3f9814b2f1e20b481003",
+    "results/task02/manifest.json": "3b14c47febcad8d776f3d6dbb56a3e93ce4c734f013613f26a300952be8a6807",
+    "results/task02/mde.csv": "4f785370cd891b2d135749f4919816692662d783a8a9fa0215985b41430bfd21",
+    "results/task02/power.png": "412ba1d59cf353210d1f383929d708e675d81646abd117f0b7a9f89d32df8c94",
+    "results/task02/protocol.json": "71b84713c9c980db172e7bf5692bc85d9912021f85c5f23701d68df67a4a0723",
+    "results/task02/reference.csv": "40c874135e121494b4ec3ef83342c4d80741920a23f21ab4adb027548f7dfb09",
+    "results/task02/report.md": "4bcb5f7c7c46bf402c9575fdbce61f8e73ea05d418458831cee7845a26863e75",
+    "results/task02/summary.csv": "6cab2b4d40b49e9d020a98c27c92065b5ef5e7dca1c4997350ed2cc0dfd7cb8f",
+    "results/task02/truth.csv": "87dc2474b8c878bdf7109eb928a61b823b0eb460e228ac0c0371a63b3e147359",
+    "docs/TESLA_ATTENTION_ECONOMETRIC_PROTOCOL.md": "08b1a241823f3d35914e6e90e37cf8c64e2af652ffe29c303c03eb0f9a969589",
+    "docs/SCOPED_ENERGY_ECONOMETRIC_PROTOCOL.md": "429bca69a59d978bf2bb038a358dfd21bffd36ad1b21c66ca03214ed22ba7376",
+    "workorders/01i3-scoped-energy-econometrics.md": "6cc6352ebe1280e62a82d8e92aa4aa7cbaf50bd34f526d4631f7e722418bb5fc",
+    "fuel_oil/scoped_study.py": "28cd65d2d13918d07f20574b2f5107816c3ff91e814b592579bff78dfa367aec"
+  },
+  "sha256": {
+    "stage1/manifest.json": "5d72521ee877e0cdb55bb451afb662c93978aef0144d5775a28c4b8f1120f3e5",
+    "diagnostics/manifest.json": "94283e18737c721fe8300efbafa4ba04e939d5c0ca3dd7d8cb85e62da09b0af1",
+    "stage1-execution.log": "4c09fa1e2c30a06b131aebd0fe5a8ff71e0db6b2f16e258a6ae1280a065e3dca",
+    "SCIENTIFIC_REVIEW.md": "999857fa36129a3b09d4862ae716beccddfdccacc35025f88268c4392ff4836a",
+    "README.md": "fef50ca9208bfc1d4d8ecf8cb1e53491cd811aa76cfa485f900640d22a625479"
+  },
+  "limits": "Technical verification is not causal identification, model adequacy or validated coverage. No real Task02/Task01G/Task01I.3 results regenerated.",
+  "checks_after_estimation": {
+    "static_markdown_links": 617,
+    "missing_paths": 0,
+    "unresolved_heading_anchors": 0,
+    "privacy_screen": "Only matrix @ expressions, synthetic dummy keys and negative-test email strings; no private-key/signed-credential-URL/employer-context patterns found. Limited working-tree pattern screen, not a full historical security audit.",
+    "generated_svg_whitespace": "Narrow SVG-only gitattributes exception preserves original Matplotlib XML bytes; no numeric/SVG normalization."
+  }
+}

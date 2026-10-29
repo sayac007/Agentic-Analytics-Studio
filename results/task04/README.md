@@ -17,7 +17,7 @@ Requires Python 3.12, complete Git history and writable temporary space. Use a n
 ```sh
 python3.12 -m venv .venv
 .venv/bin/python -m pip install -r requirements-regimes.lock
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m regimes.study \
+JAX_PLATFORMS=cpu OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -m regimes.study \
   --output /tmp/task04-new-results \
   --checkpoint /tmp/task04-private-checkpoints
 .venv/bin/python -m regimes.verify /tmp/task04-new-results
@@ -92,3 +92,29 @@ Task 02 files, both frozen empirical protocols and the hash-bound Task 01I.3
 authorization were compared byte-for-byte against the approved starting main
 (`2bd964ea373aeac9519349bb1228ad14a4fa6501`) and are unchanged.
 
+
+
+## Completed observed results
+
+The [scientific assessment](SCIENTIFIC_REVIEW.md) reports the full findings and
+important failures. M2 improves the market forecasts against both baselines in
+2026, but loses against M0 in 2025. Tesla's primary innovations retain persistence
+and serial correlation; VW innovations retain strong autocorrelation. The latent
+Tesla decline depends materially on the state SD. The large algebraic market
+baseline is not market potential or a valid no-subsidy counterfactual.
+
+The complete real execution passed before any reader changes. The subsequently
+hardened read-only verifier binds the original freeze-commit configuration,
+result/input identities, every required payload and coherent forecast means.
+The 4 mathematical checkpoint-core modules and frozen statistical definitions
+remain unchanged. A full local suite passed **483 tests in 309.328 s**. After the
+presentation-only correction, all **5 artifact/freeze negative tests passed**
+(0.360 s), and the preserved-result verifier passed again.
+
+Visual inspection found an accounting-bar width bug: NumPy month dates interpreted
+numeric width 22 as months. Only its PNG/SVG were re-plotted using explicit days.
+All 16 other Stage1 payloads and every diagnostic payload are byte-identical;
+no observation, coefficient, prediction or interval changed and no model was
+refit. The manifest records original/corrected hashes and the source correction.
+The diagnostic manifest's source binding was updated solely for that presentation
+change, with its original binding retained in metadata.
