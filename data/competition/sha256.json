@@ -1,0 +1,31 @@
+{
+  "algorithm": "sha256",
+  "created_at_utc": "2026-10-29T07:01:17.129489+00:00",
+  "source_base_commit": "f67546eeee4b09510db32054ab399c7e1717cf31",
+  "scope": "Versioned factual observations and derived views; no private raw sources",
+  "python": "3.12.14",
+  "packages": {
+    "openpyxl": "3.1.5",
+    "jsonschema": "4.26.0"
+  },
+  "files": {
+    "brand_annual_2018_2025.csv": "ae6d9cfeea76aafcb4328f587fb872c3317104a751e1f78bbef2776760f603e3",
+    "brand_monthly_2021_2026.csv": "8bec19a1dc2bf5b3f939915279e3364983dfcf4fe08739cd05f4e670b859063a",
+    "brand_release_observations.csv": "5944ee28493e3c5e9cfdb3ee5ed29b7a5032e4a7ecef27038249b32f9dc4a5a6",
+    "brand_ytd_comparison.csv": "e80c281836289e56a4515ae9dc8928297379d341b8ca26831b10608061b28b53",
+    "kba_checks.json": "f90e8a9448d66177d0343c00e580bfac4d845a5fc47b3458660c64795df1efce",
+    "kba_sources.json": "5fe348aae13cfdb5cf11ebccbae3a11844f9efec76489790d8115d967780505c",
+    "model_annual_electric.csv": "f39bd2026ba8d25a45a2d295105e02156d873176611364492498c37540433a81",
+    "model_year_top10.csv": "577945e6bec8345a1af71ddc4b29c991ffdb2c115609f1910c4c945efc7c1636",
+    "price_coverage_by_model_year.csv": "0d18035db7b4f2ad597c7ec94db3136bf32774002dc042a9ec480aeb7b8d400a",
+    "price_observations.json": "babe9e6b6f460a6aad1e55ec6e644f14a23b1509e6fef8fd47c1f8168961342c",
+    "price_sources.json": "fc8595fa2a940e7db811bab21ff1cd5082ab9d29f75ecfc58c80aac1fdf11803",
+    "prices_and_ranges.csv": "e40359f4632de02107a0a235674039d387550bf9c86094a35f1ecf618d186f5b",
+    "research_sources.json": "c298824e7ca3c55ac2d2a243ec456347b895dff4e684a329bfda9f2ca53e6212"
+  },
+  "derivation_code": {
+    "competition/__init__.py": "556ee5c42eb5d6337d1014b7a3d7bfba89805950602b52391f76b12a8da90fe8",
+    "competition/derive.py": "d220af8389e94fa922d8ac3eac3180047a9397162fc4c158c8ddf5f7f27a5dbf",
+    "competition/kba.py": "25892150cfcb1fdcd8f4f72bc62cbba3cb6f878bedbfe67a8074c59a1ccef391"
+  }
+}

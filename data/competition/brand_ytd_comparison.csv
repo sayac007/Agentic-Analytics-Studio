@@ -1,0 +1,143 @@
+brand,powertrain,comparison,registrations_2025_ytd,registrations_2026_ytd,growth_percent,previous_source_id,current_source_id,status,brand_definition_note
+ALFA ROMEO,all,Jan-Sep_vs_Jan-Sep,5773,3480,-39.72,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+ALPINE,all,Jan-Sep_vs_Jan-Sep,682,1109,62.61,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+ASTON MARTIN,all,Jan-Sep_vs_Jan-Sep,222,443,99.55,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+AUDI,all,Jan-Sep_vs_Jan-Sep,145975,153020,4.83,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+BENTLEY,all,Jan-Sep_vs_Jan-Sep,430,332,-22.79,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+BMW,all,Jan-Sep_vs_Jan-Sep,181600,189320,4.25,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+BYD,all,Jan-Sep_vs_Jan-Sep,11818,42788,262.06,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+CADILLAC,all,Jan-Sep_vs_Jan-Sep,68,50,-26.47,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+CHERY,all,Jan-Sep_vs_Jan-Sep,42,3,-92.86,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+CITROEN,all,Jan-Sep_vs_Jan-Sep,37014,40696,9.95,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+DACIA,all,Jan-Sep_vs_Jan-Sep,53581,53176,-0.76,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+DAF TRUCKS,all,Jan-Sep_vs_Jan-Sep,2,2,0.00,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+DEEPAL,all,Jan-Sep_vs_Jan-Sep,12,158,1216.67,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+DONGFENG,all,Jan-Sep_vs_Jan-Sep,,51,,,fz10-2026-09,missing_not_imputed,KBA reporting brand; not ownership or production country
+DS,all,Jan-Sep_vs_Jan-Sep,2264,1620,-28.45,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+FERRARI,all,Jan-Sep_vs_Jan-Sep,1416,1305,-7.84,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+FIAT,all,Jan-Sep_vs_Jan-Sep,41977,51272,22.14,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+FISKER,all,Jan-Sep_vs_Jan-Sep,4,17,325.00,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+FORD,all,Jan-Sep_vs_Jan-Sep,83058,74630,-10.15,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+GEELY,all,Jan-Sep_vs_Jan-Sep,,2267,,,fz10-2026-09,missing_not_imputed,KBA reporting brand; not ownership or production country
+GWM,all,Jan-Sep_vs_Jan-Sep,2281,1189,-47.87,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+HONDA,all,Jan-Sep_vs_Jan-Sep,5759,6128,6.41,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+HYUNDAI,all,Jan-Sep_vs_Jan-Sep,70764,71400,0.90,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+INEOS,all,Jan-Sep_vs_Jan-Sep,418,277,-33.73,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+IVECO,all,Jan-Sep_vs_Jan-Sep,698,712,2.01,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+JAC,all,Jan-Sep_vs_Jan-Sep,,16,,,fz10-2026-09,missing_not_imputed,KBA reporting brand; not ownership or production country
+JAECOO,all,Jan-Sep_vs_Jan-Sep,,468,,,fz10-2026-09,missing_not_imputed,KBA reporting brand; not ownership or production country
+JAGUAR,all,Jan-Sep_vs_Jan-Sep,193,,,fz10-2025-09,,missing_not_imputed,KBA reporting brand; not ownership or production country
+JEEP,all,Jan-Sep_vs_Jan-Sep,9748,8777,-9.96,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+KGM,all,Jan-Sep_vs_Jan-Sep,2299,2038,-11.35,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KGM renamed SSANGYONG2025-04-01; not a new entrant
+KIA,all,Jan-Sep_vs_Jan-Sep,45952,50047,8.91,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+LADA,all,Jan-Sep_vs_Jan-Sep,1,10,900.00,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+LAMBORGHINI,all,Jan-Sep_vs_Jan-Sep,972,921,-5.25,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+LANCIA,all,Jan-Sep_vs_Jan-Sep,2,,,fz10-2025-09,,missing_not_imputed,KBA reporting brand; not ownership or production country
+LAND ROVER,all,Jan-Sep_vs_Jan-Sep,10115,10797,6.74,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+LEAPMOTOR,all,Jan-Sep_vs_Jan-Sep,4441,16044,261.27,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+LEXUS,all,Jan-Sep_vs_Jan-Sep,3670,2640,-28.07,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+LOTUS,all,Jan-Sep_vs_Jan-Sep,255,226,-11.37,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+LUCID,all,Jan-Sep_vs_Jan-Sep,141,166,17.73,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+LYNK & CO,all,Jan-Sep_vs_Jan-Sep,582,927,59.28,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+MAN,all,Jan-Sep_vs_Jan-Sep,1129,1009,-10.63,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+MASERATI,all,Jan-Sep_vs_Jan-Sep,531,294,-44.63,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+MAXUS,all,Jan-Sep_vs_Jan-Sep,88,16,-81.82,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+MAZDA,all,Jan-Sep_vs_Jan-Sep,29378,36083,22.82,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+MERCEDES,all,Jan-Sep_vs_Jan-Sep,191098,194859,1.97,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+MG ROEWE,all,Jan-Sep_vs_Jan-Sep,18261,27363,49.84,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+MINI,all,Jan-Sep_vs_Jan-Sep,25085,32811,30.80,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+MITSUBISHI,all,Jan-Sep_vs_Jan-Sep,15707,9529,-39.33,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+MORGAN,all,Jan-Sep_vs_Jan-Sep,46,56,21.74,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+NIO,all,Jan-Sep_vs_Jan-Sep,211,20,-90.52,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+NISSAN,all,Jan-Sep_vs_Jan-Sep,25141,24686,-1.81,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+OMODA,all,Jan-Sep_vs_Jan-Sep,1,181,18000.00,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+OPEL,all,Jan-Sep_vs_Jan-Sep,99288,105375,6.13,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+PEUGEOT,all,Jan-Sep_vs_Jan-Sep,43580,46321,6.29,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+POLESTAR,all,Jan-Sep_vs_Jan-Sep,3271,3805,16.33,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+PORSCHE,all,Jan-Sep_vs_Jan-Sep,23308,21675,-7.01,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+RENAULT,all,Jan-Sep_vs_Jan-Sep,42977,51348,19.48,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+ROLLS ROYCE,all,Jan-Sep_vs_Jan-Sep,257,215,-16.34,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+SEAT,all,Jan-Sep_vs_Jan-Sep,123140,117432,-4.64,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+SKODA,all,Jan-Sep_vs_Jan-Sep,165719,186973,12.83,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+SMART,all,Jan-Sep_vs_Jan-Sep,3225,6631,105.61,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+SUBARU,all,Jan-Sep_vs_Jan-Sep,3205,2944,-8.14,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+SUZUKI,all,Jan-Sep_vs_Jan-Sep,17591,16371,-6.94,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+TESLA,all,Jan-Sep_vs_Jan-Sep,14845,44810,201.85,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+TOGG,all,Jan-Sep_vs_Jan-Sep,25,291,1064.00,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+TOYOTA,all,Jan-Sep_vs_Jan-Sep,61938,50022,-19.24,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+VINFAST,all,Jan-Sep_vs_Jan-Sep,121,159,31.40,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+VOLVO,all,Jan-Sep_vs_Jan-Sep,44940,38454,-14.43,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+VW,all,Jan-Sep_vs_Jan-Sep,420628,396444,-5.75,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+XPENG,all,Jan-Sep_vs_Jan-Sep,1855,7023,278.60,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+ZEEKR,all,Jan-Sep_vs_Jan-Sep,,475,,,fz10-2026-09,missing_not_imputed,KBA reporting brand; not ownership or production country
+ALFA ROMEO,BEV,Jan-Sep_vs_Jan-Sep,166,439,164.46,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+ALPINE,BEV,Jan-Sep_vs_Jan-Sep,491,977,98.98,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+ASTON MARTIN,BEV,Jan-Sep_vs_Jan-Sep,0,0,,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+AUDI,BEV,Jan-Sep_vs_Jan-Sep,28090,39525,40.71,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+BENTLEY,BEV,Jan-Sep_vs_Jan-Sep,0,0,,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+BMW,BEV,Jan-Sep_vs_Jan-Sep,34436,49083,42.53,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+BYD,BEV,Jan-Sep_vs_Jan-Sep,7146,16355,128.87,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+CADILLAC,BEV,Jan-Sep_vs_Jan-Sep,0,20,,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+CHERY,BEV,Jan-Sep_vs_Jan-Sep,11,0,-100.00,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+CITROEN,BEV,Jan-Sep_vs_Jan-Sep,3675,11527,213.66,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+DACIA,BEV,Jan-Sep_vs_Jan-Sep,3924,7651,94.98,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+DAF TRUCKS,BEV,Jan-Sep_vs_Jan-Sep,0,0,,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+DEEPAL,BEV,Jan-Sep_vs_Jan-Sep,12,145,1108.33,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+DONGFENG,BEV,Jan-Sep_vs_Jan-Sep,,51,,,fz10-2026-09,missing_not_imputed,KBA reporting brand; not ownership or production country
+DS,BEV,Jan-Sep_vs_Jan-Sep,49,163,232.65,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+FERRARI,BEV,Jan-Sep_vs_Jan-Sep,0,0,,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+FIAT,BEV,Jan-Sep_vs_Jan-Sep,7620,11823,55.16,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+FISKER,BEV,Jan-Sep_vs_Jan-Sep,4,17,325.00,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+FORD,BEV,Jan-Sep_vs_Jan-Sep,13256,19823,49.54,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+GEELY,BEV,Jan-Sep_vs_Jan-Sep,,474,,,fz10-2026-09,missing_not_imputed,KBA reporting brand; not ownership or production country
+GWM,BEV,Jan-Sep_vs_Jan-Sep,1389,17,-98.78,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+HONDA,BEV,Jan-Sep_vs_Jan-Sep,86,55,-36.05,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+HYUNDAI,BEV,Jan-Sep_vs_Jan-Sep,19932,22437,12.57,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+INEOS,BEV,Jan-Sep_vs_Jan-Sep,0,0,,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+IVECO,BEV,Jan-Sep_vs_Jan-Sep,1,0,-100.00,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+JAC,BEV,Jan-Sep_vs_Jan-Sep,,15,,,fz10-2026-09,missing_not_imputed,KBA reporting brand; not ownership or production country
+JAECOO,BEV,Jan-Sep_vs_Jan-Sep,,31,,,fz10-2026-09,missing_not_imputed,KBA reporting brand; not ownership or production country
+JAGUAR,BEV,Jan-Sep_vs_Jan-Sep,0,,,fz10-2025-09,,missing_not_imputed,KBA reporting brand; not ownership or production country
+JEEP,BEV,Jan-Sep_vs_Jan-Sep,386,1211,213.73,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+KGM,BEV,Jan-Sep_vs_Jan-Sep,158,138,-12.66,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KGM renamed SSANGYONG2025-04-01; not a new entrant
+KIA,BEV,Jan-Sep_vs_Jan-Sep,11214,24830,121.42,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+LADA,BEV,Jan-Sep_vs_Jan-Sep,0,0,,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+LAMBORGHINI,BEV,Jan-Sep_vs_Jan-Sep,0,0,,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+LANCIA,BEV,Jan-Sep_vs_Jan-Sep,1,,,fz10-2025-09,,missing_not_imputed,KBA reporting brand; not ownership or production country
+LAND ROVER,BEV,Jan-Sep_vs_Jan-Sep,0,0,,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+LEAPMOTOR,BEV,Jan-Sep_vs_Jan-Sep,3826,15128,295.40,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+LEXUS,BEV,Jan-Sep_vs_Jan-Sep,377,262,-30.50,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+LOTUS,BEV,Jan-Sep_vs_Jan-Sep,136,122,-10.29,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+LUCID,BEV,Jan-Sep_vs_Jan-Sep,141,166,17.73,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+LYNK & CO,BEV,Jan-Sep_vs_Jan-Sep,34,126,270.59,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+MAN,BEV,Jan-Sep_vs_Jan-Sep,1,0,-100.00,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+MASERATI,BEV,Jan-Sep_vs_Jan-Sep,48,9,-81.25,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+MAXUS,BEV,Jan-Sep_vs_Jan-Sep,82,12,-85.37,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+MAZDA,BEV,Jan-Sep_vs_Jan-Sep,542,4415,714.58,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+MERCEDES,BEV,Jan-Sep_vs_Jan-Sep,23084,44081,90.96,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+MG ROEWE,BEV,Jan-Sep_vs_Jan-Sep,6413,8520,32.86,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+MINI,BEV,Jan-Sep_vs_Jan-Sep,10589,14694,38.77,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+MITSUBISHI,BEV,Jan-Sep_vs_Jan-Sep,0,1043,,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+MORGAN,BEV,Jan-Sep_vs_Jan-Sep,0,0,,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+NIO,BEV,Jan-Sep_vs_Jan-Sep,211,20,-90.52,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+NISSAN,BEV,Jan-Sep_vs_Jan-Sep,979,4440,353.52,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+OMODA,BEV,Jan-Sep_vs_Jan-Sep,0,49,,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+OPEL,BEV,Jan-Sep_vs_Jan-Sep,12561,20675,64.60,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+PEUGEOT,BEV,Jan-Sep_vs_Jan-Sep,3221,10560,227.85,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+POLESTAR,BEV,Jan-Sep_vs_Jan-Sep,3271,3805,16.33,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+PORSCHE,BEV,Jan-Sep_vs_Jan-Sep,7115,7774,9.26,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+RENAULT,BEV,Jan-Sep_vs_Jan-Sep,8606,20166,134.32,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+ROLLS ROYCE,BEV,Jan-Sep_vs_Jan-Sep,56,42,-25.00,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+SEAT,BEV,Jan-Sep_vs_Jan-Sep,23695,28267,19.30,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+SKODA,BEV,Jan-Sep_vs_Jan-Sep,34567,55996,61.99,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+SMART,BEV,Jan-Sep_vs_Jan-Sep,3225,6631,105.61,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+SUBARU,BEV,Jan-Sep_vs_Jan-Sep,162,627,287.04,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+SUZUKI,BEV,Jan-Sep_vs_Jan-Sep,9,1296,14300.00,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+TESLA,BEV,Jan-Sep_vs_Jan-Sep,14845,44810,201.85,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+TOGG,BEV,Jan-Sep_vs_Jan-Sep,25,291,1064.00,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+TOYOTA,BEV,Jan-Sep_vs_Jan-Sep,4846,6871,41.79,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+VINFAST,BEV,Jan-Sep_vs_Jan-Sep,121,159,31.40,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+VOLVO,BEV,Jan-Sep_vs_Jan-Sep,7058,10524,49.11,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+VW,BEV,Jan-Sep_vs_Jan-Sep,75998,76024,0.03,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+XPENG,BEV,Jan-Sep_vs_Jan-Sep,1855,7023,278.60,fz10-2025-09,fz10-2026-09,observed_same_month_cutoff,KBA reporting brand; not ownership or production country
+ZEEKR,BEV,Jan-Sep_vs_Jan-Sep,,475,,,fz10-2026-09,missing_not_imputed,KBA reporting brand; not ownership or production country
