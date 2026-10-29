@@ -1,0 +1,8 @@
+{
+  "version": "task-04-regimes/1.0.0",
+  "commit": "42b1f155fc70117e7c28190809c732c5586afaa1",
+  "frozen_at": "2026-10-29T14:47:39+01:00",
+  "protocol_sha256": "16d36baa198cb7f1e6c8db1ce608a79ccfbf9ae17e48dc18bb642ddfbb3aea06",
+  "config_sha256": "2eee9f470d2654d5a1eb10fadec6baf891c9a30d90aa260e6ca8c5810378982f",
+  "scope": "User-authorized Stage1 only; calibration complete, no real Task04 fit before this commit."
+}
