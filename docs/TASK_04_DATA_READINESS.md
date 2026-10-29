@@ -2,9 +2,16 @@
 
 Stand 29.10.2026, **vor der ersten Schätzung**. Bezogen auf
 [`REGIME_STATE_SPACE_PROTOCOL.md`](REGIME_STATE_SPACE_PROTOCOL.md),
-Version `task-04-regimes/0.1.0-draft`. Keine automatische analytische Zulassung,
+Version `task-04-regimes/0.2.0-draft`. Keine automatische analytische Zulassung,
 keine Änderung früherer Source-Permits. Bestehende Originale zuerst prüfen,
 statt Nutzer erneut um bereits vorhandene Dateien zu bitten.
+
+**Priorität:** Stufe 1 ist auf Markt-/Tesla-/VW-Zerlegung, Kalender, Quartalsende
+und Förderregime begrenzt. Die Markt-/Markenwerte liegen vor; Förderchronik und
+Protokollfreigabe bleiben zu schließen. Benzin, Strom, Bestand, Wettbewerbspreise
+und exakte China-Zuordnung sperren nur die benannten optionalen Stufe-2-Module,
+nicht den Abschluss des Kerns. Die folgende vollständige Bedarfsliste ist keine
+Aufforderung, all diese Daten vor Stufe 1 zu beschaffen.
 
 ## Was bereits belastbar vorliegt
 

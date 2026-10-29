@@ -1,6 +1,6 @@
 # Task 04 – Regime- und Zustandsraumprotokoll
 
-**Version `task-04-regimes/0.1.0-draft`, Stand 29.10.2026, Europe/Berlin.**
+**Version `task-04-regimes/0.2.0-draft`, Stand 29.10.2026, Europe/Berlin.**
 Entwurf zur fachlichen Prüfung, **noch nicht eingefroren oder zur Schätzung
 freigegeben**. Dieser Schritt enthält Datenprüfungen und Modellspezifikation,
 keinen Schätzcode. Task 01G, 01I.3 und andere eingefrorene Protokolle bleiben
@@ -10,6 +10,39 @@ Die Entwicklungsdaten einschließlich der Muster 2025/2026 sind bereits bekannt.
 Dies ist ein vor dem ersten Task-04-Fit festzulegender Analyseplan, keine
 ergebnisblinde Präregistrierung vor Kenntnis der Daten. Keine Kausalbeweise,
 keine synthetischen Ersatzdaten und keine Optimierung auf erwünschte Vorzeichen.
+
+## 0. Abschluss in zwei Stufen
+
+**Stufe 1 zuerst:** Kern ist die beobachtete Zerlegung
+`Tesla-Zulassungen = BEV-Markt × Tesla-Anteil`, ergänzt um Kalender,
+Quartalsende und belegte Förderregime. Marktmodelle M0/M1/M2 und G3 mit
+G0/G1 bilden die fest abgegrenzte Familie. Kein Kraftstoff, keine Diffusion,
+keine frei gesuchten zusätzlichen Treiber. G4 ist bei ungeklärtem China-Korb
+kein Blocker für G3; Preis-/Launch-/Markenschockkoeffizienten gehören nicht zum
+Stufe-1-Fit. Dokumentierte Ereignisse dürfen als Kontext markiert werden.
+
+Planungsrahmen: **zwei bis drei Wochen (10–15 Arbeitstage)** für Datenabschluss,
+Implementierung, Prüfung und Ergebnisdarstellung nach fachlicher Freigabe.
+Das ist eine Zeitbegrenzung für den Arbeitsumfang, kein behaupteter Arbeitsbeginn
+oder zugesagter Hintergrundlauf. Zuerst Zählwertzerlegung und Förderchronik,
+dann Baselines/Zustandsmodell mit Rolling Origin, zuletzt Hypothesentabelle
+und Grafiken. Am Ende auch ein begrenztes oder nicht entscheidbares Ergebnis
+abschließen, statt den Umfang durch weitere Treibersuche zu vergrößern.
+
+**Stufe 2 nur nach bewusster neuer Entscheidung:** M3a/b/c, Kraftstoff-/Makro-
+Gegenprüfungen, Bestands-/Diffusionsmodell, Betriebskosten und G2/G4 nach
+ihren jeweiligen Datenprüfungen. Die unten erhaltenen Spezifikationen hierfür
+sind Entwürfe, keine automatische Ausführungserlaubnis und kein Stufe-1-Scope.
+H-F/H-D/H-C bleiben in Stufe 1 offen, sofern kein dafür vorgesehener Test läuft.
+
+Realistische Erwartung: Die Markt-/Anteilszerlegung ist bei geprüften Gesamt-
+und Markenzahlen eine exakte Rechenidentität. Der bereits beobachtete Tesla-
+Rückgang 2025 ist ein zu beschreibendes Ereignis, kein dadurch erklärter Treiber.
+Juniper, Lieferbedingungen und Markenkontroverse können untrennbar bleiben.
+Bei Kraftstoff/Förderung 2026 besteht wegen kurzer Reihe und noch fehlender
+geprüfter Benzinreihe ein erhebliches Trennungsproblem. Das ist eine Grenze des
+Designs, kein vorab festgelegtes negatives Ergebnis. „Nicht entscheidbar“ ist
+gleichberechtigt mit gestützt oder geschwächt.
 
 ## 1. Ziel und korrigierte Datenbasis
 
@@ -37,6 +70,8 @@ Markt- und Pkw-Nenner stammen aus den Gesamtzeilen der jeweiligen FZ10-Mappen;
 Monatssummen werden gegen Dezember-/September-YTD geprüft. Tesla/VW sind jeweils
 für alle 69 Monate numerisch vorhanden. Kein fehlender Einzelmarkenwert wird null.
 Nachweis mit Quellen-/Inputhashes: [Datenaudit](../data/task04_regimes/data_audit.json).
+Dieser unveränderte Datenaudit gehört zur Entwurfsfassung 0.1.0; die aktuelle
+Umfangsänderung erzeugt keine neuen Daten oder rückdatierten Auditnachweise.
 
 ### Vier Gruppen und Grenzen des China-Korbs
 
@@ -46,7 +81,7 @@ OMODA, JAECOO, DEEPAL, CHERY, GWM, DONGFENG, MAXUS, JAC.
 Das ist keine vollständige/naturgegebene Nationalitätsvariable. Polestar bleibt
 als vorgegebener Grenzfall enthalten. Nicht chinesische Produktion allein ist
 das Kriterium; ein in China gefertigter VW wird dadurch nicht Teil dieses Korbs.
-Eigentümer-/Markenhistorie ist vor Freeze quellengebunden zu dokumentieren.
+Eigentümer-/Markenhistorie ist vor G4-Freigabe quellengebunden zu dokumentieren.
 
 Vorab benannte Sensitivitäten: **C18 = C17 + AIWAYS** (im KBA vorhanden, bisher
 nicht im Nutzerkorb), **C21 = C18 + VOLVO + SMART + LOTUS**. Die Grenzfälle werden
@@ -111,7 +146,7 @@ enthalten, dürfen nicht zusätzlich eingeführt werden. Rang und Kondition prü
 Der feste Trend gehört zur festen Baseline; das lokale Trendmodell bekommt
 nicht zusätzlich denselben festen Zeittrend.
 
-### Marktvarianten – kleine, vorher festgelegte Familie
+### Marktvarianten – M0/M1/M2 in Stufe 1, M3 nur optionale Stufe 2
 
 | Modell | Spezifikation |
 |---|---|
@@ -216,8 +251,9 @@ G2: G1 plus dokumentierte relative Preise/Launches, **nur** auf freigegebener
 gemeinsamer Datenbasis. Fehlende monatliche Preise sperren G2; sie werden
 nicht aus heutigen Konfiguratoren zurückgeschrieben.
 
-Tesla-2025-Alternativen: freier Niveaupfad versus Niveaupfad mit vorher datiertem
-Interventionsterm. Primärkontrast des Pfads: Mittel 2025 minus Mittel 2024,
+Stufe 1 beschreibt den freien Tesla-Niveaupfad; eine Variante mit gesondertem
+Tesla-Interventionsterm gehört erst zur optionalen Stufe 2. Primärkontrast des
+Pfads: Mittel 2025 minus Mittel 2024,
 nicht nachträglich günstig gewählte Spitzenmonate. Er ist modellabhängig,
 nicht selbst ein nachgewiesener Strukturbruch der Markenwahrnehmung.
 Juniper wird als dokumentiertes Modellwechselereignis getrennt von einer
@@ -244,20 +280,30 @@ Referenz muss dieselben Gleichungen tatsächlich abbilden, ggf. als `MLEModel`.
 
 ## 5. Priors, Referenz und Abbruch
 
-Entwurfswerte zur Prüfung **vor** dem Freeze, nicht datengetunte Wahrheiten:
+Entwurfswerte zur Prüfung **vor** dem Freeze, nicht datengetunte Wahrheiten.
+In Stufe 1 sind die Random-Walk-SDs feste Konstanten: Markt-Niveau 0.10,
+Markt-Steigung 0.01 und jedes Anteilsniveau 0.10 pro Monat; die Varianzen sind
+0.01, 0.0001 und 0.01. Sie werden nicht aus der jeweils günstigsten Anpassung
+oder dem Testfehler geschätzt. Eine Niveau-SD von 0.10 entspricht einem
+einmonatigen Log-Schritt von ungefähr 10 % und ohne Steigungsbeitrag einer
+Zwölfmonats-SD von rund 0.35; das erlaubt Anpassung, ohne jede Spitze frei zu
+verfolgen. Es ist eine Skalierungs-/Regularisierungsannahme, kein empirischer
+Parameterbeleg. Nur gemeinsame Halbierung bzw. Verdoppelung der Zustands-SDs
+als fest benannte Sensitivitäten; kein Vollraster oder Auswahl des besten Pfads.
+Ein Prognoseverlust gegenüber der festen Baseline bleibt ein negatives Ergebnis.
 
 | Größe | Prior/Regularisierung und Einheit |
 |---|---|
 | Markt-Anfangsniveau | Normal(μ=log(50000); σ=1.5), log monatliche Zulassungen; breite Größenordnung, kein beobachteter Startwert |
 | Anfangssteigung / feste M0-Steigung | Normal(μ=0; σ=0.05), Logänderung/Monat |
-| SD Niveau / Steigung | HalfNormal(σ=0.10) / HalfNormal(σ=0.01), monatliche Zustandsinnovationen |
+| SD Niveau / Steigung | Fest 0.10 / 0.01, monatliche Zustandsinnovationen |
 | Markt-Beobachtungs-SD | HalfNormal(σ=0.25), Logzählwert |
 | Fourier / Förderstufen | Normal(μ=0; σ=0.5), Ziel-Logeinheiten |
 | Quartalsende / einzelne Pulse | Normal(μ=0; σ=1), Ziel-Logeinheiten; keine Vorzeichenrestriktion |
 | Wochentagskoeffizient | Normal(μ=0; σ=0.05), je zusätzlichem definiertem Tag |
 | Fester bzw. Anfangs-Kraftstoffkoeffizient | Normal(μ=0; σ=1), ursprüngliche Log–Log-Einheiten |
 | Anteil-Anfangsniveau | Normal(μ=0; σ=2), ALR-Koordinate |
-| Anteil-Zustands-SD / Beobachtungs-SD | HalfNormal(σ=0.10) / HalfNormal(σ=0.5), ALR-Einheiten |
+| Anteil-Zustands-SD / Beobachtungs-SD | Zustand fest 0.10; Beobachtung HalfNormal(σ=0.5), ALR-Einheiten |
 | Gemeinsame Beobachtungskorrelation | LKJ(η=4), Regularisierung zur schwächeren Korrelation |
 
 Dezimalpunkte in den Verteilungsparametern vermeiden Mehrdeutigkeit; σ bezeichnet
@@ -380,14 +426,20 @@ Latente Credible Intervals von Prognoseintervallen künftiger Zulassungen trenne
 Erwartet: Markt-/Anteilszerlegung, beschriftete Zustands-/Koeffizientenpfade,
 Fensterprognosen, Diagnostik, Tabelle H-F/H-D/H-P/H-T/H-C mit gestützt,
 geschwächt oder unentscheidbar und eine fünf Sätze lange verständliche Einordnung.
-Keine Phase automatisch „Early Adopter“ nennen. Ergebnisartefakte später mit
+Die berichtete Tabelle hat genau die Spalten **Hypothese | Test | Ergebnis
+(gestützt / geschwächt / offen) | Begründung in einem Satz**. Nicht ausgeführte
+Stufe-2-Prüfungen erhalten „offen – nicht untersucht“ und kein impliziertes
+Ergebnis. H-T bezeichnet die relative Tesla-Entwicklung, nicht deren politische
+oder produktbezogene Ursache. Keine Phase automatisch „Early Adopter“ nennen. Ergebnisartefakte später mit
 Protokollhash, Quellvintage, Software, Seeds und tatsächlich ausgeführten Checks.
 
 ## 8. Vor dem Freeze offene Datenentscheidungen
 
 Die konkrete Liste steht in [TASK_04_DATA_READINESS.md](TASK_04_DATA_READINESS.md).
-Hauptblocker: vollständige/abgrenzbare Korbzuordnung, Benzin-Monatsreihe mit
-Einheit/Deckung/Anwendungsumfang, vollständige datierte Förderchronik sowie
-fehlende vergleichbare monatliche Wettbewerbspreise. Strom-/Bestandsdaten
-sperren ihre jeweiligen Zusatzblöcke. Historische Wissensstände begrenzen
+Stufe 1 benötigt geprüfte Markt-/Tesla-/VW-Werte, eine vollständige datierte
+Förderchronik und die fachliche Festlegung des Entwurfs. Korbzuordnung,
+Benzin-Monatsreihe mit Einheit/Deckung/Anwendungsumfang und vergleichbare
+monatliche Wettbewerbspreise sperren ihre jeweiligen Stufe-2-Blöcke; ebenso
+Strom-/Bestandsdaten. Ihr Fehlen verlängert nicht automatisch Stufe 1.
+Historische Wissensstände begrenzen
 echte Echtzeitbehauptungen. Dieser Entwurf ersetzt diese Nachweise nicht.
