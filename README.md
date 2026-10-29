@@ -15,6 +15,11 @@ Die [Literatur- und Portalrecherche](docs/EV_DEMAND_LITERATURE_AND_PORTALS.md)
 ergänzt Käuferbefragungen, wissenschaftliche Gegenbefunde und einen nachgewiesenen
 Methodenbruch in den AutoScout24-Preisdaten.
 
+Nächster Entwurf, noch ohne Modellschätzung: [BEV-Markt und Markenwahl mit
+Regime-/Zustandsraummodellen trennen](docs/REGIME_STATE_SPACE_PROTOCOL.md).
+Der [Datenabgleich und konkrete Beschaffungsplan](docs/TASK_04_DATA_READINESS.md)
+benennen die korrigierten Marktsummen und die offenen China-/Preisdaten.
+
 **Methodischer Vorversuch:** In Task 02 haben wir die Wiedergewinnung bekannter
 Media-Effekte mit synthetischen Daten über 1.000 Seeds je Szenario geprüft.
 Im getesteten Design wurden Always-on-Effekte schlecht wiedergefunden, während
