@@ -49,6 +49,7 @@ with tempfile.TemporaryDirectory(prefix='aas-observed-browser-') as tmp:
             # Safety: this test never sends a provider request, even accidentally.
             page.route('**/api/empirical/messages',lambda route:route.abort())
             page.goto(base)
+            page.locator('.workflow-nav a[href="#task-data"]').click()
             page.locator('#status').filter(has_text='noch nicht').wait_for()
             page.locator('#prepare').click()
             page.locator('#observed-results').wait_for(state='visible',timeout=90000)
@@ -58,10 +59,12 @@ with tempfile.TemporaryDirectory(prefix='aas-observed-browser-') as tmp:
             page.locator('#series').select_option('diesel_de')
             path=page.locator('#observed-chart path').get_attribute('d')
             assert path.count('M')>1,'Missing diesel months were connected'
+            page.locator('.workflow-nav a[href="#task-analysis"]').click()
             page.locator('#selected-model').select_option('macro_diesel_lag3')
             assert page.locator('#stationarity tr').count()==8
             assert page.locator('#stationarity-assessment').inner_text()
             assert page.locator('#observed-coefficients tr').count()==17
+            page.locator('.workflow-nav a[href="#task-quality"]').click()
             page.locator('#question').fill('Welche Unsicherheit bleibt bei den Residuen?')
             page.locator('#preview').click()
             page.locator('#observed-consent-panel').wait_for(state='visible')

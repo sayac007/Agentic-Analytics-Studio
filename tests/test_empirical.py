@@ -285,3 +285,29 @@ class EmpiricalHTTPTests(unittest.TestCase):
         self.expect_status(422, '/api/empirical/workflow', {**value, 'required_drivers': ['calendar', 'cpi']})
         self.expect_status(403, '/api/empirical/workflow', value, {'Origin': 'https://evil.test'})
         self.expect_status(422, '/api/empirical/presentation?model=search_best')
+
+    def test_intake_preview_accept_and_panel_preserve_original_analysis(self):
+        import base64
+        from test_intake import meta
+        raw=b'month,value\n2020-01,2\n2020-03,4\n'
+        content=base64.b64encode(raw).decode()
+        before={p.name:p.read_bytes() for p in self.folder.iterdir()}
+        self.assertEqual(self.request('/api/empirical/intake/inspect',{'content_base64':content})['rows'],2)
+        request={'content_base64':content,'metadata':meta(series_id='http_metric')}
+        preview=self.request('/api/empirical/intake/preview',request)
+        self.expect_status(422,'/api/empirical/intake/accept',{**request,'preview_sha256':preview['preview_sha256']})
+        accepted=self.request('/api/empirical/intake/accept',{**request,'preview_sha256':preview['preview_sha256'],'confirm':True})
+        self.assertEqual(accepted['analysis_status'],'candidate_dataset_not_fitted')
+        self.assertIn('http_metric',self.request('/api/empirical/intake/panel',raw=True).splitlines()[0])
+        self.expect_status(422,'/api/empirical/intake/accept',{**request,'preview_sha256':preview['preview_sha256'],'confirm':True})
+        self.assertEqual(before,{p.name:p.read_bytes() for p in self.folder.iterdir()})
+
+    def test_intake_rejects_unknown_paths_credentials_and_cross_origin(self):
+        import base64
+        from test_intake import meta
+        secret=base64.b64encode(b'month,value\n2020-01,sk-FAKE_KEY_NEVER_ACCEPT_123456789\n').decode()
+        self.expect_status(422,'/api/empirical/intake/inspect',{'content_base64':secret})
+        content=base64.b64encode(b'month,value\n2020-01,1\n').decode()
+        self.expect_status(422,'/api/empirical/intake/preview',{'content_base64':content,'metadata':meta(series_id='../outside')})
+        self.expect_status(422,'/api/empirical/intake/assemble',{'path':'/private'})
+        self.expect_status(403,'/api/empirical/intake/assemble',{}, {'Origin':'https://evil.test'})

@@ -32,3 +32,8 @@ Vergleiche, gescheiterte Fits, negative Ergebnisse, Präzision und Geheimnisschu
 echtes HTTP und Browserablauf mit ausdrücklich konstruierten Software-Fixtures.
 Keine neuen realen Modellfits oder echten Provider-Aufrufe nötig. Ein Draft-PR,
 kein automatischer Merge und kein unbeobachtetes Azure-Deployment.
+
+UX-Ergänzung auf Nutzerwunsch vom 28.10.2026: geführte Einzelansicht je Aufgabe,
+klare nächste Schritte, Tastaturbedienung, lokale Speichermöglichkeit am Treiberschritt,
+Erhalt ungespeicherter Eingaben und offene Qualitätspunkte vor technischen Details.
+Statistische Verfahren, Daten und Provider-Konfiguration bleiben unverändert.

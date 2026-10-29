@@ -11,6 +11,9 @@ Datenauftrag und Schnittstellen, Muss-Treiber, Zusammenstellung, Analyse, Qualit
 mit optionaler KI-Kommentierung und eine geprüfte Textübergabe an Microsoft Copilot.
 Der Auftrag verändert keine vorhandenen Fits. Tesla ist der aktuelle reale Pilot;
 andere Zielreihen sind dadurch noch nicht frei konfigurierbar.
+Der [kontrollierte monatliche CSV-Aufnahmeweg](RESEARCH_WORKFLOW.md#tatsächlich-verfügbare-csv-aufnahme)
+erstellt zusätzliche private Datensatzversionen mit historischem Abgleich, getrennt
+von den bisherigen Fits. Der KBA-Marktvergleich ergänzt die fachliche Darstellung.
 
 ## Daten und Rechenweg
 

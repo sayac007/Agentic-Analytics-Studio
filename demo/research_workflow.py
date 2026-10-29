@@ -211,6 +211,17 @@ def handoff(brief, bundle, selected='macro'):
         lines.append(f"- {peak['period']}: Restfehler Δlog1p = {peak['residual_change']}; Recherchefenster {', '.join(peak['search_months'])}.")
         for event in peak['documented_candidates']:
             lines.append(f"  - Kandidat: {cell(event['date'])}, {cell(event.get('precision', 'unbekannt'))}, {cell(event['status'])}: {cell(event['title'])}; " + '; '.join(cell(s['url']) for s in event['sources']))
+    from empirical.tesla_review import evidence_context
+    market = evidence_context(bundle)
+    if market['status'] == 'verified_existing_evidence':
+        lines += ['', '## Tesla und BEV-Markt – vorhandener KBA-Vergleich',
+                  'Tesla: Marke, alle Antriebe; Markt: BEV. Kein exakt abgegrenzter Marktanteil und kein Kausaleffekt.',
+                  '| Jahr | Tesla-Zulassungen | Tesla Änderung zum Vorjahr | BEV-Markt | BEV Änderung zum Vorjahr |',
+                  '|---|---|---|---|---|']
+        for row in market['annual_last_three_years']:
+            t, b = row['series']['tesla_count'], row['series']['market_bev']
+            lines.append('| ' + ' | '.join(cell(x) for x in [row['year'],t['total'],t['yoy_fraction'],b['total'],b['yoy_fraction']]) + ' |')
+        lines += ['Jahresänderungen sind Bruchteile: 0.10 bedeutet +10 %. Gegenläufige Entwicklungen begrenzen eine reine Markterklärung; sie identifizieren keine Einzelursache.']
     lines += ['', '## Grenzen und Rechenstand']
     lines.extend('- ' + cell(v) for v in bundle['results']['limits'])
     lines += ['- ADF: Nullhypothese Einheitswurzel; KPSS: Nullhypothese Stationarität. Feste drei Lags; Residuentests explorativ, kein Kointegrationsnachweis.',
