@@ -1,0 +1,27 @@
+-r requirements-attention.lock
+-r requirements-empirical.lock
+pymc==5.28.5
+pytensor==2.38.3
+jax==0.7.2
+jaxlib==0.7.2
+numpyro==0.20.1
+arviz==0.22.0
+cachetools==6.2.6
+rich==15.0.0
+xarray==2026.9.0
+h5netcdf==1.8.2
+xarray-einstats==0.11.0
+ml_dtypes==0.6.0
+opt_einsum==3.4.0
+multipledispatch==1.0.0
+tqdm==4.70.1
+filelock==4.2.4
+numba==0.65.1
+llvmlite==0.47.0
+etuples==0.3.10
+logical-unification==0.4.7
+cons==0.4.7
+miniKanren==1.0.5
+toolz==1.2.0
+markdown-it-py==4.2.0
+mdurl==0.1.2
