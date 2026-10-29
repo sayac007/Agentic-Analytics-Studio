@@ -1,5 +1,12 @@
 # Interaktionen und zeitlich veränderliche Tesla-Nachfrage
 
+Die [anschließende Literatur-/Portalrecherche](EV_DEMAND_LITERATURE_AND_PORTALS.md)
+liefert passende Käuferbefragungen und einen Gegenbefund zu einer reinen
+Präferenzwandel-Erklärung. Zudem wurde ein AGPI-Methodenbruch im März2025 mit
+unterschiedlichen Werten desselben Monats nachgewiesen. Produktverbesserungen
+und Messvintages müssen vor der Interpretation variabler Koeffizienten geprüft
+werden; keine zusätzliche Modellschätzung wurde damit freigegeben.
+
 Nutzerhypothese vom 29.10.2026: Mit wachsender Marktreife könnte Nachfrage
 weniger innovations-/markengetrieben und stärker preisgetrieben werden;
 günstigere BEV-Angebote, Kraftstoffpreise und neue Wettbewerber könnten
