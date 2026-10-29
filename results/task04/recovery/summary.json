@@ -1,0 +1,32 @@
+{
+  "plan_sha256": "12992fb1c8f455f7c358af57319db5c423a3e0953215bfa55e836537f00f67d5",
+  "aggregates": [
+    {
+      "sd": 0.1,
+      "mean_absolute_error": 0.1652768591607361,
+      "truth_in_interval": 4,
+      "excludes_zero": 0,
+      "converged": 4,
+      "n": 4
+    },
+    {
+      "sd": 0.05,
+      "mean_absolute_error": 0.1629912473787673,
+      "truth_in_interval": 4,
+      "excludes_zero": 0,
+      "converged": 4,
+      "n": 4
+    },
+    {
+      "sd": 0.03,
+      "mean_absolute_error": 0.16126473686616238,
+      "truth_in_interval": 4,
+      "excludes_zero": 0,
+      "converged": 4,
+      "n": 4
+    }
+  ],
+  "selected_primary_sd": 0.03,
+  "elapsed_seconds": 1460.1396999499993,
+  "interpretation": "Artificial four-case check only, no coverage/power/MDE validation; no observed outcomes used."
+}

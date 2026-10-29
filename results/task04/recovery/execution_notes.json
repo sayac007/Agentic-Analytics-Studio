@@ -1,0 +1,104 @@
+{
+  "status": "complete_four_case_check_final_selection_uses_only_fits_json",
+  "initial_serial_attempt": {
+    "reason": "CPU-only software profile showed parallel chains/dense mass substantially faster. Same prior, likelihood, seeds and recovery plan; restart complete check, no real data fitted.",
+    "completed_fits_not_used_for_selection": [
+      {
+        "case": 0,
+        "true_level_sd": 0.03,
+        "seed": 20261041,
+        "fitted_level_sd": 0.1,
+        "truth": -0.3,
+        "median": -0.08892529672711545,
+        "lower95": -0.565426169247027,
+        "upper95": 0.38313652128699194,
+        "absolute_error": 0.21107470327288452,
+        "truth_in_interval": true,
+        "interval_excludes_zero": false,
+        "converged": true,
+        "covariance_diagnostics": {
+          "rhat_max": 1.0029424862922522,
+          "ess_bulk_min": 4806.9915178900765,
+          "ess_tail_min": 2909.7141431197333,
+          "passed": true,
+          "divergences": 0,
+          "max_tree_depth_hits": 0
+        },
+        "effect_diagnostics": {
+          "rhat_max": 0.999782858565478,
+          "ess_bulk_min": 3889.9074384868513,
+          "ess_tail_min": 3956.9705006601016,
+          "passed": true
+        }
+      },
+      {
+        "case": 0,
+        "true_level_sd": 0.03,
+        "seed": 20261041,
+        "fitted_level_sd": 0.05,
+        "truth": -0.3,
+        "median": -0.10304955805944739,
+        "lower95": -0.4949669258494004,
+        "upper95": 0.2875745725669508,
+        "absolute_error": 0.1969504419405526,
+        "truth_in_interval": true,
+        "interval_excludes_zero": false,
+        "converged": true,
+        "covariance_diagnostics": {
+          "rhat_max": 1.0018082863366526,
+          "ess_bulk_min": 4564.801683805052,
+          "ess_tail_min": 2893.3428568727413,
+          "passed": true,
+          "divergences": 0,
+          "max_tree_depth_hits": 0
+        },
+        "effect_diagnostics": {
+          "rhat_max": 1.0000221125421132,
+          "ess_bulk_min": 3886.586793454111,
+          "ess_tail_min": 4015.3417386854367,
+          "passed": true
+        }
+      },
+      {
+        "case": 0,
+        "true_level_sd": 0.03,
+        "seed": 20261041,
+        "fitted_level_sd": 0.03,
+        "truth": -0.3,
+        "median": -0.10620380460431159,
+        "lower95": -0.4681266899535085,
+        "upper95": 0.25916235694325274,
+        "absolute_error": 0.1937961953956884,
+        "truth_in_interval": true,
+        "interval_excludes_zero": false,
+        "converged": true,
+        "covariance_diagnostics": {
+          "rhat_max": 1.0028540072449823,
+          "ess_bulk_min": 4205.602897572123,
+          "ess_tail_min": 2903.630607245418,
+          "passed": true,
+          "divergences": 0,
+          "max_tree_depth_hits": 0
+        },
+        "effect_diagnostics": {
+          "rhat_max": 1.0000678250343857,
+          "ess_bulk_min": 3867.904973104323,
+          "ess_tail_min": 4005.4052816521826,
+          "passed": true
+        }
+      }
+    ]
+  },
+  "technical_failure_before_complete_parallel_check": "Lazy PyTensor-JAX graph creation under pmap leaked cached tracer; fixed by constructing/warming prior graph outside tracing. No numerical row from that failed invocation was produced.",
+  "no_scientific_specification_changed": "Four cases, known coefficient, Q/R priors and 0.10/0.05/0.03 candidates remained as declared; only CPU chain execution/mass adaptation and a tracing bug were addressed.",
+  "runtime": {
+    "pymc": "5.28.5",
+    "pytensor": "2.38.3",
+    "numpyro": "0.20.1",
+    "jax": "0.7.2",
+    "jaxlib": "0.7.2",
+    "arviz": "0.22.0",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
+  }
+}

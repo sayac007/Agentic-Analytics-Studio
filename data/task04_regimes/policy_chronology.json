@@ -1,0 +1,119 @@
+{
+  "scope": "Factual monthly regime chronology for Task04 stage1, no individual treatment or causal identification",
+  "sources": [
+    {
+      "url": "https://www.bafa.de/DE/Bundesamt/Ereignisse/2022/2022_node.html",
+      "accessed_at_utc": "2026-10-29T12:34:38.987382+00:00",
+      "file": "bafa2022",
+      "status": 200,
+      "final_url": "https://www.bafa.de/DE/Bundesamt/Ereignisse/2022/2022_node.html",
+      "content_type": "text/html;charset=utf-8",
+      "bytes": 100637,
+      "sha256": "15d5bca3df950c178f2581bca1800fa9704d3f4998e7cd9d8579125e07514afd"
+    },
+    {
+      "url": "https://www.bafa.de/DE/Bundesamt/Ereignisse/2023/2023_node.html",
+      "accessed_at_utc": "2026-10-29T12:34:38.988330+00:00",
+      "file": "bafa2023",
+      "status": 200,
+      "final_url": "https://www.bafa.de/DE/Bundesamt/Ereignisse/2023/2023_node.html",
+      "content_type": "text/html;charset=utf-8",
+      "bytes": 103783,
+      "sha256": "7e38fc58fc0009d4ed1a36376932074b4d810432ba26c8701d5d1b218b9a21f3"
+    },
+    {
+      "url": "https://www.bafa.de/DE/Energie/Energieeffizienz/Elektromobilitaet/Neuen_Antrag_stellen/neuen_antrag_stellen.html",
+      "accessed_at_utc": "2026-10-29T09:51:01.264076+00:00",
+      "file": "bafa_information",
+      "status": 200,
+      "final_url": "https://www.bafa.de/DE/Energie/Energieeffizienz/Elektromobilitaet/Neuen_Antrag_stellen/neuen_antrag_stellen.html",
+      "content_type": "text/html;charset=utf-8",
+      "bytes": 65288,
+      "sha256": "14df38d8213096fdc019f4d195cea457d8f2d545daa7b98b8ae410c06086c3d6"
+    },
+    {
+      "url": "https://www.bundesumweltministerium.de/pressemitteilung/neues-e-auto-foerderprogramm-mit-sozialer-staffelung-zuschuesse-fuer-neuzulassungen-ab-1-januar-2026",
+      "accessed_at_utc": "2026-10-29T09:35:28.045560+00:00",
+      "file": "grant2026_announcement",
+      "status": 200,
+      "final_url": "https://www.bundesumweltministerium.de/pressemitteilung/neues-e-auto-foerderprogramm-mit-sozialer-staffelung-zuschuesse-fuer-neuzulassungen-ab-1-januar-2026",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 168131,
+      "sha256": "dd84891cf4fb6a59e3d99640e122095b32faafcd2d5466c28299a713b3586cf4"
+    },
+    {
+      "url": "https://www.bundesumweltministerium.de/fileadmin/Daten_BMU/Download_PDF/Foerderprogramme/foerderrichtlinie_e-auto_foerderung_bf.pdf",
+      "accessed_at_utc": "2026-10-29T09:35:29.424411+00:00",
+      "file": "grant2026_guideline",
+      "status": 200,
+      "final_url": "https://www.bundesumweltministerium.de/fileadmin/Daten_BMU/Download_PDF/Foerderprogramme/foerderrichtlinie_e-auto_foerderung_bf.pdf",
+      "content_type": "application/pdf",
+      "bytes": 222518,
+      "sha256": "573bacecbdd20da7c756cb19c9cdf3b3cd4f0672310838040703177a95b579fe"
+    },
+    {
+      "url": "https://www.bundesumweltministerium.de/pressemitteilung/e-auto-foerderung-kann-ab-jetzt-beantragt-werden",
+      "accessed_at_utc": "2026-10-29T09:35:28.046537+00:00",
+      "file": "grant2026_portal",
+      "status": 200,
+      "final_url": "https://www.bundesumweltministerium.de/pressemitteilung/e-auto-foerderung-kann-ab-jetzt-beantragt-werden",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 165126,
+      "sha256": "d3af4ad7b31ea8f6aa49da3d9a090cc32548a5849471f86bc24b78cd4bca1fa1"
+    }
+  ],
+  "events": [
+    {
+      "id": "grant_cut_2023_01",
+      "effective": "2023-01-01",
+      "precision": "day",
+      "source": "bafa2022",
+      "facts": "Reduced grant rates from 1 January 2023; only battery/fuel-cell vehicles remain eligible. Amounts vary by category; no uniform EUR dose is assigned.",
+      "announcement_date": null,
+      "announcement_limitation": "Current annual review is primary evidence of the effective rule, not a verified dated 2022 announcement."
+    },
+    {
+      "id": "business_end_2023_09",
+      "effective": "2023-09",
+      "precision": "month",
+      "source": "bafa2023",
+      "facts": "From September 2023 only private persons may apply; annual review documents elevated August applications. Monthly step, not a manufacturer-specific incentive.",
+      "announcement_date": null,
+      "announcement_limitation": "No exact historical publication timestamp established; dates not invented."
+    },
+    {
+      "id": "programme_end_2023_12",
+      "effective": "2023-12-18T00:00:00+01:00",
+      "precision": "minute",
+      "source": "bafa_information",
+      "facts": "No new applications after this cutoff; 17 December was the final application day. December is a mixed transition month; January 2024 first full post-end month.",
+      "announcement_date": null,
+      "announcement_limitation": "The stated 13 December KTF decision is not relabelled a public announcement."
+    },
+    {
+      "id": "grant_2026_01",
+      "effective": "2026-01-01",
+      "precision": "day",
+      "announcement_date": "2026-01-19",
+      "portal_open": "2026-05-19",
+      "source": "grant2026_announcement",
+      "legal_source": "grant2026_guideline",
+      "portal_source": "grant2026_portal",
+      "facts": "Private qualifying households, purchase/leasing new first-registered domestic M1; BEV EUR3000 base, income/children increments up to EUR6000; income ceiling and vehicle criteria apply. PHEV values differ. Retroactive eligibility is not prior public knowledge."
+    }
+  ],
+  "model_mapping": {
+    "market_policy_only": [
+      "2023-01 step",
+      "2023-09 step",
+      "2024-01 step",
+      "2026-01 step",
+      "2023-12 pulse",
+      "2024-01 pulse"
+    ],
+    "portal_sensitivity": "2026-05 step replaces 2026-01, not an additional simultaneous coefficient",
+    "tax": "No additional constant BEV tax indicator; collinear with intercept; historical amendment not identified here."
+  },
+  "known_information_limits": "2023 effective rules are retrospective historical design, not reconstructed contemporaneous release vintages. All rolling origins begin December 2024, after those rules. Future 2026 grant disabled before 19 January 2026 announcement.",
+  "rights": "Source metadata and concise factual synthesis only; no full source texts redistributed. BAFA content notice CC BY-ND 3.0 DE is preserved as source context; original pages retained privately. KBA attribution separate."
+}

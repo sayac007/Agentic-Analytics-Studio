@@ -1,0 +1,105 @@
+{
+  "version": "task-04-recovery/1.0.0",
+  "purpose": "Small user-authorized synthetic recovery check only; not replacement Tesla data, not power/coverage/MDE validation",
+  "periods": [
+    "2021-01",
+    "2026-09"
+  ],
+  "cases": [
+    {
+      "state_level_sd": 0.03,
+      "seed": 20261041
+    },
+    {
+      "state_level_sd": 0.03,
+      "seed": 20261042
+    },
+    {
+      "state_level_sd": 0.1,
+      "seed": 20261041
+    },
+    {
+      "state_level_sd": 0.1,
+      "seed": 20261042
+    }
+  ],
+  "candidate_level_sds": [
+    0.1,
+    0.05,
+    0.03
+  ],
+  "slope_sd": 0.01,
+  "target": {
+    "name": "market:post_end_2024_01",
+    "coefficient_log_units": -0.3
+  },
+  "other_policy_coefficients": 0,
+  "observation_sds": [
+    0.15,
+    0.3,
+    0.3
+  ],
+  "observation_correlation": [
+    [
+      1,
+      0.15,
+      0
+    ],
+    [
+      0.15,
+      1,
+      -0.1
+    ],
+    [
+      0,
+      -0.1,
+      1
+    ]
+  ],
+  "initial_dynamic_state": [
+    10.819778284410283,
+    0.005,
+    -2,
+    -1.4
+  ],
+  "calendar_coefficients": {
+    "market": [
+      0.1,
+      -0.05,
+      0.1,
+      0.01
+    ],
+    "Tesla": [
+      0.05,
+      0.1,
+      0.7,
+      0.02
+    ],
+    "VW": [
+      0.05,
+      0.0,
+      0.2,
+      0.01
+    ]
+  },
+  "model": "same joint M2/G1, proper Normal initial/regression priors, full R LKJ(4)/HalfNormal, fixed Q",
+  "sampler": {
+    "chains": 4,
+    "warmup": 1000,
+    "draws_per_chain": 1000,
+    "target_accept": 0.95,
+    "implementation": "Parallel CPU chains; adapted dense mass for six covariance parameters. Same marginal posterior; chosen on independent software fixture runtime."
+  },
+  "selection": "Lowest mean absolute posterior-median target coefficient error across all four fixed cases, only among candidates with all four converged fits; ties at 1e-6 favor the larger SD. Never use observed KBA outcomes for this choice.",
+  "report_all": [
+    "posterior_median",
+    "equal_tail_95_interval",
+    "absolute_error",
+    "truth_in_interval",
+    "interval_excludes_zero",
+    "rhat",
+    "bulk_tail_ess",
+    "divergences"
+  ],
+  "limits": "Four artificial cases cannot validate frequentist coverage or identify the real Tesla state variance. Both smoother and more variable latent paths are represented. Initial constants and observation covariance are fixed design assumptions, not empirical estimates."
+}
