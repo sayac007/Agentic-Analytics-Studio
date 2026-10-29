@@ -1,7 +1,7 @@
 # Task 00 decisions — proposed for review
 
 > Task 00.5 supersedes the v0.1.0 statistical proposal below. The normative design is
-> [STATISTICAL_CONTRACTS.md](STATISTICAL_CONTRACTS.md): observed reference/truth are
+> [STATISTICAL_CONTRACTS.md](../../STATISTICAL_CONTRACTS.md): observed reference/truth are
 > generator/evaluator-only; fixed calendar controls explain the baseline. Contracts
 > v0.2.0 add Stage-A uncertainty, contributions, common-grid curves and recovery
 > evaluation. Python remains selected; no R-parity gate. Historical source/API/license

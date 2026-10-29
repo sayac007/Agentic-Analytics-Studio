@@ -24,4 +24,4 @@ Build an auditable, reproducible agent-assisted marketing mix modeling (MMM) pla
 - PR includes summary, commands/results, risks, open questions and CI status. If remote CI cannot be checked, mark `CI: awaiting maintainer verification`.
 
 ## Agent workflow
-Read `README.md`, `docs/ARCHITECTURE.md`, `docs/DATA_POLICY.md`, and the assigned `workorders/` file. Inspect available reference repos only if mounted/authorized; report inaccessible repos instead of guessing. Implement the smallest end-to-end increment. Open a PR when permissions allow; otherwise supply a patch and exact manual instructions. Do not merge your own PR without explicit approval.
+Read `README.md`, `docs/METHODS.md`, `docs/DATA.md`, and the assigned `workorders/` file. Inspect available reference repos only if mounted/authorized; report inaccessible repos instead of guessing. Implement the smallest end-to-end increment. Open a PR when permissions allow; otherwise supply a patch and exact manual instructions. Do not merge your own PR without explicit approval.

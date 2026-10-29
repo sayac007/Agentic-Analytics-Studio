@@ -1,6 +1,6 @@
 # Interaktionen und zeitlich veränderliche Tesla-Nachfrage
 
-Die [anschließende Literatur-/Portalrecherche](EV_DEMAND_LITERATURE_AND_PORTALS.md)
+Die [anschließende Literatur-/Portalrecherche](../../EV_DEMAND_LITERATURE_AND_PORTALS.md)
 liefert passende Käuferbefragungen und einen Gegenbefund zu einer reinen
 Präferenzwandel-Erklärung. Zudem wurde ein AGPI-Methodenbruch im März2025 mit
 unterschiedlichen Werten desselben Monats nachgewiesen. Produktverbesserungen

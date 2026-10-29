@@ -17,15 +17,15 @@ restricted to synthetic fixtures pending real-data access and rights review.
 Current view snapshots cannot become historical view observations. No sentiment,
 association, causality or German audience reach is inferred.
 
-Details and future protocol: [Research report](../../docs/ORGANIC_ATTENTION_FEASIBILITY.md).
+Details and future protocol: [Research report](../../docs/DATA.md).
 
 Task 01F keeps these empirical artifacts empty after a fresh official-UI HTTP 429.
 `task01f_access.json` records the attempt; `real_data_coverage.json` records 96/60
 unknown months. `trends_import_metadata.template.json` is an incomplete handoff template,
 not a provenance assertion. Private user-CSV import and rights requirements:
-[First real observation handoff](../../docs/FIRST_REAL_ATTENTION_OBSERVATION.md).
+[First real observation handoff](../../docs/DATA.md).
 
 Task 01F.1: `extended_import_handoff.json` records the hash-bound pending structural
 inspection, not empirical admission. No real index values are included.
 `trends_extended_metadata.template.json` separates source and analysis windows;
-see [extended import](../../docs/GOOGLE_TRENDS_EXTENDED_IMPORT.md).
+see [extended import](../../docs/archive/docs/GOOGLE_TRENDS_EXTENDED_IMPORT.md).

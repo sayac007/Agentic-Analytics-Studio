@@ -13,7 +13,7 @@
 `results/uncertainty` -> `comparison/report`.
 
 Private reference and truth reach the evaluator only, never the estimator. The
-reference is not a regressor. [v0.2.0 statistical contracts](STATISTICAL_CONTRACTS.md)
+reference is not a regressor. [v0.2.0 statistical contracts](../../STATISTICAL_CONTRACTS.md)
 specify the boundaries, diagnostics, benchmark stages and data admission rules.
 The future MCP tool can read validated comparisons; it is not implemented here.
 

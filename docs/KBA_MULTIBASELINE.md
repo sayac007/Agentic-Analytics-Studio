@@ -217,7 +217,7 @@ Do not pass the six-column acquisition table to the estimator. Keep true registr
 and truth private, with the existing isolated estimator receiving only synthetic media
 and the semi-synthetic target plus calendar controls. No observed-baseline recovery,
 Monte Carlo grid, validated MDE, empirical coverage, real marketing ROI or causality
-claim is delivered. The [future recovery protocol](MULTIBASELINE_RECOVERY_PROTOCOL.md)
+claim is delivered. The [future recovery protocol](METHODS.md)
 also identifies absolute-calibration and aggregate-contract review decisions.
 
 ## Executed verification (local, 2026-10-22)

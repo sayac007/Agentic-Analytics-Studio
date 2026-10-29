@@ -2,7 +2,7 @@
 
 Extend the merged persistent synthetic workspace with one officially documented
 OpenAI Responses integration. Follow the independently assessed boundaries in
-[CONVERSATIONAL_AGENT.md](../docs/CONVERSATIONAL_AGENT.md).
+[CONVERSATIONAL_AGENT.md](../../EMPIRICAL_STUDIO.md).
 
 Acceptance: natural German/English provider conversation; bounded selected-project
 context with explicit outbound consent; strict existing-tool execution and real

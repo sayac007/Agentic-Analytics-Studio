@@ -12,4 +12,4 @@
 No real raw/normalized macro data are included. Synthetic fixture values are kept
 only under `tests/fixtures/macro/`. No zero values, quarterly interpolation, vintage
 replacement, commercial EURIBOR redistribution or as-of availability is inferred.
-See [research and reproduction guide](../../docs/GERMAN_MACRO_CONTROLS.md).
+See [research and reproduction guide](../../docs/archive/docs/GERMAN_MACRO_CONTROLS.md).

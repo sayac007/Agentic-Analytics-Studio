@@ -8,7 +8,7 @@ isolation. No regression, campaign-effect estimate, new MMM study or ROI claim i
 
 ## Findings, including the negative result
 
-[`evidence.json`](../data/tesla_campaigns/evidence.json) contains **15 screened events**:
+[`evidence.json`](../../../data/tesla_campaigns/evidence.json) contains **15 screened events**:
 **9 campaign candidates** and **6 context events** (archived owned pages, promotions,
 product announcement). Categories are paid_media, owned_media, earned_media_pr,
 sales_promotion, product_event and unknown. Evidence classes verified, partial,
@@ -54,7 +54,7 @@ verified policy evidence and is not encoded as such.
 
 ## Research route and limitations
 
-[`research_log.json`](../data/tesla_campaigns/research_log.json) records URLs, retrieval
+[`research_log.json`](../../../data/tesla_campaigns/research_log.json) records URLs, retrieval
 outcomes, final URLs and SHA-256 of retrieved responses. Raw page bodies remain
 outside the repository; source records retain source type, publisher, publication
 versus retrieval date, and source-content status. SHA fingerprints identify the
