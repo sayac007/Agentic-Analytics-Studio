@@ -6,6 +6,12 @@ und dokumentierte Ereignisse. Ziel sind nachvollziehbare Erklärung, bedingte
 Prognosen und die Recherche unerklärter Spitzen. Es gibt kein vorgegebenes R²
 oder erwünschtes Vorzeichen und keine erfundenen Media-Ausgaben.
 
+Neu recherchiert: [alle separat berichteten Wettbewerbsmarken, jährliche
+BEV-Top-10 und datierte Preis-/Reichweitenbelege](data/competition/README.md).
+Die [nächste Nachfragefrage](docs/COMPETITION_DEMAND_RESEARCH.md) untersucht
+Preis-/Betriebskosteninteraktionen und optional zeitveränderliche Koeffizienten;
+historische Preislücken und Grenzen der Identifikation bleiben ausdrücklich offen.
+
 **Methodischer Vorversuch:** In Task 02 haben wir die Wiedergewinnung bekannter
 Media-Effekte mit synthetischen Daten über 1.000 Seeds je Szenario geprüft.
 Im getesteten Design wurden Always-on-Effekte schlecht wiedergefunden, während

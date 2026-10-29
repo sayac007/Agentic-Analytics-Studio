@@ -1,0 +1,127 @@
+{
+  "reviewed_sources": [
+    {
+      "url": "https://www.destatis.de/DE/Themen/Wirtschaft/Konjunkturindikatoren/Preismonitor/_Grafik/_Interaktiv/auto-verkehr.html",
+      "accessed_at_utc": "2026-10-29T06:08:38.995740+00:00",
+      "status": 200,
+      "final_url": "https://www.destatis.de/DE/Themen/Wirtschaft/Konjunkturindikatoren/Preismonitor/_Grafik/_Interaktiv/auto-verkehr.html",
+      "content_type": "text/html;charset=utf-8",
+      "bytes": 73305,
+      "sha256": "8f35811cad162fbf33a693827ab5bb795ad9c6d38895bb7ae9434cef900f1b7f",
+      "file": "destatis_auto.html",
+      "evidence_type": "official_statistics",
+      "reuse_status": "factual_summary_only_raw_reuse_not_reviewed"
+    },
+    {
+      "url": "https://www.destatis.de/SiteGlobals/Forms/Suche/Servicesuche_Formular.html?templateQueryString=Elektroautos%20Preise",
+      "accessed_at_utc": "2026-10-29T06:21:56.991205+00:00",
+      "status": 200,
+      "final_url": "https://www.destatis.de/SiteGlobals/Forms/Suche/Servicesuche_Formular.html?templateQueryString=Elektroautos%20Preise",
+      "content_type": "text/html;charset=utf-8",
+      "bytes": 99785,
+      "sha256": "c1b71f0ba03c0e4abe8baafee704dab57ba4986a0d279bb2c40835f88fb40bfc",
+      "file": "destatis_preise.html",
+      "evidence_type": "official_statistics",
+      "reuse_status": "factual_summary_only_raw_reuse_not_reviewed"
+    },
+    {
+      "url": "https://www.destatis.de/SiteGlobals/Forms/Suche/Servicesuche_Formular.html?templateQueryString=Elektroautos%20Reichweite",
+      "accessed_at_utc": "2026-10-29T06:21:56.993569+00:00",
+      "status": 200,
+      "final_url": "https://www.destatis.de/SiteGlobals/Forms/Suche/Servicesuche_Formular.html?templateQueryString=Elektroautos%20Reichweite",
+      "content_type": "text/html;charset=utf-8",
+      "bytes": 78101,
+      "sha256": "e40a28b658e459e290d99e9c4a0cb7cec8bab23bea45cba512a306d9f46227b1",
+      "file": "destatis_reichweite.html",
+      "evidence_type": "official_statistics",
+      "reuse_status": "factual_summary_only_raw_reuse_not_reviewed"
+    },
+    {
+      "url": "https://www.destatis.de/SiteGlobals/Forms/Suche/Servicesuche_Formular.html?templateQueryString=Elektroautos%20Preisindex",
+      "accessed_at_utc": "2026-10-29T06:21:56.994228+00:00",
+      "status": 200,
+      "final_url": "https://www.destatis.de/SiteGlobals/Forms/Suche/Servicesuche_Formular.html?templateQueryString=Elektroautos%20Preisindex",
+      "content_type": "text/html;charset=utf-8",
+      "bytes": 76354,
+      "sha256": "6965b1ee444b390f24959f8737b5e8e73239428c27d800e5b6ca3e7d9a6cd5d3",
+      "file": "destatis_preisindex.html",
+      "evidence_type": "official_statistics",
+      "reuse_status": "factual_summary_only_raw_reuse_not_reviewed"
+    },
+    {
+      "url": "https://www.destatis.de/DE/Presse/Pressemitteilungen/2024/05/PD24_N020_46_51.html",
+      "accessed_at_utc": "2026-10-29T06:35:57.568069+00:00",
+      "status": 200,
+      "final_url": "https://www.destatis.de/DE/Presse/Pressemitteilungen/2024/05/PD24_N020_46_51.html",
+      "content_type": "text/html;charset=utf-8",
+      "bytes": 82434,
+      "sha256": "ecc2cdabf3c4f60904a33d969072356abc595dbcc5ccf206aac2557cd53f9ad8",
+      "file": "destatis_trade_2024",
+      "evidence_type": "official_statistics",
+      "reuse_status": "factual_summary_only_raw_reuse_not_reviewed"
+    },
+    {
+      "url": "https://www.transportenvironment.org/te-deutschland/articles/hersteller-bringen-wegen-co2-zielen-billigere-e-autos-auf-den-markt-durchschnittspreis-um-1-800-euro-gesunken",
+      "accessed_at_utc": "2026-10-29T06:48:59.762596+00:00",
+      "status": 200,
+      "final_url": "https://www.transportenvironment.org/te-deutschland/articles/hersteller-bringen-wegen-co2-zielen-billigere-e-autos-auf-den-markt-durchschnittspreis-um-1-800-euro-gesunken",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": 234593,
+      "sha256": "5ab4d29633b9046e8dab85ad07bb136db38a65507a4ca825316465f06f2d2bec",
+      "file": "te_prices_2026",
+      "evidence_type": "think_tank_primary",
+      "reuse_status": "factual_summary_only_raw_reuse_not_reviewed"
+    }
+  ],
+  "search_limitations": {
+    "note": "Search results are discovery only; no search snippet admitted as price evidence. Brave429 and DDG/Mojeek challenges were not bypassed. Manufacturer archives and dated trade-press articles used instead. Browser attempt failed TLS trust; urllib used normal verified TLS.",
+    "failed_requests": [
+      {
+        "url": "https://search.brave.com/search?q=MG4%20Electric%202022%2028.990%20450%20Deutschland%20Presse&country=DE",
+        "accessed_at_utc": "2026-10-29T06:25:58.153983+00:00",
+        "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      },
+      {
+        "url": "https://search.brave.com/search?q=Dacia%20Spring%202021%2020.490%20Presse%20230&country=DE",
+        "accessed_at_utc": "2026-10-29T06:25:58.372141+00:00",
+        "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      },
+      {
+        "url": "https://www.volkswagen-newsroom.com/de/pressemitteilungen/noch-mehr-schub-fuer-volkswagen-elektro-offensive-weltauto-id4-kommt-jetzt-in-die-weltmaerkte-6803",
+        "accessed_at_utc": "2026-10-29T06:28:27.264221+00:00",
+        "error": "HTTPError: HTTP Error 404: Not Found"
+      },
+      {
+        "url": "https://search.brave.com/search?q=site%3Apresse.dacia.de%20Spring%202022%20Preis%20Reichweite&country=DE",
+        "accessed_at_utc": "2026-10-29T06:35:24.830240+00:00",
+        "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      },
+      {
+        "url": "https://search.brave.com/search?q=site%3Aaudi-mediacenter.com%20A6%20e-tron%202024%202025%2062.800%20Reichweite&country=DE",
+        "accessed_at_utc": "2026-10-29T06:35:24.832640+00:00",
+        "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      },
+      {
+        "url": "https://search.brave.com/search?q=site%3Aseat-mediacenter.de%20Born%202021%202023%20Preis%20Reichweite&country=DE",
+        "accessed_at_utc": "2026-10-29T06:35:24.831713+00:00",
+        "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      },
+      {
+        "url": "https://search.brave.com/search?q=Leapmotor%20T03%202024%20Deutschland%2018900%20265%20Stellantis&country=DE",
+        "accessed_at_utc": "2026-10-29T06:35:25.171129+00:00",
+        "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      },
+      {
+        "url": "https://search.brave.com/search?q=site%3Avolkswagen-newsroom.com%202020%20ID.3%2035.574%20426&country=DE",
+        "accessed_at_utc": "2026-10-29T06:35:25.228142+00:00",
+        "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      },
+      {
+        "url": "https://www.volkswagen-newsroom.com/de/pressemitteilungen/noch-mehr-schub-fuer-volkswagen-elektro-offensive-weltauto-id4-kommt-jetzt-in-die-weltmaerkte-6803/download",
+        "accessed_at_utc": "2026-10-29T06:35:54.864064+00:00",
+        "error": "HTTPError: HTTP Error 404: Not Found"
+      }
+    ]
+  },
+  "destatis_finding": "No verified price-per100km-range statistic located in the reviewed offerings; not proof of absence from every Destatis table."
+}

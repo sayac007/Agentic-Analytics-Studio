@@ -1,0 +1,4034 @@
+[
+  {
+    "source_id": "fz10-2018-12",
+    "period": "2018-12",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B17:C17",
+    "license_cell": null,
+    "publication": {
+      "value": null,
+      "precision": "unknown",
+      "raw": null
+    },
+    "market_total": {
+      "all": 3435778,
+      "electric": 36062,
+      "monthly_all": 237058,
+      "monthly_electric": 3836
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 3435778,
+        "market_total": 3435778,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "electric_legacy_unverified_bev",
+        "known_sum": 36062,
+        "market_total": 36062,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 237058,
+        "market_total": 237058,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "electric_legacy_unverified_bev",
+        "known_sum": 3836,
+        "market_total": 3836,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "passed"
+  },
+  {
+    "source_id": "fz10-2019-12",
+    "period": "2019-12",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B21:C21",
+    "license_cell": "Inhaltsverzeichnis!B16",
+    "publication": {
+      "value": null,
+      "precision": "unknown",
+      "raw": null
+    },
+    "market_total": {
+      "all": 3607258,
+      "electric": 63281,
+      "monthly_all": 283380,
+      "monthly_electric": 5748
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 3607258,
+        "market_total": 3607258,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "electric_legacy_unverified_bev",
+        "known_sum": 63281,
+        "market_total": 63281,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 283380,
+        "market_total": 283380,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "electric_legacy_unverified_bev",
+        "known_sum": 5748,
+        "market_total": 5748,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "passed"
+  },
+  {
+    "source_id": "fz10-2020-12",
+    "period": "2020-12",
+    "sheet": "FZ10.1  ",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B17:C17",
+    "license_cell": "Impressum!C28",
+    "publication": {
+      "value": "2021-01",
+      "precision": "month",
+      "raw": "Januar 2021"
+    },
+    "market_total": {
+      "all": 2917678,
+      "electric": 194163,
+      "monthly_all": 311394,
+      "monthly_electric": 43671
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 2917678,
+        "market_total": 2917678,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "electric_legacy_unverified_bev",
+        "known_sum": 194163,
+        "market_total": 194163,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 311394,
+        "market_total": 311394,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "electric_legacy_unverified_bev",
+        "known_sum": 43671,
+        "market_total": 43671,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "passed"
+  },
+  {
+    "source_id": "fz10-2021-01",
+    "period": "2021-01",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B17:C17",
+    "license_cell": "Impressum!C28",
+    "publication": {
+      "value": "2021-02",
+      "precision": "month",
+      "raw": "Februar 2021"
+    },
+    "market_total": {
+      "all": null,
+      "electric": null,
+      "monthly_all": 169754,
+      "monthly_electric": 16315
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 0,
+        "market_total": null,
+        "suppressed_brand_cells": 48,
+        "status": "total_not_published_no_imputation"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 0,
+        "market_total": null,
+        "suppressed_brand_cells": 48,
+        "status": "total_not_published_no_imputation"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 169754,
+        "market_total": 169754,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 16315,
+        "market_total": 16315,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2021-02",
+    "period": "2021-02",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B17:C17",
+    "license_cell": "Impressum!C28",
+    "publication": {
+      "value": "2021-03",
+      "precision": "month",
+      "raw": "März 2021"
+    },
+    "market_total": {
+      "all": 364103,
+      "electric": 34593,
+      "monthly_all": 194349,
+      "monthly_electric": 18278
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 364103,
+        "market_total": 364103,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 34593,
+        "market_total": 34593,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 194349,
+        "market_total": 194349,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 18278,
+        "market_total": 18278,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2021-03",
+    "period": "2021-03",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B17:C17",
+    "license_cell": "Impressum!C28",
+    "publication": {
+      "value": "2021-04",
+      "precision": "month",
+      "raw": "April 2021"
+    },
+    "market_total": {
+      "all": 656452,
+      "electric": 64694,
+      "monthly_all": 292349,
+      "monthly_electric": 30101
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 656452,
+        "market_total": 656452,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 64694,
+        "market_total": 64694,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 292349,
+        "market_total": 292349,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 30101,
+        "market_total": 30101,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2021-04",
+    "period": "2021-04",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B17:C17",
+    "license_cell": "Impressum!C28",
+    "publication": {
+      "value": "2021-05",
+      "precision": "month",
+      "raw": "Mai 2021"
+    },
+    "market_total": {
+      "all": 886102,
+      "electric": 88510,
+      "monthly_all": 229650,
+      "monthly_electric": 23816
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 886102,
+        "market_total": 886102,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 88510,
+        "market_total": 88510,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 229650,
+        "market_total": 229650,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 23816,
+        "market_total": 23816,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2021-05",
+    "period": "2021-05",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B17:C17",
+    "license_cell": "Impressum!C28",
+    "publication": {
+      "value": "2021-06",
+      "precision": "month",
+      "raw": "Juni 2021"
+    },
+    "market_total": {
+      "all": 1116737,
+      "electric": 115296,
+      "monthly_all": 230635,
+      "monthly_electric": 26786
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1116737,
+        "market_total": 1116737,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 115296,
+        "market_total": 115296,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 230635,
+        "market_total": 230635,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 26786,
+        "market_total": 26786,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2021-06",
+    "period": "2021-06",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B17:C17",
+    "license_cell": "Impressum!C28",
+    "publication": {
+      "value": "2021-07",
+      "precision": "month",
+      "raw": "Juli 2021"
+    },
+    "market_total": {
+      "all": 1390889,
+      "electric": 148716,
+      "monthly_all": 274152,
+      "monthly_electric": 33420
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1390889,
+        "market_total": 1390889,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 148716,
+        "market_total": 148716,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 274152,
+        "market_total": 274152,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 33420,
+        "market_total": 33420,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2021-07",
+    "period": "2021-07",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B17:C17",
+    "license_cell": "Impressum!C28",
+    "publication": {
+      "value": "2021-08",
+      "precision": "month",
+      "raw": "August 2021"
+    },
+    "market_total": {
+      "all": 1627282,
+      "electric": 174180,
+      "monthly_all": 236393,
+      "monthly_electric": 25464
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1627282,
+        "market_total": 1627282,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 174180,
+        "market_total": 174180,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 236393,
+        "market_total": 236393,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 25464,
+        "market_total": 25464,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2021-08",
+    "period": "2021-08",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B17:C17",
+    "license_cell": "Impressum!C28",
+    "publication": {
+      "value": "2021-09",
+      "precision": "month",
+      "raw": "September 2021"
+    },
+    "market_total": {
+      "all": 1820589,
+      "electric": 203040,
+      "monthly_all": 193307,
+      "monthly_electric": 28860
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1820589,
+        "market_total": 1820589,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 203040,
+        "market_total": 203040,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 193307,
+        "market_total": 193307,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 28860,
+        "market_total": 28860,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2021-09",
+    "period": "2021-09",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B17:C17",
+    "license_cell": "Impressum!C28",
+    "publication": {
+      "value": "2021-10",
+      "precision": "month",
+      "raw": "Oktober 2021"
+    },
+    "market_total": {
+      "all": 2017561,
+      "electric": 236695,
+      "monthly_all": 196972,
+      "monthly_electric": 33655
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 2017561,
+        "market_total": 2017561,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 236695,
+        "market_total": 236695,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 196972,
+        "market_total": 196972,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 33655,
+        "market_total": 33655,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2021-10",
+    "period": "2021-10",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B17:C17",
+    "license_cell": "Impressum!C28",
+    "publication": {
+      "value": "2021-11",
+      "precision": "month",
+      "raw": "November 2021"
+    },
+    "market_total": {
+      "all": 2196244,
+      "electric": 267255,
+      "monthly_all": 178683,
+      "monthly_electric": 30560
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 2196244,
+        "market_total": 2196244,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 267255,
+        "market_total": 267255,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 178683,
+        "market_total": 178683,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 30560,
+        "market_total": 30560,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2021-11",
+    "period": "2021-11",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B17:C17",
+    "license_cell": "Impressum!C28",
+    "publication": {
+      "value": "2021-12",
+      "precision": "month",
+      "raw": "Dezember 2021"
+    },
+    "market_total": {
+      "all": 2394502,
+      "electric": 307525,
+      "monthly_all": 198258,
+      "monthly_electric": 40270
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 2393770,
+        "market_total": 2394502,
+        "suppressed_brand_cells": 1,
+        "status": "incomplete_source_suppression_no_imputation"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 307270,
+        "market_total": 307525,
+        "suppressed_brand_cells": 1,
+        "status": "incomplete_source_suppression_no_imputation"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 198258,
+        "market_total": 198258,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 40270,
+        "market_total": 40270,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2021-12",
+    "period": "2021-12",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B17:C17",
+    "license_cell": "Impressum!C28",
+    "publication": {
+      "value": "2022-01",
+      "precision": "month",
+      "raw": "Januar 2022"
+    },
+    "market_total": {
+      "all": 2622132,
+      "electric": 355961,
+      "monthly_all": 227630,
+      "monthly_electric": 48436
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 2620817,
+        "market_total": 2622132,
+        "suppressed_brand_cells": 1,
+        "status": "incomplete_source_suppression_no_imputation"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 355609,
+        "market_total": 355961,
+        "suppressed_brand_cells": 1,
+        "status": "incomplete_source_suppression_no_imputation"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 227630,
+        "market_total": 227630,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 48436,
+        "market_total": 48436,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "passed"
+  },
+  {
+    "source_id": "fz10-2022-01",
+    "period": "2022-01",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2022-02",
+      "precision": "month",
+      "raw": "Februar 2022"
+    },
+    "market_total": {
+      "all": 184112,
+      "electric": 20892,
+      "monthly_all": 184112,
+      "monthly_electric": 20892
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 698,
+        "market_total": 184112,
+        "suppressed_brand_cells": 50,
+        "status": "incomplete_source_suppression_no_imputation"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 163,
+        "market_total": 20892,
+        "suppressed_brand_cells": 50,
+        "status": "incomplete_source_suppression_no_imputation"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 184112,
+        "market_total": 184112,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 20892,
+        "market_total": 20892,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2022-02",
+    "period": "2022-02",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2022-03",
+      "precision": "month",
+      "raw": "März 2022"
+    },
+    "market_total": {
+      "all": 384624,
+      "electric": 49198,
+      "monthly_all": 200512,
+      "monthly_electric": 28306
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 384624,
+        "market_total": 384624,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 49198,
+        "market_total": 49198,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 200512,
+        "market_total": 200512,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 28306,
+        "market_total": 28306,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2022-03",
+    "period": "2022-03",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2022-04",
+      "precision": "month",
+      "raw": "April 2022"
+    },
+    "market_total": {
+      "all": 625954,
+      "electric": 83672,
+      "monthly_all": 241330,
+      "monthly_electric": 34474
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 625954,
+        "market_total": 625954,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 83672,
+        "market_total": 83672,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 241330,
+        "market_total": 241330,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 34474,
+        "market_total": 34474,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2022-04",
+    "period": "2022-04",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2022-05",
+      "precision": "month",
+      "raw": "Mai 2022"
+    },
+    "market_total": {
+      "all": 806218,
+      "electric": 105847,
+      "monthly_all": 180264,
+      "monthly_electric": 22175
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 806218,
+        "market_total": 806218,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 105847,
+        "market_total": 105847,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 180264,
+        "market_total": 180264,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 22175,
+        "market_total": 22175,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2022-05",
+    "period": "2022-05",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2022-06-01",
+      "precision": "day",
+      "raw": "2022-06-01 00:00:00"
+    },
+    "market_total": {
+      "all": 1013417,
+      "electric": 135029,
+      "monthly_all": 207199,
+      "monthly_electric": 29182
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1013417,
+        "market_total": 1013417,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 135029,
+        "market_total": 135029,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 207199,
+        "market_total": 207199,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 29182,
+        "market_total": 29182,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2022-06",
+    "period": "2022-06",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2022-07",
+      "precision": "month",
+      "raw": "Juli 2022"
+    },
+    "market_total": {
+      "all": 1237975,
+      "electric": 167263,
+      "monthly_all": 224558,
+      "monthly_electric": 32234
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1237975,
+        "market_total": 1237975,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 167263,
+        "market_total": 167263,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 224558,
+        "market_total": 224558,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 32234,
+        "market_total": 32234,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2022-07",
+    "period": "2022-07",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2022-08",
+      "precision": "month",
+      "raw": "August 2022"
+    },
+    "market_total": {
+      "all": 1443886,
+      "electric": 196078,
+      "monthly_all": 205911,
+      "monthly_electric": 28815
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1443886,
+        "market_total": 1443886,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 196078,
+        "market_total": 196078,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 205911,
+        "market_total": 205911,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 28815,
+        "market_total": 28815,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2022-08",
+    "period": "2022-08",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2022-09",
+      "precision": "month",
+      "raw": "September 2022"
+    },
+    "market_total": {
+      "all": 1643069,
+      "electric": 228084,
+      "monthly_all": 199183,
+      "monthly_electric": 32006
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1643069,
+        "market_total": 1643069,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 228084,
+        "market_total": 228084,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 199183,
+        "market_total": 199183,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 32006,
+        "market_total": 32006,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2022-09",
+    "period": "2022-09",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2022-10",
+      "precision": "month",
+      "raw": "Oktober 2022"
+    },
+    "market_total": {
+      "all": 1867885,
+      "electric": 272473,
+      "monthly_all": 224816,
+      "monthly_electric": 44389
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1867885,
+        "market_total": 1867885,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 272473,
+        "market_total": 272473,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 224816,
+        "market_total": 224816,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 44389,
+        "market_total": 44389,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2022-10",
+    "period": "2022-10",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2022-11",
+      "precision": "month",
+      "raw": "November 2022"
+    },
+    "market_total": {
+      "all": 2076527,
+      "electric": 308254,
+      "monthly_all": 208642,
+      "monthly_electric": 35781
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 2076527,
+        "market_total": 2076527,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 308254,
+        "market_total": 308254,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 208642,
+        "market_total": 208642,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 35781,
+        "market_total": 35781,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2022-11",
+    "period": "2022-11",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2022-12",
+      "precision": "month",
+      "raw": "Dezember 2022"
+    },
+    "market_total": {
+      "all": 2337039,
+      "electric": 366234,
+      "monthly_all": 260512,
+      "monthly_electric": 57980
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 2337039,
+        "market_total": 2337039,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 366234,
+        "market_total": 366234,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 260512,
+        "market_total": 260512,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 57980,
+        "market_total": 57980,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2022-12",
+    "period": "2022-12",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2023-01",
+      "precision": "month",
+      "raw": "Januar 2023"
+    },
+    "market_total": {
+      "all": 2651357,
+      "electric": 470559,
+      "monthly_all": 314318,
+      "monthly_electric": 104325
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 2651357,
+        "market_total": 2651357,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 470559,
+        "market_total": 470559,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 314318,
+        "market_total": 314318,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 104325,
+        "market_total": 104325,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "passed"
+  },
+  {
+    "source_id": "fz10-2023-01",
+    "period": "2023-01",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2023-02",
+      "precision": "month",
+      "raw": "Februar 2023"
+    },
+    "market_total": {
+      "all": null,
+      "electric": null,
+      "monthly_all": 179247,
+      "monthly_electric": 18136
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 0,
+        "market_total": null,
+        "suppressed_brand_cells": 54,
+        "status": "total_not_published_no_imputation"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 0,
+        "market_total": null,
+        "suppressed_brand_cells": 54,
+        "status": "total_not_published_no_imputation"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 179247,
+        "market_total": 179247,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 18136,
+        "market_total": 18136,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2023-02",
+    "period": "2023-02",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": null,
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2023-03",
+      "precision": "month",
+      "raw": "März 2023"
+    },
+    "market_total": {
+      "all": 385457,
+      "electric": 50611,
+      "monthly_all": 206210,
+      "monthly_electric": 32475
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 385457,
+        "market_total": 385457,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 50611,
+        "market_total": 50611,
+        "suppressed_brand_cells": 19,
+        "status": "incomplete_source_suppression_no_imputation"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 206210,
+        "market_total": 206210,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 32475,
+        "market_total": 32475,
+        "suppressed_brand_cells": 19,
+        "status": "incomplete_source_suppression_no_imputation"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2023-03",
+    "period": "2023-03",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2023-04",
+      "precision": "month",
+      "raw": "April 2023"
+    },
+    "market_total": {
+      "all": 666818,
+      "electric": 94736,
+      "monthly_all": 281361,
+      "monthly_electric": 44125
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 666818,
+        "market_total": 666818,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 94736,
+        "market_total": 94736,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 281361,
+        "market_total": 281361,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 44125,
+        "market_total": 44125,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2023-04",
+    "period": "2023-04",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2023-05",
+      "precision": "month",
+      "raw": "Mai 2023"
+    },
+    "market_total": {
+      "all": 869765,
+      "electric": 124476,
+      "monthly_all": 202947,
+      "monthly_electric": 29740
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 869765,
+        "market_total": 869765,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 124476,
+        "market_total": 124476,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 202947,
+        "market_total": 202947,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 29740,
+        "market_total": 29740,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2023-05",
+    "period": "2023-05",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2023-06",
+      "precision": "month",
+      "raw": "Juni 2023"
+    },
+    "market_total": {
+      "all": 1116731,
+      "electric": 167256,
+      "monthly_all": 246966,
+      "monthly_electric": 42780
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1116731,
+        "market_total": 1116731,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 167256,
+        "market_total": 167256,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 246966,
+        "market_total": 246966,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 42780,
+        "market_total": 42780,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2023-06",
+    "period": "2023-06",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2023-07",
+      "precision": "month",
+      "raw": "Juli 2023"
+    },
+    "market_total": {
+      "all": 1396870,
+      "electric": 220244,
+      "monthly_all": 280139,
+      "monthly_electric": 52988
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1396870,
+        "market_total": 1396870,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 220244,
+        "market_total": 220244,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 280139,
+        "market_total": 280139,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 52988,
+        "market_total": 52988,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2023-07",
+    "period": "2023-07",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2023-08",
+      "precision": "month",
+      "raw": "August 2023"
+    },
+    "market_total": {
+      "all": 1640147,
+      "electric": 268926,
+      "monthly_all": 243277,
+      "monthly_electric": 48682
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1640147,
+        "market_total": 1640147,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 268926,
+        "market_total": 268926,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 243277,
+        "market_total": 243277,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 48682,
+        "market_total": 48682,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2023-08",
+    "period": "2023-08",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2023-09",
+      "precision": "month",
+      "raw": "September 2023"
+    },
+    "market_total": {
+      "all": 1913564,
+      "electric": 355575,
+      "monthly_all": 273417,
+      "monthly_electric": 86649
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1913564,
+        "market_total": 1913564,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 355575,
+        "market_total": 355575,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 273417,
+        "market_total": 273417,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 86649,
+        "market_total": 86649,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2023-09",
+    "period": "2023-09",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2023-10",
+      "precision": "month",
+      "raw": "Oktober 2023"
+    },
+    "market_total": {
+      "all": 2138066,
+      "electric": 387289,
+      "monthly_all": 224502,
+      "monthly_electric": 31714
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 2138066,
+        "market_total": 2138066,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 387289,
+        "market_total": 387289,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 224502,
+        "market_total": 224502,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 31714,
+        "market_total": 31714,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2023-10",
+    "period": "2023-10",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2023-11",
+      "precision": "month",
+      "raw": "November 2023"
+    },
+    "market_total": {
+      "all": 2357025,
+      "electric": 424623,
+      "monthly_all": 218959,
+      "monthly_electric": 37334
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 2357025,
+        "market_total": 2357025,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 424623,
+        "market_total": 424623,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 218959,
+        "market_total": 218959,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 37334,
+        "market_total": 37334,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2023-11",
+    "period": "2023-11",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2023-12",
+      "precision": "month",
+      "raw": "Dezember 2023"
+    },
+    "market_total": {
+      "all": 2602726,
+      "electric": 469565,
+      "monthly_all": 245701,
+      "monthly_electric": 44942
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 2602726,
+        "market_total": 2602726,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 469565,
+        "market_total": 469565,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 245701,
+        "market_total": 245701,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 44942,
+        "market_total": 44942,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2023-12",
+    "period": "2023-12",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2023-01",
+      "precision": "month",
+      "raw": "Januar 2023"
+    },
+    "market_total": {
+      "all": 2844609,
+      "electric": 524219,
+      "monthly_all": 241883,
+      "monthly_electric": 54654
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 2844609,
+        "market_total": 2844609,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 524219,
+        "market_total": 524219,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 241883,
+        "market_total": 241883,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 54654,
+        "market_total": 54654,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "passed"
+  },
+  {
+    "source_id": "fz10-2024-01",
+    "period": "2024-01",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2024-02",
+      "precision": "month",
+      "raw": "Februar 2024"
+    },
+    "market_total": {
+      "all": null,
+      "electric": null,
+      "monthly_all": 213553,
+      "monthly_electric": 22474
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 0,
+        "market_total": null,
+        "suppressed_brand_cells": 57,
+        "status": "total_not_published_no_imputation"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 0,
+        "market_total": null,
+        "suppressed_brand_cells": 57,
+        "status": "total_not_published_no_imputation"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 213553,
+        "market_total": 213553,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 22474,
+        "market_total": 22474,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2024-02",
+    "period": "2024-02",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2024-03",
+      "precision": "month",
+      "raw": "März 2024"
+    },
+    "market_total": {
+      "all": 430941,
+      "electric": 49953,
+      "monthly_all": 217388,
+      "monthly_electric": 27479
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 430941,
+        "market_total": 430941,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 49953,
+        "market_total": 49953,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 217388,
+        "market_total": 217388,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 27479,
+        "market_total": 27479,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2024-03",
+    "period": "2024-03",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2024-04",
+      "precision": "month",
+      "raw": "April 2024"
+    },
+    "market_total": {
+      "all": 694785,
+      "electric": 81337,
+      "monthly_all": 263844,
+      "monthly_electric": 31384
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 694785,
+        "market_total": 694785,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 81337,
+        "market_total": 81337,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 263844,
+        "market_total": 263844,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 31384,
+        "market_total": 31384,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2024-04",
+    "period": "2024-04",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2024-05",
+      "precision": "month",
+      "raw": "Mai 2024"
+    },
+    "market_total": {
+      "all": 937887,
+      "electric": 111005,
+      "monthly_all": 243102,
+      "monthly_electric": 29668
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 937887,
+        "market_total": 937887,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 111005,
+        "market_total": 111005,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 243102,
+        "market_total": 243102,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 29668,
+        "market_total": 29668,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2024-05",
+    "period": "2024-05",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2024-06",
+      "precision": "month",
+      "raw": "Juni 2024"
+    },
+    "market_total": {
+      "all": 1174312,
+      "electric": 140713,
+      "monthly_all": 236425,
+      "monthly_electric": 29708
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1174312,
+        "market_total": 1174312,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 140713,
+        "market_total": 140713,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 236425,
+        "market_total": 236425,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 29708,
+        "market_total": 29708,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2024-06",
+    "period": "2024-06",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2024-07",
+      "precision": "month",
+      "raw": "Juli 2024"
+    },
+    "market_total": {
+      "all": 1471641,
+      "electric": 184125,
+      "monthly_all": 297329,
+      "monthly_electric": 43412
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1471641,
+        "market_total": 1471641,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 184125,
+        "market_total": 184125,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 297329,
+        "market_total": 297329,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 43412,
+        "market_total": 43412,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2024-07",
+    "period": "2024-07",
+    "sheet": "FZ10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2024-08",
+      "precision": "month",
+      "raw": "August 2024"
+    },
+    "market_total": {
+      "all": 1709904,
+      "electric": 214887,
+      "monthly_all": 238263,
+      "monthly_electric": 30762
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1709904,
+        "market_total": 1709904,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 214887,
+        "market_total": 214887,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 238263,
+        "market_total": 238263,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 30762,
+        "market_total": 30762,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2024-08",
+    "period": "2024-08",
+    "sheet": "FZ 10.1",
+    "header_row": 9,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2024-09",
+      "precision": "month",
+      "raw": "September 2024"
+    },
+    "market_total": {
+      "all": 1907226,
+      "electric": 241911,
+      "monthly_all": 197322,
+      "monthly_electric": 27024
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1907226,
+        "market_total": 1907226,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 241911,
+        "market_total": 241911,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 197322,
+        "market_total": 197322,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 27024,
+        "market_total": 27024,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2024-09",
+    "period": "2024-09",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2024-10",
+      "precision": "month",
+      "raw": "Oktober 2024"
+    },
+    "market_total": {
+      "all": 2116074,
+      "electric": 276390,
+      "monthly_all": 208848,
+      "monthly_electric": 34479
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 2116074,
+        "market_total": 2116074,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 276390,
+        "market_total": 276390,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 208848,
+        "market_total": 208848,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 34479,
+        "market_total": 34479,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2024-10",
+    "period": "2024-10",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2024-11",
+      "precision": "month",
+      "raw": "November 2024"
+    },
+    "market_total": {
+      "all": 2348066,
+      "electric": 311881,
+      "monthly_all": 231992,
+      "monthly_electric": 35491
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 2348066,
+        "market_total": 2348066,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 311881,
+        "market_total": 311881,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 231992,
+        "market_total": 231992,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 35491,
+        "market_total": 35491,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2024-11",
+    "period": "2024-11",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2024-12",
+      "precision": "month",
+      "raw": "Dezember 2024"
+    },
+    "market_total": {
+      "all": 2592610,
+      "electric": 347048,
+      "monthly_all": 244544,
+      "monthly_electric": 35167
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 2592610,
+        "market_total": 2592610,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 347048,
+        "market_total": 347048,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 244544,
+        "market_total": 244544,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 35167,
+        "market_total": 35167,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2024-12",
+    "period": "2024-12",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2025-01",
+      "precision": "month",
+      "raw": "Januar 2025"
+    },
+    "market_total": {
+      "all": 2817331,
+      "electric": 380609,
+      "monthly_all": 224721,
+      "monthly_electric": 33561
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 2817331,
+        "market_total": 2817331,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 380609,
+        "market_total": 380609,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 224721,
+        "market_total": 224721,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 33561,
+        "market_total": 33561,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "passed"
+  },
+  {
+    "source_id": "fz10-2025-01",
+    "period": "2025-01",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2025-02",
+      "precision": "month",
+      "raw": "Februar 2025"
+    },
+    "market_total": {
+      "all": null,
+      "electric": null,
+      "monthly_all": 207640,
+      "monthly_electric": 34498
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 0,
+        "market_total": null,
+        "suppressed_brand_cells": 59,
+        "status": "total_not_published_no_imputation"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 0,
+        "market_total": null,
+        "suppressed_brand_cells": 59,
+        "status": "total_not_published_no_imputation"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 207640,
+        "market_total": 207640,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 34498,
+        "market_total": 34498,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2025-02",
+    "period": "2025-02",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2025-03",
+      "precision": "month",
+      "raw": "März 2025"
+    },
+    "market_total": {
+      "all": 411074,
+      "electric": 70447,
+      "monthly_all": 203434,
+      "monthly_electric": 35949
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 411074,
+        "market_total": 411074,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 70447,
+        "market_total": 70447,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 203434,
+        "market_total": 203434,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 35949,
+        "market_total": 35949,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2025-03",
+    "period": "2025-03",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2025-04-07",
+      "precision": "day",
+      "raw": "7. April 2025"
+    },
+    "market_total": {
+      "all": 664571,
+      "electric": 112968,
+      "monthly_all": 253497,
+      "monthly_electric": 42521
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 664571,
+        "market_total": 664571,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 112968,
+        "market_total": 112968,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 253497,
+        "market_total": 253497,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 42521,
+        "market_total": 42521,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2025-04",
+    "period": "2025-04",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2025-05-08",
+      "precision": "day",
+      "raw": "8. Mai 2025"
+    },
+    "market_total": {
+      "all": 907299,
+      "electric": 158503,
+      "monthly_all": 242728,
+      "monthly_electric": 45535
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 907299,
+        "market_total": 907299,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 158503,
+        "market_total": 158503,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 242728,
+        "market_total": 242728,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 45535,
+        "market_total": 45535,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2025-05",
+    "period": "2025-05",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2025-06-06",
+      "precision": "day",
+      "raw": "6. Juni 2025"
+    },
+    "market_total": {
+      "all": 1146596,
+      "electric": 201563,
+      "monthly_all": 239297,
+      "monthly_electric": 43060
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1146596,
+        "market_total": 1146596,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 201563,
+        "market_total": 201563,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 239297,
+        "market_total": 239297,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 43060,
+        "market_total": 43060,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2025-06",
+    "period": "2025-06",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C27",
+    "publication": {
+      "value": "2025-07-07",
+      "precision": "day",
+      "raw": "7. Juli 2025"
+    },
+    "market_total": {
+      "all": 1402789,
+      "electric": 248726,
+      "monthly_all": 256193,
+      "monthly_electric": 47163
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1402789,
+        "market_total": 1402789,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 248726,
+        "market_total": 248726,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 256193,
+        "market_total": 256193,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 47163,
+        "market_total": 47163,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2025-07",
+    "period": "2025-07",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2025-08-07",
+      "precision": "day",
+      "raw": "7. August 2025"
+    },
+    "market_total": {
+      "all": 1667591,
+      "electric": 297340,
+      "monthly_all": 264802,
+      "monthly_electric": 48614
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1667591,
+        "market_total": 1667591,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 297340,
+        "market_total": 297340,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 264802,
+        "market_total": 264802,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 48614,
+        "market_total": 48614,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2025-08",
+    "period": "2025-08",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2025-09-05",
+      "precision": "day",
+      "raw": "5. September 2025"
+    },
+    "market_total": {
+      "all": 1874820,
+      "electric": 336707,
+      "monthly_all": 207229,
+      "monthly_electric": 39367
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1874820,
+        "market_total": 1874820,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 336707,
+        "market_total": 336707,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 207229,
+        "market_total": 207229,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 39367,
+        "market_total": 39367,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2025-09",
+    "period": "2025-09",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2025-10-08",
+      "precision": "day",
+      "raw": "8. Oktober 2025"
+    },
+    "market_total": {
+      "all": 2110348,
+      "electric": 382202,
+      "monthly_all": 235528,
+      "monthly_electric": 45495
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 2110348,
+        "market_total": 2110348,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 382202,
+        "market_total": 382202,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 235528,
+        "market_total": 235528,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 45495,
+        "market_total": 45495,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2025-10",
+    "period": "2025-10",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2025-11-07",
+      "precision": "day",
+      "raw": "7. November 2025"
+    },
+    "market_total": {
+      "all": 2360481,
+      "electric": 434627,
+      "monthly_all": 250133,
+      "monthly_electric": 52425
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 2360481,
+        "market_total": 2360481,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 434627,
+        "market_total": 434627,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 250133,
+        "market_total": 250133,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 52425,
+        "market_total": 52425,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2025-11",
+    "period": "2025-11",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2025-12-05",
+      "precision": "day",
+      "raw": "5. Dezember 2025"
+    },
+    "market_total": {
+      "all": 2611152,
+      "electric": 490368,
+      "monthly_all": 250671,
+      "monthly_electric": 55741
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 2611152,
+        "market_total": 2611152,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 490368,
+        "market_total": 490368,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 250671,
+        "market_total": 250671,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 55741,
+        "market_total": 55741,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2025-12",
+    "period": "2025-12",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2026-01-08",
+      "precision": "day",
+      "raw": "8. Januar 2026"
+    },
+    "market_total": {
+      "all": 2857591,
+      "electric": 545142,
+      "monthly_all": 246439,
+      "monthly_electric": 54774
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 2857591,
+        "market_total": 2857591,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 545142,
+        "market_total": 545142,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 246439,
+        "market_total": 246439,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 54774,
+        "market_total": 54774,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "passed"
+  },
+  {
+    "source_id": "fz10-2026-01",
+    "period": "2026-01",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2026-02-06",
+      "precision": "day",
+      "raw": "6. Februar 2026"
+    },
+    "market_total": {
+      "all": null,
+      "electric": null,
+      "monthly_all": 193981,
+      "monthly_electric": 42692
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 0,
+        "market_total": null,
+        "suppressed_brand_cells": 60,
+        "status": "total_not_published_no_imputation"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 0,
+        "market_total": null,
+        "suppressed_brand_cells": 60,
+        "status": "total_not_published_no_imputation"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 193981,
+        "market_total": 193981,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 42692,
+        "market_total": 42692,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2026-02",
+    "period": "2026-02",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2026-03-06",
+      "precision": "day",
+      "raw": "6. März 2026"
+    },
+    "market_total": {
+      "all": 405243,
+      "electric": 88967,
+      "monthly_all": 211262,
+      "monthly_electric": 46275
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 405243,
+        "market_total": 405243,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 88967,
+        "market_total": 88967,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 211262,
+        "market_total": 211262,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 46275,
+        "market_total": 46275,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2026-03",
+    "period": "2026-03",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2026-04-09",
+      "precision": "day",
+      "raw": "9. April 2026"
+    },
+    "market_total": {
+      "all": 699404,
+      "electric": 159630,
+      "monthly_all": 294161,
+      "monthly_electric": 70663
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 699404,
+        "market_total": 699404,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 159630,
+        "market_total": 159630,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 294161,
+        "market_total": 294161,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 70663,
+        "market_total": 70663,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2026-04",
+    "period": "2026-04",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2026-05-11",
+      "precision": "day",
+      "raw": "11. Mai 2026"
+    },
+    "market_total": {
+      "all": 948567,
+      "electric": 223980,
+      "monthly_all": 249163,
+      "monthly_electric": 64350
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 948567,
+        "market_total": 948567,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 223980,
+        "market_total": 223980,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 249163,
+        "market_total": 249163,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 64350,
+        "market_total": 64350,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2026-05",
+    "period": "2026-05",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2026-06-05",
+      "precision": "day",
+      "raw": "5. Juni 2026"
+    },
+    "market_total": {
+      "all": 1188015,
+      "electric": 283949,
+      "monthly_all": 239448,
+      "monthly_electric": 59969
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1188015,
+        "market_total": 1188015,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 283949,
+        "market_total": 283949,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 239448,
+        "market_total": 239448,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 59969,
+        "market_total": 59969,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2026-06",
+    "period": "2026-06",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2026-07-07",
+      "precision": "day",
+      "raw": "7. Juli 2026"
+    },
+    "market_total": {
+      "all": 1484393,
+      "electric": 368006,
+      "monthly_all": 296378,
+      "monthly_electric": 84057
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1484393,
+        "market_total": 1484393,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 368006,
+        "market_total": 368006,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 296378,
+        "market_total": 296378,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 84057,
+        "market_total": 84057,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2026-07",
+    "period": "2026-07",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2026-08-10",
+      "precision": "day",
+      "raw": "10. August 2026"
+    },
+    "market_total": {
+      "all": 1752461,
+      "electric": 446615,
+      "monthly_all": 268068,
+      "monthly_electric": 78609
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1752461,
+        "market_total": 1752461,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 446615,
+        "market_total": 446615,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 268068,
+        "market_total": 268068,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 78609,
+        "market_total": 78609,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2026-08",
+    "period": "2026-08",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2026-09-07",
+      "precision": "day",
+      "raw": "7. September 2026"
+    },
+    "market_total": {
+      "all": 1965024,
+      "electric": 515545,
+      "monthly_all": 212563,
+      "monthly_electric": 68930
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 1965024,
+        "market_total": 1965024,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 515545,
+        "market_total": 515545,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 212563,
+        "market_total": 212563,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 68930,
+        "market_total": 68930,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  },
+  {
+    "source_id": "fz10-2026-09",
+    "period": "2026-09",
+    "sheet": "FZ 10.1",
+    "header_row": 8,
+    "electric_header": "mit Elektroantrieb (BEV)",
+    "dash_zero_evidence": "Inhaltsverzeichnis!B19:C19",
+    "license_cell": "Impressum!C26",
+    "publication": {
+      "value": "2026-10-07",
+      "precision": "day",
+      "raw": "7. Oktober 2026"
+    },
+    "market_total": {
+      "all": 2221798,
+      "electric": 604144,
+      "monthly_all": 256774,
+      "monthly_electric": 88599
+    },
+    "brand_reconciliation": [
+      {
+        "scope": "ytd",
+        "powertrain": "all",
+        "known_sum": 2221798,
+        "market_total": 2221798,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "ytd",
+        "powertrain": "BEV",
+        "known_sum": 604144,
+        "market_total": 604144,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "all",
+        "known_sum": 256774,
+        "market_total": 256774,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      },
+      {
+        "scope": "monthly",
+        "powertrain": "BEV",
+        "known_sum": 88599,
+        "market_total": 88599,
+        "suppressed_brand_cells": 0,
+        "status": "passed"
+      }
+    ],
+    "top10_ambiguous_rows": [],
+    "top10_status": "not_ranked_monthly_release"
+  }
+]

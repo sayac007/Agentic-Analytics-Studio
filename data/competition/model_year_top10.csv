@@ -1,0 +1,81 @@
+year,reporting_period,kba_brand,model_family,electric_registrations_ytd,all_registrations_ytd,definition,source_id,count_cell,selection_unit,rank
+2018,2018-12,RENAULT,ZOE,6360,6360,electric_legacy_unverified_bev,fz10-2018-12,FZ 10.1!N328,KBA_model_family_not_individual_variant,1
+2018,2018-12,VW,GOLF,5743,211512,electric_legacy_unverified_bev,fz10-2018-12,FZ 10.1!N413,KBA_model_family_not_individual_variant,2
+2018,2018-12,SMART,FORTWO,4204,27405,electric_legacy_unverified_bev,fz10-2018-12,FZ 10.1!N357,KBA_model_family_not_individual_variant,3
+2018,2018-12,BMW,I3,3792,5095,electric_legacy_unverified_bev,fz10-2018-12,FZ 10.1!N46,KBA_model_family_not_individual_variant,4
+2018,2018-12,KIA,SOUL,3292,4156,electric_legacy_unverified_bev,fz10-2018-12,FZ 10.1!N181,KBA_model_family_not_individual_variant,5
+2018,2018-12,SMART,FORFOUR,2552,13687,electric_legacy_unverified_bev,fz10-2018-12,FZ 10.1!N356,KBA_model_family_not_individual_variant,6
+2018,2018-12,NISSAN,LEAF,2380,2380,electric_legacy_unverified_bev,fz10-2018-12,FZ 10.1!N267,KBA_model_family_not_individual_variant,7
+2018,2018-12,HYUNDAI,IONIQ,1695,5068,electric_legacy_unverified_bev,fz10-2018-12,FZ 10.1!N142,KBA_model_family_not_individual_variant,8
+2018,2018-12,TESLA,MODEL S,1248,1248,electric_legacy_unverified_bev,fz10-2018-12,FZ 10.1!N383,KBA_model_family_not_individual_variant,9
+2018,2018-12,VW,UP,1019,35401,electric_legacy_unverified_bev,fz10-2018-12,FZ 10.1!N423,KBA_model_family_not_individual_variant,10
+2019,2019-12,RENAULT,ZOE,9431,9431,electric_legacy_unverified_bev,fz10-2019-12,FZ 10.1!N323,KBA_model_family_not_individual_variant,1
+2019,2019-12,BMW,I3,9117,9382,electric_legacy_unverified_bev,fz10-2019-12,FZ 10.1!N44,KBA_model_family_not_individual_variant,2
+2019,2019-12,TESLA,MODEL 3,9013,9013,electric_legacy_unverified_bev,fz10-2019-12,FZ 10.1!N378,KBA_model_family_not_individual_variant,3
+2019,2019-12,VW,GOLF,6898,204550,electric_legacy_unverified_bev,fz10-2019-12,FZ 10.1!N408,KBA_model_family_not_individual_variant,4
+2019,2019-12,SMART,FORTWO,5287,31051,electric_legacy_unverified_bev,fz10-2019-12,FZ 10.1!N351,KBA_model_family_not_individual_variant,5
+2019,2019-12,AUDI,E-TRON,3578,3578,electric_legacy_unverified_bev,fz10-2019-12,FZ 10.1!N28,KBA_model_family_not_individual_variant,6
+2019,2019-12,HYUNDAI,KONA,3521,22107,electric_legacy_unverified_bev,fz10-2019-12,FZ 10.1!N138,KBA_model_family_not_individual_variant,7
+2019,2019-12,NISSAN,LEAF,2620,2620,electric_legacy_unverified_bev,fz10-2019-12,FZ 10.1!N263,KBA_model_family_not_individual_variant,8
+2019,2019-12,SMART,FORFOUR,2362,18087,electric_legacy_unverified_bev,fz10-2019-12,FZ 10.1!N350,KBA_model_family_not_individual_variant,9
+2019,2019-12,KIA,SOUL,1591,2129,electric_legacy_unverified_bev,fz10-2019-12,FZ 10.1!N175,KBA_model_family_not_individual_variant,10
+2020,2020-12,RENAULT,ZOE,30376,30376,electric_legacy_unverified_bev,fz10-2020-12,FZ10.1  !N314,KBA_model_family_not_individual_variant,1
+2020,2020-12,VW,GOLF,17438,136324,electric_legacy_unverified_bev,fz10-2020-12,FZ10.1  !N394,KBA_model_family_not_individual_variant,2
+2020,2020-12,TESLA,MODEL 3,15202,15202,electric_legacy_unverified_bev,fz10-2020-12,FZ10.1  !N366,KBA_model_family_not_individual_variant,3
+2020,2020-12,VW,ID.3,14493,14493,electric_legacy_unverified_bev,fz10-2020-12,FZ10.1  !N395,KBA_model_family_not_individual_variant,4
+2020,2020-12,HYUNDAI,KONA,14008,31557,electric_legacy_unverified_bev,fz10-2020-12,FZ10.1  !N132,KBA_model_family_not_individual_variant,5
+2020,2020-12,SMART,FORTWO,11544,11557,electric_legacy_unverified_bev,fz10-2020-12,FZ10.1  !N340,KBA_model_family_not_individual_variant,6
+2020,2020-12,VW,UP,10839,26872,electric_legacy_unverified_bev,fz10-2020-12,FZ10.1  !N406,KBA_model_family_not_individual_variant,7
+2020,2020-12,BMW,I3,8629,8633,electric_legacy_unverified_bev,fz10-2020-12,FZ10.1  !N42,KBA_model_family_not_individual_variant,8
+2020,2020-12,AUDI,E-TRON,8135,8135,electric_legacy_unverified_bev,fz10-2020-12,FZ10.1  !N27,KBA_model_family_not_individual_variant,9
+2020,2020-12,OPEL,CORSA,6016,53199,electric_legacy_unverified_bev,fz10-2020-12,FZ10.1  !N268,KBA_model_family_not_individual_variant,10
+2021,2021-12,TESLA,MODEL 3,35262,35262,BEV,fz10-2021-12,FZ10.1!AL366,KBA_model_family_not_individual_variant,1
+2021,2021-12,VW,UP,30797,46708,BEV,fz10-2021-12,FZ10.1!AL412,KBA_model_family_not_individual_variant,2
+2021,2021-12,VW,ID.3,26693,26693,BEV,fz10-2021-12,FZ10.1!AL400,KBA_model_family_not_individual_variant,3
+2021,2021-12,RENAULT,ZOE,24736,24736,BEV,fz10-2021-12,FZ10.1!AL316,KBA_model_family_not_individual_variant,4
+2021,2021-12,SMART,FORTWO,17409,17413,BEV,fz10-2021-12,FZ10.1!AL345,KBA_model_family_not_individual_variant,5
+2021,2021-12,HYUNDAI,KONA,17240,29982,BEV,fz10-2021-12,FZ10.1!AL139,KBA_model_family_not_individual_variant,6
+2021,2021-12,SKODA,ENYAQ,13026,13026,BEV,fz10-2021-12,FZ10.1!AL334,KBA_model_family_not_individual_variant,7
+2021,2021-12,VW,ID.4,12734,12734,BEV,fz10-2021-12,FZ10.1!AL401,KBA_model_family_not_individual_variant,8
+2021,2021-12,FIAT,500,12516,35787,BEV,fz10-2021-12,FZ10.1!AL102,KBA_model_family_not_individual_variant,9
+2021,2021-12,BMW,I3,12178,12181,BEV,fz10-2021-12,FZ10.1!AL53,KBA_model_family_not_individual_variant,10
+2022,2022-12,TESLA,MODEL Y,35426,35426,BEV,fz10-2022-12,FZ10.1!AL364,KBA_model_family_not_individual_variant,1
+2022,2022-12,TESLA,MODEL 3,33841,33841,BEV,fz10-2022-12,FZ10.1!AL361,KBA_model_family_not_individual_variant,2
+2022,2022-12,FIAT,500,29635,52337,BEV,fz10-2022-12,FZ10.1!AL96,KBA_model_family_not_individual_variant,3
+2022,2022-12,VW,"ID.4, ID.5",24847,24847,BEV,fz10-2022-12,FZ10.1!AL396,KBA_model_family_not_individual_variant,4
+2022,2022-12,VW,ID.3,23286,23286,BEV,fz10-2022-12,FZ10.1!AL395,KBA_model_family_not_individual_variant,5
+2022,2022-12,HYUNDAI,KONA,17029,25979,BEV,fz10-2022-12,FZ10.1!AL133,KBA_model_family_not_individual_variant,6
+2022,2022-12,OPEL,CORSA,14979,50191,BEV,fz10-2022-12,FZ10.1!AL263,KBA_model_family_not_individual_variant,7
+2022,2022-12,DACIA,SPRING,14366,14366,BEV,fz10-2022-12,FZ10.1!AL81,KBA_model_family_not_individual_variant,8
+2022,2022-12,HYUNDAI,IONIQ5,14080,14080,BEV,fz10-2022-12,FZ10.1!AL132,KBA_model_family_not_individual_variant,9
+2022,2022-12,VW,UP,13238,23469,BEV,fz10-2022-12,FZ10.1!AL407,KBA_model_family_not_individual_variant,10
+2023,2023-12,TESLA,MODEL Y,45818,45818,BEV,fz10-2023-12,FZ 10.1!AL411,KBA_model_family_not_individual_variant,1
+2023,2023-12,VW,"ID.4, ID.5",36353,36353,BEV,fz10-2023-12,FZ 10.1!AL445,KBA_model_family_not_individual_variant,2
+2023,2023-12,SKODA,ENYAQ,23498,23498,BEV,fz10-2023-12,FZ 10.1!AL370,KBA_model_family_not_individual_variant,3
+2023,2023-12,FIAT,500,22608,47166,BEV,fz10-2023-12,FZ 10.1!AL103,KBA_model_family_not_individual_variant,4
+2023,2023-12,VW,ID.3,22270,22270,BEV,fz10-2023-12,FZ 10.1!AL444,KBA_model_family_not_individual_variant,5
+2023,2023-12,AUDI,Q4,18061,18061,BEV,fz10-2023-12,FZ 10.1!AL35,KBA_model_family_not_individual_variant,6
+2023,2023-12,SEAT,BORN,17464,17464,BEV,fz10-2023-12,FZ 10.1!AL363,KBA_model_family_not_individual_variant,7
+2023,2023-12,TESLA,MODEL 3,15865,15865,BEV,fz10-2023-12,FZ 10.1!AL408,KBA_model_family_not_individual_variant,8
+2023,2023-12,BMW,X1,14694,37267,BEV,fz10-2023-12,FZ 10.1!AL56,KBA_model_family_not_individual_variant,9
+2023,2023-12,MINI,MINI,13953,45938,BEV,fz10-2023-12,FZ 10.1!AL282,KBA_model_family_not_individual_variant,10
+2024,2024-12,TESLA,MODEL Y,29896,29896,BEV,fz10-2024-12,FZ 10.1!AL429,KBA_model_family_not_individual_variant,1
+2024,2024-12,SKODA,ENYAQ,25262,25263,BEV,fz10-2024-12,FZ 10.1!AL388,KBA_model_family_not_individual_variant,2
+2024,2024-12,VW,"ID.4, ID.5",21611,21611,BEV,fz10-2024-12,FZ 10.1!AL467,KBA_model_family_not_individual_variant,3
+2024,2024-12,VW,ID.3,20101,20101,BEV,fz10-2024-12,FZ 10.1!AL466,KBA_model_family_not_individual_variant,4
+2024,2024-12,SEAT,BORN,16640,16640,BEV,fz10-2024-12,FZ 10.1!AL378,KBA_model_family_not_individual_variant,5
+2024,2024-12,VW,ID.7,14554,14554,BEV,fz10-2024-12,FZ 10.1!AL468,KBA_model_family_not_individual_variant,6
+2024,2024-12,AUDI,Q4,12871,12871,BEV,fz10-2024-12,FZ 10.1!AL35,KBA_model_family_not_individual_variant,7
+2024,2024-12,BMW,X1,12640,37154,BEV,fz10-2024-12,FZ 10.1!AL56,KBA_model_family_not_individual_variant,8
+2024,2024-12,MG ROEWE,4,12004,12004,BEV,fz10-2024-12,FZ 10.1!AL285,KBA_model_family_not_individual_variant,9
+2024,2024-12,MERCEDES,GLA,11476,24924,BEV,fz10-2024-12,FZ 10.1!AL273,KBA_model_family_not_individual_variant,10
+2025,2025-12,VW,ID.7,34563,34563,BEV,fz10-2025-12,FZ 10.1!AL540,KBA_model_family_not_individual_variant,1
+2025,2025-12,VW,ID.3,31938,31938,BEV,fz10-2025-12,FZ 10.1!AL538,KBA_model_family_not_individual_variant,2
+2025,2025-12,VW,"ID.4, ID.5",26550,26550,BEV,fz10-2025-12,FZ 10.1!AL539,KBA_model_family_not_individual_variant,3
+2025,2025-12,SKODA,ELROQ,25426,25426,BEV,fz10-2025-12,FZ 10.1!AL454,KBA_model_family_not_individual_variant,4
+2025,2025-12,SKODA,ENYAQ,25383,25383,BEV,fz10-2025-12,FZ 10.1!AL455,KBA_model_family_not_individual_variant,5
+2025,2025-12,BMW,X1,18957,47143,BEV,fz10-2025-12,FZ 10.1!AL57,KBA_model_family_not_individual_variant,6
+2025,2025-12,SEAT,BORN,18847,18847,BEV,fz10-2025-12,FZ 10.1!AL445,KBA_model_family_not_individual_variant,7
+2025,2025-12,MINI,MINI,15495,34647,BEV,fz10-2025-12,FZ 10.1!AL348,KBA_model_family_not_individual_variant,8
+2025,2025-12,SEAT,TAVASCAN,14036,14036,BEV,fz10-2025-12,FZ 10.1!AL450,KBA_model_family_not_individual_variant,9
+2025,2025-12,AUDI,A6,13778,37505,BEV,fz10-2025-12,FZ 10.1!AL29,KBA_model_family_not_individual_variant,10
