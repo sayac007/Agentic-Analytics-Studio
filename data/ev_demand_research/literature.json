@@ -1,0 +1,181 @@
+{
+  "scope": "Verified bibliography and own critical reading notes; no reproduction of copyrighted full texts",
+  "papers": [
+    {
+      "id": "forsythe2023",
+      "year": 2023,
+      "authors": [
+        "Connor R. Forsythe",
+        "Kenneth T. Gillingham",
+        "Jeremy J. Michalek",
+        "Kate S. Whitefoot"
+      ],
+      "title": "Technology advancement is driving electric vehicle adoption",
+      "doi": "10.1073/pnas.2219396120",
+      "source_ids": [
+        "pnas2023_fulltext.xml",
+        "pnas2023_europepmc"
+      ],
+      "read_level": "full_text",
+      "geography": "US",
+      "sample": "Weighted new-vehicle-buyer discrete-choice surveys2012–2013 and2020–2021; second survey734 car and862 SUV responses",
+      "method": "Repeated stated-choice experiments and heterogeneous choice modeling; attribute/technology versus preference comparison",
+      "finding": "Technology improvements, including range and reduced BEV price premium, stronger driver than preference changes; no statistically significant preference shift over the decade in main analysis",
+      "limitation": "Stated rather than completed purchases; US not Germany; non-significance is not proof of identical preferences; no Tesla causal elasticity; projections depend on availability/technology scenarios",
+      "implication": "Control observable product improvement before interpreting coefficient drift as changing tastes; retain constant-coefficient comparison",
+      "automatic_parameter_transfer": false
+    },
+    {
+      "id": "jenn2020",
+      "year": 2020,
+      "authors": [
+        "Alan Jenn",
+        "Jae Hyun Lee",
+        "Scott Hardman",
+        "Gil Tal"
+      ],
+      "title": "An in-depth examination of electric vehicle incentives: Consumer heterogeneity and changing response over time",
+      "doi": "10.1016/j.tra.2019.11.004",
+      "source_ids": [
+        "jenn2020_repec",
+        "jenn2020_openalex"
+      ],
+      "read_level": "abstract_and_metadata",
+      "geography": "California_US",
+      "sample": "Survey of more than14000 electric-vehicle purchasers2010–2017",
+      "method": "Buyer surveys on purchase intentions, demographics and incentives over time",
+      "finding": "Incentives become more important as adoption moves beyond early adopters; incentive importance varies between buyers",
+      "limitation": "Only abstract read; self-reported hypothetical absence-of-incentive responses; selected EV purchasers, not population panel or German price experiment",
+      "implication": "Buyer composition and incentive regime can change aggregate response; test heterogeneity without imposing phase boundaries",
+      "automatic_parameter_transfer": false
+    },
+    {
+      "id": "zarazua2019",
+      "year": 2019,
+      "authors": [
+        "Gerardo Zarazua de Rubens"
+      ],
+      "title": "Who will buy electric vehicles after early adopters? Using machine learning to identify the electric vehicle mainstream market",
+      "doi": "10.1016/j.energy.2019.01.114",
+      "source_ids": [
+        "mainstream2019_pdf",
+        "mainstream2019_metadata"
+      ],
+      "read_level": "full_accepted_manuscript",
+      "geography": "Denmark_Finland_Iceland_Norway_Sweden",
+      "sample": "5067 respondents across five Nordic countries",
+      "method": "Cross-sectional consumer survey; k-means six clusters",
+      "finding": "Price central to potential mainstream adoption, alongside technology/status and other attributes;85percent of Blue-collar Moderates consider cars below30000EUR in that historical survey",
+      "limitation": "Potential adoption and clustering, not causal price elasticity; no Germany; historical nominal thresholds not current German cutoffs; not an observed temporal transition",
+      "implication": "Use price, range and segments separately; do not assume brand/status disappears as market grows",
+      "automatic_parameter_transfer": false
+    },
+    {
+      "id": "hackbarth2016",
+      "year": 2016,
+      "authors": [
+        "André Hackbarth",
+        "Reinhard Madlener"
+      ],
+      "title": "Willingness-to-pay for alternative fuel vehicle characteristics: A stated choice study for Germany",
+      "doi": "10.1016/j.tra.2015.12.005",
+      "source_ids": [
+        "hackbarth_repec"
+      ],
+      "read_level": "abstract_and_bibliographic_metadata",
+      "geography": "DE",
+      "sample": "711 potential car buyers",
+      "method": "Germany-wide discrete choice experiment; latent-class model with six consumer segments",
+      "finding": "Willingness to pay differs across groups and attributes must meet minimum requirements to enter consideration",
+      "limitation": "Abstract read, not final full text; stated choices; historical market; alternative-fuel vehicles broader than BEVs; unrelated RWTH search PDF not treated as this paper",
+      "implication": "Price per100km range alone loses attribute thresholds and consumer heterogeneity",
+      "automatic_parameter_transfer": false
+    },
+    {
+      "id": "wolff2019",
+      "year": 2019,
+      "authors": [
+        "Stefanie Wolff",
+        "Reinhard Madlener"
+      ],
+      "title": "Charged up? Preferences for Electric Vehicle Charging and Implications for Charging Infrastructure Planning",
+      "doi": null,
+      "source_ids": [
+        "rwth_wolff2019_pdf"
+      ],
+      "read_level": "full_working_paper",
+      "geography": "DE",
+      "sample": "4101 discrete-choice experiment respondents",
+      "method": "Conditional logit with respondent fixed effects; hypothetical charging bundles",
+      "finding": "Charging location, duration and waiting matter jointly with cost; home charging valued over alternatives",
+      "limitation": "FCN Working Paper3/2019; hypothetical choices not purchases; not the Hackbarth2016 title suggested by initial search; no direct new-car sales elasticity",
+      "implication": "Include charging access as a constraint or interaction, not only fuel-price savings",
+      "automatic_parameter_transfer": false
+    },
+    {
+      "id": "trommer2015",
+      "year": 2015,
+      "authors": [
+        "Stefan Trommer",
+        "Julia Jarass",
+        "Viktoriya Kolarova"
+      ],
+      "title": "Early adopters of electric vehicles in Germany unveiled",
+      "doi": "10.3390/wevj7040722",
+      "source_ids": [
+        "owners_dlr2015_pdf"
+      ],
+      "read_level": "full_text",
+      "geography": "DE",
+      "sample": "3111 owner responses; contacted more than9200 owners; surveyDecember2013–February2014; includesBEV/PHEV/lightEV",
+      "method": "Survey of actual EV holders, with adopter subgroup comparisons",
+      "finding": "EV users heterogeneous in socioeconomic characteristics, motivation and charging/driving behavior",
+      "limitation": "Actual ownership but motivations self-reported; response/selection effects; early historical cohort and mixed vehicle types; not a longitudinal shift to2026",
+      "implication": "Separate vehicle/owner types; do not extrapolate one early-adopter profile to all current buyers",
+      "automatic_parameter_transfer": false
+    },
+    {
+      "id": "wesche2016",
+      "year": 2016,
+      "authors": [
+        "Julius P. Wesche",
+        "Patrick Plötz",
+        "Elisabeth Dütschke"
+      ],
+      "title": "How to trigger mass market adoption of electric vehicles? Factors predicting interest in electric vehicles in Germany",
+      "doi": null,
+      "source_ids": [
+        "fraunhofer_mass2016"
+      ],
+      "read_level": "full_working_paper",
+      "geography": "DE",
+      "sample": "1017 adult respondentsApril2013;14 innovators/early adopters,468 majority,535 laggards",
+      "method": "Logistic interest model with manual stepwise variable elimination and k-means clusters",
+      "finding": "Technology affinity and perceived fit to driving needs associated with interest; independence associated with conventional cars negatively related",
+      "limitation": "Interest not purchase; only14 early adopters; post-selection uncertainty and exploratory clustering; cannot identify evolving German price sensitivity",
+      "implication": "Use qualitative hypotheses; do not import post-selected coefficients or phase proportions as priors",
+      "automatic_parameter_transfer": false
+    },
+    {
+      "id": "springel2021",
+      "year": 2021,
+      "authors": [
+        "Katalin Springel"
+      ],
+      "title": "Network Externality and Subsidy Structure in Two-Sided Markets: Evidence from Electric Vehicle Incentives",
+      "doi": "10.1257/pol.20190131",
+      "source_ids": [
+        "springel_aea"
+      ],
+      "read_level": "publisher_abstract",
+      "geography": "Norway",
+      "sample": "Vehicle registry and charging market2010–2015 as described by publisher",
+      "method": "Two-sided market framework with indirect network effects and counterfactual policy analysis",
+      "finding": "Positive link between purchases and both price and charging subsidies; relative policy efficiency changes with scale",
+      "limitation": "Full article not accessed; linked PDF endpoint returned HTML; structural assumptions and Norwegian setting not independently replicated; no German elasticity imported",
+      "implication": "Price and charging deployment jointly determined; infrastructure is not merely a nuisance control",
+      "automatic_parameter_transfer": false
+    }
+  ],
+  "access_note": "Full text denotes accessed and consulted text, not exhaustive replication or a guarantee of methodological validity; abstract-only sources remain explicit."
+}

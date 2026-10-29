@@ -1,0 +1,155 @@
+{
+  "scope": "Selected factual examples for scientific discussion; no compiled third-party price database",
+  "findings": [
+    {
+      "id": "mobile_cost_barrier",
+      "source_ids": [
+        "mobile_china_2026",
+        "mobile_mq_pdf"
+      ],
+      "statistic": "respondents_citing_acquisition_cost_as_main_reason_against_BEV",
+      "reported_value": 55.4,
+      "unit": "percent",
+      "geography": "DE",
+      "field_period": "2026-07",
+      "publication_date": "2026-10-15",
+      "sample_n_total": 2008,
+      "classification": "proxy",
+      "limitation": "Self-reported barrier; question-specific denominator not independently established; not elasticity.",
+      "automatic_model_admission": false
+    },
+    {
+      "id": "mobile_chinese_discount",
+      "source_ids": [
+        "mobile_china_2026",
+        "mobile_mq_pdf"
+      ],
+      "statistic": "respondents_in_published_20_percent_price_advantage_category",
+      "reported_value": 29.8,
+      "unit": "percent",
+      "geography": "DE",
+      "field_period": "2026-07",
+      "publication_date": "2026-10-15",
+      "sample_n_total": 2008,
+      "classification": "proxy",
+      "limitation": "Hypothetical willingness, not observed conversion; other threshold categories distinct; no causal price effect.",
+      "automatic_model_admission": false
+    },
+    {
+      "id": "dat_affordability",
+      "source_ids": [
+        "dat_june2025",
+        "dat_june2025_pdf"
+      ],
+      "statistic": "private_purchase_planners_agree_affordable_new_BEV_missing",
+      "reported_value": 66,
+      "unit": "percent",
+      "geography": "DE",
+      "field_period": "2025-04-28/2025-05-06",
+      "publication_period": "2025-06",
+      "sample_n_total": 1081,
+      "classification": "proxy",
+      "limitation": "GfK CAWI; weighted by KBA stock brand/drivetrain; agreement not market demand elasticity.",
+      "automatic_model_admission": false
+    },
+    {
+      "id": "dat_homecharging",
+      "source_ids": [
+        "dat_june2025",
+        "dat_june2025_pdf"
+      ],
+      "statistic": "private_purchase_planners_say_BEV_no_option_without_home_charging",
+      "reported_value": 60,
+      "unit": "percent",
+      "geography": "DE",
+      "field_period": "2025-04-28/2025-05-06",
+      "publication_period": "2025-06",
+      "sample_n_total": 1081,
+      "classification": "proxy",
+      "limitation": "Self-reported constraint, not measured individual treatment effect.",
+      "automatic_model_admission": false
+    },
+    {
+      "id": "dat_runningcost",
+      "source_ids": [
+        "dat_june2025",
+        "dat_june2025_pdf"
+      ],
+      "statistic": "prefer_cheaper_uniform_charging_electricity_prices_to_purchase_subsidy",
+      "reported_value": 57,
+      "unit": "percent",
+      "geography": "DE",
+      "field_period": "2025-04-28/2025-05-06",
+      "publication_period": "2025-06",
+      "sample_n_total": 1081,
+      "classification": "proxy",
+      "limitation": "Question framing matters; not proof price subsidies are ineffective.",
+      "automatic_model_admission": false
+    },
+    {
+      "id": "agpi_jan2025_original",
+      "source_ids": [
+        "as24_2025jan_pdf"
+      ],
+      "statistic": "mean_BEV_asking_price",
+      "reported_value": 29630,
+      "unit": "EUR",
+      "geography": "DE",
+      "observation_period": "2025-01",
+      "publication_date": "2025-01-30",
+      "classification": "proxy",
+      "method_regime": "before_Mar2025",
+      "limitation": "Platform used-car offers, not transaction or new-car prices; original vintage.",
+      "automatic_model_admission": false
+    },
+    {
+      "id": "agpi_jan2025_revised",
+      "source_ids": [
+        "as24_2025apr_pdf"
+      ],
+      "statistic": "mean_BEV_asking_price",
+      "reported_value": 34910,
+      "unit": "EUR",
+      "geography": "DE",
+      "observation_period": "2025-01",
+      "publication_date": "2025-04-29",
+      "classification": "proxy",
+      "method_regime": "reporting_harmonized_Mar2025_retrospective",
+      "limitation": "Retrospective chart data label; same observed month as original29630, different publication/method. No splicing.",
+      "automatic_model_admission": false
+    },
+    {
+      "id": "agpi_march2026_inquiries",
+      "source_ids": [
+        "pdf_as24_petrol2026",
+        "as24_petrol2026"
+      ],
+      "statistic": "BEV_platform_purchase_inquiries_month_on_month",
+      "reported_value": 38.91,
+      "unit": "percent_change",
+      "geography": "DE",
+      "observation_period": "2026-03",
+      "publication_date": "2026-03-31",
+      "classification": "proxy",
+      "limitation": "Kaufanfragen not completed transactions; source attributes association to fuel-price shock; no identification of causal effect. Separate survey was fielded February2026.",
+      "automatic_model_admission": false
+    },
+    {
+      "id": "agpi_sept2026_price",
+      "source_ids": [
+        "pdf_agpi_2026sep",
+        "agpi_2026sep"
+      ],
+      "statistic": "mean_BEV_asking_price",
+      "reported_value": 39006,
+      "unit": "EUR",
+      "geography": "DE",
+      "observation_period": "2026-09",
+      "publication_date": "2026-10-01",
+      "classification": "proxy",
+      "method_regime": "reporting_harmonized_Mar2025",
+      "limitation": "Mean composition may change; not a constant-quality index or new-Tesla price.",
+      "automatic_model_admission": false
+    }
+  ]
+}

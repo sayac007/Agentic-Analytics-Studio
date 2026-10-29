@@ -11,6 +11,9 @@ BEV-Top-10 und datierte Preis-/Reichweitenbelege](data/competition/README.md).
 Die [nächste Nachfragefrage](docs/COMPETITION_DEMAND_RESEARCH.md) untersucht
 Preis-/Betriebskosteninteraktionen und optional zeitveränderliche Koeffizienten;
 historische Preislücken und Grenzen der Identifikation bleiben ausdrücklich offen.
+Die [Literatur- und Portalrecherche](docs/EV_DEMAND_LITERATURE_AND_PORTALS.md)
+ergänzt Käuferbefragungen, wissenschaftliche Gegenbefunde und einen nachgewiesenen
+Methodenbruch in den AutoScout24-Preisdaten.
 
 **Methodischer Vorversuch:** In Task 02 haben wir die Wiedergewinnung bekannter
 Media-Effekte mit synthetischen Daten über 1.000 Seeds je Szenario geprüft.

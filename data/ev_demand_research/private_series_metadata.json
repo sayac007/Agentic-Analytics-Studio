@@ -1,0 +1,17 @@
+{
+  "records": 54,
+  "distinct_months": 31,
+  "sha256": "bb29b796818d6e9f77950a9b5fc23262456223466f64b8e268de0543b141672f",
+  "status": "research_only_not_admitted_to_models",
+  "redistribution": "not_approved; full compiled series stays private",
+  "first_period": "2024-01",
+  "last_period": "2026-09",
+  "gap_policy": "not_filled",
+  "method_break": "2025-03; preserve retrospective and contemporaneous vintages separately",
+  "missing_periods": [
+    "2025-10",
+    "2025-12"
+  ],
+  "interpretation": "54 source observations across31 months and multiple vintages, not a ready31-row continuous series",
+  "source_records": 79
+}
