@@ -13,6 +13,7 @@ from .artifacts import (write_json,write_csv,freeze_gate,fingerprint,
 from .evaluation import decompose,forecast,paired_metrics
 from .diagnostics import stationarity,innovations
 from .reference import fit_reference
+from .assessments import rolling_diagnostics,latent_decomposition
 
 
 def variants(primary):
@@ -81,7 +82,7 @@ def run(output,checkpoint):
     tag=fingerprint(record)
     records,values,_=read_observed()
     vs=variants(cfg["primary_level_sd"])
-    full={};coefficients=[];state_rows=[];diagnostics={};references={}
+    full={};coefficients=[];state_rows=[];diagnostics={};references={};model_decomposition=[]
     # First all complete-window fits; rolling never borrows these samples.
     for i,v in enumerate(vs):
         y=observed_coordinates(values,v["logit"]);S=get_system(v,69)
@@ -95,6 +96,9 @@ def run(output,checkpoint):
             write_json(checkpoint/(v["id"]+".derived_failed.json"),post_diag)
             raise RuntimeError("No successful posterior: "+v["id"])
         full[v["id"]]={"variant":v,"final":final,"R":R,"paths":paths,"fit":f}
+        coordinates=np.einsum("tkd,ntd->ntk",S[0][:,:,:4],paths)+np.einsum("tkd,nd->ntk",S[0][:,:,4:],final[:,4:])
+        model_decomposition.extend(latent_decomposition(v["id"],coordinates,values[:,3]if v["logit"]else None))
+
         ref=fit_reference(y,S);references[v["id"]]=ref
         for j,name in enumerate(S[-1]):
             d=final[:,4+j];lo,med,hi=np.quantile(d,[.025,.5,.975])
@@ -150,7 +154,8 @@ def run(output,checkpoint):
                                         proposal_covariance_diagnostics=f["diagnostics"],
                                         proposal_type=f.get("proposal_type","direct_nuts"),
                                         importance_diagnostics=f["importance_diagnostics"],
-                                        source="strict_training_prefix; independent of complete-window posterior"))
+                                        source="strict_training_prefix; independent of complete-window posterior",
+                                        diagnostics=rolling_diagnostics(y[:n],S,f)))
             raw=np.column_stack([values[:,0],values[:,1],values[:,2],values[:,0]-values[:,1]-values[:,2]])
             scales=np.abs(raw[12:n]-raw[:n-12]).mean(axis=0)
             for h,d in samples.items():
@@ -182,6 +187,7 @@ def run(output,checkpoint):
     write_csv(out/"predictions.csv",predictions)
     write_csv(out/"metrics.csv",metrics)
     write_csv(out/"decomposition.csv",decomposition)
+    write_csv(out/"model_decomposition.csv",model_decomposition)
     write_csv(out/"contrasts.csv",contrasts)
     write_json(out/"diagnostics.json",diagnostics)
     write_json(out/"rolling_inference.json",rolling_records)

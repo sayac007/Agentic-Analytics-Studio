@@ -244,3 +244,27 @@ class PairedInfluence(unittest.TestCase):
         self.assertLess(r["rmse_difference"],0)
         self.assertAlmostEqual(r["leave_one_max_difference_vs_M0"],1)
         self.assertAlmostEqual(r["leave_one_max_difference_vs_M1"],1)
+
+
+class JointUncertainty(unittest.TestCase):
+    def test_product_is_taken_before_posterior_average(self):
+        coordinates=np.array([[np.log(100),np.log(.1/.8),np.log(.1/.8)],
+                              [np.log(200),np.log(.5/.4),np.log(.1/.4)]])
+        v=data.counts(coordinates)
+        self.assertAlmostEqual(v[:,1].mean(),55)
+        self.assertAlmostEqual(v[:,0].mean()*(v[:,1]/v[:,0]).mean(),45)
+
+    def test_latent_draw_decomposition_has_additive_means(self):
+        from regimes.assessments import latent_decomposition
+        rng=np.random.default_rng(12)
+        co=rng.normal(0,.1,(64,69,3));co[:,:,0]+=np.log(1000);co[:,:,1:]-=1
+        rows=latent_decomposition("SYNTHETIC",co)
+        self.assertEqual(len(rows),5)
+        for r in rows:
+            self.assertAlmostEqual(r["market_component_mean"]+r["share_component_mean"],r["change_mean"],places=8)
+        self.assertEqual(rows[-1]["months"],9)
+
+    def test_diagnostics_covariance_cannot_use_future_prefix(self):
+        from regimes.assessments import rolling_diagnostics
+        with self.assertRaises(ValueError):
+            rolling_diagnostics(np.zeros((48,3)),system("M2",.03,48),{"ntrain":69})

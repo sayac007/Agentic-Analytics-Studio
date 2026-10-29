@@ -47,6 +47,13 @@ def verify(path):
     assert len(expected)==len(actual)==5
     for a,b in zip(actual,expected):
         for k,v in b.items():assert np.isclose(float(a[k]),v,rtol=1e-12,atol=1e-9),(k,a[k],v)
+    rolling=json.loads((root/"rolling_inference.json").read_text())
+    assert len(rolling)==8*21
+    assert all(r["diagnostics"]["n"]==r["ntrain"] for r in rolling)
+    latent=read("model_decomposition.csv")
+    assert len(latent)==8*5
+    for r in latent:
+        assert np.isclose(float(r["market_component_mean"])+float(r["share_component_mean"]),float(r["change_mean"]),atol=1e-6)
     print("Verified Task04 stage1: 69 observed months, 8 fixed specifications, 1280 forecast rows, 5 exact annual/YTD decompositions; no refit.")
 
 
