@@ -19,3 +19,12 @@ Zuerst Protokoll und fehlende Daten mit Beschaffungsweg; Code/Schätzung erst da
 Entwurf: `docs/REGIME_STATE_SPACE_PROTOCOL.md`.
 Datenbedarf: `docs/TASK_04_DATA_READINESS.md`.
 Audit/Quellen: `data/task04_regimes/`. Draft-PR zur menschlichen Prüfung, kein Merge.
+
+## Freigabe der nächsten Stufe am 29.10.2026
+
+Der neue direkte Nutzerauftrag autorisiert Primär-Förderchronik, kleine getrennte
+synthetische Wiederfindung für Niveau-SDs 0.10/0.05/0.03, begründete SD-Festlegung,
+Freeze task-04-regimes/1.0.0 und danach reale Stufe-1-Schätzung/Hypothesentabelle.
+Der frühere reine Entwurfsumfang ist insoweit erweitert. Kein Kraftstoff-/Diffusionsfit.
+Aufräumen und README bleiben danach eigene PRs; die hashgebundene
+workorders/01i3-scoped-energy-econometrics.md bleibt vorsorglich am bisherigen Ort.

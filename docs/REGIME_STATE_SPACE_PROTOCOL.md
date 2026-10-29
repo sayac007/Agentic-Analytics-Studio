@@ -1,6 +1,6 @@
 # Task 04 – Regime- und Zustandsraumprotokoll
 
-**Version `task-04-regimes/0.2.0-draft`, Stand 29.10.2026, Europe/Berlin.**
+**Version `task-04-regimes/0.3.0-draft`, Stand 29.10.2026, Europe/Berlin.**
 Entwurf zur fachlichen Prüfung, **noch nicht eingefroren oder zur Schätzung
 freigegeben**. Dieser Schritt enthält Datenprüfungen und Modellspezifikation,
 keinen Schätzcode. Task 01G, 01I.3 und andere eingefrorene Protokolle bleiben
@@ -443,3 +443,24 @@ monatliche Wettbewerbspreise sperren ihre jeweiligen Stufe-2-Blöcke; ebenso
 Strom-/Bestandsdaten. Ihr Fehlen verlängert nicht automatisch Stufe 1.
 Historische Wissensstände begrenzen
 echte Echtzeitbehauptungen. Dieser Entwurf ersetzt diese Nachweise nicht.
+
+## 9. Nutzerergänzung vor Freeze: enge Sensitivität und Wiederfindung
+
+Die Zustands-Niveau-SDs 0.10, 0.05 und **0.03** werden bei unveränderter
+Steigungs-SD 0.01 in einer kleinen, ausdrücklich genehmigten synthetischen
+Wiederfindungsprüfung verglichen. Sie ersetzt keine beobachteten KBA-Daten.
+Der vor der Prüfung festgelegte [Plan](../data/task04_regimes/recovery_plan.json)
+enthält vier Fälle (zwei Seeds, zwei wahre Niveau-SDs), dieselbe gemeinsame
+M2/G1-Modellstruktur und einen bekannten Förderstufeneffekt von −0.30 Logeinheiten.
+Berichtet werden alle zwölf Fits samt Intervallen/Fehlern/Konvergenz, keine
+Abdeckungs-/Powerbehauptung aus vier Fällen. Die primäre SD wird danach nach dem
+festgelegten mittleren absoluten Medianfehler begründet gewählt; reale KBA-Zielwerte
+werden dafür nicht verwendet. Eine weitere Niveau-SD 0.20 bleibt vorab benannte
+Sensitivität, kein Kandidat zur ergebnisabhängigen Primärauswahl. Die frühere
+gekoppelte Halbierung/Verdoppelung auch der Steigungs-SD wird durch diese isolierte
+Niveauprüfung ersetzt, damit der Einfluss der Niveauglättung prüfbar bleibt.
+
+Vor der realen Schätzung werden Ergebnisse hier ergänzt, Version 1.0.0 mit
+konkreten Inferenz-/Rolling-Regeln committed und gehasht. Kein realer Task-04-Fit
+vor diesem Freeze. Der Software-Smoke benutzt ein anderes künstliches Beispiel
+und ist keine Wiederfindungs- oder wissenschaftliche Ergebnisaussage.
