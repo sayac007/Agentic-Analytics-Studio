@@ -1,5 +1,5 @@
 {
-  "scope": "German presentation only; no model fits, changed protocols, new observations or new significance tests",
+  "scope": "English presentation only; no model fits, changed protocols, new observations or new significance tests",
   "original_execution_commit": "75a7d266bbf9632ae0292a004a1eb87975dfcb09",
   "protocol": "task-04-regimes/1.0.0",
   "source_sha256": {
@@ -11,18 +11,18 @@
     "results/task04/stage1/predictions.csv": "4903f84f546b5d2065ada2a0f45b2d726c3d3382050e838f4cf1f56693f41ce7",
     "results/task04/stage1/diagnostics.json": "c7660b5f4c32b1822614fc99fb385008137fee1a461b2084022a6a0d51036773",
     "data/task04_regimes/data_audit.json": "a4c06707fe1fc6588fe2b461179e050fa265b05a6a45fabeec624e51e76ac9a8",
-    "scripts/task04_results_presentation.py": "ba78415fe6f22a578cd8ca6d9ea799b3052f2fc02009f1342662a1534abdcd23"
+    "scripts/task04_results_presentation.py": "e35289ad94e4c60927910db6acbb568352428b8c8f82283162ad02a68e6ea6ef"
   },
-  "computed_readme_section_sha256": "786541b17010bca2fab9fd67f5025b4878692f2c7b9e7bf176161cb74aa98655",
+  "computed_readme_section_sha256": "31733fa36949f6f5e68c571771a1d53edd34d093b5678a8b857daa5556194671",
   "matplotlib": "3.10.8",
   "numpy": "2.3.5",
   "files": {
-    "DETAILS.md": "e0e7885142b72e2b8b920bcccff3106623e87c88fe002fe7ba2258e3ba407d23",
-    "annual_market_share.png": "0538a1dd72cfecff8f0ce9128038e4d4c2a6ec9e2a8b2b7db5b5140b872e3738",
-    "annual_market_share.svg": "3eeb0ae596ea315b2091683152ef1161bd7e05e881fcd6ad1f376c4bb2910630",
-    "rmse_comparison.png": "b0522083be670d9ef10036e38b02b31f2fb7dc3172f8934e48657e02f49ab109",
-    "rmse_comparison.svg": "211f2a603f4a4913c336f018970e5d1f4d0c8ce51970542666d3497ea3862976",
-    "tesla_robustness.png": "13fde793820bfff7f4fd7d953fc581e83b1d28995d7739dfe8fde01c84ce2684",
-    "tesla_robustness.svg": "eded7bd18ac3fce1b92ab6cf3dc114698ec77afccbdcb91013cbae225a9e0e11"
+    "DETAILS.md": "649759d89df42625d8a6e477e26805d99fca35e5a03567120138a8e58c5c3fdf",
+    "annual_market_share.png": "6f24e7b4f0972d4793571f8fdc37b27d87d203044c0033cb0e791baac7b50dd1",
+    "annual_market_share.svg": "13f2bf869d2995c78fed189b4a91491ecdbec7b219e501d63ad296ea82cd7a33",
+    "rmse_comparison.png": "4bcc78f52ea6a5dc14dbe83131464c7926b8240d67140d99f1edbaaa9b78072b",
+    "rmse_comparison.svg": "4c77cd8e085ea46fab89f1be95a8ef64f6dfdf304af5d147a62359087bf35289",
+    "tesla_robustness.png": "413717d9da93dd88919e53bd9362d8a4fa11bd983e10b133d6aeda15863c4f75",
+    "tesla_robustness.svg": "ac8c80971a26d136ab2440e4ac6f0e1a38bb662760db9111c8fbcdc6673ebe22"
   }
 }
