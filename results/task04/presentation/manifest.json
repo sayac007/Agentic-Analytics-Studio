@@ -1,0 +1,28 @@
+{
+  "scope": "German presentation only; no model fits, changed protocols, new observations or new significance tests",
+  "original_execution_commit": "75a7d266bbf9632ae0292a004a1eb87975dfcb09",
+  "protocol": "task-04-regimes/1.0.0",
+  "source_sha256": {
+    "results/task04/stage1/manifest.json": "5d72521ee877e0cdb55bb451afb662c93978aef0144d5775a28c4b8f1120f3e5",
+    "results/task04/stage1/coefficients.csv": "803deae169519ca9e1ee5e9c7729536613060bee72ea584e13b4d09dcab2508a",
+    "results/task04/stage1/metrics.csv": "ea41ee7eea4507f20a4a80f8eb4714a61b220778ae602dd25131449d0cf2772f",
+    "results/task04/stage1/decomposition.csv": "fa197b0bc73895542828dbe661f1f3cf94ecad1f13a05186f2b4fb1ad5cda09c",
+    "results/task04/stage1/contrasts.csv": "77f8d775ee3fe368f23b139b858ea6e8d82ebf2a9cd6b2e5515095d1ffe6c350",
+    "results/task04/stage1/predictions.csv": "4903f84f546b5d2065ada2a0f45b2d726c3d3382050e838f4cf1f56693f41ce7",
+    "results/task04/stage1/diagnostics.json": "c7660b5f4c32b1822614fc99fb385008137fee1a461b2084022a6a0d51036773",
+    "data/task04_regimes/data_audit.json": "a4c06707fe1fc6588fe2b461179e050fa265b05a6a45fabeec624e51e76ac9a8",
+    "scripts/task04_results_presentation.py": "ba78415fe6f22a578cd8ca6d9ea799b3052f2fc02009f1342662a1534abdcd23"
+  },
+  "computed_readme_section_sha256": "786541b17010bca2fab9fd67f5025b4878692f2c7b9e7bf176161cb74aa98655",
+  "matplotlib": "3.10.8",
+  "numpy": "2.3.5",
+  "files": {
+    "DETAILS.md": "e0e7885142b72e2b8b920bcccff3106623e87c88fe002fe7ba2258e3ba407d23",
+    "annual_market_share.png": "0538a1dd72cfecff8f0ce9128038e4d4c2a6ec9e2a8b2b7db5b5140b872e3738",
+    "annual_market_share.svg": "3eeb0ae596ea315b2091683152ef1161bd7e05e881fcd6ad1f376c4bb2910630",
+    "rmse_comparison.png": "b0522083be670d9ef10036e38b02b31f2fb7dc3172f8934e48657e02f49ab109",
+    "rmse_comparison.svg": "211f2a603f4a4913c336f018970e5d1f4d0c8ce51970542666d3497ea3862976",
+    "tesla_robustness.png": "13fde793820bfff7f4fd7d953fc581e83b1d28995d7739dfe8fde01c84ce2684",
+    "tesla_robustness.svg": "eded7bd18ac3fce1b92ab6cf3dc114698ec77afccbdcb91013cbae225a9e0e11"
+  }
+}
