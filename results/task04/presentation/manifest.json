@@ -11,18 +11,18 @@
     "results/task04/stage1/predictions.csv": "4903f84f546b5d2065ada2a0f45b2d726c3d3382050e838f4cf1f56693f41ce7",
     "results/task04/stage1/diagnostics.json": "c7660b5f4c32b1822614fc99fb385008137fee1a461b2084022a6a0d51036773",
     "data/task04_regimes/data_audit.json": "a4c06707fe1fc6588fe2b461179e050fa265b05a6a45fabeec624e51e76ac9a8",
-    "scripts/task04_results_presentation.py": "e35289ad94e4c60927910db6acbb568352428b8c8f82283162ad02a68e6ea6ef"
+    "scripts/task04_results_presentation.py": "72c054ba2bb4594a500a4a067b9a96f87f95dd5eff743e661d5ff3ed07beae9c"
   },
   "computed_readme_section_sha256": "31733fa36949f6f5e68c571771a1d53edd34d093b5678a8b857daa5556194671",
   "matplotlib": "3.10.8",
   "numpy": "2.3.5",
   "files": {
     "DETAILS.md": "649759d89df42625d8a6e477e26805d99fca35e5a03567120138a8e58c5c3fdf",
-    "annual_market_share.png": "6f24e7b4f0972d4793571f8fdc37b27d87d203044c0033cb0e791baac7b50dd1",
-    "annual_market_share.svg": "13f2bf869d2995c78fed189b4a91491ecdbec7b219e501d63ad296ea82cd7a33",
+    "annual_market_share.png": "8206a28ea1f16f03fcbd35f3d6961105de59925829506c66673ee698244b9ffe",
+    "annual_market_share.svg": "92243036b593da9c29b8d0d6d8dc42da885262682bf16c18b32fb477dacdea51",
     "rmse_comparison.png": "4bcc78f52ea6a5dc14dbe83131464c7926b8240d67140d99f1edbaaa9b78072b",
     "rmse_comparison.svg": "4c77cd8e085ea46fab89f1be95a8ef64f6dfdf304af5d147a62359087bf35289",
-    "tesla_robustness.png": "413717d9da93dd88919e53bd9362d8a4fa11bd983e10b133d6aeda15863c4f75",
-    "tesla_robustness.svg": "ac8c80971a26d136ab2440e4ac6f0e1a38bb662760db9111c8fbcdc6673ebe22"
+    "tesla_robustness.png": "a33776563d7997945afea9295c4fa656732af689f6066c391d1f5d47553340a1",
+    "tesla_robustness.svg": "e5190d6b643c7a951eaf9397a27382c611b483fb04795de616c10791e731e548"
   }
 }

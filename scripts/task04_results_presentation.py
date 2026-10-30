@@ -462,7 +462,7 @@ def figures(data):
     ax.grid(axis="y", alpha=.25); ax.set_axisbelow(True)
     ax.legend(loc="upper center", bbox_to_anchor=(.5, 1.19), ncol=1, frameon=False, fontsize=10)
     fig.text(.055, .09, "Source: Kraftfahrt-Bundesamt, FZ10; own calculation, dl-de/by-2-0. 2026: same nine months in each year.", fontsize=9, color="#555555")
-    fig.text(.055, .055, "Exact symmetric arithmetic decomposition before rounding; no causal attribution or subsidy effect.", fontsize=9, color="#555555")
+    fig.text(.055, .055, "Exact symmetric accounting decomposition before rounding; no causal attribution or isolated subsidy-effect estimate.", fontsize=9, color="#555555")
     save(fig, "annual_market_share")
 
     fig, axes = plt.subplots(1, 2, figsize=(13, 7), sharey=True)
@@ -501,7 +501,7 @@ def figures(data):
     axes[0].invert_yaxis()
     fig.suptitle("Robust calendar association, model-dependent level contrast", fontsize=18, y=.95)
     fig.text(.15, .86, "Median and pointwise conditional 95% posterior interval; diamond = primary model M2.", fontsize=10)
-    fig.text(.08, .09, "Source: archived KBA-FZ10 analysis. Blue: interval excludes zero; gray: includes zero. No causal effect.", fontsize=9)
+    fig.text(.08, .09, "Source: archived KBA-FZ10 analysis. Blue: interval excludes zero; gray: includes zero. No causal claim.", fontsize=9)
     fig.text(.08, .055, "M0, right: zero contrast fixed by construction. The primary level SD of 0.03 is not changed retrospectively.", fontsize=9)
     save(fig, "tesla_robustness")
     return files
