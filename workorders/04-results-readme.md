@@ -20,3 +20,13 @@ nicht; diese fokussierte Änderung zielt direkt auf main.
 Prüfbefehle und beobachteter CI-Status stehen in der PR-Beschreibung.
 Alte Ergebnisverifikationen werden nicht rückwirkend überschrieben.
 Ein Draft-PR gegen main; kein eigener Merge.
+
+## English presentation — follow-up request, 30 October 2026
+
+- [x] Translate the complete README, generated table appendix and three presentation
+  figures into English, with English decimal/thousands separators.
+- [x] Preserve all figures numerically, links, hypotheses and uncertainty caveats;
+  no model estimation, changed data, protocols or statistical procedures.
+- [x] Regenerate presentation hashes and retain the existing read-only CI check.
+
+Verification commands and observed CI results are recorded in the follow-up PR.

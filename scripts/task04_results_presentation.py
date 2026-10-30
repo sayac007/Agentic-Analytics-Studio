@@ -1,4 +1,4 @@
-"""Present preserved Task04 outputs in German; no fitting, tuning or downloads.
+"""Present preserved Task04 outputs in English; no fitting, tuning or downloads.
 
 Run with --check to verify the committed tables, figures and their source hashes.
 Only the marked README section and results/task04/presentation may be written.
@@ -38,7 +38,7 @@ def sha(data):
 
 def number(value, digits=1, signed=False):
     text = format(float(value), ("+" if signed else "") + f",.{digits}f")
-    return text.translate(str.maketrans({",": ".", ".": ",", "-": "−"}))
+    return text.replace("-", "−")
 
 
 def table(headers, rows):
@@ -104,16 +104,16 @@ def load():
 
 def rmse_table(data, outcome):
     get = data["metric"]
-    return table(["Modell", "2025 · h=1", "2025 · h=3", "2026 · h=1", "2026 · h=3"],
+    return table(["Model", "2025 · h=1", "2025 · h=3", "2026 · h=1", "2026 · h=3"],
                  [[m, *[number(get[(m, outcome, y, h)]["rmse"]) for y, h in PAIRS]] for m in MODELS])
 
 
 def diagnostic_p(result, test):
     p = result[test]["p"]
     if test == "kpss" and p == .1 and any("greater" in w for w in result["warnings"]):
-        return ">0,1000"
+        return ">0.1000"
     if test == "kpss" and p == .01 and any("smaller" in w for w in result["warnings"]):
-        return "<0,0100"
+        return "<0.0100"
     return number(p, 4)
 
 
@@ -128,14 +128,14 @@ def tables(data):
                        number(100 * float(r["share_after"]), 2) + " %",
                        *[number(r[k], 0, True) for k in ("market_component", "share_component", "Tesla_change")]])
     specs = [
-        ["M0", "Fester Markttrend; konstante relative Markenniveaus", "0", "Keine"],
-        ["M1", "Lokaler Markttrend und relative Markenniveaus", "0,03", "Keine"],
-        ["M2 **primär**", "M1 + Förderstufen und Übergangspulse", "0,03", "Berechtigung ab Januar 2026"],
-        ["M2_sd0.05", "M2; beweglichere Zustände", "0,05", "Wie M2"],
-        ["M2_sd0.10", "M2; beweglichere Zustände", "0,10", "Wie M2"],
-        ["M2_sd0.20", "M2; beweglichste Zustände", "0,20", "Wie M2"],
-        ["M2_portal", "M2; alternativer Beginn der Förderung 2026", "0,03", "Portalstart Mai statt Januar 2026"],
-        ["M2_logit", "M2; Logit(BEV/Pkw) statt log(BEV)", "0,03", "Wie M2; saisonal-naiver Pkw-Prognosenenner"],
+        ["M0", "Fixed market trend; constant relative brand levels", "0", "None"],
+        ["M1", "Local market trend and relative brand levels", "0.03", "None"],
+        ["M2 **primary**", "M1 + subsidy steps and transition pulses", "0.03", "Eligibility from January 2026"],
+        ["M2_sd0.05", "M2; more flexible states", "0.05", "As M2"],
+        ["M2_sd0.10", "M2; more flexible states", "0.10", "As M2"],
+        ["M2_sd0.20", "M2; most flexible states", "0.20", "As M2"],
+        ["M2_portal", "M2; alternative start for the 2026 subsidy", "0.03", "Portal opens in May rather than January 2026"],
+        ["M2_logit", "M2; logit(BEV/passenger cars) instead of log(BEV)", "0.03", "As M2; seasonal-naive passenger-car forecast denominator"],
     ]
     calendar = []
     for m in MODELS:
@@ -152,15 +152,15 @@ def tables(data):
     for outcome in ("BEV_market", "Tesla"):
         for y, h in PAIRS:
             row = metrics[("M2", outcome, y, h)]
-            cells = ["BEV-Markt" if outcome == "BEV_market" else outcome, y, h, row["n"]]
+            cells = ["BEV market" if outcome == "BEV_market" else outcome, y, h, row["n"]]
             for base in ("M0", "M1"):
                 old = float(metrics[(base, outcome, y, h)]["rmse"])
                 diff = float(row["rmse"]) - old
                 cells.append(f"{number(diff, 1, True)} ({number(100 * diff / old, 1, True)} %)")
             delta.append(cells)
     contrasts = [[r["model"], interval(r),
-                  "Fest auf null gesetzt" if r["model"] == "M0" else
-                  "Negativ, Intervall ohne null" if excludes_zero(r) else "Intervall enthält null"]
+                  "Fixed at zero" if r["model"] == "M0" else
+                  "Negative; interval excludes zero" if excludes_zero(r) else "Interval includes zero"]
                  for r in data["contrasts.csv"] if r["group"] == "Tesla"]
     diag = []
     for m in MODELS:
@@ -169,103 +169,103 @@ def tables(data):
         lb = min(x["p_holm"] for x in t["ljung_box"])
         vw = min(x["p_holm"] for x in d["innovations"]["2"]["ljung_box"])
         diag.append([m, diagnostic_p(t, "adf"), diagnostic_p(t, "kpss"),
-                     f"{lb:.4g}".replace(".", ","), f"{vw:.4g}".replace(".", ",")])
-    sources = "Quelle: gespeicherte KBA-FZ10-Auswertung vom 29.10.2026; eigene Darstellung, keine Neuschätzung."
-    return f"""## 1. Was sich tatsächlich verändert hat
+                     f"{lb:.4g}", f"{vw:.4g}"])
+    sources = "Source: preserved KBA FZ10 analysis of 29 October 2026; own presentation, no refitting."
+    return f"""## 1. What actually changed
 
-{table(['Vergleich zum Vorjahr', 'Tesla-Zulassungen', 'Tesla Δ', 'BEV-Markt Δ', 'Tesla-BEV-Anteil', 'Marktkomponente', 'Anteilskomponente', 'Tesla Δ absolut'], annual)}
+{table(['Year-on-year comparison', 'Tesla registrations', 'Tesla Δ', 'BEV market Δ', 'Tesla BEV share', 'Market component', 'Share component', 'Tesla absolute Δ'], annual)}
 
-Alle Jahre vollständig außer **2026: Januar–September gegen Januar–September 2025**.
-2025: Tesla 19.390 statt 37.574; BEV-Markt 545.142 statt 380.609.
-Teslas BEV-Anteil fällt von 9,87 % auf 3,56 %. Der wachsende Markt kompensiert
-rechnerisch einen Teil des Anteilsverlusts. Bereits 2023 sinkt Teslas Anteil.
-2026 steigen sowohl der Markt als auch Teslas Anteil gegenüber dem niedrigen Vorjahr.
+All comparisons use full years except **2026: January–September versus January–September 2025**.
+In 2025, Tesla recorded 19,390 registrations versus 37,574; the BEV market recorded
+545,142 versus 380,609. Tesla's BEV share fell from 9.87% to 3.56%. Market growth
+arithmetically offsets part of its share loss. Tesla's share was already falling
+in 2023. In 2026, both the market and Tesla's share rose against the low prior-year base.
 
-![Tesla in Deutschland: jährliche Markt- und Anteilskomponenten](results/task04/presentation/annual_market_share.png)
+![Tesla Germany: annual market and share components](results/task04/presentation/annual_market_share.png)
 
-{sources} Die symmetrische Zerlegung addiert sich exakt vor Rundung:
-`ΔTesla = Mittel(Anteil) × ΔMarkt + Mittel(Markt) × ΔAnteil`.
-Sie ordnet Veränderungen rechnerisch zu und identifiziert keine Ursachen.
-Die Bildunterschriften vermeiden deshalb die unbewiesene Aussage, ein einzelnes
-Förderereignis habe den gesamten Marktrückgang verursacht.
+{sources} The symmetric decomposition adds up exactly before rounding:
+`ΔTesla = mean(share) × Δmarket + mean(market) × Δshare`.
+This is an accounting decomposition, not causal attribution.
+The captions therefore avoid the unproven claim that a single subsidy event
+caused the entire market decline.
 
-![Monatliche Tesla-Zulassungen und Markt-/Anteilszerlegung](results/task04/stage1/market_share_decomposition.png)
+![Monthly Tesla registrations and market/share decomposition](results/task04/stage1/market_share_decomposition.png)
 
-Quelle: Kraftfahrt-Bundesamt, FZ10, eigene Berechnung. Politikmarkierungen sind
-Kontext; der global berichtete Model-Y-Wechsel in Q1 2025 ist kein exakt datiertes
-deutsches Lieferereignis. Verwaltungszählwerte erhalten keine erfundenen Stichprobenintervalle.
+Source: Kraftfahrt-Bundesamt, FZ10, own calculation. Policy markers provide
+context; the globally reported Model Y changeover in Q1 2025 is not a precisely
+dated German delivery event. Administrative counts receive no invented sampling intervals.
 
-## 2. Was die acht Zustandsraummodelle prüfen
+## 2. What the eight state-space models test
 
-{table(['Modell', 'Spezifikation', 'Monatliche Niveau-SD', 'Förderkodierung / Besonderheit'], specs)}
+{table(['Model', 'Specification', 'Monthly level SD', 'Subsidy coding / distinguishing feature'], specs)}
 
-Alle Varianten enthalten eine jährliche Sinus-/Kosinus-Saison, Quartalsende und
-nationale Wochentage abzüglich bundeseinheitlicher Feiertage. M0 setzt alle
-Zustandsinnovationen auf null; bei den dynamischen Modellen bleibt die Steigungs-SD
-0,01. Eine größere Niveau-SD erlaubt beweglichere latente Zustände und verändert
-damit die Zuordnung von Schwankungen, nicht die beobachteten Zulassungen.
+Every specification includes one annual sine/cosine seasonal pair, quarter-end
+and national weekdays net of nationwide public holidays. M0 sets all state
+innovations to zero; the dynamic specifications retain slope SD 0.01. A larger
+level SD permits more flexible latent states and changes how variation is
+allocated, not the observed registration counts.
 
-Gemeinsam modelliert werden Markt sowie `log(Tesla/Rest)` und `log(VW/Rest)`;
-Rest = offizieller BEV-Markt minus Tesla minus VW. **VW bedeutet Marke, nicht Konzern.**
-Die acht Spezifikationen waren vor dem realen Fit festgelegt. Die nachträglich
-beste RMSE-Variante ersetzt das Primärmodell nicht.
+The joint system models the market, `log(Tesla/Rest)` and `log(VW/Rest)`;
+Rest = official BEV market minus Tesla minus VW. **VW denotes the brand, not the group.**
+All eight specifications were fixed before fitting the real data. The variant
+with the best observed RMSE does not retrospectively replace the primary model.
 
-## 3. Welche Treiber statistisch auffallen
+## 3. Which drivers stand out statistically
 
-Die Schätzung ist bayesianisch. **† bedeutet: Das bedingte, punktweise
-95-%-Posteriorintervall enthält null nicht.** Das ist kein frequentistischer
-p-Wert, kein multiplikitätsbereinigter Signifikanztest und kein Kausalnachweis.
-Die folgenden beiden Tabellen enthalten sämtliche Koeffiziententypen, die in
-mindestens einer Variante dieses Kriterium erfüllen; negative und instabile
-Zusammenhänge bleiben sichtbar. Alle **132 Koeffizienten**, einschließlich
-Posterior-SD und Intervallen auch ohne †, stehen im
-[vollständigen Tabellenanhang](results/task04/presentation/DETAILS.md).
+Estimation is Bayesian. **† means that the conditional, pointwise 95% posterior
+interval excludes zero.** This is neither a frequentist p-value nor a
+multiplicity-adjusted significance test, and does not establish causality.
+The following two tables cover every coefficient type meeting this criterion
+in at least one specification; negative and unstable associations remain visible.
+All **132 coefficients**, including posterior SDs and intervals containing zero,
+are available in the [complete table appendix](results/task04/presentation/DETAILS.md).
 
-### Kalender: Median [95-%-Posteriorintervall]
+### Calendar: median [95% posterior interval]
 
-{table(['Modell', 'Quartalsende Tesla/Rest', 'Quartalsende Markt', 'Nationale Wochentage Markt', 'Sinus-Saison Markt', 'Koeffizienten mit † insgesamt'], calendar)}
+{table(['Model', 'Quarter-end Tesla/Rest', 'Quarter-end market', 'National weekdays: market', 'Sine seasonality: market', 'Total coefficients with †'], calendar)}
 
-**Stabilster gemessener Zusammenhang: Tesla-Quartalsende, positiv in allen acht
-Varianten.** Das ist mit Liefer-/Zulassungswellen vereinbar. Der primäre Wert
-{interval(c[('M2','Tesla:quarter_end')])} steht in Log-Verhältniseinheiten und
-ist keine pauschale prozentuale Tesla-Absatzwirkung. VW-Quartalsende, sämtliche
-VW-Kalenderterme, Tesla-Sinus/Kosinus/Wochentage und Markt-Kosinus enthalten in
-allen Varianten null. Der Markt-Wochentagszusammenhang erscheint erst bei den
-größeren Niveau-SDs; die negative Markt-Sinuskomponente nur im Logit-Zweig.
+**The most stable measured association is Tesla quarter-end: positive in all eight
+specifications.** This is consistent with delivery/registration waves. The primary
+estimate {interval(c[('M2','Tesla:quarter_end')])} is in log-ratio units,
+not a universal percentage effect on Tesla sales. VW quarter-end, all other VW
+calendar terms, Tesla sine/cosine/weekday terms and market cosine terms include
+zero in every specification. The market weekday association appears only with
+larger level SDs; negative market sine seasonality appears only in the logit branch.
 
-### Staatliche Förderung: Median [95-%-Posteriorintervall]
+### Government subsidies: median [95% posterior interval]
 
-{table(['Modell', 'Kürzung Januar 2023', 'Ende gewerbliche Berechtigung September 2023', 'Nach Förderende: Januar 2024', 'Programm 2026'], policy)}
+{table(['Model', 'January 2023 cut', 'Business eligibility ends: September 2023', 'After subsidy end: January 2024', '2026 programme'], policy)}
 
-M0/M1 haben keine Förderkoeffizienten. Die Schritte sind **inkrementelle
-Koeffizienten kumulierter Dummies**, ausschließlich in der Marktgleichung.
-Beim Portalmodell beginnt der letzte Schritt im Mai 2026; der kanonische
-CSV-Termname bleibt `grant_2026_01`. Logit-Koeffizienten sind Log-Odds des
-BEV-Anteils am Pkw-Markt; die übrigen Marktkoeffizienten sind Log-Zählwerteinheiten.
-Sie dürfen nicht als dieselbe Elastizität verglichen werden.
+M0/M1 contain no subsidy coefficients. The steps are **incremental coefficients
+on cumulative indicator variables**, included only in the market equation.
+In the portal specification, the final step starts in May 2026; the canonical
+CSV term remains `grant_2026_01`. Logit coefficients describe log-odds of the
+BEV share of the passenger-car market; the other market coefficients use log-count
+units. They must not be compared as if they were the same elasticity.
 
-Kürzung und Ende der gewerblichen Berechtigung sind in allen sechs Policy-Varianten
-negativ mit Intervall ohne null. Beim Post-Ende-Schritt umfasst SD 0,20 null.
-**Das Programm 2026 enthält in jeder Variante null**, bei wechselndem Vorzeichen.
-Die Übergangspulse Dezember 2023 und Januar 2024 enthalten ebenfalls in allen
-Varianten null; primär {interval(c[('M2','market:transition_2023_12')])} bzw.
-{interval(c[('M2','market:transition_2024_01')])}.
+The cut and the end of business eligibility are negative, with intervals excluding
+zero in all six policy specifications. The post-end interval includes zero at
+SD 0.20. **The 2026 programme interval includes zero in every specification**,
+with changing signs. The December 2023 and January 2024 transition pulses also
+include zero in every specification; the primary estimates are
+{interval(c[('M2','market:transition_2023_12')])} and
+{interval(c[('M2','market:transition_2024_01')])}, respectively.
 
-Die historischen Policy-Koeffizienten sind bedingte Assoziationen mit sich
-kompensierenden Trends/Zuständen. Ein negativer Koeffizient identifiziert weder
-den isolierten Fördereffekt noch dessen kausale Absatzhöhe.
-[Primärquellen und Förderchronik](data/task04_regimes/policy_chronology.json).
+The historical policy coefficients are conditional associations with compensating
+trends/states. A negative coefficient identifies neither an isolated subsidy
+effect nor its causal registration contribution.
+[Primary sources and subsidy chronology](data/task04_regimes/policy_chronology.json).
 
-## 4. Wie gut prognostizieren die Modelle? RMSE aller acht Varianten
+## 4. How well do the models predict? RMSE for all eight specifications
 
-RMSE = Wurzel des mittleren quadrierten Prognosefehlers, **in Zulassungen pro
-Monat; kleiner ist besser**. Mindestens 48 Trainingsmonate; strikt vergangene
-Trainingspräfixe. h=1 umfasst 2025 zwölf und 2026 neun Zielmonate; h=3 umfasst
-2025 zehn und 2026 neun Zielmonate. Dreimonatsprognosen sind jeweils Prognosen
-des dritten Zielmonats, keine Summe der folgenden drei Monate. Sie überlappen.
-2026 bedeutet hier immer Januar–September.
+RMSE = root mean squared prediction error, **in registrations per month; lower
+is better**. At least 48 training months; strictly historical training prefixes.
+h=1 covers twelve target months in 2025 and nine in 2026; h=3 covers ten in 2025
+and nine in 2026. Three-month-ahead forecasts predict the third target month,
+not the sum of the following three months. They overlap.
+Here, 2026 always means January–September.
 
-### Offizieller BEV-Markt
+### Official BEV market
 
 {rmse_table(data, 'BEV_market')}
 
@@ -273,155 +273,156 @@ des dritten Zielmonats, keine Summe der folgenden drei Monate. Sie überlappen.
 
 {rmse_table(data, 'Tesla')}
 
-![RMSE aller acht Modelle für Markt und Tesla, einschließlich Verschlechterungen](results/task04/presentation/rmse_comparison.png)
+![RMSE for all eight market and Tesla models, including deteriorations](results/task04/presentation/rmse_comparison.png)
 
-{sources} Jede Zelle zeigt RMSE und prozentuale Änderung gegen M0 auf denselben
-Zielmonaten; Blau = kleinerer Fehler, Orange = größerer Fehler. Farben sind keine
-Signifikanztests. Eine gemeinsame Skala begrenzt die Farbsättigung bei ±60 %;
-Zahlenwerte werden nicht begrenzt.
+{sources} Each cell shows RMSE and its percentage change from M0 on identical
+target months; blue = smaller error, orange = larger error. Colours are not
+significance tests. The shared colour scale saturates at ±60%; displayed numerical
+values are not capped.
 
-### Was bringt die Förderspezifikation M2 gegenüber den Baselines?
+### What does the subsidy specification M2 add over the baselines?
 
-{table(['Ziel', 'Jahr', 'h', 'n', 'RMSE M2 − M0 (relativ)', 'RMSE M2 − M1 (relativ)'], delta)}
+{table(['Outcome', 'Year', 'h', 'n', 'RMSE M2 − M0 (relative)', 'RMSE M2 − M1 (relative)'], delta)}
 
-**Negative Differenz bedeutet Verbesserung; positive Differenz Verschlechterung.**
-Der Wechsel M1 → M2 ergänzt gemeinsam vier Förderstufen und zwei Übergangspulse.
-Er erlaubt keine separate RMSE-Zuordnung zu einem einzelnen Förderereignis.
-Auch für Quartalsende ist keine Variante ohne diesen Term vorhanden: sein
-isolierter zusätzlicher RMSE-Nutzen wurde nicht geschätzt.
+**A negative difference indicates improvement; a positive difference indicates deterioration.**
+Moving from M1 to M2 adds four subsidy steps and two transition pulses together.
+It does not attribute a separate RMSE gain to any individual subsidy event.
+There is also no specification without the quarter-end term: its isolated
+incremental RMSE benefit has not been estimated.
 
-M2 verbessert Marktprognosen gegenüber M1 in allen vier Gruppen, verliert 2025
-gegen M0. 2026 bleibt der Vorteil gegen beide Baselines auch bei Weglassen jedes
-einzelnen Zielfehlers aus der Kennzahl erhalten. Die vorab festgelegte H-P-Regel
-fordert den Vorteil in beiden Jahren und Horizonten; **H-P bleibt offen**.
-Für Tesla ist 2025 M1 besser als M2 und 2026 M0 besser als M2. Bessere Marktprognosen
-sind somit kein allgemeiner Tesla-Prognosegewinn.
+M2 improves market forecasts over M1 in all four groups, but loses to M0 in 2025.
+In 2026, the advantage over both baselines survives leaving each individual
+target error out of the metric. The prespecified H-P rule requires that advantage
+in both years and at both horizons; **H-P remains open**.
+For Tesla, M1 outperforms M2 in 2025, and M0 outperforms M2 in 2026. Better market
+forecasts therefore do not imply a general Tesla forecasting improvement.
 
-Die Sensitivitäten liefern keinen universellen Sieger: SD 0,20 verbessert den
-Markt-RMSE 2026/h=1, verschlechtert 2026/h=3 aber deutlich gegen das Primärmodell.
-Der Logit-Zweig verbessert die Marktprognosen 2025 und verwendet dabei einen
-saisonal-naiven Pkw-Nenner; dessen Unsicherheit wird nicht zusätzlich modelliert.
-M2 und Portal sind in den 2025-Trainingsfenstern strukturell gleich; kleine
-Unterschiede stammen von festen unterschiedlichen Monte-Carlo-Seeds.
+The sensitivities produce no universal winner: SD 0.20 improves market RMSE
+in 2026/h=1 but substantially worsens 2026/h=3 relative to the primary model.
+The logit branch improves market forecasts in 2025 and uses a seasonal-naive
+passenger-car denominator; its uncertainty is not additionally modelled.
+M2 and portal are structurally identical in the 2025 training windows; small
+differences arise from different fixed Monte Carlo seeds.
 
 <details>
-<summary>Alle acht Modelle für VW und Rest</summary>
+<summary>All eight models for VW and Rest</summary>
 
 **VW:**
 
 {rmse_table(data, 'VW')}
 
-**Rest des BEV-Markts:**
+**Rest of the BEV market:**
 
 {rmse_table(data, 'Rest')}
 
-Auch bei VW ist M0 2026 besser als sämtliche dynamischen Varianten.
-Rest ist eine rechnerische Restgruppe, kein gemessener China-Korb.
+For VW too, M0 outperforms every dynamic specification in 2026.
+Rest is an accounting remainder, not a measured China basket.
 
 </details>
 
-Das sind retrospektive Backtests mit heutigem Quellstand, keine historisch
-rekonstruierten Echtzeitprognosen. Zukünftige Förderregeln werden nur verwendet,
-soweit am Prognoseursprung bekannt. Breite Intervalle begrenzen den Nutzen:
-für Tesla M2 2025/h=1 durchschnittlich **{number(metrics[('M2','Tesla',2025,1)]['mean_interval_width'])}**
-Zulassungen Intervallbreite bei ungefähr 1.616 beobachteten Zulassungen im Monat.
-Der Trefferanteil von {number(100*float(metrics[('M2','Tesla',2025,1)]['coverage95']),1)} %
-validiert angesichts zwölf Zielmonaten und breiter Bänder keine 95-%-Abdeckung.
-[Alle 128 Kennzahlenzeilen](results/task04/stage1/metrics.csv) einschließlich
-MAE, MASE und Intervallbreiten; [1.280 Prognosezeilen](results/task04/stage1/predictions.csv).
+These are retrospective backtests using the current source vintage, not
+historically reconstructed real-time forecasts. Future subsidy rules enter
+only when known at the forecast origin. Wide intervals limit usefulness:
+Tesla M2 2025/h=1 has a mean interval width of
+**{number(metrics[('M2','Tesla',2025,1)]['mean_interval_width'])}** registrations,
+against roughly 1,616 observed registrations per month.
+The empirical hit rate of {number(100*float(metrics[('M2','Tesla',2025,1)]['coverage95']),1)}%
+does not validate 95% coverage with twelve target months and such wide bands.
+[All 128 metric rows](results/task04/stage1/metrics.csv) include MAE, MASE and
+interval widths; [all 1,280 forecast rows](results/task04/stage1/predictions.csv) are preserved.
 
-## 5. Wie robust ist das latente Tesla-Niveau?
+## 5. How robust is the latent Tesla level?
 
-{table(['Modell', 'Jahresmittel 2025 − 2024: Tesla/Rest-Niveau [95-%-Intervall]', 'Einordnung'], contrasts)}
+{table(['Model', 'Annual mean 2025 − 2024: Tesla/Rest level [95% interval]', 'Interpretation'], contrasts)}
 
-![Robuster Quartalsendzusammenhang und priorabhängiger Tesla-Niveaukontrast](results/task04/presentation/tesla_robustness.png)
+![Stable quarter-end association and prior-dependent Tesla level contrast](results/task04/presentation/tesla_robustness.png)
 
-{sources} Im Primärmodell umfasst der Niveaukontrast null; erst die beweglicheren
-SD-Varianten ergeben vollständig negative Intervalle. Der beobachtete
-Anteilsverlust bleibt unbestritten, seine Zuordnung zum latenten Niveau ist
-modellabhängig. M0 erzwingt einen Nullkontrast; das ist kein empirischer Gegenbeweis.
-Ein latenter Zustand misst weder Markenimage noch einen isolierten Model-Y-Effekt.
+{sources} The primary level-contrast interval includes zero; only the more
+flexible SD specifications produce entirely negative intervals. The observed
+share loss is undisputed, but its allocation to the latent level depends on the
+model. M0 imposes a zero contrast; it is not empirical counterevidence.
+A latent state measures neither brand image nor an isolated Model Y effect.
 
-## 6. Stationarität, Restfehler und Grenzen der Absicherung
+## 6. Stationarity, remaining errors and limits of the evidence
 
-Im Primärmodell: Markt-Zielniveau ADF p=0,2961 / KPSS p=0,0454;
-Tesla/Rest-Zielniveau 0,0457 / 0,0178; VW/Rest 0,3160 / 0,0536.
-Die widersprüchlichen Tesla-Niveautests erlauben keine einfache Stationaritätsaussage.
-Zielniveaus: 69 Monate, ADF effektiv 65; feste drei Lags und Konstante/Trend.
+In the primary model, market target levels have ADF p=0.2961 / KPSS p=0.0454;
+Tesla/Rest levels 0.0457 / 0.0178; VW/Rest 0.3160 / 0.0536.
+The conflicting Tesla level tests do not permit a simple stationarity conclusion.
+Target levels: 69 months, ADF effective n=65; fixed three lags and intercept/trend.
 
-**Diagnostik der Ein-Schritt-Filterinnovationen aller Varianten:** nach zwölf
-Monaten Burn-in bleiben 57 Werte, ADF effektiv 53; Konstante und drei Lags.
+**One-step filter-innovation diagnostics for every specification:** after a
+twelve-month burn-in, 57 values remain, ADF effective n=53; intercept and three lags.
 
-{table(['Modell', 'Tesla ADF p', 'Tesla KPSS p', 'Tesla min. Holm-Ljung–Box p', 'VW min. Holm-Ljung–Box p'], diag)}
+{table(['Model', 'Tesla ADF p', 'Tesla KPSS p', 'Tesla min. Holm Ljung–Box p', 'VW min. Holm Ljung–Box p'], diag)}
 
-ADF prüft die Nullhypothese einer Einheitswurzel; KPSS die Niveaustationarität
-der Innovationen. Holm wird innerhalb der drei Ljung–Box-Lags 3/6/12 pro Reihe
-angewandt. Das Minimum oben dient der vollständigen Diagnoseübersicht, nicht
-der nachträglichen Lagauswahl. Vollständige Roh-/Holm-Werte stehen im
-[Anhang](results/task04/presentation/DETAILS.md).
+The ADF null is a unit root; the KPSS null is level stationarity of the innovations.
+Holm adjustment applies within the three Ljung–Box lags 3/6/12 for each series.
+The minimum above summarises the full diagnostics, not a post-hoc choice of lag.
+Complete raw/Holm values are in the [appendix](results/task04/presentation/DETAILS.md).
 
-**Tesla behält im Primärmodell Persistenz und Serialkorrelation; VW deutliche
-Serialkorrelation.** Größere SDs mildern diese Befunde, können aber Prognosen
-verschlechtern. Numerische Konvergenz ersetzt keine angemessene Modellspezifikation.
-Beim Primärmarkt ist der kleinste Holm-Ljung–Box-p-Wert 0,0928.
+**Tesla retains persistence and serial correlation in the primary model; VW
+retains strong serial correlation.** Larger SDs mitigate these findings but can
+worsen forecasts. Numerical convergence does not establish model adequacy.
+The primary market's smallest Holm-adjusted Ljung–Box p-value is 0.0928.
 
-![Primäre Innovations-ACF und Filter-/Glättungsvergleich](results/task04/diagnostics/innovation_acf.png)
+![Primary innovation ACF and filtered/smoothed state comparison](results/task04/diagnostics/innovation_acf.png)
 
-Quelle: gespeicherte KBA-Modellinnovationen. Diagnose bedingt auf die im gesamten
-Trainingsfenster geschätzte Kovarianz; keine kalibrierten Spezifikationstests.
-Die geglätteten Zustände rechts nutzen spätere Beobachtungen, auch die gezeigte
-Filterkurve konditioniert auf Vollstichproben-Kovarianz. Keine historische Live-Sicht.
-Die [wissenschaftliche Einordnung](results/task04/SCIENTIFIC_REVIEW.md) enthält
-auffällige Monate, Streuungsänderungen und alternative Erklärungen.
+Source: preserved KBA model innovations. Diagnostics condition on covariance
+estimated over the full training window; these are not calibrated specification
+tests. Smoothed states on the right use later observations; the displayed filter
+curve also conditions on full-sample covariance. Neither is a historical live estimate.
+The [scientific assessment](results/task04/SCIENTIFIC_REVIEW.md) includes unusual
+months, changes in dispersion and alternative explanations.
 
-Eine besonders wichtige Warnung: `exp(mu)` der kalender-/policybereinigten
-Marktkomponente beträgt September 2026 im Primärmodell 538.438, Intervall
-[215.782; 1.276.463], bei tatsächlich 88.599 BEV und 256.774 Pkw insgesamt.
-Große kompensierende Zustands-/Förderterme machen diese algebraische Komponente
-**ungeeignet als Marktpotenzial oder kausalen Ohne-Förderung-Gegenverlauf**.
-Die [Originalgrafik](results/task04/stage1/latent_market.png) bleibt zugänglich.
+A particularly important warning: in September 2026, `exp(mu)` of the
+calendar/policy-adjusted market component in the primary model is 538,438,
+with interval [215,782; 1,276,463], against 88,599 actual BEV registrations and
+256,774 passenger cars in total. Large compensating state/subsidy terms make
+this algebraic component **unsuitable as market potential or a causal
+no-subsidy counterfactual**. The [original figure](results/task04/stage1/latent_market.png)
+remains available.
 """
 
 
 def details(data):
-    text = """# Task 04: vollständige Tabellen zur Ergebnis-README
+    text = """# Task 04: complete tables for the results README
 
-Darstellung vom 30.10.2026, ausschließlich aus den archivierten Ergebnissen vom
-29.10.2026. Keine Modellschätzung oder neue Hypothesenprüfung. Zahlen sind hier
-gerundet; Original-CSV/JSON behalten die gesamte numerische Präzision.
+Presented on 30 October 2026, using only the archived results from
+29 October 2026. No model estimation or new hypothesis testing. Numbers here
+are rounded; the original CSV/JSON files retain full numerical precision.
 
-## Alle 132 Koeffizienten
+## All 132 coefficients
 
-Posterior-SD ist die Streuung des bedingten Posteriors, kein HAC-Standardfehler.
-† = punktweises 95-%-Posteriorintervall ohne null, ohne Kausal- oder
-frequentistischen Signifikanzanspruch. Alle nicht markierten Koeffizienten
-bleiben sichtbar. Marktterme in Log-Zählwerten, im Logit-Zweig in Log-Odds;
-Tesla/VW in Log-Verhältnissen zur Restgruppe. Im Portalzweig gilt der kanonische
-Term `grant_2026_01` ab Mai, nicht Januar 2026.
+Posterior SD is the dispersion of the conditional posterior, not a HAC standard error.
+† = pointwise 95% posterior interval excluding zero, with no claim of causality or
+frequentist significance. All unmarked coefficients remain visible.
+Market terms are in log counts, or log odds in the logit branch;
+Tesla/VW terms are in log ratios to the rest group. In the portal branch, the canonical
+term `grant_2026_01` applies from May, not January 2026.
 
 """
     for m in MODELS:
         rows = [r for r in data["coefficients.csv"] if r["model"] == m]
-        text += f"### {m}\n\n" + table(["Term", "Median [95-%-Intervall]", "Posterior-SD", "Monate mit aktivem Term"],
+        text += f"### {m}\n\n" + table(["Term", "Median [95% interval]", "Posterior SD", "Months with active term"],
                  [[r["term"], interval(r, 4, mark=True), number(r["posterior_sd"], 4), r["observed_nonzero_months"]] for r in rows]) + "\n\n"
-    text += "## Alle 128 Prognosevergleiche\n\nRMSE/MAE/Breite in Zulassungen. MASE skaliert an saisonal-naiven Trainingsfehlern; kein separat getesteter naiver Zukunftsforecast. Trefferanteile sind deskriptiv. Negative RMSE-Differenz = Verbesserung.\n\n"
+    text += "## All 128 forecast comparisons\n\nRMSE/MAE/width in registrations. MASE is scaled by seasonal naive training errors; no separately tested naive future forecast. Coverage rates are descriptive. A negative RMSE difference indicates improvement.\n\n"
     for m in MODELS:
         rows = [r for r in data["metrics.csv"] if r["model"] == m]
-        text += f"### {m}\n\n" + table(["Ziel", "Jahr", "h", "n", "RMSE", "Δ M0", "Δ M1", "MAE", "MASE", "95-%-Treffer", "Mittl. Intervallbreite"],
+        text += f"### {m}\n\n" + table(["Outcome", "Year", "h", "n", "RMSE", "Δ M0", "Δ M1", "MAE", "MASE", "95% coverage", "Mean interval width"],
                  [[r["outcome"], r["year"], r["horizon"], r["n"], number(r["rmse"]), number(r["rmse_difference"], 1, True),
                    number(r["rmse_difference_vs_M1"], 1, True), number(r["mae"]), number(r["mase"], 3),
                    number(100*float(r["coverage95"]), 1)+" %", number(r["mean_interval_width"])] for r in rows]) + "\n\n"
-    text += "## ADF, KPSS und Ljung–Box: alle acht Modelle\n\nADF/KPSS mit fest drei Lags; Niveaus mit Trend, Innovationen mit Konstante nach zwölf Monaten Burn-in. Holm innerhalb der drei Ljung–Box-Lags pro Reihe. Es werden keine Diagnoselags ausgewählt.\n\n"
+    text += "## ADF, KPSS and Ljung–Box: all eight models\n\nADF/KPSS use a fixed three lags; levels include a trend, innovations include a constant after a twelve-month burn-in. Holm adjustment across the three Ljung–Box lags within each series. No diagnostic lags are selected.\n\n"
     for m in MODELS:
         rows = []
         for kind in ("levels", "innovations"):
-            for j, group in enumerate(("Markt", "Tesla/Rest", "VW/Rest")):
+            for j, group in enumerate(("Market", "Tesla/Rest", "VW/Rest")):
                 r = data["diagnostics"][m][kind][str(j)]
                 lb = r.get("ljung_box", [])
                 rows.append([kind + " " + group, r["n"], r["adf"]["effective_n"], diagnostic_p(r, "adf"), diagnostic_p(r, "kpss"),
-                             *[f"{v['p']:.6g} / {v['p_holm']:.6g}".replace(".", ",") for v in lb]] + (["—"]*3 if not lb else []))
-        text += f"### {m}\n\n" + table(["Reihe", "n", "ADF eff. n", "ADF p", "KPSS p", "LB 3 roh / Holm", "LB 6 roh / Holm", "LB 12 roh / Holm"], rows) + "\n\n"
-    text += "Originale: [Koeffizienten](../stage1/coefficients.csv), [Kennzahlen](../stage1/metrics.csv), [Diagnostik](../stage1/diagnostics.json), [Manifest](../stage1/manifest.json). [Zur README](../../../README.md).\n"
+                             *[f"{v['p']:.6g} / {v['p_holm']:.6g}" for v in lb]] + (["—"]*3 if not lb else []))
+        text += f"### {m}\n\n" + table(["Series", "n", "ADF eff. n", "ADF p", "KPSS p", "LB 3 raw / Holm", "LB 6 raw / Holm", "LB 12 raw / Holm"], rows) + "\n\n"
+    text += "Originals: [Coefficients](../stage1/coefficients.csv), [Metrics](../stage1/metrics.csv), [Diagnostics](../stage1/diagnostics.json), [Manifest](../stage1/manifest.json). [Back to README](../../../README.md).\n"
     return text
 
 
@@ -445,28 +446,28 @@ def figures(data):
     x = np.arange(len(r))
     fig, ax = plt.subplots(figsize=(12, 7))
     fig.subplots_adjust(left=.11, right=.97, top=.77, bottom=.20)
-    fig.text(.055, .94, "Tesla in Deutschland: Markt oder Marke?", fontsize=24, weight="bold")
-    fig.text(.055, .89, "Veränderung gegenüber Vorjahr, rechnerisch zerlegt in Markt- und Anteilskomponente", fontsize=12, color="#444444")
-    ax.bar(x, market, .52, color=GOLD, label="Marktkomponente (BEV-Markt)")
-    ax.bar(x, share, .52, bottom=np.where(market*share > 0, market, 0), color=BLUE, label="Anteilskomponente (Tesla-BEV-Anteil)")
-    ax.scatter(x, total, color="black", marker="D", s=65, zorder=4, label="Veränderung insgesamt")
+    fig.text(.055, .94, "Tesla in Germany: market or brand?", fontsize=24, weight="bold")
+    fig.text(.055, .89, "Year-on-year change, arithmetically decomposed into market and share components", fontsize=12, color="#444444")
+    ax.bar(x, market, .52, color=GOLD, label="Market component (BEV market)")
+    ax.bar(x, share, .52, bottom=np.where(market*share > 0, market, 0), color=BLUE, label="Share component (Tesla BEV share)")
+    ax.scatter(x, total, color="black", marker="D", s=65, zorder=4, label="Total change")
     for i, value in enumerate(total):
         ax.annotate(number(value, 0, True), (i, value), xytext=(12, 0), textcoords="offset points", fontsize=12, weight="bold", va="center")
     ax.axhline(0, color="black", lw=.8)
     ax.set_ylim(-41000, 40500)
     ax.set_xlim(-.5, 4.85)
     ax.set_xticks(x, ["2022", "2023", "2024", "2025", "2026\nJan–Sep"])
-    ax.set_ylabel("Veränderung der Tesla-Neuzulassungen")
+    ax.set_ylabel("Change in new Tesla registrations")
     ax.yaxis.set_major_formatter(FuncFormatter(lambda value, pos: number(value, 0, True)))
     ax.grid(axis="y", alpha=.25); ax.set_axisbelow(True)
     ax.legend(loc="upper center", bbox_to_anchor=(.5, 1.19), ncol=1, frameon=False, fontsize=10)
-    fig.text(.055, .09, "Quelle: Kraftfahrt-Bundesamt, FZ10; eigene Berechnung, dl-de/by-2-0. 2026: gleiche neun Vorjahresmonate.", fontsize=9, color="#555555")
-    fig.text(.055, .055, "Exakte symmetrische Rechenzerlegung vor Rundung; keine kausale Ursachen- oder Förderwirkung.", fontsize=9, color="#555555")
+    fig.text(.055, .09, "Source: Kraftfahrt-Bundesamt, FZ10; own calculation, dl-de/by-2-0. 2026: same nine months in each year.", fontsize=9, color="#555555")
+    fig.text(.055, .055, "Exact symmetric accounting decomposition before rounding; no causal attribution or isolated subsidy-effect estimate.", fontsize=9, color="#555555")
     save(fig, "annual_market_share")
 
     fig, axes = plt.subplots(1, 2, figsize=(13, 7), sharey=True)
     fig.subplots_adjust(left=.13, right=.94, top=.78, bottom=.19, wspace=.12)
-    for ax, outcome, title in zip(axes, ("BEV_market", "Tesla"), ("BEV-Markt", "Tesla")):
+    for ax, outcome, title in zip(axes, ("BEV_market", "Tesla"), ("BEV market", "Tesla")):
         values = np.array([[float(data["metric"][(m, outcome, y, h)]["rmse"]) for y, h in PAIRS] for m in MODELS])
         delta = 100 * (values / values[0] - 1)
         cmap = LinearSegmentedColormap.from_list("rmse", [BLUE, "#FAFAFA", "#B25D00"])
@@ -478,30 +479,30 @@ def figures(data):
         ax.set_title(title, fontsize=15, pad=14)
         ax.set_xticks(range(4), ["2025\nh=1", "2025\nh=3", "2026\nh=1", "2026\nh=3"])
         ax.set_yticks(range(8), [m + (" *" if m == "M2" else "") for m in MODELS])
-    fig.suptitle("Alle acht Modelle: Prognosefehler und Änderung gegenüber M0", fontsize=19, y=.95)
-    fig.text(.13, .87, "Je Zelle: RMSE in Zulassungen / relative Änderung. Weniger Fehler: Blau; mehr Fehler: Orange.", fontsize=10)
-    fig.text(.13, .09, "Quelle: gespeicherte KBA-FZ10-Backtests. * Primärmodell. 2026: Januar–September; identische Zielmonate.", fontsize=9)
-    fig.text(.13, .055, "Farbskala bei ±60 % gesättigt; Zahlen unverändert. Retrospektiv, keine Kausal- oder Signifikanzbewertung.", fontsize=9)
+    fig.suptitle("All eight models: forecast error and change from M0", fontsize=19, y=.95)
+    fig.text(.13, .87, "Each cell: RMSE in registrations / relative change. Lower error: blue; higher error: orange.", fontsize=10)
+    fig.text(.13, .09, "Source: archived KBA-FZ10 backtests. * Primary model. 2026: January–September; identical target months.", fontsize=9)
+    fig.text(.13, .055, "Color scale saturated at ±60%; numbers unchanged. Retrospective, with no causality or significance assessment.", fontsize=9)
     save(fig, "rmse_comparison")
 
     fig, axes = plt.subplots(1, 2, figsize=(12, 6), sharey=True)
     fig.subplots_adjust(left=.15, right=.97, top=.77, bottom=.2, wspace=.25)
     contrasts = {r["model"]: r for r in data["contrasts.csv"] if r["group"] == "Tesla"}
-    for ax, title, getter in ((axes[0], "Tesla-Quartalsende", lambda m: data["coef"][(m, "Tesla:quarter_end")]),
-                              (axes[1], "Latentes Tesla-Niveau: 2025 minus 2024", lambda m: contrasts[m])):
+    for ax, title, getter in ((axes[0], "Tesla quarter-end", lambda m: data["coef"][(m, "Tesla:quarter_end")]),
+                              (axes[1], "Latent Tesla level: 2025 minus 2024", lambda m: contrasts[m])):
         for i, m in enumerate(MODELS):
             row = getter(m); med, lo, hi = (float(row[k]) for k in ("median", "lower95", "upper95"))
             ax.errorbar(med, i, xerr=[[med-lo], [hi-med]], fmt="D" if m == "M2" else "o", color=BLUE if excludes_zero(row) else "#777777", capsize=3, ms=6)
         ax.axvline(0, color="black", lw=.8)
         ax.set_title(title, fontsize=12)
-        ax.set_xlabel("Log-Verhältniseinheiten Tesla/Rest")
+        ax.set_xlabel("Tesla/rest log-ratio units")
         ax.xaxis.set_major_formatter(FuncFormatter(lambda value, pos: number(value, 1)))
         ax.set_yticks(range(8), MODELS); ax.grid(axis="x", alpha=.2)
     axes[0].invert_yaxis()
-    fig.suptitle("Robuster Kalenderzusammenhang, modellabhängiger Niveaukontrast", fontsize=18, y=.95)
-    fig.text(.15, .86, "Median und punktweises bedingtes 95-%-Posteriorintervall; Raute = Primärmodell M2.", fontsize=10)
-    fig.text(.08, .09, "Quelle: gespeicherte KBA-FZ10-Auswertung. Blau: Intervall ohne null; Grau: enthält null. Keine Kausalwirkung.", fontsize=9)
-    fig.text(.08, .055, "M0 rechts: Nullkontrast konstruktionsbedingt festgesetzt. Die primäre Niveau-SD 0,03 wird nicht nachträglich geändert.", fontsize=9)
+    fig.suptitle("Robust calendar association, model-dependent level contrast", fontsize=18, y=.95)
+    fig.text(.15, .86, "Median and pointwise conditional 95% posterior interval; diamond = primary model M2.", fontsize=10)
+    fig.text(.08, .09, "Source: archived KBA-FZ10 analysis. Blue: interval excludes zero; gray: includes zero. No causal claim.", fontsize=9)
+    fig.text(.08, .055, "M0, right: zero contrast fixed by construction. The primary level SD of 0.03 is not changed retrospectively.", fontsize=9)
     save(fig, "tesla_robustness")
     return files
 
@@ -520,7 +521,7 @@ def run(check=False):
     source_paths = [SOURCE / name for name in ("manifest.json", "coefficients.csv", "metrics.csv", "decomposition.csv", "contrasts.csv", "predictions.csv", "diagnostics.json")]
     source_paths += [ROOT / "data/task04_regimes/data_audit.json", Path(__file__)]
     manifest = {
-        "scope": "German presentation only; no model fits, changed protocols, new observations or new significance tests",
+        "scope": "English presentation only; no model fits, changed protocols, new observations or new significance tests",
         "original_execution_commit": data["manifest"]["execution_commit"],
         "protocol": data["manifest"]["protocol"]["version"],
         "source_sha256": {str(p.relative_to(ROOT)): sha(p.read_bytes()) for p in source_paths},
