@@ -45,6 +45,8 @@ jobs:
               assert Path(name).name == name and digest(root / name) == expected
           print('Verified every supplementary diagnostic payload; no fitting.')
           PY
+      - name: Verify German Task04 result tables and figures without fitting
+        run: python3 -m scripts.task04_results_presentation --check
       - name: Parse Azure Cloud Shell deployment script
         shell: pwsh
         run: |
