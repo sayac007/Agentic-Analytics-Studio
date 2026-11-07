@@ -445,18 +445,28 @@ The results above are frozen and unchanged. Newer material for **future** work:
   All 72 previously pinned workbooks were re-downloaded and match their hashes;
   the frozen Task 04 inputs are not modified. October 2026: 94,086 BEV,
   Tesla 2,932 (3.1 %).
-- **Which side branches can enter the model:**
-  [side-branch assessment](docs/SIDE_BRANCH_ASSESSMENT.md). With ≈ 58 effective
-  months, at most one new covariate per stage is defensible. Fuel prices
-  (Euro-super 95, EU Weekly Oil Bulletin) are the only complete candidate;
-  Trends, campaigns, macro controls and product events are not usable as series.
-- **German fuel prices:** extractor `fuel_oil/oil_bulletin.py`; metadata and
-  coverage in [`data/fuel_prices_de/`](data/fuel_prices_de/README.md). Values stay
-  private until the rights decision for derived publication is made.
-- **Joint multi-brand model and brand price index (proposal, not approved):**
-  [work order 05](workorders/05-multibrand-model-proposal.md) — extend the
-  state-space system to the largest brand groups and add a Bayesian VAR comparison;
-  an unrestricted VAR is not recommended for 70 months.
+- **Which side branches can enter a model:**
+  [side-branch assessment](docs/SIDE_BRANCH_ASSESSMENT.md). Fuel prices are the
+  only complete candidate among the existing side branches; Trends, campaigns,
+  macro controls and product events are not usable as series.
+- **New public inputs:** German Euro-super 95 and diesel prices
+  ([`data/fuel_prices_de/`](data/fuel_prices_de/README.md), EU Weekly Oil Bulletin,
+  published with source and rights notice), Eurostat HICP electricity and new cars
+  ([`data/hicp_de/`](data/hicp_de/README.md)) and every federal BEV incentive
+  programme as monthly indicators ([`data/policy_regimes_de/`](data/policy_regimes_de/README.md)).
+- **Multi-brand Bayesian VARX** ([protocol](docs/MULTIBRAND_BVAR_PROTOCOL.md),
+  frozen before fitting; [results](results/multibrand/README.md)): fuel price,
+  BEV market and the shares of Tesla, VW Group, BMW Group, Mercedes and
+  Hyundai-Kia modelled jointly; incentives and prices exogenous. In brief:
+  the 2021–2023 purchase grants and the two announced pull-forward months go
+  with a markedly higher BEV market, the 2026 grant does not (interval includes
+  zero); a fuel-price shock has no robust effect (only one of five
+  specifications); Tesla's quarter-end rhythm reappears with the same size as in
+  Task 04. One-month Tesla forecasts are much better than M2 in 2025 but worse in
+  2026, so the frozen rule calls the forecast gain **open**. Associations, not
+  causal effects.
+- **Brand price index (proposal, not approved):**
+  [work order 05](workorders/05-multibrand-model-proposal.md) section 5.
 
 ## Other components and starting the Studio
 

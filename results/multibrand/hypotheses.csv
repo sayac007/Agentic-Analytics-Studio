@@ -1,0 +1,29 @@
+spec,hypothesis,statistic,median,lower95,upper95,verdict
+primary,H-F market,cumulative 12-month response of log_market to 1-SD fuel shock,0.126172,-0.148713,0.465485,open
+primary,H-F Tesla share,cumulative 12-month response of alr_Tesla to 1-SD fuel shock,-0.278993,-1.18736,0.446378,open
+primary,H-P2026,grant_2026 in log_market,-0.0742563,-0.40539,0.270611,open
+primary,H-Tax,tax_package_2025_07 in alr_BMW_Group and alr_Mercedes,-0.003 / -0.125,-0.238 / -0.389,0.228 / 0.132,open
+lambda_0.1,H-F market,cumulative 12-month response of log_market to 1-SD fuel shock,0.0830617,-0.435367,0.67163,open
+lambda_0.1,H-F Tesla share,cumulative 12-month response of alr_Tesla to 1-SD fuel shock,-0.377426,-2.09938,1.04332,open
+lambda_0.1,H-P2026,grant_2026 in log_market,-0.0344596,-0.422647,0.348639,open
+lambda_0.1,H-Tax,tax_package_2025_07 in alr_BMW_Group and alr_Mercedes,0.003 / -0.092,-0.240 / -0.374,0.231 / 0.190,open
+lambda_0.5,H-F market,cumulative 12-month response of log_market to 1-SD fuel shock,0.153423,0.0212645,0.416057,supported
+lambda_0.5,H-F Tesla share,cumulative 12-month response of alr_Tesla to 1-SD fuel shock,-0.249716,-0.848958,0.191728,open
+lambda_0.5,H-P2026,grant_2026 in log_market,-0.111362,-0.383138,0.186829,open
+lambda_0.5,H-Tax,tax_package_2025_07 in alr_BMW_Group and alr_Mercedes,0.002 / -0.139,-0.220 / -0.383,0.230 / 0.095,open
+no_prices,H-F market,cumulative 12-month response of log_market to 1-SD fuel shock,0.152667,-0.154087,0.522884,open
+no_prices,H-F Tesla share,cumulative 12-month response of alr_Tesla to 1-SD fuel shock,-0.054698,-0.837869,0.776127,open
+no_prices,H-P2026,grant_2026 in log_market,0.148248,-0.132606,0.437876,open
+no_prices,H-Tax,tax_package_2025_07 in alr_BMW_Group and alr_Mercedes,0.007 / -0.183,-0.223 / -0.455,0.246 / 0.085,open
+fuel_calendar_day,H-F market,cumulative 12-month response of log_market to 1-SD fuel shock,0.0746642,-0.356496,0.600384,open
+fuel_calendar_day,H-F Tesla share,cumulative 12-month response of alr_Tesla to 1-SD fuel shock,0.20082,-0.667806,1.4732,open
+fuel_calendar_day,H-P2026,grant_2026 in log_market,-0.194188,-0.625873,0.231903,open
+fuel_calendar_day,H-Tax,tax_package_2025_07 in alr_BMW_Group and alr_Mercedes,-0.127 / -0.184,-0.427 / -0.458,0.162 / 0.076,open
+primary,Forecast gain Tesla vs M2,RMSE below M2 in 2025/2026 at h=1/h=3,2/4,,,open
+primary,Forecast gain BEV_market vs M2,RMSE below M2 in 2025/2026 at h=1/h=3,0/4,,,weakened
+lambda_0.1,Forecast gain Tesla vs M2,RMSE below M2 in 2025/2026 at h=1/h=3,2/4,,,open
+lambda_0.1,Forecast gain BEV_market vs M2,RMSE below M2 in 2025/2026 at h=1/h=3,1/4,,,open
+lambda_0.5,Forecast gain Tesla vs M2,RMSE below M2 in 2025/2026 at h=1/h=3,2/4,,,open
+lambda_0.5,Forecast gain BEV_market vs M2,RMSE below M2 in 2025/2026 at h=1/h=3,0/4,,,weakened
+no_prices,Forecast gain Tesla vs M2,RMSE below M2 in 2025/2026 at h=1/h=3,2/4,,,open
+no_prices,Forecast gain BEV_market vs M2,RMSE below M2 in 2025/2026 at h=1/h=3,0/4,,,weakened

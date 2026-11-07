@@ -1,0 +1,97 @@
+{
+  "protocol": "multibrand-bvarx/1.0.0",
+  "protocol_sha256": "e33dd45d93e29a0c5dfcae3de0f8078a94d38540fc3fb83f8052144427f0c432",
+  "seed": 20261107,
+  "draws": 4000,
+  "specs": {
+    "primary": {
+      "lam": 0.2,
+      "fuel": "euro95_bulletin_mean_eur_per_litre",
+      "start": "2021-01",
+      "prices": true,
+      "forecast": true,
+      "n_months": 69,
+      "window": [
+        "2021-01",
+        "2026-09"
+      ],
+      "fuel_shock_sd": 0.03349971189091627
+    },
+    "lambda_0.1": {
+      "lam": 0.1,
+      "fuel": "euro95_bulletin_mean_eur_per_litre",
+      "start": "2021-01",
+      "prices": true,
+      "forecast": true,
+      "n_months": 69,
+      "window": [
+        "2021-01",
+        "2026-09"
+      ],
+      "fuel_shock_sd": 0.03438224359891319
+    },
+    "lambda_0.5": {
+      "lam": 0.5,
+      "fuel": "euro95_bulletin_mean_eur_per_litre",
+      "start": "2021-01",
+      "prices": true,
+      "forecast": true,
+      "n_months": 69,
+      "window": [
+        "2021-01",
+        "2026-09"
+      ],
+      "fuel_shock_sd": 0.03246938976016633
+    },
+    "no_prices": {
+      "lam": 0.2,
+      "fuel": "euro95_bulletin_mean_eur_per_litre",
+      "start": "2021-01",
+      "prices": false,
+      "forecast": true,
+      "n_months": 69,
+      "window": [
+        "2021-01",
+        "2026-09"
+      ],
+      "fuel_shock_sd": 0.03421050576837988
+    },
+    "fuel_calendar_day": {
+      "lam": 0.2,
+      "fuel": "euro95_eur_per_litre",
+      "start": "2022-05",
+      "prices": true,
+      "forecast": false,
+      "n_months": 53,
+      "window": [
+        "2022-05",
+        "2026-09"
+      ],
+      "fuel_shock_sd": 0.029389011922148364
+    }
+  },
+  "inputs_sha256": {
+    "data/competition_vintage_2026_11/brand_monthly_2021_2026_10.csv": "86ca606162aaf3fb2e824902b4b49554a84fe0747a317ffc23614c981cca25b4",
+    "data/competition_vintage_2026_11/kba_checks.json": "1fa7348d5af98ea6c046c1578242d30dcdfc15274677276bb9acfcec7cf79b89",
+    "data/fuel_prices_de/monthly.csv": "858a21081cdb39d99c2b8cc94312d20ceea94f9402ac142a70b4be76e1034950",
+    "data/hicp_de/monthly.csv": "bb3fefa7abedc58f1dd87e8819586235032d6fd5a9066a3f27746eeea51d700d",
+    "data/policy_regimes_de/chronology.json": "f02c48b52fa28ba78f1022fc1fbb1a1d302029c05d1daafca43122d3f4edfdf0"
+  },
+  "code_sha256": {
+    "multibrand/__init__.py": "fca805c4217406d44f8e1ae6cd1c8eef20d723a5aa4fed6d75e7554235247995",
+    "multibrand/bvar.py": "cd29bc60549c78ae1cdf1f49ed91ddf0715d7e5b71c3e3815abfb98f17848f5e",
+    "multibrand/data.py": "28bf17f9c56b3fec3dc3558f34e37dcf69f3b82ce44ad9dd8a9fbf4673b637df",
+    "multibrand/hicp.py": "872db472309fb2f48f0d9d8021b7309ce4b5b7f1151f8798baaabea12e0dc288",
+    "multibrand/study.py": "ad0e553f54e0c7206383bd6d6b8084bce04520bcf03a3be2d897c95dfd51cdd9"
+  },
+  "outputs_sha256": {
+    "coefficients.csv": "f9a39a12378abe19751251a982212f2057ca91a0fcb510889a0acce47a78849b",
+    "irf_fuel_shock.csv": "5833a8a48b1fbd40ce793a073be9dade4b1db14311e3bc3c6becdf3108beeaf4",
+    "predictions.csv": "a031bf0f0f0585bd0b88447eb0aca76c663acaf0d35028c0e042ed4d77d3387a",
+    "metrics.csv": "435879ca2fd86cfc1cc01b0492d1f2a2bae904bbd89d24658dbd21e97e323654",
+    "hypotheses.csv": "92b58d615fb56e13ca8a0352a8d9ea558953bf21e835c38d381a0e682932a4fb"
+  },
+  "python": "3.12.3",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0"
+}

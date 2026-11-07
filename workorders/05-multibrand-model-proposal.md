@@ -1,6 +1,12 @@
 # Work order 05 (proposal) — joint multi-brand model and brand price index
 
-Status: **proposal for maintainer review, not approved, nothing fitted.**
+Status: **design B executed on 2026-11-07** at the owner's request, as protocol
+[`multibrand-bvarx/1.0.0`](../docs/MULTIBRAND_BVAR_PROTOCOL.md)
+([results](../results/multibrand/README.md)), with these differences to the
+proposal below: fuel price endogenous, incentive programmes and HICP prices
+exogenous (owner's specification); no Chinese group, because several Chinese
+brands are only inside KBA `SONSTIGE` (they stay in Rest); no SMART question.
+Design A (state-space extension) and the price index (section 5) remain proposals.
 Prerequisite reading: `docs/SIDE_BRANCH_ASSESSMENT.md`, `docs/REGIME_STATE_SPACE_PROTOCOL.md`.
 
 ## 1. Question

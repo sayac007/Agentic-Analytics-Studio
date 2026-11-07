@@ -3,6 +3,15 @@
 Status 2026-11-07. Decision paper only: **no model was fitted** for this document
 and no frozen protocol, result or hash-bound file was changed.
 
+> **Follow-up the same day:** the repository owner decided to publish the fuel
+> prices (with notice), to model the fuel price as an **endogenous** variable, and
+> to add all incentive programmes as dummies and prices as exogenous variables.
+> This was implemented as a separate joint model —
+> [protocol](MULTIBRAND_BVAR_PROTOCOL.md), [results](../results/multibrand/README.md).
+> The five incomplete calendar-day fuel months were resolved by using the complete
+> "mean of bulletins dated in the month" definition, with the calendar-day
+> definition as a pre-named sensitivity. The Task 04 state-space models were not changed.
+
 ## 1. The binding constraint is the sample, not the number of ideas
 
 | Quantity | Value |
