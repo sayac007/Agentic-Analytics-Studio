@@ -436,6 +436,52 @@ The [full reproduction commands](results/task04/README.md),
 remain accessible. Additional private energy and Trends studies are outside
 this published presentation of results.
 
+## Status after Stage 1 and proposed next steps (2026-11-07)
+
+The results above are frozen and unchanged. Newer material for **future** work:
+
+- **KBA vintage 2026-11** (January 2021 – October 2026, 70 months):
+  [`data/competition_vintage_2026_11/`](data/competition_vintage_2026_11/README.md).
+  All 72 previously pinned workbooks were re-downloaded and match their hashes;
+  the frozen Task 04 inputs are not modified. October 2026: 94,086 BEV,
+  Tesla 2,932 (3.1 %).
+- **Which side branches can enter a model:**
+  [side-branch assessment](docs/SIDE_BRANCH_ASSESSMENT.md). Fuel prices are the
+  only complete candidate among the existing side branches; Trends, campaigns,
+  macro controls and product events are not usable as series.
+- **New public inputs:** German Euro-super 95 and diesel prices
+  ([`data/fuel_prices_de/`](data/fuel_prices_de/README.md), EU Weekly Oil Bulletin,
+  published with source and rights notice), Eurostat HICP electricity and new cars
+  ([`data/hicp_de/`](data/hicp_de/README.md)) and every federal BEV incentive
+  programme as monthly indicators ([`data/policy_regimes_de/`](data/policy_regimes_de/README.md)).
+- **Multi-brand Bayesian VARX** ([protocol](docs/MULTIBRAND_BVAR_PROTOCOL.md),
+  frozen before fitting; [results](results/multibrand/README.md)): fuel price,
+  BEV market and the shares of Tesla, VW Group, BMW Group, Mercedes and
+  Hyundai-Kia modelled jointly; incentives and prices exogenous. In brief:
+  the 2021–2023 purchase grants and the two announced pull-forward months go
+  with a markedly higher BEV market, the 2026 grant does not (interval includes
+  zero); a fuel-price shock has no robust effect (only one of five
+  specifications); Tesla's quarter-end rhythm reappears with the same size as in
+  Task 04. One-month Tesla forecasts are much better than M2 in 2025 but worse in
+  2026, so the frozen rule calls the forecast gain **open**. Associations, not
+  causal effects.
+- **Fuel price at lags 1–4** ([amendment](docs/MULTIBRAND_FUEL_LAGS_PROTOCOL.md),
+  [results](results/multibrand_fuel_lags/README.md)): the lag depth hardly
+  matters. The summed fuel elasticity of the BEV market is about +1 in every
+  variant, with 95 % intervals that just include zero; the model evidence
+  slightly favours lag 1 only; forecasts are practically unchanged. H-F stays
+  open and is **not robust to lag choice** under the frozen rule.
+- **Time-varying fuel coefficient at lag 1**
+  ([corrected amendment 1.2.1](docs/MULTIBRAND_FUEL_TV_TREND_PROTOCOL.md),
+  [results](results/multibrand_fuel_tv_trend/README.md)): with a linear trend
+  as main effect, the market elasticity drifts from about 0.0 (2021) to +0.8
+  (2026) and the Tesla-share elasticity from −2.6 to +3.9, but neither slope is
+  distinguishable from zero (H-TV open) and forecasts get worse. A first attempt
+  (1.2.0) omitted the trend main effect and overstated the rise; it is kept,
+  marked as flawed, in [results/multibrand_fuel_tv](results/multibrand_fuel_tv/README.md).
+- **Brand price index (proposal, not approved):**
+  [work order 05](workorders/05-multibrand-model-proposal.md) section 5.
+
 ## Other components and starting the Studio
 
 The existing browser pilot is a separate workspace for the data brief,

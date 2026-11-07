@@ -1,0 +1,5 @@
+variant,hypothesis,median,lower95,upper95,verdict
+tv_linear_trend,H-TV market,0.158698,-0.28744,0.603611,open
+tv_linear_trend,H-TV Tesla share,1.25403,-0.349849,2.75013,open
+tv_linear_trend_loose,H-TV market,0.186887,-0.276729,0.626404,open
+tv_linear_trend_loose,H-TV Tesla share,1.32295,-0.276065,2.87506,open

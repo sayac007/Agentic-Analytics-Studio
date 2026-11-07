@@ -1,0 +1,5 @@
+variant,log_marginal_likelihood
+"constant (base, 1.1.0 L1)",-362.194
+trend_only,-375.154
+tv_linear_trend,-383.064
+tv_linear_trend_loose,-394.02

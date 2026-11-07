@@ -245,3 +245,22 @@ Existing pinned Python 3.12.14 environment; no new dependencies:
 Current-head remote Actions evidence is updated in Draft PR #18 only after observed
 completion. Previous-head CI is not evidence for this decision update. No automatic
 merge or public release approval follows from green tests.
+
+## Addendum 2026-11-07 — maintainer decision: publish German Oil Bulletin fuel prices
+
+The repository owner decided on **2026-11-07 (day precision, Europe/Berlin)** in the
+working session for PR #50 to **publish** the derived German Euro-super 95 and
+diesel series (`data/fuel_prices_de/`) **with an explicit source, rights and change
+notice**. Basis at that date:
+
+- Commission legal notice readable again (https://commission.europa.eu/legal-notice_en):
+  EU-owned website content under CC BY 4.0, reuse with credit and change indication.
+- Workbook notice: "Reproduction is authorised provided the source is acknowledged."
+- Still **not independently verified**: whether the CC BY 4.0 default covers the
+  Member-State-supplied price figures. This limitation is stated in the published
+  README; the files are to be removed if a rights holder objects.
+
+Scope of this decision: only the derived weekly and monthly German series produced
+by `fuel_oil/oil_bulletin.py`. It does **not** change the private status of the
+earlier Task 01I.3 diesel, ECB FX or EIA Brent records above, and it is not a
+legal opinion.

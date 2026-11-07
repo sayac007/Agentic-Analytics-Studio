@@ -1,0 +1,50 @@
+{
+  "publisher": "European Commission, Directorate-General for Energy",
+  "attribution": "Source: European Commission, DG Energy, Weekly Oil Bulletin; German columns selected, unit converted, calendar-day weighted monthly approximation; own calculation.",
+  "sources": [
+    {
+      "id": "wob-price-history",
+      "dataset": "Weekly Oil Bulletin - price history (prices with taxes)",
+      "landing_page": "https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en",
+      "url": "https://energy.ec.europa.eu/document/download/906e60ca-8b6a-44e7-8589-652854d2fd3f_en?filename=Weekly_Oil_Bulletin_Prices_History_maticni_4web.xlsx",
+      "file": "wob_history.xlsx",
+      "sha256": "b55d86c3ee2c5fa3788b5b95e789d5d6b207558d54d455fd0120ed1e95e01ffb",
+      "bytes": 4502019,
+      "accessed_at_utc": "2026-11-07T12:14:14Z",
+      "retrieval_time_precision": "second",
+      "latest_bulletin_date_in_file": "2026-11-02",
+      "sheet": "Prices with taxes",
+      "columns": {
+        "euro95": "DE_price_with_tax_euro95",
+        "diesel": "DE_price_with_tax_diesel"
+      },
+      "native_unit": "EUR per 1000 litres",
+      "native_frequency": "weekly (Monday bulletin date)",
+      "license": "Workbook notice 'Reproduction is authorised provided the source is acknowledged'; EU website default CC BY 4.0; Member-State-supplied figures not independently verified",
+      "rights_evidence": {
+        "url": "https://commission.europa.eu/legal-notice_en",
+        "read_at_utc": "2026-11-07T12:14:14Z",
+        "statement": "Unless otherwise indicated, content owned by the EU on this website is licensed under CC BY 4.0; reuse allowed with appropriate credit and indication of changes (Commission Decision 2011/833/EU).",
+        "scope_note": "Applicability of CC BY 4.0 to Member-State-supplied prices not independently verified; published with source and change notice per maintainer decision 2026-11-07.",
+        "workbook_notice": "Reproduction is authorised provided the source is acknowledged."
+      },
+      "raw_redistribution": "not committed (size)",
+      "derived_redistribution": "published with notice, maintainer decision 2026-11-07"
+    }
+  ],
+  "generator": "fuel_oil/oil_bulletin.py",
+  "coverage": {
+    "calendar_day_definition": {
+      "2018-01..2026-10": "93/106",
+      "2021-01..2026-10": "65/70"
+    },
+    "bulletin_mean_definition": {
+      "2018-01..2026-10": "106/106",
+      "2021-01..2026-10": "70/70"
+    }
+  },
+  "outputs_sha256": {
+    "weekly.csv": "fe43c5c38116876e0fed072df322bd016a1b25604ac9fcb073fd7d8b4e7867a4",
+    "monthly.csv": "858a21081cdb39d99c2b8cc94312d20ceea94f9402ac142a70b4be76e1034950"
+  }
+}

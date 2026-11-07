@@ -1,0 +1,49 @@
+{
+  "protocol": "multibrand-bvarx/1.2.1-fuel-tv-trend",
+  "protocol_sha256": "1842323cb5f40152b50be1d07a7dcfc0cbc7c41f5d4151295ca74a1e384a9c26",
+  "seed": 20261107,
+  "draws": 4000,
+  "variants": {
+    "trend_only": {
+      "interaction": false,
+      "prior_mult": 1.0
+    },
+    "tv_linear_trend": {
+      "interaction": true,
+      "prior_mult": 1.0
+    },
+    "tv_linear_trend_loose": {
+      "interaction": true,
+      "prior_mult": 25.0
+    }
+  },
+  "outcome_months": "2021-02..2026-09",
+  "inputs_sha256": {
+    "data/competition_vintage_2026_11/brand_monthly_2021_2026_10.csv": "86ca606162aaf3fb2e824902b4b49554a84fe0747a317ffc23614c981cca25b4",
+    "data/competition_vintage_2026_11/kba_checks.json": "1fa7348d5af98ea6c046c1578242d30dcdfc15274677276bb9acfcec7cf79b89",
+    "data/fuel_prices_de/monthly.csv": "858a21081cdb39d99c2b8cc94312d20ceea94f9402ac142a70b4be76e1034950",
+    "data/hicp_de/monthly.csv": "bb3fefa7abedc58f1dd87e8819586235032d6fd5a9066a3f27746eeea51d700d",
+    "data/policy_regimes_de/chronology.json": "f02c48b52fa28ba78f1022fc1fbb1a1d302029c05d1daafca43122d3f4edfdf0"
+  },
+  "code_sha256": {
+    "multibrand/__init__.py": "fca805c4217406d44f8e1ae6cd1c8eef20d723a5aa4fed6d75e7554235247995",
+    "multibrand/bvar.py": "cd29bc60549c78ae1cdf1f49ed91ddf0715d7e5b71c3e3815abfb98f17848f5e",
+    "multibrand/data.py": "28bf17f9c56b3fec3dc3558f34e37dcf69f3b82ce44ad9dd8a9fbf4673b637df",
+    "multibrand/fuel_lags.py": "d3a23ff029aa996ae0131f682502d0fe17dbccbc180e263743d36cf25d98bbe9",
+    "multibrand/fuel_tv.py": "ce228b3f34755f1f2a06ad4835c23abd5dc282c964be5ee658198df59f1a9bd1",
+    "multibrand/fuel_tv_trend.py": "d051752cba5ed3e0623ab5b5e606f696d1ff2bfddf171119d8af9da2a4947c54",
+    "multibrand/hicp.py": "872db472309fb2f48f0d9d8021b7309ce4b5b7f1151f8798baaabea12e0dc288",
+    "multibrand/study.py": "ad0e553f54e0c7206383bd6d6b8084bce04520bcf03a3be2d897c95dfd51cdd9"
+  },
+  "outputs_sha256": {
+    "coefficients.csv": "8340a79994c3657fb114fb5e5e580f780b1ef22eeef0640cf2ec3e5aa36c95be",
+    "coefficient_path.csv": "aacfe23fe72bf7730695c36c828bf9b170503c3004c240012fb431a03e55cd5b",
+    "marginal_likelihood.csv": "edc33e39a1a71206be036238150c0984c0741a01374e54f14bb18dc2ab937280",
+    "predictions.csv": "d9c02505f6937da72c1e7e4fb4719da3d646a43f47ce117ca81a37e983a1c161",
+    "metrics.csv": "0539fef2a5e2d445c2d43bb0563ceba12e9d69223789b28de592a12dffbe0f08",
+    "hypotheses.csv": "b4a06b435c9fc4610732378c6b095bb647e530caad92fc055c67de9ab4c6af9c"
+  },
+  "python": "3.12.3",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0"
+}

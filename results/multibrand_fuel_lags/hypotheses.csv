@@ -1,0 +1,11 @@
+L,hypothesis,median,lower95,upper95,lower_bonf,upper_bonf,verdict
+1,H-F market,0.126172,-0.148713,0.465485,-0.271423,0.64158,open
+1,H-F Tesla share,-0.278993,-1.18736,0.446378,-1.63161,0.765245,open
+2,H-F market,0.13247,-0.136532,0.484,-0.258123,0.688084,open
+2,H-F Tesla share,-0.339675,-1.31967,0.359107,-1.93302,0.629435,open
+3,H-F market,0.130529,-0.120487,0.515653,-0.243071,0.696941,open
+3,H-F Tesla share,-0.374099,-1.29895,0.360609,-1.77878,0.624416,open
+4,H-F market,0.1366,-0.126716,0.505637,-0.242719,0.673214,open
+4,H-F Tesla share,-0.356528,-1.37614,0.386558,-1.94798,0.691914,open
+all,H-F market across lags,,,,,,not robust to lag choice
+all,H-F Tesla share across lags,,,,,,not robust to lag choice
