@@ -465,6 +465,12 @@ The results above are frozen and unchanged. Newer material for **future** work:
   Task 04. One-month Tesla forecasts are much better than M2 in 2025 but worse in
   2026, so the frozen rule calls the forecast gain **open**. Associations, not
   causal effects.
+- **Fuel price at lags 1–4** ([amendment](docs/MULTIBRAND_FUEL_LAGS_PROTOCOL.md),
+  [results](results/multibrand_fuel_lags/README.md)): the lag depth hardly
+  matters. The summed fuel elasticity of the BEV market is about +1 in every
+  variant, with 95 % intervals that just include zero; the model evidence
+  slightly favours lag 1 only; forecasts are practically unchanged. H-F stays
+  open and is **not robust to lag choice** under the frozen rule.
 - **Brand price index (proposal, not approved):**
   [work order 05](workorders/05-multibrand-model-proposal.md) section 5.
 

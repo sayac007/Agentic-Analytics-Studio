@@ -1,0 +1,40 @@
+{
+  "protocol": "multibrand-bvarx/1.1.0-fuel-lags",
+  "protocol_sha256": "035768d7b037037b6021c7309c011a39bb07fc7b75c696bbc9d30ed36dc7af98",
+  "seed": 20261107,
+  "draws": 4000,
+  "lags": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "bonferroni_level": 0.9875,
+  "outcome_months": "2021-02..2026-09",
+  "inputs_sha256": {
+    "data/competition_vintage_2026_11/brand_monthly_2021_2026_10.csv": "86ca606162aaf3fb2e824902b4b49554a84fe0747a317ffc23614c981cca25b4",
+    "data/competition_vintage_2026_11/kba_checks.json": "1fa7348d5af98ea6c046c1578242d30dcdfc15274677276bb9acfcec7cf79b89",
+    "data/fuel_prices_de/monthly.csv": "858a21081cdb39d99c2b8cc94312d20ceea94f9402ac142a70b4be76e1034950",
+    "data/hicp_de/monthly.csv": "bb3fefa7abedc58f1dd87e8819586235032d6fd5a9066a3f27746eeea51d700d",
+    "data/policy_regimes_de/chronology.json": "f02c48b52fa28ba78f1022fc1fbb1a1d302029c05d1daafca43122d3f4edfdf0"
+  },
+  "code_sha256": {
+    "multibrand/__init__.py": "fca805c4217406d44f8e1ae6cd1c8eef20d723a5aa4fed6d75e7554235247995",
+    "multibrand/bvar.py": "cd29bc60549c78ae1cdf1f49ed91ddf0715d7e5b71c3e3815abfb98f17848f5e",
+    "multibrand/data.py": "28bf17f9c56b3fec3dc3558f34e37dcf69f3b82ce44ad9dd8a9fbf4673b637df",
+    "multibrand/fuel_lags.py": "d3a23ff029aa996ae0131f682502d0fe17dbccbc180e263743d36cf25d98bbe9",
+    "multibrand/hicp.py": "872db472309fb2f48f0d9d8021b7309ce4b5b7f1151f8798baaabea12e0dc288",
+    "multibrand/study.py": "ad0e553f54e0c7206383bd6d6b8084bce04520bcf03a3be2d897c95dfd51cdd9"
+  },
+  "outputs_sha256": {
+    "lag_coefficients.csv": "19864dcb609ce8deb48b0d0588c5f9c35f4ce8486fa4aaa5e4e585f57a224ad4",
+    "irf_cumulative.csv": "b7aad898f118fb805ebb96f6b2538c1270df4d44b31f131251f1895227ccd0bb",
+    "marginal_likelihood.csv": "9d1f685b685665f28faae3f3f530776c6582bcf8a9b647d0d9c11ee92ddd4480",
+    "predictions.csv": "bbf4218ba530b8aeeef6b2ee976bdd93881b0cb6f3071280a7d0c32a732a943c",
+    "metrics.csv": "443f9da8392cf7e3cec6824af6e687b44211447bf7a57902328367da1251e28b",
+    "hypotheses.csv": "2dab2837fdc653a53701b15c04a7be02abf99a3a21f2b5fc82551d49071a5df5"
+  },
+  "python": "3.12.3",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0"
+}
