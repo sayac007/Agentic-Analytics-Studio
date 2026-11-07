@@ -471,6 +471,14 @@ The results above are frozen and unchanged. Newer material for **future** work:
   variant, with 95 % intervals that just include zero; the model evidence
   slightly favours lag 1 only; forecasts are practically unchanged. H-F stays
   open and is **not robust to lag choice** under the frozen rule.
+- **Time-varying fuel coefficient at lag 1**
+  ([corrected amendment 1.2.1](docs/MULTIBRAND_FUEL_TV_TREND_PROTOCOL.md),
+  [results](results/multibrand_fuel_tv_trend/README.md)): with a linear trend
+  as main effect, the market elasticity drifts from about 0.0 (2021) to +0.8
+  (2026) and the Tesla-share elasticity from −2.6 to +3.9, but neither slope is
+  distinguishable from zero (H-TV open) and forecasts get worse. A first attempt
+  (1.2.0) omitted the trend main effect and overstated the rise; it is kept,
+  marked as flawed, in [results/multibrand_fuel_tv](results/multibrand_fuel_tv/README.md).
 - **Brand price index (proposal, not approved):**
   [work order 05](workorders/05-multibrand-model-proposal.md) section 5.
 

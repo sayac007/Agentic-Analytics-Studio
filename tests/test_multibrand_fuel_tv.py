@@ -47,5 +47,26 @@ class FuelTvTest(unittest.TestCase):
         self.assertAlmostEqual(paths[0, 0, 1], 6.0, places=4)
 
 
+
+class FuelTvTrendTest(unittest.TestCase):
+    def test_trend_main_effect_separates_trend_from_rising_coefficient(self):
+        # DGP: market has a pure time trend, fuel coefficient is constant (no rise).
+        from multibrand import fuel_tv_trend  # noqa: F401  (module import check)
+        rng = np.random.default_rng(6)
+        n = 1500
+        gv = np.linspace(-2, 2, n)
+        f = 0.7 + np.zeros(n)
+        m = np.zeros(n)
+        for t in range(1, n):
+            f[t] = 0.7 + 0.8 * (f[t - 1] - 0.7) + 0.05 * rng.standard_normal()
+            m[t] = 0.3 * m[t - 1] + 1.0 * f[t - 1] + 0.4 * gv[t] + 0.05 * rng.standard_normal()
+        y = np.column_stack([f, m])
+        x_trend = np.column_stack([np.ones(n), gv])
+        with_main = fuel_tv.fit(y, x_trend, gv, 25.0, lam=1.0)
+        without_main = fuel_tv.fit(y, np.ones((n, 1)), gv, 25.0, lam=1.0)
+        self.assertLess(abs(with_main["Bn"][2, 1]), 0.1)           # no spurious rise
+        self.assertGreater(without_main["Bn"][2, 1], 0.2)          # flawed 1.2.0 form picks up trend
+
+
 if __name__ == "__main__":
     unittest.main()
