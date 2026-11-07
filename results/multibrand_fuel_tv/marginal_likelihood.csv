@@ -1,0 +1,5 @@
+variant,log_marginal_likelihood
+"constant (base, 1.1.0 L1)",-362.194
+tv_linear,-370.892
+tv_linear_loose,-381.954
+tv_step_2024,-362.947

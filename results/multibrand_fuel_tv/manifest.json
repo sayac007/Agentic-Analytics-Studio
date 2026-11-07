@@ -1,0 +1,48 @@
+{
+  "protocol": "multibrand-bvarx/1.2.0-fuel-tv",
+  "protocol_sha256": "23d090131f3f7d1d02e3b3998bd77ce753febecdd4661ef5f6154223679abb60",
+  "seed": 20261107,
+  "draws": 4000,
+  "variants": {
+    "tv_linear": {
+      "g": "linear",
+      "prior_mult": 1.0
+    },
+    "tv_linear_loose": {
+      "g": "linear",
+      "prior_mult": 25.0
+    },
+    "tv_step_2024": {
+      "g": "step",
+      "prior_mult": 1.0
+    }
+  },
+  "outcome_months": "2021-02..2026-09",
+  "inputs_sha256": {
+    "data/competition_vintage_2026_11/brand_monthly_2021_2026_10.csv": "86ca606162aaf3fb2e824902b4b49554a84fe0747a317ffc23614c981cca25b4",
+    "data/competition_vintage_2026_11/kba_checks.json": "1fa7348d5af98ea6c046c1578242d30dcdfc15274677276bb9acfcec7cf79b89",
+    "data/fuel_prices_de/monthly.csv": "858a21081cdb39d99c2b8cc94312d20ceea94f9402ac142a70b4be76e1034950",
+    "data/hicp_de/monthly.csv": "bb3fefa7abedc58f1dd87e8819586235032d6fd5a9066a3f27746eeea51d700d",
+    "data/policy_regimes_de/chronology.json": "f02c48b52fa28ba78f1022fc1fbb1a1d302029c05d1daafca43122d3f4edfdf0"
+  },
+  "code_sha256": {
+    "multibrand/__init__.py": "fca805c4217406d44f8e1ae6cd1c8eef20d723a5aa4fed6d75e7554235247995",
+    "multibrand/bvar.py": "cd29bc60549c78ae1cdf1f49ed91ddf0715d7e5b71c3e3815abfb98f17848f5e",
+    "multibrand/data.py": "28bf17f9c56b3fec3dc3558f34e37dcf69f3b82ce44ad9dd8a9fbf4673b637df",
+    "multibrand/fuel_lags.py": "d3a23ff029aa996ae0131f682502d0fe17dbccbc180e263743d36cf25d98bbe9",
+    "multibrand/fuel_tv.py": "ce228b3f34755f1f2a06ad4835c23abd5dc282c964be5ee658198df59f1a9bd1",
+    "multibrand/hicp.py": "872db472309fb2f48f0d9d8021b7309ce4b5b7f1151f8798baaabea12e0dc288",
+    "multibrand/study.py": "ad0e553f54e0c7206383bd6d6b8084bce04520bcf03a3be2d897c95dfd51cdd9"
+  },
+  "outputs_sha256": {
+    "coefficients.csv": "9ddc1e1dfea9633bbbb1aa0e14293a7114b34c771ad7ce9cecce093547d1d2d1",
+    "coefficient_path.csv": "bfc4c06a205b835a093c4e54a7412e306878cf1945caa9c0da02b0610867b976",
+    "marginal_likelihood.csv": "cecab2c2fd9904ce8a871d9e526806e288144c8a3018f0497a1dac913415d41b",
+    "predictions.csv": "03a3bc76deb67159e7500022f6bcaa31e8de89536f765f7ab4746f3d8609936c",
+    "metrics.csv": "e2426e559a71c58947af15aa4516733efef4f2c543fdbf66dfc155b0898a8797",
+    "hypotheses.csv": "4db06d0fb24685b700615fad25034aad4ffc2301d6c1c2fac2e1ef5b6498f1b4"
+  },
+  "python": "3.12.3",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0"
+}
