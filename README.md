@@ -436,6 +436,28 @@ The [full reproduction commands](results/task04/README.md),
 remain accessible. Additional private energy and Trends studies are outside
 this published presentation of results.
 
+## Status after Stage 1 and proposed next steps (2026-11-07)
+
+The results above are frozen and unchanged. Newer material for **future** work:
+
+- **KBA vintage 2026-11** (January 2021 – October 2026, 70 months):
+  [`data/competition_vintage_2026_11/`](data/competition_vintage_2026_11/README.md).
+  All 72 previously pinned workbooks were re-downloaded and match their hashes;
+  the frozen Task 04 inputs are not modified. October 2026: 94,086 BEV,
+  Tesla 2,932 (3.1 %).
+- **Which side branches can enter the model:**
+  [side-branch assessment](docs/SIDE_BRANCH_ASSESSMENT.md). With ≈ 58 effective
+  months, at most one new covariate per stage is defensible. Fuel prices
+  (Euro-super 95, EU Weekly Oil Bulletin) are the only complete candidate;
+  Trends, campaigns, macro controls and product events are not usable as series.
+- **German fuel prices:** extractor `fuel_oil/oil_bulletin.py`; metadata and
+  coverage in [`data/fuel_prices_de/`](data/fuel_prices_de/README.md). Values stay
+  private until the rights decision for derived publication is made.
+- **Joint multi-brand model and brand price index (proposal, not approved):**
+  [work order 05](workorders/05-multibrand-model-proposal.md) — extend the
+  state-space system to the largest brand groups and add a Bayesian VAR comparison;
+  an unrestricted VAR is not recommended for 70 months.
+
 ## Other components and starting the Studio
 
 The existing browser pilot is a separate workspace for the data brief,

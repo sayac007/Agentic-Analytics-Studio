@@ -1,0 +1,52 @@
+{
+  "publisher": "European Commission, Directorate-General for Energy",
+  "attribution": "Source: European Commission, DG Energy, Weekly Oil Bulletin; German columns selected, unit converted, calendar-day weighted monthly approximation; own calculation.",
+  "sources": [
+    {
+      "id": "wob-price-history",
+      "dataset": "Weekly Oil Bulletin - price history (prices with taxes)",
+      "landing_page": "https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en",
+      "url": "https://energy.ec.europa.eu/document/download/906e60ca-8b6a-44e7-8589-652854d2fd3f_en?filename=Weekly_Oil_Bulletin_Prices_History_maticni_4web.xlsx",
+      "file": "wob_history.xlsx",
+      "sha256": "b55d86c3ee2c5fa3788b5b95e789d5d6b207558d54d455fd0120ed1e95e01ffb",
+      "bytes": 4502019,
+      "accessed_at_utc": "2026-11-07T12:14:14Z",
+      "retrieval_time_precision": "second",
+      "latest_bulletin_date_in_file": "2026-11-02",
+      "sheet": "Prices with taxes",
+      "columns": {
+        "euro95": "DE_price_with_tax_euro95",
+        "diesel": "DE_price_with_tax_diesel"
+      },
+      "native_unit": "EUR per 1000 litres",
+      "native_frequency": "weekly (Monday bulletin date)",
+      "license": "not resolved for derived public redistribution; see docs/ENERGY_RIGHTS_ADMISSION.md",
+      "rights_evidence": {
+        "url": "https://commission.europa.eu/legal-notice_en",
+        "read_at_utc": "2026-11-07T12:14:14Z",
+        "statement": "Unless otherwise indicated, content owned by the EU on this website is licensed under CC BY 4.0; reuse allowed with appropriate credit and indication of changes (Commission Decision 2011/833/EU).",
+        "scope_note": "EU-owned web content default is CC BY 4.0; applicability to Member-State-supplied prices unresolved. Derived values kept private pending maintainer decision.",
+        "workbook_notice": "Reproduction is authorised provided the source is acknowledged."
+      },
+      "raw_redistribution": "not committed",
+      "derived_redistribution": "not committed; maintainer decision pending"
+    }
+  ],
+  "generator": "fuel_oil/oil_bulletin.py",
+  "private_outputs_sha256": {
+    "weekly.csv": "fe43c5c38116876e0fed072df322bd016a1b25604ac9fcb073fd7d8b4e7867a4",
+    "monthly.csv": "3f989131cfe2e7cd33433ab88f72ad7f2bea423318e27748c0c514a217278502"
+  },
+  "coverage": {
+    "2018-01..2026-10": {
+      "months": 106,
+      "complete_euro95": 93,
+      "complete_diesel": 93
+    },
+    "2021-01..2026-10": {
+      "months": 70,
+      "complete_euro95": 65,
+      "complete_diesel": 65
+    }
+  }
+}

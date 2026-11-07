@@ -1,5 +1,15 @@
 # Repo-Abschluss – Inventur, Zielstruktur und README-Konzept
 
+> **Statushinweis 2026-11-07 (nachträglich, Inhalt unten unverändert):** Dieses
+> Dokument beschreibt den Stand vom 29.10.2026. Überholt sind insbesondere
+> Abschnitt 2 („Task 04 ist noch keine abgeschlossene Analyse“) und die
+> README-Planung: Task 04 Stufe 1 wurde am 29.10.2026 ausgeführt, die Ergebnisse
+> stehen seit PR #48/#49 im README. `src/README.md` wurde wie vorgeschlagen entfernt.
+> Die Archivierung der 47 Dokumente/Workorders ist **weiterhin nicht umgesetzt**
+> und bleibt eine Maintainer-Entscheidung, weil mehrere Dateien per Hash an
+> Laufzeitprüfungen gebunden sind. Zur Datenlage der Nebenstränge siehe
+> [SIDE_BRANCH_ASSESSMENT.md](SIDE_BRANCH_ASSESSMENT.md).
+
 Stand **29.10.2026, Europe/Berlin**. **PR 1 von drei Aufräum-PRs**:
 nur Inventur und Vorschlag. Diese Datei genehmigt ihre eigene Umsetzung nicht.
 Basis ist main bei `4afb9d1bfe61f6250923dece8b295af8cb24335a`.
