@@ -1,0 +1,35 @@
+{
+  "publisher": "Eurostat",
+  "dataset": "prc_hicp_minr (HICP - ECOICOP ver. 2 - indices and rates of change, monthly)",
+  "attribution": "Source: Eurostat, prc_hicp_minr (© European Union, CC BY 4.0); Germany, unit I25 (2025=100); series selected, no other changes.",
+  "license": "CC BY 4.0 per Eurostat copyright notice https://ec.europa.eu/eurostat/help/copyright-notice (page is script-rendered; licence statement taken from the published notice text, not from a saved page body)",
+  "accessed_at_utc": "2026-11-07T12:34:00Z",
+  "dataset_updated": "2026-11-04T11:00:00+01:00",
+  "series": [
+    {
+      "column": "electricity_index_2025",
+      "coicop18": "CP0451",
+      "label": "Electricity (households, consumer prices)",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_minr?format=JSON&geo=DE&coicop18=CP0451&sinceTimePeriod=2018-01",
+      "raw_sha256": "10b663c0424cf66f170d26236ee1dce816be7ab4739646f5419d62a4658ee1e4",
+      "last_period": "2026-09"
+    },
+    {
+      "column": "new_cars_index_2025",
+      "coicop18": "CP07111",
+      "label": "New motor cars (all powertrains, quality-adjusted consumer prices)",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_minr?format=JSON&geo=DE&coicop18=CP07111&sinceTimePeriod=2018-01",
+      "raw_sha256": "e771a5b6ebd90a7408cc1c3147e712b61539985195044484d41bfe4dbf9e7ddc",
+      "last_period": "2026-09"
+    },
+    {
+      "column": "all_items_index_2025",
+      "coicop18": "TOTAL",
+      "label": "All items",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_minr?format=JSON&geo=DE&coicop18=TOTAL&sinceTimePeriod=2018-01",
+      "raw_sha256": "8ac7682ef84cb18a1006d002861c3f56d32b36fbf7555fb126533f9879489c51",
+      "last_period": "2026-10 (flash)"
+    }
+  ],
+  "generator": "multibrand/hicp.py"
+}

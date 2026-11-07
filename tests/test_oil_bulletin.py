@@ -48,6 +48,11 @@ class OilBulletinTest(unittest.TestCase):
             self.assertEqual(months[1]["diesel_days_covered"], 21)
             self.assertEqual(months[2]["euro95_days_covered"], 1)
             self.assertEqual(months[2]["euro95_eur_per_litre"], "")
+            # Secondary definition: bulletins dated in the month only
+            self.assertEqual(months[0]["euro95_bulletin_mean_eur_per_litre"], "1.0000")
+            self.assertEqual(months[1]["euro95_bulletin_mean_eur_per_litre"], "2.0000")
+            self.assertEqual(months[1]["diesel_bulletins_used"], 3)
+            self.assertEqual(months[2]["euro95_bulletin_mean_eur_per_litre"], "")
 
     def test_rejects_unexpected_unit(self):
         with tempfile.TemporaryDirectory() as tmp:

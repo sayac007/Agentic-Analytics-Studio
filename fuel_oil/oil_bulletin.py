@@ -5,14 +5,15 @@ German Euro-super 95 and automotive diesel columns and writes
 
 * ``weekly.csv``  - every published German weekly value, unchanged except the unit
   (EUR per 1000 litres -> EUR per litre, exact decimal division);
-* ``monthly.csv`` - calendar-day weighted monthly approximation (each Monday value
-  covers seven days); months with any uncovered day stay empty.
+* ``monthly.csv`` - two monthly definitions side by side:
+  ``*_eur_per_litre`` calendar-day weighted (each Monday value covers seven days;
+  months with any uncovered day stay empty) and ``*_bulletin_mean_eur_per_litre``
+  (plain mean of the bulletins dated in the month).
 
 No interpolation, no filling of missing weeks, no deflation. Empty or non-numeric
 cells stay missing and are counted. Source: European Commission, DG Energy,
-Weekly Oil Bulletin; own calculation. Outputs are written to a caller-chosen
-directory: public redistribution of the derived values is **not approved** in this
-repository (see docs/ENERGY_RIGHTS_ADMISSION.md), so do not commit them.
+Weekly Oil Bulletin; own calculation. Publication follows the maintainer decision
+of 2026-11-07 recorded in docs/ENERGY_RIGHTS_ADMISSION.md.
 """
 import argparse
 import calendar
@@ -74,6 +75,10 @@ def read_weekly(path):
     return out
 
 
+def _round(value):
+    return str(value.quantize(Decimal("0.0001"), ROUND_HALF_EVEN))
+
+
 def monthly(weekly, start, end):
     """Calendar-day weighted monthly approximation, same convention as
     ``fuel_oil.import_energy``: a bulletin value dated Monday d covers d..d+6.
@@ -100,10 +105,12 @@ def monthly(weekly, start, end):
         for key in COLUMNS:
             covered = [days[key][d] for d in month_days if d in days[key]]
             complete = len(covered) == len(month_days)
-            record[f"{key}_eur_per_litre"] = (
-                str((sum(covered) / len(covered)).quantize(Decimal("0.0001"), ROUND_HALF_EVEN))
-                if complete else "")
+            record[f"{key}_eur_per_litre"] = _round(sum(covered) / len(covered)) if complete else ""
             record[f"{key}_days_covered"] = len(covered)
+            dated = [r[key] for r in weekly if r["date"].startswith(period) and r[key] is not None]
+            # Secondary definition: plain mean of bulletins dated in the month.
+            record[f"{key}_bulletin_mean_eur_per_litre"] = _round(sum(dated) / len(dated)) if dated else ""
+            record[f"{key}_bulletins_used"] = len(dated)
         record["days_in_month"] = len(month_days)
         out.append(record)
         m += 1
@@ -141,7 +148,7 @@ def run(workbook, output, start, end):
 if __name__ == "__main__":
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     p.add_argument("--workbook", required=True)
-    p.add_argument("--output", required=True, help="private directory outside Git")
+    p.add_argument("--output", default="data/fuel_prices_de")
     p.add_argument("--start", default="2018-01")
     p.add_argument("--end", required=True)
     a = p.parse_args()
