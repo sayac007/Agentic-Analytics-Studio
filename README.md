@@ -10,6 +10,8 @@ This README presents the complete results; the tables and new
 figures dated **October 30, 2026** read only the saved run
 from **October 29, 2026**. No model was re-estimated for this presentation.
 
+[Saved Stage 1 results](results/task04/README.md) · [Reproduction and verification](#9-data-reproducibility-and-scientific-validation)
+
 The main findings:
 
 - **In 2025, Tesla loses share in a growing market:** -48.4% for Tesla,
