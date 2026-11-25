@@ -3,6 +3,17 @@
 ## Mission
 Build an auditable, reproducible agent-assisted marketing mix modeling (MMM) platform. Start with a tiny **working vertical slice** and extend it through reviewed pull requests. Keep WKR and HypoForge independent; do not modify them without a separate approved task.
 
+## Plain writing (mandatory)
+
+Every text an agent writes in this repository must follow `docs/KLARTEXT.md`
+(German; the rules apply equally to English text): documentation, status notes, commit
+messages, PR descriptions, code comments, UI text and replies to the user. This is an
+acceptance condition: text that violates it is not done. Short form: concrete, sourced
+facts instead of puffery; invent nothing and state gaps plainly; simple words, no
+stock phrases, no promotional or sycophantic tone; formatting that fits the medium, no
+tool leftovers; do not disguise the patterns, fix the content; never accuse anyone of
+AI writing based on style alone.
+
 ## Operating rules
 1. **One task, one focused PR.** Read the current work order, implement only its acceptance criteria, test, document evidence, and stop. Do not implement roadmap features speculatively.
 2. **Evidence before claims.** Never claim a test, GitHub Actions run, API access, source attribution, or model performance without observed evidence. Distinguish locally executed checks from remote CI. If unavailable, say `NOT VERIFIED` and explain how to verify.
